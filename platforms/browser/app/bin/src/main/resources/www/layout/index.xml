@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingPrefix">
+
+    <data></data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.Toolbar
+                onMenuItemClick="onMenuItemClick"
+                onNavigationIconClick="openDrawer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#000"
+                app:title="@string/play_ground"
+                app:titleTextColor="@color/color_white"></androidx.appcompat.widget.Toolbar>
+
+            <LinearLayout
+                android:id="@+id/panel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/choose_sample"></TextView>
+
+                <Spinner
+                    modelSyncEvents="onItemSelected"
+                    modelUiToPojo=". = selectedValue into xml->view"
+                    onItemSelected="setXml(xml = getFileAsset{.} from xml->view)"
+                    values="@array/samples_values"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/samples"></Spinner>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="10">
+
+                <FrameLayout
+                    android:id="@+id/preview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="6">
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4">
+
+                    <EditText
+                        widget-override-web="TextArea"
+                        android:id="@+id/xml"
+                        modelPojoToUi="text = . from xml->view"
+                        modelSyncEvents="onTextChange"
+                        modelUiToPojo=". = text into xml->view"
+                        onTextChange="preview(xml = . from xml->view)"
+                        swtTextStyle="multi|v_scroll|h_scroll"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="textMultiLine"
+                        android:singleLine="false"></EditText>
+                </FrameLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,12 @@
+export const action_error_to_error_detail:string = 'action_error_to_error_detail#@layout/error_detail';
+export const index:string = 'fragment#index#layout/index.xml';
+export const error:string = 'fragment#error#layout/error.xml';
+export const error_detail:string = 'fragment#error_detail#layout/error_detail.xml';
+export const qrcode_scanner:string = 'fragment#qrcode_scanner#layout/qrcode_scanner.xml';
+export const myDialog:string = 'dialog#myDialog#layout/dialog_sample.xml#wrap_content#match_parent#@style/MyDialogStyle';
+export const myDialogWrapContent:string = 'dialog#myDialogWrapContent#layout/dialog_child.xml#wrap_content#wrap_content#@style/MyDialogStyle';
+export const myDialogMatchContent:string = 'dialog#myDialogMatchContent#layout/dialog_child.xml#match_parent#match_parent#@style/MyDialogStyle';
+export const myDialogCustomBackdrop:string = 'dialog#myDialogCustomBackdrop#layout/dialog_child.xml#wrap_content#wrap_content#@style/MyDialogStyleCustomBackDrop';
+export const myDialogCancelOnTouch:string = 'dialog#myDialogCancelOnTouch#layout/dialog_child.xml#wrap_content#wrap_content#@style/MyDialogStyleCloseOnTouchOutside';
+export const myDialogFullScreen:string = 'dialog#myDialogFullScreen#layout/dialog_child.xml#match_parent#match_parent#@style/MyDialogFullScreenStyle';
+export const myDialogBackgroundDimDisabled:string = 'dialog#myDialogBackgroundDimDisabled#layout/dialog_child.xml#wrap_content#wrap_content#@style/MyDialogBackgroundDimDisabledStyle';

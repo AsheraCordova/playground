@@ -1,0 +1,7 @@
+<layout adapter="groupie"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <section idPath="mydata.title from sections->loopvar" modelFor="let sections in . from sectionInfo->view into loopvar as map" removeAllItemIdHint="songs">
+        <header layout="@layout/item_songheader" viewHolderIds="textView,add_button,clear_button,remove_button,update_button"></header>
+        <item layout="@layout/item_songs" viewHolderIds="@+id/recyclerView" id="songs" itemsPath="mydata.items from sections->loopvar" idPath="name from item->loopvar"/>
+    </section>
+</layout>
