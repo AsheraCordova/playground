@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "start": "node autoGenerateFiles.js",
+    "backup": "cd .. && node gentool/androidbackup.js",
+    "restore": "cd .. && node gentool/androidbackup.js restore",
     "resize": "node resize.js",
     "plist": "node plist.js"
   },
@@ -11,6 +13,8 @@
   },
   "dependencies": {
     "cpx": "^1.5.0",
+    "cpx2": "^4.2.0",
+    "fs-extra": "^10.1.0",
     "gm": "^1.23.1",
     "gm-base64": "^1.1.1",
     "image-size": "^1.0.1",

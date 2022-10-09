@@ -20,6 +20,10 @@ fs.readdirSync("../res/").forEach(dir => {
 
 syncPlatformRes();
 
+if (process.argv[2] == 'skip_watch') {
+	return;
+}
+
 watch('../assets/www/js', { recursive: true }, function (evt, name) {
     syncBundleJs();
 });
@@ -40,6 +44,9 @@ watch('../res', { recursive: true }, function (evt, name) {
 });
 
 function syncPlatformRes() {
+	// android file
+	cpx.copy("../res/layout/*.xml", "../assets/www/layout");
+
 	syncSwtRes();
 	syncWebRes();
 	syncIosRes();
@@ -137,8 +144,10 @@ function syncBundleJs() {
 		console.log("bundle ios sync");
 		cpx.copy("../assets/www/js/index.js", iosPath + "/www/js");
 	}
+	
+	let projectBasePath = "../../../../../../";
+	cpx.copySync("../assets/www/js/index.js", projectBasePath + "/www/js");
 }
-
 function createFolders() {
 	let resMandatory = [
 		"../res-swt/",
@@ -306,6 +315,8 @@ function runXSLTOnStr(xmlString, xslPath, outputFilePath, removeDuplicateLines, 
 	let text = xsltProcess(xml, xslt); // outXmlString: output xml string.
 	//console.log(outputFilePath);
 
+	text = text.replace(/&amp;lt;/gi, "<");
+	text = text.replace(/&amp;gt;/gi, ">");
 	text = text.replace(/&gt;/gi, ">");
 	text = text.replace(/&lt;/gi, "<");	
 
