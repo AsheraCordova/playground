@@ -1,9 +1,0 @@
-export const minWidth0:string = '@+id/minWidth0';
-export const editText1:string = '@+id/editText1';
-export const editText2:string = '@+id/editText2';
-export const editText3:string = '@+id/editText3';
-export const textView1:string = '@+id/textView1';
-export const textView2:string = '@+id/textView2';
-export const textView3:string = '@+id/textView3';
-export const editableFields:string = '@+id/editableFields';
-export const nonEditableFields:string = '@+id/nonEditableFields';

@@ -1,1 +1,0 @@
-{"layout":{"@adapter":"simple","header":{"@layout":"@layout/listheader"},"footer":{"@layout":"@layout/listfooter"},"item":{"@viewHolderIds":"@+id/name","@layout":"@layout/listview_testitem"}}}
