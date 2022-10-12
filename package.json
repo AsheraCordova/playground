@@ -31,6 +31,7 @@
     "com.filfatstudios.spinnerdialog": "git+https://github.com/AsheraCordova/Dialog.git",
     "cordova-android": "^10.1.2",
     "cordova-ios": "^6.2.0",
+    "cordova-plugin-add-swift-support": "^2.0.2",
     "cordova-plugin-camera": "git+https://github.com/AsheraCordova/cordova-plugin-camera.git",
     "cordova-plugin-camera-swt": "git+https://github.com/AsheraCordova/cordova-plugin-camera-swt.git",
     "cordova-plugin-qrscanner": "git+https://github.com/AsheraCordova/cordova-plugin-qrscanner.git",
@@ -55,16 +56,19 @@
       "com.ashera.sdwebimage.ios": {},
       "cordova-plugin-splashscreen-ashera": {},
       "com.filfatstudios.spinnerdialog": {},
-      "cordova-plugin-camera": {},
+      "cordova-plugin-camera": {
+        "ANDROIDX_CORE_VERSION": "1.6.+"
+      },
       "cordova-plugin-camera-swt": {},
       "cordova-plugin-qrscanner-swt": {},
       "cordova-plugin-qrscanner": {},
       "com.ashera.toolbar": {}
     },
     "platforms": [
-      "android",
       "swt",
-      "browser"
+      "browser",
+      "android",
+      "ios"
     ]
   }
 }
