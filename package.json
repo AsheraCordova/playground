@@ -65,10 +65,10 @@
       "com.ashera.toolbar": {}
     },
     "platforms": [
-      "swt",
-      "browser",
-      "android",
-      "ios"
+		"android",      
+		"swt",
+      	"browser",
+      	"ios"
     ]
   }
 }
