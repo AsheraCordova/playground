@@ -1,6 +1,6 @@
-rm -r platforms
-rm -r node_modules
-rm -r plugins
+rm -rf platforms
+rm -rf node_modules
+rm -rf plugins
 cordova prepare
 cd platforms/android/app/src/main/gentool
 npm install
