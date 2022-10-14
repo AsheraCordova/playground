@@ -4,6 +4,7 @@ rm -rf plugins
 cordova prepare
 cd platforms/android/app/src/main/gentool
 npm install
+npm run fixIosSymlinks
 npm run restore
 npm run resize
 
