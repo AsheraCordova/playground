@@ -5,6 +5,11 @@
   "description": "A sample Apache Cordova application that responds to the deviceready event.",
   "main": "index.js",
   "scripts": {
+    "swt-run": "cd platforms/swt/app && gradle run",
+    "browser-run": "cd platforms/browser/app && gradle execute && cd src/main/assets/www && http-server",
+    "generate-platform-res": "cd platforms/android/app/src/main/gentool && npm install && npm run resize && npm run start",
+    "generate-platform-js": "cd platforms/android/app/src/main/tsc && npm install && npm run build",
+	"clean-start-windows": "rmdir /s /q platforms node_modules plugins && cordova prepare || cd platforms/android/app/src/main/gentool && npm install && npm run fixIosSymLinks && npm run restore && npm run resize && cd ../tsc && npm install && cd ../gentool && npm run start skip_watch && cd ../tsc && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -65,10 +70,10 @@
       "com.ashera.toolbar": {}
     },
     "platforms": [
-		"android",      
-		"swt",
-      	"browser",
-      	"ios"
+      "android",
+      "swt",
+      "browser",
+      "ios"
     ]
   }
 }
