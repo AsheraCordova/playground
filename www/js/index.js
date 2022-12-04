@@ -160,7 +160,7 @@ var __generator = undefined && undefined.__generator || function (thisArg, body)
   }
   function step(op) {
     if (f) throw new TypeError("Generator is already executing.");
-    while (_) {
+    while (g && (g = 0, op[0] && (_ = 0)), _) {
       try {
         if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
         if (y = 0, t) op = [op[0] & 2, t.value];
@@ -429,7 +429,7 @@ var __generator = undefined && undefined.__generator || function (thisArg, body)
   }
   function step(op) {
     if (f) throw new TypeError("Generator is already executing.");
-    while (_) {
+    while (g && (g = 0, op[0] && (_ = 0)), _) {
       try {
         if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
         if (y = 0, t) op = [op[0] & 2, t.value];
@@ -1015,7 +1015,7 @@ var __generator = undefined && undefined.__generator || function (thisArg, body)
   }
   function step(op) {
     if (f) throw new TypeError("Generator is already executing.");
-    while (_) {
+    while (g && (g = 0, op[0] && (_ = 0)), _) {
       try {
         if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
         if (y = 0, t) op = [op[0] & 2, t.value];
@@ -12762,7 +12762,7 @@ var __generator = undefined && undefined.__generator || function (thisArg, body)
   }
   function step(op) {
     if (f) throw new TypeError("Generator is already executing.");
-    while (_) {
+    while (g && (g = 0, op[0] && (_ = 0)), _) {
       try {
         if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
         if (y = 0, t) op = [op[0] & 2, t.value];
@@ -12890,6 +12890,7 @@ var Fragment = /** @class */function () {
   Fragment.prototype.findViewById = function (id, type) {
     return new type(id, undefined, undefined);
   };
+  Fragment.prototype.onCreateView = function (obj) {};
   Fragment.prototype.onAttach = function (obj) {};
   Fragment.prototype.onCreate = function (obj) {};
   Fragment.prototype.onResume = function (obj) {};
@@ -13128,7 +13129,7 @@ var __generator = undefined && undefined.__generator || function (thisArg, body)
   }
   function step(op) {
     if (f) throw new TypeError("Generator is already executing.");
-    while (_) {
+    while (g && (g = 0, op[0] && (_ = 0)), _) {
       try {
         if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
         if (y = 0, t) op = [op[0] & 2, t.value];
@@ -15258,8 +15259,8 @@ var construct = function construct(F, len, args) {
 module.exports = Function.bind || function bind(that /* , ...args */) {
   var fn = aFunction(this);
   var partArgs = arraySlice.call(arguments, 1);
-  var bound = function /* args... */
-  bound() {
+  var bound = function bound( /* args... */
+  ) {
     var args = partArgs.concat(arraySlice.call(arguments));
     return this instanceof bound ? construct(fn, args.length, args) : invoke(fn, args, that);
   };
@@ -18360,8 +18361,8 @@ if (__webpack_require__(/*! ./_descriptors */ "./node_modules/core-js/modules/_d
     }
     return result;
   };
-  var $of = function /* ...items */
-  of() {
+  var $of = function of( /* ...items */
+  ) {
     var index = 0;
     var length = arguments.length;
     var result = allocate(this, length);
@@ -19498,8 +19499,8 @@ $export($export.S + $export.F * __webpack_require__(/*! ./_fails */ "./node_modu
   return !(Array.of.call(F) instanceof F);
 }), 'Array', {
   // 22.1.2.3 Array.of( ...items)
-  of: function /* ...args */
-  of() {
+  of: function of( /* ...args */
+  ) {
     var index = 0;
     var aLen = arguments.length;
     var result = new (typeof this == 'function' ? this : Array)(aLen);
@@ -23099,8 +23100,8 @@ var toLength = __webpack_require__(/*! ./_to-length */ "./node_modules/core-js/m
 var toInteger = __webpack_require__(/*! ./_to-integer */ "./node_modules/core-js/modules/_to-integer.js");
 var arraySpeciesCreate = __webpack_require__(/*! ./_array-species-create */ "./node_modules/core-js/modules/_array-species-create.js");
 $export($export.P, 'Array', {
-  flatten: function /* depthArg = 1 */
-  flatten() {
+  flatten: function flatten( /* depthArg = 1 */
+  ) {
     var depthArg = arguments[0];
     var O = toObject(this);
     var sourceLen = toLength(O.length);
@@ -26604,9 +26605,14 @@ var App = /** @class */function () {
   App.prototype.nativeEvent = function (obj) {
     var currentView = this.getCurrentView(obj);
     console.log(obj.event + " " + obj.actionUrl + obj.fragmentId);
-    currentView[obj.event](obj);
+    if (currentView[obj.event]) {
+      currentView[obj.event](obj);
+    }
     if (obj.event == 'onDetach') {
       this.currentViewMap.delete(obj.fragmentId);
+    }
+    if (obj.javascript) {
+      eval(obj.javascript);
     }
   };
   return App;

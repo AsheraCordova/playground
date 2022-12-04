@@ -32,6 +32,7 @@
 
     <array name="samples">
         <item></item>
+        <item>Absolute layout</item>
         <item>Constraint layout</item>
         <item>Constraint layout (Barrier)</item>
         <item>Constraint layout (Circularflow)</item>
@@ -60,6 +61,7 @@
     </array>
     <array name="samples_values" separator="~">
         <item>www/layout/sample_start.xml</item>
+        <item>www/layout/sample_absolute_layout.xml</item>
         <item>www/layout/sample_constraintlayout.xml</item>
         <item>www/layout/sample_constraintlayout_barrier.xml</item>
         <item>www/layout/sample_constraintlayout_circularflow.xml</item>

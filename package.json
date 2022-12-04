@@ -28,6 +28,7 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "browser": "git+https://github.com/AsheraCordova/cordova-web.git",
+    "com.ashera.absolutelayout": "git+https://github.com/AsheraCordova/AbsoluteLayout.git",
     "com.ashera.capinsets": "git+https://github.com/AsheraCordova/CapInsets.git",
     "com.ashera.constraintlayout": "git+https://github.com/AsheraCordova/ConstraintLayout.git",
     "com.ashera.core": "git+https://github.com/AsheraCordova/Core.git",
@@ -76,7 +77,8 @@
       "cordova-plugin-camera-swt": {},
       "cordova-plugin-qrscanner-swt": {},
       "cordova-plugin-qrscanner": {},
-      "com.ashera.toolbar": {}
+      "com.ashera.toolbar": {},
+      "com.ashera.absolutelayout": {}
     },
     "platforms": [
       "android",
