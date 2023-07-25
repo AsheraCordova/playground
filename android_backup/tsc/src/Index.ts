@@ -15,6 +15,7 @@ import { ImageView } from './android/widget/ImageViewImpl';
 import { DrawerLayout } from './android/widget/DrawerLayoutImpl';
 import { drawer_layout } from './R/SampleDrawerlayout';
 import { Gravity } from './widget/TypeConstants';
+import { Snackbar } from './android/widget/SnackbarImpl';
 export default class Index extends Fragment {
     @InjectController({})
     navController!: NavController;
@@ -43,19 +44,28 @@ export default class Index extends Fragment {
     setXml(obj: any) {
         var data: any = this.getRecyclerData();
         var groupiedata: any = this.getGroupieData();
-
+		let viewPagerData = this.getViewPagerData();
         this.xmlEditText.setText(obj.xml).updateModelDataWithScopedObject(
             new ScopedObject("testObj->view as pathmap", { looptest: { textlayout: data } }),
-            new ScopedObject("sectionInfo->view as list", groupiedata));
+            new ScopedObject("sectionInfo->view as list", groupiedata),
+            new ScopedObject("viewpagerInfo->view as list", viewPagerData));
         this.executeCommand(this.xmlEditText);
     }
 
     @Inject({ id: "@+id/validateButton" })
     private validateButton!: Button;
+    private getViewPagerData() {
+        let viewPagerData = [];
+        for (let i = 0; i < 10; i++) {
+            viewPagerData.push({ "id": i, "name": i + "", "background": (i % 2) == 0 ? "#ff0" : "#f00" });
+        }
+        return viewPagerData;
+    }
+
     private getRecyclerData() {
         var data: any = [{ "sectionName": "test123" }];
         let text = "A";
-        for (var i = 0; i < 100; i++) {
+        for (var i = 0; i < 1; i++) {
             data.push({ "id": (i + ""), "a": i + "" + text.repeat(i) + "---------" });
         }
         return data;
@@ -182,4 +192,17 @@ export default class Index extends Fragment {
         this.drawer_layout.reset().openDrawer(Gravity.start);
 		await this.executeCommand(this.drawer_layout);
     } 
+
+    @Inject({ id : "@+id/snackbar"})
+	private snackbar!: Snackbar;
+
+	async showSnackbar() {
+		this.snackbar.show(true);
+		await this.executeCommand(this.snackbar);
+	}
+	
+	async dismissSnackbar() {
+		this.snackbar.show(false);
+		await this.executeCommand(this.snackbar);
+	}
 }

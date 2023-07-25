@@ -21,6 +21,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"></EditText>
 
+        <AutoCompleteTextView
+            android:hint="AutoCompleteText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            entries="10sp,20sp,30sp,40sp"
+            values="10sp,20sp,30sp,40sp"></AutoCompleteTextView>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="TextInputLayout">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
         <TextView
             style="@style/blackBg"
             android:layout_width="match_parent"

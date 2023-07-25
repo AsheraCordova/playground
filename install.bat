@@ -26,3 +26,6 @@ call cordova plugin add https://github.com/AsheraCordova/cordova-plugin-camera
 call cordova plugin add https://github.com/AsheraCordova/cordova-plugin-camera-swt
 call cordova plugin add https://github.com/AsheraCordova/cordova-plugin-qrscanner
 call cordova plugin add https://github.com/AsheraCordova/cordova-plugin-qrscanner-swt
+
+cordova plugin add https://github.com/AsheraCordova/CoordinatorLayout
+cordova plugin add https://github.com/AsheraCordova/Snackbar

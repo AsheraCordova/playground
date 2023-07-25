@@ -56,6 +56,8 @@
         <item>Border</item>
         <item>CapInsets</item>
         <item>Model</item>
+        <item>ViewPager</item>
+        <item>Coordinator Layout</item>
         <item>Camera</item>
         <item>QRCode</item>
     </array>
@@ -85,6 +87,8 @@
         <item>www/layout/sample_border.xml</item>
         <item>www/layout/sample_capinsets.xml</item>
         <item>www/layout/sample_model.xml</item>
+        <item>www/layout/sample_viewpager.xml</item>
+        <item>www/layout/sample_coordinator_layout.xml</item>
         <item>www/layout/sample_camera.xml</item>
         <item>www/layout/sample_qrcode.xml</item>
     </array>

@@ -1,0 +1,25 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.viewpager.widget.ViewPager
+        modelFor="let item in . from viewpagerInfo->view into loopvar as pathmap"
+        modelIdPath="id"
+        pageTitles="1,2,3,4,5,6,7,8,9,10"
+        swtAttachEventBubbler="keyup,keydown,mousedown,mouseup,mousemove"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/viewpager_item">
+
+        <androidx.viewpager.widget.PagerTabStrip
+            drawFullUnderline="false"
+            tabIndicatorColor="#f0f"
+            textColor="#ff0000"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"></androidx.viewpager.widget.PagerTabStrip>
+    </androidx.viewpager.widget.ViewPager>
+</LinearLayout>

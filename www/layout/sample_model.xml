@@ -18,6 +18,33 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"></EditText>
 
+        <AutoCompleteTextView
+            modelPojoToUi="text = autotext from testObj->view"
+            modelUiToPojo="autotext = text into testObj->view"
+            modelSyncEvents="onTextChange"
+            onTextChange=""
+            android:hint="AutoCompleteText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            entries="10sp,20sp,30sp,40sp"
+            values="10sp,20sp,30sp,40sp"></AutoCompleteTextView>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:hint="Floating Hint Enabled Default"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                modelPojoToUi="text = floatingText from testObj->view"
+                modelSyncEvents="onTextChange"
+                modelUiToPojo="floatingText = text into testObj->view"
+                onTextChange=""
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                 />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
         <CheckBox
             modelSyncEvents="onCheckedChange"
             modelUiToPojo="terms = checked into testObj->view"

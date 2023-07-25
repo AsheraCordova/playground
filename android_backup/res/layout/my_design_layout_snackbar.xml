@@ -1,0 +1,44 @@
+<View xmlns:android="http://schemas.android.com/apk/res/android"
+    widget-override="com.google.android.material.snackbar.Snackbar.SnackbarLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    swtAttachEventBubbler="mouseup,mousedown"    
+    zIndex="10">
+    <View
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    widget-override="com.google.android.material.snackbar.SnackbarContentLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:background="#000">
+
+  <TextView
+      android:id="@+id/snackbar_text"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:layout_gravity="center_vertical|left|start"
+      android:paddingTop="14dp"
+      android:textSize="14sp"
+      android:paddingBottom="14dp"
+      android:paddingLeft="12dp"
+      android:paddingRight="12dp"
+      android:ellipsize="end"
+      android:textColor="#fff"
+      android:fontFamily="sans"
+      android:maxLines="2"
+      android:textAlignment="viewStart" />
+
+  <Button
+      android:id="@+id/snackbar_action"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="0dp"
+      android:layout_marginLeft="0dp"
+      android:layout_gravity="center_vertical|right|end"
+      android:minWidth="48dp"
+      android:visibility="gone"/>
+
+</View>
+</View>
