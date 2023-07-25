@@ -22,6 +22,7 @@
 
         <AutoCompleteTextView
             v_required=""
+            formGroupId="loginForm"
             validationErrorDisplayType="popup|label"
             android:id="@+id/autoCompleteTextView"
             android:hint="AutoCompleteText"
@@ -38,6 +39,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             v_required=""
+            formGroupId="loginForm"
             validationErrorDisplayType="popup|label"
             android:id="@+id/textInputLayoutView"
             android:hint="Floating Hint Enabled Default"

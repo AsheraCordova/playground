@@ -531,7 +531,7 @@ var Index = /** @class */function (_super) {
       "sectionName": "test123"
     }];
     var text = "A";
-    for (var i = 0; i < 1; i++) {
+    for (var i = 0; i < 100; i++) {
       data.push({
         "id": i + "",
         "a": i + "" + text.repeat(i) + "---------"

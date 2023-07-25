@@ -20,6 +20,46 @@
             android:layout_height="wrap_content"
             android:text="Validation test"></TextView>
 
+        <AutoCompleteTextView
+            v_required=""
+            formGroupId="loginForm"
+            validationErrorDisplayType="popup|label"
+            android:id="@+id/autoCompleteTextView"
+            android:hint="AutoCompleteText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            entries="10sp,20sp,30sp,40sp"
+            values="10sp,20sp,30sp,40sp"></AutoCompleteTextView>
+
+        <TextView
+            style="@style/errorStyle"
+            android:id="@+id/autoCompleteTextViewError"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></TextView>
+
+        <com.google.android.material.textfield.TextInputLayout
+            v_required=""
+            formGroupId="loginForm"
+            validationErrorDisplayType="popup|label"
+            android:id="@+id/textInputLayoutView"
+            android:hint="Floating Hint Enabled Default"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            style="@style/errorStyle"
+            android:id="@+id/textInputLayoutViewError"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></TextView>
+
+
         <EditText
             android:id="@+id/minmaxTest"
             formGroupId="loginForm"

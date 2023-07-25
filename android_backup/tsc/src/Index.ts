@@ -65,7 +65,7 @@ export default class Index extends Fragment {
     private getRecyclerData() {
         var data: any = [{ "sectionName": "test123" }];
         let text = "A";
-        for (var i = 0; i < 1; i++) {
+        for (var i = 0; i < 100; i++) {
             data.push({ "id": (i + ""), "a": i + "" + text.repeat(i) + "---------" });
         }
         return data;
