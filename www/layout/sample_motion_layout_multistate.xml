@@ -1,0 +1,301 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:ignore="MissingPrefix">
+
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:id="@+id/motionLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutDescription="@xml/motionlayout_scene26">
+
+        <ImageView
+            android:id="@+id/n__arrow_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_calendar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/n__arrow_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_calendar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <View
+            android:id="@+id/n__dial_pad"
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:background="#000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="parent" />
+
+        <Button
+            app:layout_constraintVertical_chainStyle="spread"
+            android:id="@+id/n__button1"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:background="#f00"
+            android:text="1"
+            app:layout_constraintBottom_toTopOf="@+id/n__button4"
+            app:layout_constraintEnd_toStartOf="@+id/n__button2"
+            app:layout_constraintStart_toStartOf="@+id/n__dial_pad"
+            app:layout_constraintTop_toTopOf="@+id/n__dial_pad" />
+
+        <Button
+            android:id="@+id/n__button2"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:background="#f00"
+            android:text="2"
+            app:layout_constraintBottom_toTopOf="@+id/n__button5"
+            app:layout_constraintEnd_toStartOf="@+id/n__button3"
+            app:layout_constraintStart_toEndOf="@+id/n__button1"
+            app:layout_constraintTop_toTopOf="@+id/n__dial_pad" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:background="#f00"
+            android:text="3"
+            app:layout_constraintBottom_toTopOf="@+id/n__button6"
+            app:layout_constraintEnd_toEndOf="@+id/n__dial_pad"
+            app:layout_constraintStart_toEndOf="@+id/n__button2"
+            app:layout_constraintTop_toTopOf="@+id/n__dial_pad" />
+
+        <Button
+            android:id="@+id/n__button4"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:background="#f00"
+            android:text="4"
+            app:layout_constraintBottom_toBottomOf="@+id/n__button7"
+            app:layout_constraintEnd_toStartOf="@+id/n__button5"
+            app:layout_constraintStart_toStartOf="@+id/n__dial_pad"
+            app:layout_constraintTop_toBottomOf="@+id/n__button1" />
+
+        <Button
+            android:id="@+id/n__button5"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:background="#f00"
+            android:text="5"
+            app:layout_constraintEnd_toStartOf="@+id/n__button6"
+            app:layout_constraintStart_toEndOf="@+id/n__button4"
+            app:layout_constraintTop_toTopOf="@+id/n__button4"/>
+
+        <Button
+            android:id="@+id/n__button6"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:background="#f00"
+            android:text="6"
+            app:layout_constraintEnd_toEndOf="@+id/n__dial_pad"
+            app:layout_constraintStart_toEndOf="@+id/n__button5"
+            app:layout_constraintTop_toTopOf="@+id/n__button5" />
+
+        <Button
+            android:id="@+id/n__button7"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:background="#f00"
+            android:text="7"
+            app:layout_constraintEnd_toStartOf="@+id/n__button8"
+            app:layout_constraintStart_toStartOf="@+id/n__dial_pad"
+            app:layout_constraintTop_toBottomOf="@+id/n__button4"
+            app:layout_constraintBottom_toTopOf="@+id/n__button10"/>
+
+        <Button
+            android:id="@+id/n__button8"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:background="#f00"
+            android:text="8"
+            app:layout_constraintEnd_toStartOf="@+id/n__button9"
+            app:layout_constraintStart_toEndOf="@+id/n__button7"
+            app:layout_constraintTop_toTopOf="@+id/n__button7" />
+
+        <Button
+            android:id="@+id/n__button9"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:background="#f00"
+            android:text="9"
+            app:layout_constraintEnd_toEndOf="@+id/n__dial_pad"
+            app:layout_constraintStart_toEndOf="@+id/n__button8"
+            app:layout_constraintTop_toTopOf="@+id/n__button8" />
+
+        <Button
+            android:id="@+id/n__button10"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:background="#f00"
+            android:text="*"
+            app:layout_constraintBottom_toBottomOf="@+id/n__dial_pad"
+            app:layout_constraintEnd_toStartOf="@+id/n__button11"
+            app:layout_constraintStart_toStartOf="@+id/n__dial_pad"
+            app:layout_constraintTop_toBottomOf="@+id/n__button7" />
+
+        <Button
+            android:id="@+id/n__button11"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:background="#f00"
+            android:text="11"
+            app:layout_constraintTop_toTopOf="@+id/n__button10"
+            app:layout_constraintEnd_toStartOf="@+id/n__button12"
+            app:layout_constraintStart_toEndOf="@+id/n__button10" />
+
+        <Button
+            android:id="@+id/button12"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:background="#f00"
+            android:text="12"
+            app:layout_constraintEnd_toEndOf="@+id/n__dial_pad"
+            app:layout_constraintStart_toEndOf="@+id/n__button11"
+            app:layout_constraintTop_toTopOf="@+id/n__button11" />
+
+        <View
+            android:id="@+id/n__people_pad"
+            android:layout_width="300dp"
+            android:layout_height="500dp"
+            android:layout_marginStart="4dp"
+            android:background="#ff0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/n__people1"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginStart="8dp"
+            android:background="#fff"
+            android:gravity="center"
+            android:text="1"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toTopOf="@+id/n__people3"
+            app:layout_constraintEnd_toStartOf="@+id/n__people2"
+            app:layout_constraintStart_toStartOf="@+id/n__people_pad"
+            app:layout_constraintTop_toTopOf="@+id/n__people_pad" />
+
+        <TextView
+            android:id="@+id/n__people2"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginEnd="8dp"
+            android:background="#fff"
+            android:gravity="center"
+            android:text="2"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toTopOf="@+id/n__people4"
+            app:layout_constraintEnd_toEndOf="@+id/n__people_pad"
+            app:layout_constraintStart_toEndOf="@+id/n__people1"
+            app:layout_constraintTop_toTopOf="@+id/n__people_pad" />
+
+        <TextView
+            android:id="@+id/n__people3"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginStart="8dp"
+            android:background="#fff"
+            android:gravity="center"
+            android:text="3"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toTopOf="@+id/n__people5"
+            app:layout_constraintEnd_toStartOf="@+id/n__people4"
+            app:layout_constraintStart_toStartOf="@+id/n__people_pad"
+            app:layout_constraintTop_toBottomOf="@+id/n__people1" />
+
+        <TextView
+            android:id="@+id/n__people4"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginEnd="8dp"
+            android:background="#fff"
+            android:gravity="center"
+            android:text="4"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toTopOf="@+id/n__people6"
+            app:layout_constraintEnd_toEndOf="@+id/n__people_pad"
+            app:layout_constraintStart_toEndOf="@+id/n__people3"
+            app:layout_constraintTop_toBottomOf="@+id/n__people2" />
+
+        <TextView
+            android:id="@+id/n__people5"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginStart="8dp"
+            android:background="#fff"
+            android:gravity="center"
+            android:text="5"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toTopOf="@+id/n__people7"
+            app:layout_constraintEnd_toStartOf="@+id/n__people6"
+            app:layout_constraintStart_toStartOf="@+id/n__people_pad"
+            app:layout_constraintTop_toBottomOf="@+id/n__people3" />
+
+        <TextView
+            android:id="@+id/n__people6"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginEnd="8dp"
+            android:background="#fff"
+            android:gravity="center"
+            android:text="6"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toTopOf="@+id/n__people8"
+            app:layout_constraintEnd_toEndOf="@+id/n__people_pad"
+            app:layout_constraintStart_toEndOf="@+id/n__people5"
+            app:layout_constraintTop_toBottomOf="@+id/n__people4" />
+
+        <TextView
+            android:id="@+id/n__people7"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginStart="8dp"
+            android:background="#fff"
+            android:gravity="center"
+            android:text="7"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="@+id/n__people_pad"
+            app:layout_constraintEnd_toStartOf="@+id/n__people8"
+            app:layout_constraintStart_toStartOf="@+id/n__people_pad"
+            app:layout_constraintTop_toBottomOf="@+id/n__people5" />
+
+        <TextView
+            android:id="@+id/n__people8"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginEnd="8dp"
+            android:background="#fff"
+            android:gravity="center"
+            android:text="8"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="@+id/n__people_pad"
+            app:layout_constraintEnd_toEndOf="@+id/n__people_pad"
+            app:layout_constraintStart_toEndOf="@+id/n__people7"
+            app:layout_constraintTop_toBottomOf="@+id/n__people6" />
+
+        <View
+            android:id="@+id/n__dummyview"
+            zIndex-swt="-1"
+            zIndex-web="0"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="26dp"></View>
+    </androidx.constraintlayout.motion.widget.MotionLayout>
+</LinearLayout>
+

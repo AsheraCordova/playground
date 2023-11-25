@@ -1,0 +1,21 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/motionLayout"
+        onDrawerSlide="+custom#onDrawerSlide()"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff">
+
+        <include layout="@layout/motion_12_drawerlayout_content" />
+
+        <include layout="@layout/motion_12_drawerlayout_menu" />
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+</LinearLayout>
+

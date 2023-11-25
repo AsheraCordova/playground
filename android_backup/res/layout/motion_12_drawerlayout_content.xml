@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/motioncontent"
+    zIndex="0"
+    swtAttachEventBubbler="mousedown,mouseup,mousemove"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:layoutDescription="@xml/scene_12_content">
+
+    <TextView
+        android:text="Side Content"
+        android:id="@+id/n__content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="false"
+        android:background="#999">
+
+    </TextView>
+
+</androidx.constraintlayout.motion.widget.MotionLayout>
