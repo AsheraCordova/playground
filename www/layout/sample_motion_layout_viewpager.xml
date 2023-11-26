@@ -15,6 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="230dp"
             android:id="@+id/header"
+            webOverflow="hidden"
             app:layout_constraintTop_toTopOf="parent"
             app:layoutDescription="@xml/motionlayout_scene15">
 

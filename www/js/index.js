@@ -343,6 +343,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _android_widget_DrawerLayoutImpl__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./android/widget/DrawerLayoutImpl */ "./src/android/widget/DrawerLayoutImpl.ts");
 /* harmony import */ var _R_SampleDrawerlayout__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./R/SampleDrawerlayout */ "./src/R/SampleDrawerlayout.ts");
 /* harmony import */ var _android_widget_SnackbarImpl__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./android/widget/SnackbarImpl */ "./src/android/widget/SnackbarImpl.ts");
+/* harmony import */ var _R_SampleMotionLayoutDrawerLayout__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./R/SampleMotionLayoutDrawerLayout */ "./src/R/SampleMotionLayoutDrawerLayout.ts");
 var __extends = undefined && undefined.__extends || function () {
   var extendStatics = function (d, b) {
     extendStatics = Object.setPrototypeOf || {
@@ -488,6 +489,7 @@ var __generator = undefined && undefined.__generator || function (thisArg, body)
     };
   }
 };
+
 
 
 
@@ -921,6 +923,21 @@ var Index = /** @class */function (_super) {
     });
   };
 
+  Index.prototype.openDrawerInMotionLayout = function () {
+    return __awaiter(this, void 0, void 0, function () {
+      return __generator(this, function (_a) {
+        switch (_a.label) {
+          case 0:
+            this.motionLayout.reset().openDrawer("start" /* Gravity.start */);
+            return [4 /*yield*/, this.executeCommand(this.motionLayout)];
+          case 1:
+            _a.sent();
+            return [2 /*return*/];
+        }
+      });
+    });
+  };
+
   __decorate([(0,_navigation_NavController__WEBPACK_IMPORTED_MODULE_10__.InjectController)({}), __metadata("design:type", _navigation_NavController__WEBPACK_IMPORTED_MODULE_10__.NavController)], Index.prototype, "navController", void 0);
   __decorate([(0,_app_Fragment__WEBPACK_IMPORTED_MODULE_6__.Inject)({
     id: _R_Index__WEBPACK_IMPORTED_MODULE_9__.preview
@@ -952,6 +969,9 @@ var Index = /** @class */function (_super) {
   __decorate([(0,_app_Fragment__WEBPACK_IMPORTED_MODULE_6__.Inject)({
     id: "@+id/snackbar"
   }), __metadata("design:type", _android_widget_SnackbarImpl__WEBPACK_IMPORTED_MODULE_15__.Snackbar)], Index.prototype, "snackbar", void 0);
+  __decorate([(0,_app_Fragment__WEBPACK_IMPORTED_MODULE_6__.Inject)({
+    id: _R_SampleMotionLayoutDrawerLayout__WEBPACK_IMPORTED_MODULE_16__.motionLayout
+  }), __metadata("design:type", _android_widget_DrawerLayoutImpl__WEBPACK_IMPORTED_MODULE_13__.DrawerLayout)], Index.prototype, "motionLayout", void 0);
   return Index;
 }(_app_Fragment__WEBPACK_IMPORTED_MODULE_6__.Fragment);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Index);
@@ -1285,6 +1305,21 @@ __webpack_require__.r(__webpack_exports__);
 var drawer_layout = '@+id/drawer_layout';
 var blurredView = '@+id/blurredView';
 var drawerlayoutstart = '@+id/drawerlayoutstart';
+
+/***/ }),
+
+/***/ "./src/R/SampleMotionLayoutDrawerLayout.ts":
+/*!*************************************************!*\
+  !*** ./src/R/SampleMotionLayoutDrawerLayout.ts ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   motionLayout: () => (/* binding */ motionLayout)
+/* harmony export */ });
+var motionLayout = '@+id/motionLayout';
 
 /***/ }),
 

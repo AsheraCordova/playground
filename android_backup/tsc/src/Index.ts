@@ -16,6 +16,7 @@ import { DrawerLayout } from './android/widget/DrawerLayoutImpl';
 import { drawer_layout } from './R/SampleDrawerlayout';
 import { Gravity } from './widget/TypeConstants';
 import { Snackbar } from './android/widget/SnackbarImpl';
+import { motionLayout } from './R/SampleMotionLayoutDrawerLayout';
 export default class Index extends Fragment {
     @InjectController({})
     navController!: NavController;
@@ -205,4 +206,11 @@ export default class Index extends Fragment {
 		this.snackbar.show(false);
 		await this.executeCommand(this.snackbar);
 	}
+
+    @Inject({ id: motionLayout })
+    private motionLayout: DrawerLayout;   
+    async openDrawerInMotionLayout() {
+        this.motionLayout.reset().openDrawer(Gravity.start);
+		await this.executeCommand(this.motionLayout);
+    } 
 }

@@ -8,16 +8,17 @@
     swtAttachEventBubbler="mousedown,mouseup,mousemove"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:layoutDescription="@xml/scene_12_content">
-
-    <TextView
-        android:textSize="14sp"
-        android:text="Side Content"
+    <FrameLayout
         android:id="@+id/n__content"
+        android:background="#fff"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fitsSystemWindows="false"
-        android:background="#999">
-
-    </TextView>
+        android:layout_height="match_parent">
+    <Button
+        android:onClick="openDrawerInMotionLayout"
+        android:id="@+id/n__button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Open Drawer"></Button>
+    </FrameLayout>
 
 </androidx.constraintlayout.motion.widget.MotionLayout>
