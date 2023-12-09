@@ -44,6 +44,7 @@
         <item>Motion Layout (DrawerLayout)</item>
         <item>Motion Layout (ViewPager)</item>
         <item>Motion Layout (Multi state)</item>
+        <item>Motion Layout (Carousel)</item>
         <item>Dialog</item>
         <item>Drawer layout</item>
         <item>Frame layout</item>
@@ -79,6 +80,7 @@
         <item>www/layout/sample_motion_layout_drawer_layout.xml</item>
         <item>www/layout/sample_motion_layout_viewpager.xml</item>
         <item>www/layout/sample_motion_layout_multistate.xml</item>
+        <item>www/layout/sample_motion_layout_carousel.xml</item>
         <item>www/layout/sample_dialog.xml</item>
         <item>www/layout/sample_drawerlayout.xml</item>
         <item>www/layout/sample_framelayout.xml</item>

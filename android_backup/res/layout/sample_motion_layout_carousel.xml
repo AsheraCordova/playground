@@ -1,0 +1,228 @@
+<androidx.constraintlayout.motion.widget.MotionLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0C355A"
+    android:orientation="vertical"
+    app:layoutDescription="@xml/demo_060_carousel_scene"
+    tools:ignore="MissingPrefix">
+
+    <TextView
+        modelPojoToUi="text = name from data->local;background = mybackground from data->local;"
+        android:id="@+id/n__textView0"
+        android:layout_width="100dp"
+        android:layout_height="130dp"
+        android:background="#F0F"
+        android:gravity="center"
+        android:rotation="-60"
+        android:text="#0"
+        android:textColor="#FFF"
+        android:textSize="36sp"
+        android:elevation="0dp"
+        app:layout_constraintCircle="@+id/n__center"
+        app:layout_constraintCircleAngle="300"
+        app:layout_constraintCircleRadius="160dp" />
+
+    <TextView
+        modelPojoToUi="text = name from data->local;background = mybackground from data->local;"
+        android:id="@+id/n__textView1"
+        android:layout_width="100dp"
+        android:layout_height="130dp"
+        android:background="#F0F"
+        android:gravity="center"
+        android:rotation="-45"
+        android:text="#1"
+        android:textColor="#FFF"
+        android:textSize="36sp"
+        android:elevation="2dp"
+        app:layout_constraintCircle="@+id/n__center"
+        app:layout_constraintCircleAngle="315"
+        app:layout_constraintCircleRadius="160dp" />
+
+    <TextView
+        modelPojoToUi="text = name from data->local;background = mybackground from data->local;"
+        android:id="@+id/n__textView2"
+        android:layout_width="100dp"
+        android:layout_height="130dp"
+        android:background="#C869C8"
+        android:gravity="center"
+        android:rotation="-30"
+        android:text="#2"
+        android:textColor="#FFF"
+        android:textSize="36sp"
+        android:elevation="4dp"
+        app:layout_constraintCircle="@+id/n__center"
+        app:layout_constraintCircleAngle="330"
+        app:layout_constraintCircleRadius="160dp" />
+
+    <TextView
+        modelPojoToUi="text = name from data->local;background = mybackground from data->local;"
+        android:id="@+id/n__textView3"
+        android:layout_width="100dp"
+        android:layout_height="130dp"
+        android:background="#A664A6"
+        android:elevation="6dp"
+        android:gravity="center"
+        android:rotation="-15"
+        android:text="#3"
+        android:textColor="#FFF"
+        android:textSize="36sp"
+        app:layout_constraintCircle="@+id/n__center"
+        app:layout_constraintCircleAngle="345"
+        app:layout_constraintCircleRadius="160dp"
+        tools:layout_editor_absoluteX="136dp"
+        tools:layout_editor_absoluteY="116dp" />
+
+    <TextView
+        modelPojoToUi="text = name from data->local;background = mybackground from data->local;"
+        android:id="@+id/n__textView4"
+        android:layout_width="140dp"
+        android:layout_height="180dp"
+        android:background="#874A87"
+        android:gravity="center"
+        android:rotation="0"
+        android:text="#4"
+        android:textColor="#FFF"
+        android:textSize="36sp"
+        android:elevation="10dp"
+        app:layout_constraintCircle="@+id/n__center"
+        app:layout_constraintCircleAngle="0"
+        app:layout_constraintCircleRadius="160dp" />
+
+    <TextView
+        modelPojoToUi="text = name from data->local;background = mybackground from data->local;"
+        android:id="@+id/n__textView5"
+        android:layout_width="100dp"
+        android:layout_height="130dp"
+        android:background="#BF70BF"
+        android:gravity="center"
+        android:rotation="15"
+        android:text="#5"
+        android:textColor="#FFF"
+        android:textSize="36sp"
+        android:elevation="6dp"
+        app:layout_constraintCircle="@+id/n__center"
+        app:layout_constraintCircleAngle="15"
+        app:layout_constraintCircleRadius="160dp" />
+
+    <TextView
+        modelPojoToUi="text = name from data->local;background = mybackground from data->local;"
+        android:id="@+id/n__textView6"
+        android:layout_width="100dp"
+        android:layout_height="130dp"
+        android:background="#EDA4ED"
+        android:gravity="center"
+        android:rotation="30"
+        android:text="#6"
+        android:textColor="#FFF"
+        android:textSize="36sp"
+        android:elevation="4dp"
+        app:layout_constraintCircle="@+id/n__center"
+        app:layout_constraintCircleAngle="30"
+        app:layout_constraintCircleRadius="160dp" />
+
+
+    <TextView
+        modelPojoToUi="text = name from data->local;background = mybackground from data->local;"
+        android:id="@+id/n__textView7"
+        android:layout_width="100dp"
+        android:layout_height="130dp"
+        android:background="#F8C1F8"
+        android:gravity="center"
+        android:rotation="45"
+        android:text="#7"
+        android:textColor="#FFF"
+        android:textSize="36sp"
+        android:elevation="2dp"
+        app:layout_constraintCircle="@+id/n__center"
+        app:layout_constraintCircleAngle="45"
+        app:layout_constraintCircleRadius="160dp" />
+
+    <TextView
+        modelPojoToUi="text = name from data->local;background = mybackground from data->local;"
+        android:id="@+id/n__textView8"
+        android:layout_width="100dp"
+        android:layout_height="130dp"
+        android:background="#F8C1F8"
+        android:gravity="center"
+        android:rotation="60"
+        android:text="#8"
+        android:textColor="#FFF"
+        android:textSize="36sp"
+        android:elevation="0dp"
+        app:layout_constraintCircle="@+id/n__center"
+        app:layout_constraintCircleAngle="60"
+        app:layout_constraintCircleRadius="160dp" />
+
+    <View
+        android:id="@+id/n__center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/n__label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFF"
+        android:textSize="36sp"
+        android:text="#1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/n__center"
+        />
+
+    <Button
+        zIndex="1"
+        android:id="@+id/n__button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="Go to last item"
+        android:onClick="gotoLastItem"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        zIndex="1"
+        android:id="@+id/n__button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="Next"
+        android:onClick="gotoNextItem"
+        app:layout_constraintStart_toEndOf="@id/n__button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+    <Button
+        zIndex="1"
+        android:id="@+id/n__button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="Previous"
+        android:onClick="gotoPrevItem"
+        app:layout_constraintEnd_toStartOf="@id/n__button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+    <androidx.constraintlayout.helper.widget.Carousel
+        onNewItem="onNewItem"
+        modelParam="let data = viewpagers from testObj->view into view as list"
+        android:id="@+id/n__carousel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:carousel_forwardTransition="@+id/n__forward"
+        app:carousel_backwardTransition="@+id/n__backward"
+        app:carousel_previousState="@+id/n__previous"
+        app:carousel_nextState="@+id/n__next"
+        app:carousel_firstView="@+id/n__textView4"
+        app:constraint_referenced_ids="n__textView0,n__textView1,n__textView2,n__textView3,n__textView4,n__textView5,n__textView6,n__textView7,n__textView8" />
+</androidx.constraintlayout.motion.widget.MotionLayout>

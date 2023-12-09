@@ -17,6 +17,8 @@ import { drawer_layout } from './R/SampleDrawerlayout';
 import { Gravity } from './widget/TypeConstants';
 import { Snackbar } from './android/widget/SnackbarImpl';
 import { motionLayout } from './R/SampleMotionLayoutDrawerLayout';
+import { TextView } from './android/widget/TextViewImpl';
+import { Carousel } from './android/widget/CarouselImpl';
 export default class Index extends Fragment {
     @InjectController({})
     navController!: NavController;
@@ -213,4 +215,31 @@ export default class Index extends Fragment {
         this.motionLayout.reset().openDrawer(Gravity.start);
 		await this.executeCommand(this.motionLayout);
     } 
+
+    @Inject({ id : "@+id/n__carousel"})
+	private carousel!: Carousel;
+	
+	async gotoLastItem() {
+		this.carousel.reset().transitionToLast(1000);
+		await this.executeCommand(this.carousel);	
+	}
+
+	async gotoNextItem() {
+		this.carousel.reset().transitionToNext(1000);
+		await this.executeCommand(this.carousel);	
+	}
+	
+	async gotoPrevItem() {
+		this.carousel.reset().transitionToPrevious(1000);
+		await this.executeCommand(this.carousel);	
+	}
+
+	
+	@Inject({ id : "@+id/n__label"})
+	private label!: TextView;
+
+	async onNewItem(obj:any) {
+		this.label.setText("#" + obj["index"]);
+		await this.executeCommand(this.label);
+	}
 }
