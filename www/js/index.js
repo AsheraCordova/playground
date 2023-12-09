@@ -234,7 +234,6 @@ var ErrorFragment = /** @class */function (_super) {
         });
       });
     };
-
     _this.gotoErrorDetails = function (obj) {
       return __awaiter(_this, void 0, void 0, function () {
         return __generator(this, function (_a) {
@@ -248,7 +247,6 @@ var ErrorFragment = /** @class */function (_super) {
         });
       });
     };
-
     return _this;
   }
   __decorate([(0,_navigation_NavController__WEBPACK_IMPORTED_MODULE_1__.InjectController)({}), __metadata("design:type", _navigation_NavController__WEBPACK_IMPORTED_MODULE_1__.NavController)], ErrorFragment.prototype, "navController", void 0);
@@ -344,6 +342,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _R_SampleDrawerlayout__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./R/SampleDrawerlayout */ "./src/R/SampleDrawerlayout.ts");
 /* harmony import */ var _android_widget_SnackbarImpl__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./android/widget/SnackbarImpl */ "./src/android/widget/SnackbarImpl.ts");
 /* harmony import */ var _R_SampleMotionLayoutDrawerLayout__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./R/SampleMotionLayoutDrawerLayout */ "./src/R/SampleMotionLayoutDrawerLayout.ts");
+/* harmony import */ var _android_widget_TextViewImpl__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./android/widget/TextViewImpl */ "./src/android/widget/TextViewImpl.ts");
+/* harmony import */ var _android_widget_CarouselImpl__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./android/widget/CarouselImpl */ "./src/android/widget/CarouselImpl.ts");
 var __extends = undefined && undefined.__extends || function () {
   var extendStatics = function (d, b) {
     extendStatics = Object.setPrototypeOf || {
@@ -506,6 +506,8 @@ var __generator = undefined && undefined.__generator || function (thisArg, body)
 
 
 
+
+
 var Index = /** @class */function (_super) {
   __extends(Index, _super);
   function Index() {
@@ -520,11 +522,23 @@ var Index = /** @class */function (_super) {
     var data = this.getRecyclerData();
     var groupiedata = this.getGroupieData();
     var viewPagerData = this.getViewPagerData();
+    var list = [];
+    var images = ["@drawable/bryce_canyon", "@drawable/cathedral_rock", "@drawable/death_valley", "@drawable/fitzgerald_marine_reserve", "@drawable/goldengate", "@drawable/golden_gate_bridge", "@drawable/shipwreck_1", "@drawable/shipwreck_2", "@drawable/grand_canyon", "@drawable/horseshoe_bend", "@drawable/muir_beach", "@drawable/rainbow_falls"];
+    var colors = ["#9C4B8F", "#945693", "#8C6096", "#846B9A", "#7C769E", "#7480A2", "#6D8BA5", "#6595A9", "#5DA0AD", "#55ABB1", "#4DB5B4", "#45C0B8"];
+    for (var i = 0; i < 10; i++) {
+      list.push({
+        "id": i,
+        "name": i + "",
+        "background": i % 2 == 0 ? "#ff0" : "#f00",
+        "src": images[i],
+        "mybackground": colors[i]
+      });
+    }
     this.xmlEditText.setText(obj.xml).updateModelDataWithScopedObject(new _app_ScopedObject__WEBPACK_IMPORTED_MODULE_8__.ScopedObject("testObj->view as pathmap", {
       looptest: {
         textlayout: data
       }
-    }), new _app_ScopedObject__WEBPACK_IMPORTED_MODULE_8__.ScopedObject("sectionInfo->view as list", groupiedata), new _app_ScopedObject__WEBPACK_IMPORTED_MODULE_8__.ScopedObject("viewpagerInfo->view as list", viewPagerData));
+    }), new _app_ScopedObject__WEBPACK_IMPORTED_MODULE_8__.ScopedObject("sectionInfo->view as list", groupiedata), new _app_ScopedObject__WEBPACK_IMPORTED_MODULE_8__.ScopedObject("viewpagerInfo->view as list", viewPagerData), new _app_ScopedObject__WEBPACK_IMPORTED_MODULE_8__.ScopedObject("carouselInfo->view as list", list));
     this.executeCommand(this.xmlEditText);
   };
   Index.prototype.getViewPagerData = function () {
@@ -584,7 +598,6 @@ var Index = /** @class */function (_super) {
       });
     });
   };
-
   Index.prototype.addSong = function (obj) {
     return __awaiter(this, void 0, void 0, function () {
       return __generator(this, function (_a) {
@@ -602,7 +615,6 @@ var Index = /** @class */function (_super) {
       });
     });
   };
-
   Index.prototype.clearSongs = function (obj) {
     return __awaiter(this, void 0, void 0, function () {
       return __generator(this, function (_a) {
@@ -617,7 +629,6 @@ var Index = /** @class */function (_super) {
       });
     });
   };
-
   Index.prototype.deleteSongById = function (obj) {
     return __awaiter(this, void 0, void 0, function () {
       return __generator(this, function (_a) {
@@ -632,7 +643,6 @@ var Index = /** @class */function (_super) {
       });
     });
   };
-
   Index.prototype.updateSong = function (obj) {
     return __awaiter(this, void 0, void 0, function () {
       return __generator(this, function (_a) {
@@ -650,7 +660,6 @@ var Index = /** @class */function (_super) {
       });
     });
   };
-
   Index.prototype.swapViews = function (obj) {
     return __awaiter(this, void 0, void 0, function () {
       return __generator(this, function (_a) {
@@ -665,7 +674,6 @@ var Index = /** @class */function (_super) {
       });
     });
   };
-
   Index.prototype.hideShowGroups = function (obj) {
     return __awaiter(this, void 0, void 0, function () {
       return __generator(this, function (_a) {
@@ -681,7 +689,6 @@ var Index = /** @class */function (_super) {
       });
     });
   };
-
   Index.prototype.openMainDialog = function () {
     return __awaiter(this, void 0, void 0, function () {
       return __generator(this, function (_a) {
@@ -700,7 +707,6 @@ var Index = /** @class */function (_super) {
       });
     });
   };
-
   Index.prototype.closeDialog = function () {
     return __awaiter(this, void 0, void 0, function () {
       return __generator(this, function (_a) {
@@ -714,7 +720,6 @@ var Index = /** @class */function (_super) {
       });
     });
   };
-
   Index.prototype.openDialog = function () {
     return __awaiter(this, void 0, void 0, function () {
       return __generator(this, function (_a) {
@@ -733,7 +738,6 @@ var Index = /** @class */function (_super) {
       });
     });
   };
-
   Index.prototype.openDialogWrapContent = function () {
     return __awaiter(this, void 0, void 0, function () {
       return __generator(this, function (_a) {
@@ -752,7 +756,6 @@ var Index = /** @class */function (_super) {
       });
     });
   };
-
   Index.prototype.openDialogCustom = function () {
     return __awaiter(this, void 0, void 0, function () {
       return __generator(this, function (_a) {
@@ -771,7 +774,6 @@ var Index = /** @class */function (_super) {
       });
     });
   };
-
   Index.prototype.openDialogCancelOnTouch = function () {
     return __awaiter(this, void 0, void 0, function () {
       return __generator(this, function (_a) {
@@ -790,7 +792,6 @@ var Index = /** @class */function (_super) {
       });
     });
   };
-
   Index.prototype.openDialogFullScreen = function () {
     return __awaiter(this, void 0, void 0, function () {
       return __generator(this, function (_a) {
@@ -809,7 +810,6 @@ var Index = /** @class */function (_super) {
       });
     });
   };
-
   Index.prototype.openDialogDimDisabled = function () {
     return __awaiter(this, void 0, void 0, function () {
       return __generator(this, function (_a) {
@@ -828,7 +828,6 @@ var Index = /** @class */function (_super) {
       });
     });
   };
-
   Index.prototype.showAlert = function () {
     return __awaiter(this, void 0, void 0, function () {
       return __generator(this, function (_a) {
@@ -837,7 +836,6 @@ var Index = /** @class */function (_super) {
       });
     });
   };
-
   Index.prototype.login = function (obj) {
     return __awaiter(this, void 0, void 0, function () {
       return __generator(this, function (_a) {
@@ -846,7 +844,6 @@ var Index = /** @class */function (_super) {
       });
     });
   };
-
   Index.prototype.openCamera = function () {
     return __awaiter(this, void 0, void 0, function () {
       var _this = this;
@@ -863,7 +860,6 @@ var Index = /** @class */function (_super) {
       });
     });
   };
-
   Index.prototype.scanQrCode = function () {
     return __awaiter(this, void 0, void 0, function () {
       return __generator(this, function (_a) {
@@ -877,7 +873,6 @@ var Index = /** @class */function (_super) {
       });
     });
   };
-
   Index.prototype.openDrawer = function () {
     return __awaiter(this, void 0, void 0, function () {
       return __generator(this, function (_a) {
@@ -892,7 +887,6 @@ var Index = /** @class */function (_super) {
       });
     });
   };
-
   Index.prototype.showSnackbar = function () {
     return __awaiter(this, void 0, void 0, function () {
       return __generator(this, function (_a) {
@@ -907,7 +901,6 @@ var Index = /** @class */function (_super) {
       });
     });
   };
-
   Index.prototype.dismissSnackbar = function () {
     return __awaiter(this, void 0, void 0, function () {
       return __generator(this, function (_a) {
@@ -922,7 +915,6 @@ var Index = /** @class */function (_super) {
       });
     });
   };
-
   Index.prototype.openDrawerInMotionLayout = function () {
     return __awaiter(this, void 0, void 0, function () {
       return __generator(this, function (_a) {
@@ -937,7 +929,62 @@ var Index = /** @class */function (_super) {
       });
     });
   };
-
+  Index.prototype.gotoLastItem = function () {
+    return __awaiter(this, void 0, void 0, function () {
+      return __generator(this, function (_a) {
+        switch (_a.label) {
+          case 0:
+            this.carousel.reset().transitionToLast(1000);
+            return [4 /*yield*/, this.executeCommand(this.carousel)];
+          case 1:
+            _a.sent();
+            return [2 /*return*/];
+        }
+      });
+    });
+  };
+  Index.prototype.gotoNextItem = function () {
+    return __awaiter(this, void 0, void 0, function () {
+      return __generator(this, function (_a) {
+        switch (_a.label) {
+          case 0:
+            this.carousel.reset().transitionToNext(1000);
+            return [4 /*yield*/, this.executeCommand(this.carousel)];
+          case 1:
+            _a.sent();
+            return [2 /*return*/];
+        }
+      });
+    });
+  };
+  Index.prototype.gotoPrevItem = function () {
+    return __awaiter(this, void 0, void 0, function () {
+      return __generator(this, function (_a) {
+        switch (_a.label) {
+          case 0:
+            this.carousel.reset().transitionToPrevious(1000);
+            return [4 /*yield*/, this.executeCommand(this.carousel)];
+          case 1:
+            _a.sent();
+            return [2 /*return*/];
+        }
+      });
+    });
+  };
+  Index.prototype.onNewItem = function (obj) {
+    return __awaiter(this, void 0, void 0, function () {
+      return __generator(this, function (_a) {
+        switch (_a.label) {
+          case 0:
+            this.label.setText("#" + obj["index"]);
+            return [4 /*yield*/, this.executeCommand(this.label)];
+          case 1:
+            _a.sent();
+            return [2 /*return*/];
+        }
+      });
+    });
+  };
   __decorate([(0,_navigation_NavController__WEBPACK_IMPORTED_MODULE_10__.InjectController)({}), __metadata("design:type", _navigation_NavController__WEBPACK_IMPORTED_MODULE_10__.NavController)], Index.prototype, "navController", void 0);
   __decorate([(0,_app_Fragment__WEBPACK_IMPORTED_MODULE_6__.Inject)({
     id: _R_Index__WEBPACK_IMPORTED_MODULE_9__.preview
@@ -972,6 +1019,12 @@ var Index = /** @class */function (_super) {
   __decorate([(0,_app_Fragment__WEBPACK_IMPORTED_MODULE_6__.Inject)({
     id: _R_SampleMotionLayoutDrawerLayout__WEBPACK_IMPORTED_MODULE_16__.motionLayout
   }), __metadata("design:type", _android_widget_DrawerLayoutImpl__WEBPACK_IMPORTED_MODULE_13__.DrawerLayout)], Index.prototype, "motionLayout", void 0);
+  __decorate([(0,_app_Fragment__WEBPACK_IMPORTED_MODULE_6__.Inject)({
+    id: "@+id/n__carousel"
+  }), __metadata("design:type", _android_widget_CarouselImpl__WEBPACK_IMPORTED_MODULE_18__.Carousel)], Index.prototype, "carousel", void 0);
+  __decorate([(0,_app_Fragment__WEBPACK_IMPORTED_MODULE_6__.Inject)({
+    id: "@+id/n__label"
+  }), __metadata("design:type", _android_widget_TextViewImpl__WEBPACK_IMPORTED_MODULE_17__.TextView)], Index.prototype, "label", void 0);
   return Index;
 }(_app_Fragment__WEBPACK_IMPORTED_MODULE_6__.Fragment);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Index);
@@ -1182,7 +1235,6 @@ var QrcodeScanner = /** @class */function (_super) {
       });
     });
   };
-
   QrcodeScanner.prototype.onDone = function (err, status) {
     if (err) {
       // here we can handle errors and clean up any loose ends.
@@ -1224,7 +1276,6 @@ var QrcodeScanner = /** @class */function (_super) {
 }(_app_Fragment__WEBPACK_IMPORTED_MODULE_0__.Fragment
 //end - className
 );
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (QrcodeScanner);
 
 /***/ }),
@@ -3182,6 +3233,694 @@ var Button = /** @class */function (_super) {
 }(ButtonImpl);
 
 ButtonImpl.initialize();
+//end - staticinit
+
+/***/ }),
+
+/***/ "./src/android/widget/CarouselImpl.ts":
+/*!********************************************!*\
+  !*** ./src/android/widget/CarouselImpl.ts ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Carousel: () => (/* binding */ Carousel),
+/* harmony export */   CarouselImpl: () => (/* binding */ CarouselImpl),
+/* harmony export */   CarouselImpl_transitionToIndex: () => (/* binding */ CarouselImpl_transitionToIndex)
+/* harmony export */ });
+/* harmony import */ var _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../widget/CommandAttr */ "./src/widget/CommandAttr.ts");
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/expose.decorator.js");
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/type.decorator.js");
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/exclude.decorator.js");
+/* harmony import */ var babel_polyfill__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! babel-polyfill */ "./node_modules/babel-polyfill/lib/index.js");
+/* harmony import */ var babel_polyfill__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(babel_polyfill__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _ViewGroupImpl__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ViewGroupImpl */ "./src/android/widget/ViewGroupImpl.ts");
+// start - imports
+var __extends = undefined && undefined.__extends || function () {
+  var extendStatics = function (d, b) {
+    extendStatics = Object.setPrototypeOf || {
+      __proto__: []
+    } instanceof Array && function (d, b) {
+      d.__proto__ = b;
+    } || function (d, b) {
+      for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p];
+    };
+    return extendStatics(d, b);
+  };
+  return function (d, b) {
+    if (typeof b !== "function" && b !== null) throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+    extendStatics(d, b);
+    function __() {
+      this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  };
+}();
+var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+  var c = arguments.length,
+    r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+    d;
+  if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+  return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = undefined && undefined.__metadata || function (k, v) {
+  if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var CarouselImpl_transitionToIndex = /** @class */function () {
+  function CarouselImpl_transitionToIndex() {}
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+    name: "index"
+  }), __metadata("design:type", Number)], CarouselImpl_transitionToIndex.prototype, "index", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+    name: "delay"
+  }), __metadata("design:type", Number)], CarouselImpl_transitionToIndex.prototype, "delay", void 0);
+  return CarouselImpl_transitionToIndex;
+}();
+
+// end - imports
+
+var CarouselImpl = /** @class */function (_super) {
+  __extends(CarouselImpl, _super);
+  function CarouselImpl(id, path, event) {
+    var _this = _super.call(this, id, path, event) || this;
+    _this.thisPointer = _this.getThisPointer();
+    return _this;
+  }
+  //start - body
+  CarouselImpl.initialize = function () {};
+  CarouselImpl.prototype.reset = function () {
+    _super.prototype.reset.call(this);
+    this.carousel_firstView = undefined;
+    this.carousel_previousState = undefined;
+    this.carousel_nextState = undefined;
+    this.carousel_infinite = undefined;
+    this.carousel_forwardTransition = undefined;
+    this.carousel_backwardTransition = undefined;
+    this.carousel_touchUp_dampeningFactor = undefined;
+    this.carousel_touchUpMode = undefined;
+    this.carousel_touchUp_velocityThreshold = undefined;
+    this.carousel_emptyViewsBehavior = undefined;
+    this.constraint_referenced_ids = undefined;
+    this.jumpToIndex_ = undefined;
+    this.jumpTolast_ = undefined;
+    this.jumpToNext_ = undefined;
+    this.jumpToPrevious_ = undefined;
+    this.transitionToIndex_ = undefined;
+    this.transitionToLast_ = undefined;
+    this.transitionToNext_ = undefined;
+    this.transitionToPrevious_ = undefined;
+    this.dataKey = undefined;
+    this.childDataKey = undefined;
+    this.dataScopeKey = undefined;
+    this.childDataScopeKey = undefined;
+    this.onNewItem = undefined;
+    return this.thisPointer;
+  };
+  CarouselImpl.prototype.tryGetCarousel_firstView = function () {
+    this.resetIfRequired();
+    if (this.carousel_firstView == null || this.carousel_firstView == undefined) {
+      this.carousel_firstView = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.carousel_firstView.setGetter(true);
+    this.orderGet++;
+    this.carousel_firstView.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  CarouselImpl.prototype.getCarousel_firstView = function () {
+    if (this.carousel_firstView == null || this.carousel_firstView == undefined) {
+      this.carousel_firstView = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.carousel_firstView.getCommandReturnValue();
+  };
+  CarouselImpl.prototype.setCarousel_firstView = function (value) {
+    this.resetIfRequired();
+    if (this.carousel_firstView == null || this.carousel_firstView == undefined) {
+      this.carousel_firstView = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.carousel_firstView.setSetter(true);
+    this.carousel_firstView.setValue(value);
+    this.orderSet++;
+    this.carousel_firstView.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  CarouselImpl.prototype.tryGetCarousel_previousState = function () {
+    this.resetIfRequired();
+    if (this.carousel_previousState == null || this.carousel_previousState == undefined) {
+      this.carousel_previousState = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.carousel_previousState.setGetter(true);
+    this.orderGet++;
+    this.carousel_previousState.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  CarouselImpl.prototype.getCarousel_previousState = function () {
+    if (this.carousel_previousState == null || this.carousel_previousState == undefined) {
+      this.carousel_previousState = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.carousel_previousState.getCommandReturnValue();
+  };
+  CarouselImpl.prototype.setCarousel_previousState = function (value) {
+    this.resetIfRequired();
+    if (this.carousel_previousState == null || this.carousel_previousState == undefined) {
+      this.carousel_previousState = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.carousel_previousState.setSetter(true);
+    this.carousel_previousState.setValue(value);
+    this.orderSet++;
+    this.carousel_previousState.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  CarouselImpl.prototype.tryGetCarousel_nextState = function () {
+    this.resetIfRequired();
+    if (this.carousel_nextState == null || this.carousel_nextState == undefined) {
+      this.carousel_nextState = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.carousel_nextState.setGetter(true);
+    this.orderGet++;
+    this.carousel_nextState.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  CarouselImpl.prototype.getCarousel_nextState = function () {
+    if (this.carousel_nextState == null || this.carousel_nextState == undefined) {
+      this.carousel_nextState = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.carousel_nextState.getCommandReturnValue();
+  };
+  CarouselImpl.prototype.setCarousel_nextState = function (value) {
+    this.resetIfRequired();
+    if (this.carousel_nextState == null || this.carousel_nextState == undefined) {
+      this.carousel_nextState = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.carousel_nextState.setSetter(true);
+    this.carousel_nextState.setValue(value);
+    this.orderSet++;
+    this.carousel_nextState.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  CarouselImpl.prototype.tryGetCarousel_infinite = function () {
+    this.resetIfRequired();
+    if (this.carousel_infinite == null || this.carousel_infinite == undefined) {
+      this.carousel_infinite = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.carousel_infinite.setGetter(true);
+    this.orderGet++;
+    this.carousel_infinite.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  CarouselImpl.prototype.isCarousel_infinite = function () {
+    if (this.carousel_infinite == null || this.carousel_infinite == undefined) {
+      this.carousel_infinite = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.carousel_infinite.getCommandReturnValue();
+  };
+  CarouselImpl.prototype.setCarousel_infinite = function (value) {
+    this.resetIfRequired();
+    if (this.carousel_infinite == null || this.carousel_infinite == undefined) {
+      this.carousel_infinite = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.carousel_infinite.setSetter(true);
+    this.carousel_infinite.setValue(value);
+    this.orderSet++;
+    this.carousel_infinite.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  CarouselImpl.prototype.tryGetCarousel_forwardTransition = function () {
+    this.resetIfRequired();
+    if (this.carousel_forwardTransition == null || this.carousel_forwardTransition == undefined) {
+      this.carousel_forwardTransition = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.carousel_forwardTransition.setGetter(true);
+    this.orderGet++;
+    this.carousel_forwardTransition.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  CarouselImpl.prototype.getCarousel_forwardTransition = function () {
+    if (this.carousel_forwardTransition == null || this.carousel_forwardTransition == undefined) {
+      this.carousel_forwardTransition = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.carousel_forwardTransition.getCommandReturnValue();
+  };
+  CarouselImpl.prototype.setCarousel_forwardTransition = function (value) {
+    this.resetIfRequired();
+    if (this.carousel_forwardTransition == null || this.carousel_forwardTransition == undefined) {
+      this.carousel_forwardTransition = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.carousel_forwardTransition.setSetter(true);
+    this.carousel_forwardTransition.setValue(value);
+    this.orderSet++;
+    this.carousel_forwardTransition.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  CarouselImpl.prototype.tryGetCarousel_backwardTransition = function () {
+    this.resetIfRequired();
+    if (this.carousel_backwardTransition == null || this.carousel_backwardTransition == undefined) {
+      this.carousel_backwardTransition = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.carousel_backwardTransition.setGetter(true);
+    this.orderGet++;
+    this.carousel_backwardTransition.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  CarouselImpl.prototype.getCarousel_backwardTransition = function () {
+    if (this.carousel_backwardTransition == null || this.carousel_backwardTransition == undefined) {
+      this.carousel_backwardTransition = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.carousel_backwardTransition.getCommandReturnValue();
+  };
+  CarouselImpl.prototype.setCarousel_backwardTransition = function (value) {
+    this.resetIfRequired();
+    if (this.carousel_backwardTransition == null || this.carousel_backwardTransition == undefined) {
+      this.carousel_backwardTransition = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.carousel_backwardTransition.setSetter(true);
+    this.carousel_backwardTransition.setValue(value);
+    this.orderSet++;
+    this.carousel_backwardTransition.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  CarouselImpl.prototype.tryGetCarousel_touchUp_dampeningFactor = function () {
+    this.resetIfRequired();
+    if (this.carousel_touchUp_dampeningFactor == null || this.carousel_touchUp_dampeningFactor == undefined) {
+      this.carousel_touchUp_dampeningFactor = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.carousel_touchUp_dampeningFactor.setGetter(true);
+    this.orderGet++;
+    this.carousel_touchUp_dampeningFactor.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  CarouselImpl.prototype.getCarousel_touchUp_dampeningFactor = function () {
+    if (this.carousel_touchUp_dampeningFactor == null || this.carousel_touchUp_dampeningFactor == undefined) {
+      this.carousel_touchUp_dampeningFactor = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.carousel_touchUp_dampeningFactor.getCommandReturnValue();
+  };
+  CarouselImpl.prototype.setCarousel_touchUp_dampeningFactor = function (value) {
+    this.resetIfRequired();
+    if (this.carousel_touchUp_dampeningFactor == null || this.carousel_touchUp_dampeningFactor == undefined) {
+      this.carousel_touchUp_dampeningFactor = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.carousel_touchUp_dampeningFactor.setSetter(true);
+    this.carousel_touchUp_dampeningFactor.setValue(value);
+    this.orderSet++;
+    this.carousel_touchUp_dampeningFactor.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  CarouselImpl.prototype.tryGetCarousel_touchUpMode = function () {
+    this.resetIfRequired();
+    if (this.carousel_touchUpMode == null || this.carousel_touchUpMode == undefined) {
+      this.carousel_touchUpMode = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.carousel_touchUpMode.setGetter(true);
+    this.orderGet++;
+    this.carousel_touchUpMode.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  CarouselImpl.prototype.getCarousel_touchUpMode = function () {
+    if (this.carousel_touchUpMode == null || this.carousel_touchUpMode == undefined) {
+      this.carousel_touchUpMode = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.carousel_touchUpMode.getCommandReturnValue();
+  };
+  CarouselImpl.prototype.setCarousel_touchUpMode = function (value) {
+    this.resetIfRequired();
+    if (this.carousel_touchUpMode == null || this.carousel_touchUpMode == undefined) {
+      this.carousel_touchUpMode = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.carousel_touchUpMode.setSetter(true);
+    this.carousel_touchUpMode.setValue(value);
+    this.orderSet++;
+    this.carousel_touchUpMode.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  CarouselImpl.prototype.tryGetCarousel_touchUp_velocityThreshold = function () {
+    this.resetIfRequired();
+    if (this.carousel_touchUp_velocityThreshold == null || this.carousel_touchUp_velocityThreshold == undefined) {
+      this.carousel_touchUp_velocityThreshold = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.carousel_touchUp_velocityThreshold.setGetter(true);
+    this.orderGet++;
+    this.carousel_touchUp_velocityThreshold.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  CarouselImpl.prototype.getCarousel_touchUp_velocityThreshold = function () {
+    if (this.carousel_touchUp_velocityThreshold == null || this.carousel_touchUp_velocityThreshold == undefined) {
+      this.carousel_touchUp_velocityThreshold = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.carousel_touchUp_velocityThreshold.getCommandReturnValue();
+  };
+  CarouselImpl.prototype.setCarousel_touchUp_velocityThreshold = function (value) {
+    this.resetIfRequired();
+    if (this.carousel_touchUp_velocityThreshold == null || this.carousel_touchUp_velocityThreshold == undefined) {
+      this.carousel_touchUp_velocityThreshold = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.carousel_touchUp_velocityThreshold.setSetter(true);
+    this.carousel_touchUp_velocityThreshold.setValue(value);
+    this.orderSet++;
+    this.carousel_touchUp_velocityThreshold.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  CarouselImpl.prototype.tryGetCarousel_emptyViewsBehavior = function () {
+    this.resetIfRequired();
+    if (this.carousel_emptyViewsBehavior == null || this.carousel_emptyViewsBehavior == undefined) {
+      this.carousel_emptyViewsBehavior = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.carousel_emptyViewsBehavior.setGetter(true);
+    this.orderGet++;
+    this.carousel_emptyViewsBehavior.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  CarouselImpl.prototype.getCarousel_emptyViewsBehavior = function () {
+    if (this.carousel_emptyViewsBehavior == null || this.carousel_emptyViewsBehavior == undefined) {
+      this.carousel_emptyViewsBehavior = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.carousel_emptyViewsBehavior.getCommandReturnValue();
+  };
+  CarouselImpl.prototype.setCarousel_emptyViewsBehavior = function (value) {
+    this.resetIfRequired();
+    if (this.carousel_emptyViewsBehavior == null || this.carousel_emptyViewsBehavior == undefined) {
+      this.carousel_emptyViewsBehavior = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.carousel_emptyViewsBehavior.setSetter(true);
+    this.carousel_emptyViewsBehavior.setValue(value);
+    this.orderSet++;
+    this.carousel_emptyViewsBehavior.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  CarouselImpl.prototype.tryGetConstraint_referenced_ids = function () {
+    this.resetIfRequired();
+    if (this.constraint_referenced_ids == null || this.constraint_referenced_ids == undefined) {
+      this.constraint_referenced_ids = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.constraint_referenced_ids.setGetter(true);
+    this.orderGet++;
+    this.constraint_referenced_ids.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  CarouselImpl.prototype.getConstraint_referenced_ids = function () {
+    if (this.constraint_referenced_ids == null || this.constraint_referenced_ids == undefined) {
+      this.constraint_referenced_ids = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.constraint_referenced_ids.getCommandReturnValue();
+  };
+  CarouselImpl.prototype.setConstraint_referenced_ids = function (value) {
+    this.resetIfRequired();
+    if (this.constraint_referenced_ids == null || this.constraint_referenced_ids == undefined) {
+      this.constraint_referenced_ids = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.constraint_referenced_ids.setSetter(true);
+    this.constraint_referenced_ids.setValue(value);
+    this.orderSet++;
+    this.constraint_referenced_ids.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  CarouselImpl.prototype.jumpToIndex = function (value) {
+    this.resetIfRequired();
+    if (this.jumpToIndex_ == null || this.jumpToIndex_ == undefined) {
+      this.jumpToIndex_ = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.jumpToIndex_.setSetter(true);
+    this.jumpToIndex_.setValue(value);
+    this.orderSet++;
+    this.jumpToIndex_.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  CarouselImpl.prototype.jumpTolast = function () {
+    this.resetIfRequired();
+    if (this.jumpTolast_ == null || this.jumpTolast_ == undefined) {
+      this.jumpTolast_ = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.jumpTolast_.setSetter(true);
+    this.orderSet++;
+    this.jumpTolast_.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  CarouselImpl.prototype.jumpToNext = function () {
+    this.resetIfRequired();
+    if (this.jumpToNext_ == null || this.jumpToNext_ == undefined) {
+      this.jumpToNext_ = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.jumpToNext_.setSetter(true);
+    this.orderSet++;
+    this.jumpToNext_.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  CarouselImpl.prototype.jumpToPrevious = function () {
+    this.resetIfRequired();
+    if (this.jumpToPrevious_ == null || this.jumpToPrevious_ == undefined) {
+      this.jumpToPrevious_ = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.jumpToPrevious_.setSetter(true);
+    this.orderSet++;
+    this.jumpToPrevious_.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  CarouselImpl.prototype.transitionToIndex = function (index, delay) {
+    this.resetIfRequired();
+    if (this.transitionToIndex_ == null || this.transitionToIndex_ == undefined) {
+      this.transitionToIndex_ = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    var wrapper = new CarouselImpl_transitionToIndex();
+    wrapper.index = index;
+    wrapper.delay = delay;
+    this.transitionToIndex_.setSetter(true);
+    this.transitionToIndex_.setValue(wrapper);
+    this.orderSet++;
+    this.transitionToIndex_.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  CarouselImpl.prototype.transitionToLast = function (value) {
+    this.resetIfRequired();
+    if (this.transitionToLast_ == null || this.transitionToLast_ == undefined) {
+      this.transitionToLast_ = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.transitionToLast_.setSetter(true);
+    this.transitionToLast_.setValue(value);
+    this.orderSet++;
+    this.transitionToLast_.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  CarouselImpl.prototype.transitionToNext = function (value) {
+    this.resetIfRequired();
+    if (this.transitionToNext_ == null || this.transitionToNext_ == undefined) {
+      this.transitionToNext_ = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.transitionToNext_.setSetter(true);
+    this.transitionToNext_.setValue(value);
+    this.orderSet++;
+    this.transitionToNext_.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  CarouselImpl.prototype.transitionToPrevious = function (value) {
+    this.resetIfRequired();
+    if (this.transitionToPrevious_ == null || this.transitionToPrevious_ == undefined) {
+      this.transitionToPrevious_ = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.transitionToPrevious_.setSetter(true);
+    this.transitionToPrevious_.setValue(value);
+    this.orderSet++;
+    this.transitionToPrevious_.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  CarouselImpl.prototype.setDataKey = function (value) {
+    this.resetIfRequired();
+    if (this.dataKey == null || this.dataKey == undefined) {
+      this.dataKey = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.dataKey.setSetter(true);
+    this.dataKey.setValue(value);
+    this.orderSet++;
+    this.dataKey.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  CarouselImpl.prototype.setChildDataKey = function (value) {
+    this.resetIfRequired();
+    if (this.childDataKey == null || this.childDataKey == undefined) {
+      this.childDataKey = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.childDataKey.setSetter(true);
+    this.childDataKey.setValue(value);
+    this.orderSet++;
+    this.childDataKey.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  CarouselImpl.prototype.setDataScopeKey = function (value) {
+    this.resetIfRequired();
+    if (this.dataScopeKey == null || this.dataScopeKey == undefined) {
+      this.dataScopeKey = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.dataScopeKey.setSetter(true);
+    this.dataScopeKey.setValue(value);
+    this.orderSet++;
+    this.dataScopeKey.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  CarouselImpl.prototype.setChildDataScopeKey = function (value) {
+    this.resetIfRequired();
+    if (this.childDataScopeKey == null || this.childDataScopeKey == undefined) {
+      this.childDataScopeKey = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.childDataScopeKey.setSetter(true);
+    this.childDataScopeKey.setValue(value);
+    this.orderSet++;
+    this.childDataScopeKey.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  CarouselImpl.prototype.setOnNewItem = function (value) {
+    this.resetIfRequired();
+    if (this.onNewItem == null || this.onNewItem == undefined) {
+      this.onNewItem = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.onNewItem.setSetter(true);
+    this.onNewItem.setValue(value);
+    this.orderSet++;
+    this.onNewItem.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+    name: "carousel_firstView"
+  }), __metadata("design:type", Object)], CarouselImpl.prototype, "carousel_firstView", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+    name: "carousel_previousState"
+  }), __metadata("design:type", Object)], CarouselImpl.prototype, "carousel_previousState", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+    name: "carousel_nextState"
+  }), __metadata("design:type", Object)], CarouselImpl.prototype, "carousel_nextState", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+    name: "carousel_infinite"
+  }), __metadata("design:type", Object)], CarouselImpl.prototype, "carousel_infinite", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+    name: "carousel_forwardTransition"
+  }), __metadata("design:type", Object)], CarouselImpl.prototype, "carousel_forwardTransition", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+    name: "carousel_backwardTransition"
+  }), __metadata("design:type", Object)], CarouselImpl.prototype, "carousel_backwardTransition", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+    name: "carousel_touchUp_dampeningFactor"
+  }), __metadata("design:type", Object)], CarouselImpl.prototype, "carousel_touchUp_dampeningFactor", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+    name: "carousel_touchUpMode"
+  }), __metadata("design:type", Object)], CarouselImpl.prototype, "carousel_touchUpMode", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+    name: "carousel_touchUp_velocityThreshold"
+  }), __metadata("design:type", Object)], CarouselImpl.prototype, "carousel_touchUp_velocityThreshold", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+    name: "carousel_emptyViewsBehavior"
+  }), __metadata("design:type", Object)], CarouselImpl.prototype, "carousel_emptyViewsBehavior", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+    name: "constraint_referenced_ids"
+  }), __metadata("design:type", Object)], CarouselImpl.prototype, "constraint_referenced_ids", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+    name: "jumpToIndex"
+  }), __metadata("design:type", Object)], CarouselImpl.prototype, "jumpToIndex_", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+    name: "jumpTolast"
+  }), __metadata("design:type", Object)], CarouselImpl.prototype, "jumpTolast_", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+    name: "jumpToNext"
+  }), __metadata("design:type", Object)], CarouselImpl.prototype, "jumpToNext_", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+    name: "jumpToPrevious"
+  }), __metadata("design:type", Object)], CarouselImpl.prototype, "jumpToPrevious_", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+    name: "transitionToIndex"
+  }), __metadata("design:type", Object)], CarouselImpl.prototype, "transitionToIndex_", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+    name: "transitionToLast"
+  }), __metadata("design:type", Object)], CarouselImpl.prototype, "transitionToLast_", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+    name: "transitionToNext"
+  }), __metadata("design:type", Object)], CarouselImpl.prototype, "transitionToNext_", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+    name: "transitionToPrevious"
+  }), __metadata("design:type", Object)], CarouselImpl.prototype, "transitionToPrevious_", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+    name: "dataKey"
+  }), __metadata("design:type", Object)], CarouselImpl.prototype, "dataKey", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+    name: "childDataKey"
+  }), __metadata("design:type", Object)], CarouselImpl.prototype, "childDataKey", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+    name: "dataScopeKey"
+  }), __metadata("design:type", Object)], CarouselImpl.prototype, "dataScopeKey", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+    name: "childDataScopeKey"
+  }), __metadata("design:type", Object)], CarouselImpl.prototype, "childDataScopeKey", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+    name: "onNewItem"
+  }), __metadata("design:type", Object)], CarouselImpl.prototype, "onNewItem", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Exclude)(), __metadata("design:type", Object)], CarouselImpl.prototype, "thisPointer", void 0);
+  return CarouselImpl;
+}(_ViewGroupImpl__WEBPACK_IMPORTED_MODULE_3__.ViewGroupImpl);
+
+//start - staticinit
+var Carousel = /** @class */function (_super) {
+  __extends(Carousel, _super);
+  function Carousel(id, path, event) {
+    return _super.call(this, id, path, event) || this;
+  }
+  Carousel.prototype.getThisPointer = function () {
+    return this;
+  };
+  Carousel.prototype.getClass = function () {
+    return Carousel;
+  };
+  return Carousel;
+}(CarouselImpl);
+
+CarouselImpl.initialize();
 //end - staticinit
 
 /***/ }),
@@ -8053,6 +8792,2346 @@ var Snackbar = /** @class */function (_super) {
 }(SnackbarImpl);
 
 SnackbarImpl.initialize();
+//end - staticinit
+
+/***/ }),
+
+/***/ "./src/android/widget/TextViewImpl.ts":
+/*!********************************************!*\
+  !*** ./src/android/widget/TextViewImpl.ts ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   AutoLinkTransformer: () => (/* binding */ AutoLinkTransformer),
+/* harmony export */   TextStyleTransformer: () => (/* binding */ TextStyleTransformer),
+/* harmony export */   TextView: () => (/* binding */ TextView),
+/* harmony export */   TextViewImpl: () => (/* binding */ TextViewImpl)
+/* harmony export */ });
+/* harmony import */ var _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../widget/CommandAttr */ "./src/widget/CommandAttr.ts");
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/type.decorator.js");
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/expose.decorator.js");
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/exclude.decorator.js");
+/* harmony import */ var babel_polyfill__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! babel-polyfill */ "./node_modules/babel-polyfill/lib/index.js");
+/* harmony import */ var babel_polyfill__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(babel_polyfill__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _widget_TransformerFactory__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../widget/TransformerFactory */ "./src/widget/TransformerFactory.ts");
+/* harmony import */ var _ViewImpl__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ViewImpl */ "./src/android/widget/ViewImpl.ts");
+// start - imports
+var __extends = undefined && undefined.__extends || function () {
+  var extendStatics = function (d, b) {
+    extendStatics = Object.setPrototypeOf || {
+      __proto__: []
+    } instanceof Array && function (d, b) {
+      d.__proto__ = b;
+    } || function (d, b) {
+      for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p];
+    };
+    return extendStatics(d, b);
+  };
+  return function (d, b) {
+    if (typeof b !== "function" && b !== null) throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+    extendStatics(d, b);
+    function __() {
+      this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  };
+}();
+var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+  var c = arguments.length,
+    r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+    d;
+  if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+  return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = undefined && undefined.__metadata || function (k, v) {
+  if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var AutoLinkTransformer = /** @class */function () {
+  function AutoLinkTransformer() {}
+  AutoLinkTransformer.prototype.transform = function (value, obj, type) {
+    if (type == 1) {
+      return value.toString().replace(",", "|");
+    } else {
+      var strArray = value.toString().split("|");
+      var valueArr = new Array();
+      for (var i = 0; i < strArray.length; i++) {
+        switch (strArray[i]) {
+          case "all":
+            valueArr.push("all" /* AutoLink.all */);
+            break;
+          case "email":
+            valueArr.push("email" /* AutoLink.email */);
+            break;
+          case "map":
+            valueArr.push("map" /* AutoLink.map */);
+            break;
+          case "none":
+            valueArr.push("none" /* AutoLink.none */);
+            break;
+          case "phone":
+            valueArr.push("phone" /* AutoLink.phone */);
+            break;
+          case "web":
+            valueArr.push("web" /* AutoLink.web */);
+            break;
+        }
+      }
+      return valueArr;
+    }
+  };
+  return AutoLinkTransformer;
+}();
+
+var TextStyleTransformer = /** @class */function () {
+  function TextStyleTransformer() {}
+  TextStyleTransformer.prototype.transform = function (value, obj, type) {
+    if (type == 1) {
+      return value.toString().replace(",", "|");
+    } else {
+      var strArray = value.toString().split("|");
+      var valueArr = new Array();
+      for (var i = 0; i < strArray.length; i++) {
+        switch (strArray[i]) {
+          case "bold":
+            valueArr.push("bold" /* TextStyle.bold */);
+            break;
+          case "italic":
+            valueArr.push("italic" /* TextStyle.italic */);
+            break;
+          case "normal":
+            valueArr.push("normal" /* TextStyle.normal */);
+            break;
+        }
+      }
+      return valueArr;
+    }
+  };
+  return TextStyleTransformer;
+}();
+
+// end - imports
+
+var TextViewImpl = /** @class */function (_super) {
+  __extends(TextViewImpl, _super);
+  function TextViewImpl(id, path, event) {
+    var _this = _super.call(this, id, path, event) || this;
+    _this.thisPointer = _this.getThisPointer();
+    return _this;
+  }
+  //start - body
+  TextViewImpl.initialize = function () {
+    _widget_TransformerFactory__WEBPACK_IMPORTED_MODULE_2__.TransformerFactory.getInstance().register("autoLink", new AutoLinkTransformer());
+    _widget_TransformerFactory__WEBPACK_IMPORTED_MODULE_2__.TransformerFactory.getInstance().register("textStyle", new TextStyleTransformer());
+  };
+  TextViewImpl.prototype.reset = function () {
+    _super.prototype.reset.call(this);
+    this.autoLink = undefined;
+    this.breakStrategy = undefined;
+    this.drawablePadding = undefined;
+    this.elegantTextHeight = undefined;
+    this.ellipsize = undefined;
+    this.ems = undefined;
+    this.fallbackLineSpacing = undefined;
+    this.firstBaselineToTopHeight = undefined;
+    this.fontFeatureSettings = undefined;
+    this.gravity = undefined;
+    this.height = undefined;
+    this.hyphenationFrequency = undefined;
+    this.includeFontPadding = undefined;
+    this.justificationMode = undefined;
+    this.lastBaselineToBottomHeight = undefined;
+    this.letterSpacing = undefined;
+    this.lineHeight = undefined;
+    this.lineSpacingExtra = undefined;
+    this.lineSpacingMultiplier = undefined;
+    this.lines = undefined;
+    this.marqueeRepeatLimit = undefined;
+    this.maxEms = undefined;
+    this.maxHeight = undefined;
+    this.maxLines = undefined;
+    this.maxWidth = undefined;
+    this.minEms = undefined;
+    this.minHeight = undefined;
+    this.minLines = undefined;
+    this.minWidth = undefined;
+    this.scrollHorizontally = undefined;
+    this.shadowColor = undefined;
+    this.shadowDx = undefined;
+    this.shadowDy = undefined;
+    this.shadowRadius = undefined;
+    this.singleLine = undefined;
+    this.textAllCaps = undefined;
+    this.textColor = undefined;
+    this.textColorHighlight = undefined;
+    this.textColorLink = undefined;
+    this.textIsSelectable = undefined;
+    this.textScaleX = undefined;
+    this.width = undefined;
+    this.onafterTextChange = undefined;
+    this.onbeforeTextChange = undefined;
+    this.onTextChange = undefined;
+    this.text = undefined;
+    this.textSize = undefined;
+    this.drawableLeft = undefined;
+    this.drawableStart = undefined;
+    this.drawableRight = undefined;
+    this.drawableEnd = undefined;
+    this.drawableTop = undefined;
+    this.drawableBottom = undefined;
+    this.maxLength = undefined;
+    this.typeface = undefined;
+    this.textStyle = undefined;
+    this.fontFamily = undefined;
+    this.systemTextAppearance = undefined;
+    this.textAppearance = undefined;
+    this.password = undefined;
+    this.enabled = undefined;
+    this.editable = undefined;
+    this.drawableTint = undefined;
+    this.drawableTintMode = undefined;
+    this.autoSizeTextType = undefined;
+    this.autoSizeMaxTextSize = undefined;
+    this.autoSizeMinTextSize = undefined;
+    this.autoSizeStepGranularity = undefined;
+    this.linksClickable = undefined;
+    this.startOrStopMarquee = undefined;
+    this.padding = undefined;
+    this.paddingBottom = undefined;
+    this.paddingRight = undefined;
+    this.paddingLeft = undefined;
+    this.paddingStart = undefined;
+    this.paddingEnd = undefined;
+    this.paddingTop = undefined;
+    this.paddingHorizontal = undefined;
+    this.paddingVertical = undefined;
+    this.autoSizePresetSizes = undefined;
+    this.textFormat = undefined;
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.tryGetAutoLink = function () {
+    this.resetIfRequired();
+    if (this.autoLink == null || this.autoLink == undefined) {
+      this.autoLink = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.autoLink.setGetter(true);
+    this.orderGet++;
+    this.autoLink.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.getAutoLink = function () {
+    if (this.autoLink == null || this.autoLink == undefined) {
+      this.autoLink = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.autoLink.setTransformer('autoLink');
+    return this.autoLink.getCommandReturnValue();
+  };
+  TextViewImpl.prototype.setAutoLink = function () {
+    var value = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+      value[_i] = arguments[_i];
+    }
+    this.resetIfRequired();
+    if (this.autoLink == null || this.autoLink == undefined) {
+      this.autoLink = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.autoLink.setSetter(true);
+    this.autoLink.setValue(value);
+    this.orderSet++;
+    this.autoLink.setOrderSet(this.orderSet);
+    this.autoLink.setTransformer('autoLink');
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.tryGetBreakStrategy = function () {
+    this.resetIfRequired();
+    if (this.breakStrategy == null || this.breakStrategy == undefined) {
+      this.breakStrategy = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.breakStrategy.setGetter(true);
+    this.orderGet++;
+    this.breakStrategy.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.getBreakStrategy = function () {
+    if (this.breakStrategy == null || this.breakStrategy == undefined) {
+      this.breakStrategy = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.breakStrategy.getCommandReturnValue();
+  };
+  TextViewImpl.prototype.setBreakStrategy = function (value) {
+    this.resetIfRequired();
+    if (this.breakStrategy == null || this.breakStrategy == undefined) {
+      this.breakStrategy = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.breakStrategy.setSetter(true);
+    this.breakStrategy.setValue(value);
+    this.orderSet++;
+    this.breakStrategy.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.tryGetDrawablePadding = function () {
+    this.resetIfRequired();
+    if (this.drawablePadding == null || this.drawablePadding == undefined) {
+      this.drawablePadding = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.drawablePadding.setGetter(true);
+    this.orderGet++;
+    this.drawablePadding.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.getDrawablePadding = function () {
+    if (this.drawablePadding == null || this.drawablePadding == undefined) {
+      this.drawablePadding = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.drawablePadding.getCommandReturnValue();
+  };
+  TextViewImpl.prototype.setDrawablePadding = function (value) {
+    this.resetIfRequired();
+    if (this.drawablePadding == null || this.drawablePadding == undefined) {
+      this.drawablePadding = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.drawablePadding.setSetter(true);
+    this.drawablePadding.setValue(value);
+    this.orderSet++;
+    this.drawablePadding.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.tryGetElegantTextHeight = function () {
+    this.resetIfRequired();
+    if (this.elegantTextHeight == null || this.elegantTextHeight == undefined) {
+      this.elegantTextHeight = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.elegantTextHeight.setGetter(true);
+    this.orderGet++;
+    this.elegantTextHeight.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.isElegantTextHeight = function () {
+    if (this.elegantTextHeight == null || this.elegantTextHeight == undefined) {
+      this.elegantTextHeight = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.elegantTextHeight.getCommandReturnValue();
+  };
+  TextViewImpl.prototype.setElegantTextHeight = function (value) {
+    this.resetIfRequired();
+    if (this.elegantTextHeight == null || this.elegantTextHeight == undefined) {
+      this.elegantTextHeight = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.elegantTextHeight.setSetter(true);
+    this.elegantTextHeight.setValue(value);
+    this.orderSet++;
+    this.elegantTextHeight.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.tryGetEllipsize = function () {
+    this.resetIfRequired();
+    if (this.ellipsize == null || this.ellipsize == undefined) {
+      this.ellipsize = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.ellipsize.setGetter(true);
+    this.orderGet++;
+    this.ellipsize.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.getEllipsize = function () {
+    if (this.ellipsize == null || this.ellipsize == undefined) {
+      this.ellipsize = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.ellipsize.getCommandReturnValue();
+  };
+  TextViewImpl.prototype.setEllipsize = function (value) {
+    this.resetIfRequired();
+    if (this.ellipsize == null || this.ellipsize == undefined) {
+      this.ellipsize = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.ellipsize.setSetter(true);
+    this.ellipsize.setValue(value);
+    this.orderSet++;
+    this.ellipsize.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.setEms = function (value) {
+    this.resetIfRequired();
+    if (this.ems == null || this.ems == undefined) {
+      this.ems = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.ems.setSetter(true);
+    this.ems.setValue(value);
+    this.orderSet++;
+    this.ems.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.tryGetFallbackLineSpacing = function () {
+    this.resetIfRequired();
+    if (this.fallbackLineSpacing == null || this.fallbackLineSpacing == undefined) {
+      this.fallbackLineSpacing = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.fallbackLineSpacing.setGetter(true);
+    this.orderGet++;
+    this.fallbackLineSpacing.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.isFallbackLineSpacing = function () {
+    if (this.fallbackLineSpacing == null || this.fallbackLineSpacing == undefined) {
+      this.fallbackLineSpacing = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.fallbackLineSpacing.getCommandReturnValue();
+  };
+  TextViewImpl.prototype.setFallbackLineSpacing = function (value) {
+    this.resetIfRequired();
+    if (this.fallbackLineSpacing == null || this.fallbackLineSpacing == undefined) {
+      this.fallbackLineSpacing = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.fallbackLineSpacing.setSetter(true);
+    this.fallbackLineSpacing.setValue(value);
+    this.orderSet++;
+    this.fallbackLineSpacing.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.tryGetFirstBaselineToTopHeight = function () {
+    this.resetIfRequired();
+    if (this.firstBaselineToTopHeight == null || this.firstBaselineToTopHeight == undefined) {
+      this.firstBaselineToTopHeight = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.firstBaselineToTopHeight.setGetter(true);
+    this.orderGet++;
+    this.firstBaselineToTopHeight.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.getFirstBaselineToTopHeight = function () {
+    if (this.firstBaselineToTopHeight == null || this.firstBaselineToTopHeight == undefined) {
+      this.firstBaselineToTopHeight = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.firstBaselineToTopHeight.getCommandReturnValue();
+  };
+  TextViewImpl.prototype.setFirstBaselineToTopHeight = function (value) {
+    this.resetIfRequired();
+    if (this.firstBaselineToTopHeight == null || this.firstBaselineToTopHeight == undefined) {
+      this.firstBaselineToTopHeight = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.firstBaselineToTopHeight.setSetter(true);
+    this.firstBaselineToTopHeight.setValue(value);
+    this.orderSet++;
+    this.firstBaselineToTopHeight.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.tryGetFontFeatureSettings = function () {
+    this.resetIfRequired();
+    if (this.fontFeatureSettings == null || this.fontFeatureSettings == undefined) {
+      this.fontFeatureSettings = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.fontFeatureSettings.setGetter(true);
+    this.orderGet++;
+    this.fontFeatureSettings.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.getFontFeatureSettings = function () {
+    if (this.fontFeatureSettings == null || this.fontFeatureSettings == undefined) {
+      this.fontFeatureSettings = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.fontFeatureSettings.getCommandReturnValue();
+  };
+  TextViewImpl.prototype.setFontFeatureSettings = function (value) {
+    this.resetIfRequired();
+    if (this.fontFeatureSettings == null || this.fontFeatureSettings == undefined) {
+      this.fontFeatureSettings = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.fontFeatureSettings.setSetter(true);
+    this.fontFeatureSettings.setValue(value);
+    this.orderSet++;
+    this.fontFeatureSettings.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.tryGetGravity = function () {
+    this.resetIfRequired();
+    if (this.gravity == null || this.gravity == undefined) {
+      this.gravity = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.gravity.setGetter(true);
+    this.orderGet++;
+    this.gravity.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.getGravity = function () {
+    if (this.gravity == null || this.gravity == undefined) {
+      this.gravity = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.gravity.setTransformer('gravity');
+    return this.gravity.getCommandReturnValue();
+  };
+  TextViewImpl.prototype.setGravity = function () {
+    var value = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+      value[_i] = arguments[_i];
+    }
+    this.resetIfRequired();
+    if (this.gravity == null || this.gravity == undefined) {
+      this.gravity = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.gravity.setSetter(true);
+    this.gravity.setValue(value);
+    this.orderSet++;
+    this.gravity.setOrderSet(this.orderSet);
+    this.gravity.setTransformer('gravity');
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.tryGetHeight = function () {
+    this.resetIfRequired();
+    if (this.height == null || this.height == undefined) {
+      this.height = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.height.setGetter(true);
+    this.orderGet++;
+    this.height.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.getHeight = function () {
+    if (this.height == null || this.height == undefined) {
+      this.height = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.height.getCommandReturnValue();
+  };
+  TextViewImpl.prototype.setHeight = function (value) {
+    this.resetIfRequired();
+    if (this.height == null || this.height == undefined) {
+      this.height = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.height.setSetter(true);
+    this.height.setValue(value);
+    this.orderSet++;
+    this.height.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.tryGetHyphenationFrequency = function () {
+    this.resetIfRequired();
+    if (this.hyphenationFrequency == null || this.hyphenationFrequency == undefined) {
+      this.hyphenationFrequency = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.hyphenationFrequency.setGetter(true);
+    this.orderGet++;
+    this.hyphenationFrequency.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.getHyphenationFrequency = function () {
+    if (this.hyphenationFrequency == null || this.hyphenationFrequency == undefined) {
+      this.hyphenationFrequency = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.hyphenationFrequency.getCommandReturnValue();
+  };
+  TextViewImpl.prototype.setHyphenationFrequency = function (value) {
+    this.resetIfRequired();
+    if (this.hyphenationFrequency == null || this.hyphenationFrequency == undefined) {
+      this.hyphenationFrequency = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.hyphenationFrequency.setSetter(true);
+    this.hyphenationFrequency.setValue(value);
+    this.orderSet++;
+    this.hyphenationFrequency.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.tryGetIncludeFontPadding = function () {
+    this.resetIfRequired();
+    if (this.includeFontPadding == null || this.includeFontPadding == undefined) {
+      this.includeFontPadding = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.includeFontPadding.setGetter(true);
+    this.orderGet++;
+    this.includeFontPadding.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.isIncludeFontPadding = function () {
+    if (this.includeFontPadding == null || this.includeFontPadding == undefined) {
+      this.includeFontPadding = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.includeFontPadding.getCommandReturnValue();
+  };
+  TextViewImpl.prototype.setIncludeFontPadding = function (value) {
+    this.resetIfRequired();
+    if (this.includeFontPadding == null || this.includeFontPadding == undefined) {
+      this.includeFontPadding = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.includeFontPadding.setSetter(true);
+    this.includeFontPadding.setValue(value);
+    this.orderSet++;
+    this.includeFontPadding.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.tryGetJustificationMode = function () {
+    this.resetIfRequired();
+    if (this.justificationMode == null || this.justificationMode == undefined) {
+      this.justificationMode = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.justificationMode.setGetter(true);
+    this.orderGet++;
+    this.justificationMode.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.getJustificationMode = function () {
+    if (this.justificationMode == null || this.justificationMode == undefined) {
+      this.justificationMode = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.justificationMode.getCommandReturnValue();
+  };
+  TextViewImpl.prototype.setJustificationMode = function (value) {
+    this.resetIfRequired();
+    if (this.justificationMode == null || this.justificationMode == undefined) {
+      this.justificationMode = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.justificationMode.setSetter(true);
+    this.justificationMode.setValue(value);
+    this.orderSet++;
+    this.justificationMode.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.tryGetLastBaselineToBottomHeight = function () {
+    this.resetIfRequired();
+    if (this.lastBaselineToBottomHeight == null || this.lastBaselineToBottomHeight == undefined) {
+      this.lastBaselineToBottomHeight = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.lastBaselineToBottomHeight.setGetter(true);
+    this.orderGet++;
+    this.lastBaselineToBottomHeight.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.getLastBaselineToBottomHeight = function () {
+    if (this.lastBaselineToBottomHeight == null || this.lastBaselineToBottomHeight == undefined) {
+      this.lastBaselineToBottomHeight = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.lastBaselineToBottomHeight.getCommandReturnValue();
+  };
+  TextViewImpl.prototype.setLastBaselineToBottomHeight = function (value) {
+    this.resetIfRequired();
+    if (this.lastBaselineToBottomHeight == null || this.lastBaselineToBottomHeight == undefined) {
+      this.lastBaselineToBottomHeight = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.lastBaselineToBottomHeight.setSetter(true);
+    this.lastBaselineToBottomHeight.setValue(value);
+    this.orderSet++;
+    this.lastBaselineToBottomHeight.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.tryGetLetterSpacing = function () {
+    this.resetIfRequired();
+    if (this.letterSpacing == null || this.letterSpacing == undefined) {
+      this.letterSpacing = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.letterSpacing.setGetter(true);
+    this.orderGet++;
+    this.letterSpacing.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.getLetterSpacing = function () {
+    if (this.letterSpacing == null || this.letterSpacing == undefined) {
+      this.letterSpacing = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.letterSpacing.getCommandReturnValue();
+  };
+  TextViewImpl.prototype.setLetterSpacing = function (value) {
+    this.resetIfRequired();
+    if (this.letterSpacing == null || this.letterSpacing == undefined) {
+      this.letterSpacing = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.letterSpacing.setSetter(true);
+    this.letterSpacing.setValue(value);
+    this.orderSet++;
+    this.letterSpacing.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.tryGetLineHeight = function () {
+    this.resetIfRequired();
+    if (this.lineHeight == null || this.lineHeight == undefined) {
+      this.lineHeight = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.lineHeight.setGetter(true);
+    this.orderGet++;
+    this.lineHeight.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.getLineHeight = function () {
+    if (this.lineHeight == null || this.lineHeight == undefined) {
+      this.lineHeight = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.lineHeight.getCommandReturnValue();
+  };
+  TextViewImpl.prototype.setLineHeight = function (value) {
+    this.resetIfRequired();
+    if (this.lineHeight == null || this.lineHeight == undefined) {
+      this.lineHeight = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.lineHeight.setSetter(true);
+    this.lineHeight.setValue(value);
+    this.orderSet++;
+    this.lineHeight.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.tryGetLineSpacingExtra = function () {
+    this.resetIfRequired();
+    if (this.lineSpacingExtra == null || this.lineSpacingExtra == undefined) {
+      this.lineSpacingExtra = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.lineSpacingExtra.setGetter(true);
+    this.orderGet++;
+    this.lineSpacingExtra.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.getLineSpacingExtra = function () {
+    if (this.lineSpacingExtra == null || this.lineSpacingExtra == undefined) {
+      this.lineSpacingExtra = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.lineSpacingExtra.getCommandReturnValue();
+  };
+  TextViewImpl.prototype.setLineSpacingExtra = function (value) {
+    this.resetIfRequired();
+    if (this.lineSpacingExtra == null || this.lineSpacingExtra == undefined) {
+      this.lineSpacingExtra = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.lineSpacingExtra.setSetter(true);
+    this.lineSpacingExtra.setValue(value);
+    this.orderSet++;
+    this.lineSpacingExtra.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.tryGetLineSpacingMultiplier = function () {
+    this.resetIfRequired();
+    if (this.lineSpacingMultiplier == null || this.lineSpacingMultiplier == undefined) {
+      this.lineSpacingMultiplier = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.lineSpacingMultiplier.setGetter(true);
+    this.orderGet++;
+    this.lineSpacingMultiplier.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.getLineSpacingMultiplier = function () {
+    if (this.lineSpacingMultiplier == null || this.lineSpacingMultiplier == undefined) {
+      this.lineSpacingMultiplier = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.lineSpacingMultiplier.getCommandReturnValue();
+  };
+  TextViewImpl.prototype.setLineSpacingMultiplier = function (value) {
+    this.resetIfRequired();
+    if (this.lineSpacingMultiplier == null || this.lineSpacingMultiplier == undefined) {
+      this.lineSpacingMultiplier = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.lineSpacingMultiplier.setSetter(true);
+    this.lineSpacingMultiplier.setValue(value);
+    this.orderSet++;
+    this.lineSpacingMultiplier.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.setLines = function (value) {
+    this.resetIfRequired();
+    if (this.lines == null || this.lines == undefined) {
+      this.lines = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.lines.setSetter(true);
+    this.lines.setValue(value);
+    this.orderSet++;
+    this.lines.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.tryGetMarqueeRepeatLimit = function () {
+    this.resetIfRequired();
+    if (this.marqueeRepeatLimit == null || this.marqueeRepeatLimit == undefined) {
+      this.marqueeRepeatLimit = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.marqueeRepeatLimit.setGetter(true);
+    this.orderGet++;
+    this.marqueeRepeatLimit.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.getMarqueeRepeatLimit = function () {
+    if (this.marqueeRepeatLimit == null || this.marqueeRepeatLimit == undefined) {
+      this.marqueeRepeatLimit = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.marqueeRepeatLimit.getCommandReturnValue();
+  };
+  TextViewImpl.prototype.setMarqueeRepeatLimit = function (value) {
+    this.resetIfRequired();
+    if (this.marqueeRepeatLimit == null || this.marqueeRepeatLimit == undefined) {
+      this.marqueeRepeatLimit = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.marqueeRepeatLimit.setSetter(true);
+    this.marqueeRepeatLimit.setValue(value);
+    this.orderSet++;
+    this.marqueeRepeatLimit.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.tryGetMaxEms = function () {
+    this.resetIfRequired();
+    if (this.maxEms == null || this.maxEms == undefined) {
+      this.maxEms = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.maxEms.setGetter(true);
+    this.orderGet++;
+    this.maxEms.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.getMaxEms = function () {
+    if (this.maxEms == null || this.maxEms == undefined) {
+      this.maxEms = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.maxEms.getCommandReturnValue();
+  };
+  TextViewImpl.prototype.setMaxEms = function (value) {
+    this.resetIfRequired();
+    if (this.maxEms == null || this.maxEms == undefined) {
+      this.maxEms = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.maxEms.setSetter(true);
+    this.maxEms.setValue(value);
+    this.orderSet++;
+    this.maxEms.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.tryGetMaxHeight = function () {
+    this.resetIfRequired();
+    if (this.maxHeight == null || this.maxHeight == undefined) {
+      this.maxHeight = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.maxHeight.setGetter(true);
+    this.orderGet++;
+    this.maxHeight.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.getMaxHeight = function () {
+    if (this.maxHeight == null || this.maxHeight == undefined) {
+      this.maxHeight = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.maxHeight.getCommandReturnValue();
+  };
+  TextViewImpl.prototype.setMaxHeight = function (value) {
+    this.resetIfRequired();
+    if (this.maxHeight == null || this.maxHeight == undefined) {
+      this.maxHeight = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.maxHeight.setSetter(true);
+    this.maxHeight.setValue(value);
+    this.orderSet++;
+    this.maxHeight.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.tryGetMaxLines = function () {
+    this.resetIfRequired();
+    if (this.maxLines == null || this.maxLines == undefined) {
+      this.maxLines = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.maxLines.setGetter(true);
+    this.orderGet++;
+    this.maxLines.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.getMaxLines = function () {
+    if (this.maxLines == null || this.maxLines == undefined) {
+      this.maxLines = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.maxLines.getCommandReturnValue();
+  };
+  TextViewImpl.prototype.setMaxLines = function (value) {
+    this.resetIfRequired();
+    if (this.maxLines == null || this.maxLines == undefined) {
+      this.maxLines = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.maxLines.setSetter(true);
+    this.maxLines.setValue(value);
+    this.orderSet++;
+    this.maxLines.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.tryGetMaxWidth = function () {
+    this.resetIfRequired();
+    if (this.maxWidth == null || this.maxWidth == undefined) {
+      this.maxWidth = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.maxWidth.setGetter(true);
+    this.orderGet++;
+    this.maxWidth.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.getMaxWidth = function () {
+    if (this.maxWidth == null || this.maxWidth == undefined) {
+      this.maxWidth = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.maxWidth.getCommandReturnValue();
+  };
+  TextViewImpl.prototype.setMaxWidth = function (value) {
+    this.resetIfRequired();
+    if (this.maxWidth == null || this.maxWidth == undefined) {
+      this.maxWidth = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.maxWidth.setSetter(true);
+    this.maxWidth.setValue(value);
+    this.orderSet++;
+    this.maxWidth.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.tryGetMinEms = function () {
+    this.resetIfRequired();
+    if (this.minEms == null || this.minEms == undefined) {
+      this.minEms = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.minEms.setGetter(true);
+    this.orderGet++;
+    this.minEms.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.getMinEms = function () {
+    if (this.minEms == null || this.minEms == undefined) {
+      this.minEms = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.minEms.getCommandReturnValue();
+  };
+  TextViewImpl.prototype.setMinEms = function (value) {
+    this.resetIfRequired();
+    if (this.minEms == null || this.minEms == undefined) {
+      this.minEms = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.minEms.setSetter(true);
+    this.minEms.setValue(value);
+    this.orderSet++;
+    this.minEms.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.tryGetMinHeight = function () {
+    this.resetIfRequired();
+    if (this.minHeight == null || this.minHeight == undefined) {
+      this.minHeight = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.minHeight.setGetter(true);
+    this.orderGet++;
+    this.minHeight.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.getMinHeight = function () {
+    if (this.minHeight == null || this.minHeight == undefined) {
+      this.minHeight = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.minHeight.getCommandReturnValue();
+  };
+  TextViewImpl.prototype.setMinHeight = function (value) {
+    this.resetIfRequired();
+    if (this.minHeight == null || this.minHeight == undefined) {
+      this.minHeight = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.minHeight.setSetter(true);
+    this.minHeight.setValue(value);
+    this.orderSet++;
+    this.minHeight.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.tryGetMinLines = function () {
+    this.resetIfRequired();
+    if (this.minLines == null || this.minLines == undefined) {
+      this.minLines = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.minLines.setGetter(true);
+    this.orderGet++;
+    this.minLines.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.getMinLines = function () {
+    if (this.minLines == null || this.minLines == undefined) {
+      this.minLines = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.minLines.getCommandReturnValue();
+  };
+  TextViewImpl.prototype.setMinLines = function (value) {
+    this.resetIfRequired();
+    if (this.minLines == null || this.minLines == undefined) {
+      this.minLines = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.minLines.setSetter(true);
+    this.minLines.setValue(value);
+    this.orderSet++;
+    this.minLines.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.tryGetMinWidth = function () {
+    this.resetIfRequired();
+    if (this.minWidth == null || this.minWidth == undefined) {
+      this.minWidth = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.minWidth.setGetter(true);
+    this.orderGet++;
+    this.minWidth.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.getMinWidth = function () {
+    if (this.minWidth == null || this.minWidth == undefined) {
+      this.minWidth = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.minWidth.getCommandReturnValue();
+  };
+  TextViewImpl.prototype.setMinWidth = function (value) {
+    this.resetIfRequired();
+    if (this.minWidth == null || this.minWidth == undefined) {
+      this.minWidth = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.minWidth.setSetter(true);
+    this.minWidth.setValue(value);
+    this.orderSet++;
+    this.minWidth.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.setScrollHorizontally = function (value) {
+    this.resetIfRequired();
+    if (this.scrollHorizontally == null || this.scrollHorizontally == undefined) {
+      this.scrollHorizontally = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.scrollHorizontally.setSetter(true);
+    this.scrollHorizontally.setValue(value);
+    this.orderSet++;
+    this.scrollHorizontally.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.tryGetShadowColor = function () {
+    this.resetIfRequired();
+    if (this.shadowColor == null || this.shadowColor == undefined) {
+      this.shadowColor = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.shadowColor.setGetter(true);
+    this.orderGet++;
+    this.shadowColor.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.getShadowColor = function () {
+    if (this.shadowColor == null || this.shadowColor == undefined) {
+      this.shadowColor = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.shadowColor.getCommandReturnValue();
+  };
+  TextViewImpl.prototype.setShadowColor = function (value) {
+    this.resetIfRequired();
+    if (this.shadowColor == null || this.shadowColor == undefined) {
+      this.shadowColor = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.shadowColor.setSetter(true);
+    this.shadowColor.setValue(value);
+    this.orderSet++;
+    this.shadowColor.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.tryGetShadowDx = function () {
+    this.resetIfRequired();
+    if (this.shadowDx == null || this.shadowDx == undefined) {
+      this.shadowDx = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.shadowDx.setGetter(true);
+    this.orderGet++;
+    this.shadowDx.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.getShadowDx = function () {
+    if (this.shadowDx == null || this.shadowDx == undefined) {
+      this.shadowDx = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.shadowDx.getCommandReturnValue();
+  };
+  TextViewImpl.prototype.setShadowDx = function (value) {
+    this.resetIfRequired();
+    if (this.shadowDx == null || this.shadowDx == undefined) {
+      this.shadowDx = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.shadowDx.setSetter(true);
+    this.shadowDx.setValue(value);
+    this.orderSet++;
+    this.shadowDx.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.tryGetShadowDy = function () {
+    this.resetIfRequired();
+    if (this.shadowDy == null || this.shadowDy == undefined) {
+      this.shadowDy = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.shadowDy.setGetter(true);
+    this.orderGet++;
+    this.shadowDy.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.getShadowDy = function () {
+    if (this.shadowDy == null || this.shadowDy == undefined) {
+      this.shadowDy = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.shadowDy.getCommandReturnValue();
+  };
+  TextViewImpl.prototype.setShadowDy = function (value) {
+    this.resetIfRequired();
+    if (this.shadowDy == null || this.shadowDy == undefined) {
+      this.shadowDy = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.shadowDy.setSetter(true);
+    this.shadowDy.setValue(value);
+    this.orderSet++;
+    this.shadowDy.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.tryGetShadowRadius = function () {
+    this.resetIfRequired();
+    if (this.shadowRadius == null || this.shadowRadius == undefined) {
+      this.shadowRadius = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.shadowRadius.setGetter(true);
+    this.orderGet++;
+    this.shadowRadius.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.getShadowRadius = function () {
+    if (this.shadowRadius == null || this.shadowRadius == undefined) {
+      this.shadowRadius = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.shadowRadius.getCommandReturnValue();
+  };
+  TextViewImpl.prototype.setShadowRadius = function (value) {
+    this.resetIfRequired();
+    if (this.shadowRadius == null || this.shadowRadius == undefined) {
+      this.shadowRadius = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.shadowRadius.setSetter(true);
+    this.shadowRadius.setValue(value);
+    this.orderSet++;
+    this.shadowRadius.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.setSingleLine = function (value) {
+    this.resetIfRequired();
+    if (this.singleLine == null || this.singleLine == undefined) {
+      this.singleLine = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.singleLine.setSetter(true);
+    this.singleLine.setValue(value);
+    this.orderSet++;
+    this.singleLine.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.tryGetTextAllCaps = function () {
+    this.resetIfRequired();
+    if (this.textAllCaps == null || this.textAllCaps == undefined) {
+      this.textAllCaps = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.textAllCaps.setGetter(true);
+    this.orderGet++;
+    this.textAllCaps.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.isTextAllCaps = function () {
+    if (this.textAllCaps == null || this.textAllCaps == undefined) {
+      this.textAllCaps = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.textAllCaps.getCommandReturnValue();
+  };
+  TextViewImpl.prototype.setTextAllCaps = function (value) {
+    this.resetIfRequired();
+    if (this.textAllCaps == null || this.textAllCaps == undefined) {
+      this.textAllCaps = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.textAllCaps.setSetter(true);
+    this.textAllCaps.setValue(value);
+    this.orderSet++;
+    this.textAllCaps.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.tryGetTextColor = function () {
+    this.resetIfRequired();
+    if (this.textColor == null || this.textColor == undefined) {
+      this.textColor = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.textColor.setGetter(true);
+    this.orderGet++;
+    this.textColor.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.getTextColor = function () {
+    if (this.textColor == null || this.textColor == undefined) {
+      this.textColor = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.textColor.getCommandReturnValue();
+  };
+  TextViewImpl.prototype.setTextColor = function (value) {
+    this.resetIfRequired();
+    if (this.textColor == null || this.textColor == undefined) {
+      this.textColor = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.textColor.setSetter(true);
+    this.textColor.setValue(value);
+    this.orderSet++;
+    this.textColor.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.tryGetTextColorHighlight = function () {
+    this.resetIfRequired();
+    if (this.textColorHighlight == null || this.textColorHighlight == undefined) {
+      this.textColorHighlight = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.textColorHighlight.setGetter(true);
+    this.orderGet++;
+    this.textColorHighlight.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.getTextColorHighlight = function () {
+    if (this.textColorHighlight == null || this.textColorHighlight == undefined) {
+      this.textColorHighlight = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.textColorHighlight.getCommandReturnValue();
+  };
+  TextViewImpl.prototype.setTextColorHighlight = function (value) {
+    this.resetIfRequired();
+    if (this.textColorHighlight == null || this.textColorHighlight == undefined) {
+      this.textColorHighlight = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.textColorHighlight.setSetter(true);
+    this.textColorHighlight.setValue(value);
+    this.orderSet++;
+    this.textColorHighlight.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.setTextColorLink = function (value) {
+    this.resetIfRequired();
+    if (this.textColorLink == null || this.textColorLink == undefined) {
+      this.textColorLink = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.textColorLink.setSetter(true);
+    this.textColorLink.setValue(value);
+    this.orderSet++;
+    this.textColorLink.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.tryGetTextIsSelectable = function () {
+    this.resetIfRequired();
+    if (this.textIsSelectable == null || this.textIsSelectable == undefined) {
+      this.textIsSelectable = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.textIsSelectable.setGetter(true);
+    this.orderGet++;
+    this.textIsSelectable.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.isTextIsSelectable = function () {
+    if (this.textIsSelectable == null || this.textIsSelectable == undefined) {
+      this.textIsSelectable = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.textIsSelectable.getCommandReturnValue();
+  };
+  TextViewImpl.prototype.setTextIsSelectable = function (value) {
+    this.resetIfRequired();
+    if (this.textIsSelectable == null || this.textIsSelectable == undefined) {
+      this.textIsSelectable = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.textIsSelectable.setSetter(true);
+    this.textIsSelectable.setValue(value);
+    this.orderSet++;
+    this.textIsSelectable.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.tryGetTextScaleX = function () {
+    this.resetIfRequired();
+    if (this.textScaleX == null || this.textScaleX == undefined) {
+      this.textScaleX = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.textScaleX.setGetter(true);
+    this.orderGet++;
+    this.textScaleX.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.getTextScaleX = function () {
+    if (this.textScaleX == null || this.textScaleX == undefined) {
+      this.textScaleX = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.textScaleX.getCommandReturnValue();
+  };
+  TextViewImpl.prototype.setTextScaleX = function (value) {
+    this.resetIfRequired();
+    if (this.textScaleX == null || this.textScaleX == undefined) {
+      this.textScaleX = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.textScaleX.setSetter(true);
+    this.textScaleX.setValue(value);
+    this.orderSet++;
+    this.textScaleX.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.tryGetWidth = function () {
+    this.resetIfRequired();
+    if (this.width == null || this.width == undefined) {
+      this.width = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.width.setGetter(true);
+    this.orderGet++;
+    this.width.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.getWidth = function () {
+    if (this.width == null || this.width == undefined) {
+      this.width = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.width.getCommandReturnValue();
+  };
+  TextViewImpl.prototype.setWidth = function (value) {
+    this.resetIfRequired();
+    if (this.width == null || this.width == undefined) {
+      this.width = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.width.setSetter(true);
+    this.width.setValue(value);
+    this.orderSet++;
+    this.width.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.setOnafterTextChange = function (value) {
+    this.resetIfRequired();
+    if (this.onafterTextChange == null || this.onafterTextChange == undefined) {
+      this.onafterTextChange = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.onafterTextChange.setSetter(true);
+    this.onafterTextChange.setValue(value);
+    this.orderSet++;
+    this.onafterTextChange.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.setOnbeforeTextChange = function (value) {
+    this.resetIfRequired();
+    if (this.onbeforeTextChange == null || this.onbeforeTextChange == undefined) {
+      this.onbeforeTextChange = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.onbeforeTextChange.setSetter(true);
+    this.onbeforeTextChange.setValue(value);
+    this.orderSet++;
+    this.onbeforeTextChange.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.setOnTextChange = function (value) {
+    this.resetIfRequired();
+    if (this.onTextChange == null || this.onTextChange == undefined) {
+      this.onTextChange = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.onTextChange.setSetter(true);
+    this.onTextChange.setValue(value);
+    this.orderSet++;
+    this.onTextChange.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.tryGetText = function () {
+    this.resetIfRequired();
+    if (this.text == null || this.text == undefined) {
+      this.text = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.text.setGetter(true);
+    this.orderGet++;
+    this.text.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.getText = function () {
+    if (this.text == null || this.text == undefined) {
+      this.text = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.text.getCommandReturnValue();
+  };
+  TextViewImpl.prototype.setText = function (value) {
+    this.resetIfRequired();
+    if (this.text == null || this.text == undefined) {
+      this.text = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.text.setSetter(true);
+    this.text.setValue(value);
+    this.orderSet++;
+    this.text.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.tryGetTextSize = function () {
+    this.resetIfRequired();
+    if (this.textSize == null || this.textSize == undefined) {
+      this.textSize = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.textSize.setGetter(true);
+    this.orderGet++;
+    this.textSize.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.getTextSize = function () {
+    if (this.textSize == null || this.textSize == undefined) {
+      this.textSize = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.textSize.getCommandReturnValue();
+  };
+  TextViewImpl.prototype.setTextSize = function (value) {
+    this.resetIfRequired();
+    if (this.textSize == null || this.textSize == undefined) {
+      this.textSize = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.textSize.setSetter(true);
+    this.textSize.setValue(value);
+    this.orderSet++;
+    this.textSize.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.setDrawableLeft = function (value) {
+    this.resetIfRequired();
+    if (this.drawableLeft == null || this.drawableLeft == undefined) {
+      this.drawableLeft = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.drawableLeft.setSetter(true);
+    this.drawableLeft.setValue(value);
+    this.orderSet++;
+    this.drawableLeft.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.setDrawableStart = function (value) {
+    this.resetIfRequired();
+    if (this.drawableStart == null || this.drawableStart == undefined) {
+      this.drawableStart = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.drawableStart.setSetter(true);
+    this.drawableStart.setValue(value);
+    this.orderSet++;
+    this.drawableStart.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.setDrawableRight = function (value) {
+    this.resetIfRequired();
+    if (this.drawableRight == null || this.drawableRight == undefined) {
+      this.drawableRight = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.drawableRight.setSetter(true);
+    this.drawableRight.setValue(value);
+    this.orderSet++;
+    this.drawableRight.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.setDrawableEnd = function (value) {
+    this.resetIfRequired();
+    if (this.drawableEnd == null || this.drawableEnd == undefined) {
+      this.drawableEnd = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.drawableEnd.setSetter(true);
+    this.drawableEnd.setValue(value);
+    this.orderSet++;
+    this.drawableEnd.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.setDrawableTop = function (value) {
+    this.resetIfRequired();
+    if (this.drawableTop == null || this.drawableTop == undefined) {
+      this.drawableTop = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.drawableTop.setSetter(true);
+    this.drawableTop.setValue(value);
+    this.orderSet++;
+    this.drawableTop.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.setDrawableBottom = function (value) {
+    this.resetIfRequired();
+    if (this.drawableBottom == null || this.drawableBottom == undefined) {
+      this.drawableBottom = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.drawableBottom.setSetter(true);
+    this.drawableBottom.setValue(value);
+    this.orderSet++;
+    this.drawableBottom.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.setMaxLength = function (value) {
+    this.resetIfRequired();
+    if (this.maxLength == null || this.maxLength == undefined) {
+      this.maxLength = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.maxLength.setSetter(true);
+    this.maxLength.setValue(value);
+    this.orderSet++;
+    this.maxLength.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.setTypeface = function (value) {
+    this.resetIfRequired();
+    if (this.typeface == null || this.typeface == undefined) {
+      this.typeface = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.typeface.setSetter(true);
+    this.typeface.setValue(value);
+    this.orderSet++;
+    this.typeface.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.setTextStyle = function () {
+    var value = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+      value[_i] = arguments[_i];
+    }
+    this.resetIfRequired();
+    if (this.textStyle == null || this.textStyle == undefined) {
+      this.textStyle = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.textStyle.setSetter(true);
+    this.textStyle.setValue(value);
+    this.orderSet++;
+    this.textStyle.setOrderSet(this.orderSet);
+    this.textStyle.setTransformer('textStyle');
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.setFontFamily = function (value) {
+    this.resetIfRequired();
+    if (this.fontFamily == null || this.fontFamily == undefined) {
+      this.fontFamily = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.fontFamily.setSetter(true);
+    this.fontFamily.setValue(value);
+    this.orderSet++;
+    this.fontFamily.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.setSystemTextAppearance = function (value) {
+    this.resetIfRequired();
+    if (this.systemTextAppearance == null || this.systemTextAppearance == undefined) {
+      this.systemTextAppearance = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.systemTextAppearance.setSetter(true);
+    this.systemTextAppearance.setValue(value);
+    this.orderSet++;
+    this.systemTextAppearance.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.setTextAppearance = function (value) {
+    this.resetIfRequired();
+    if (this.textAppearance == null || this.textAppearance == undefined) {
+      this.textAppearance = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.textAppearance.setSetter(true);
+    this.textAppearance.setValue(value);
+    this.orderSet++;
+    this.textAppearance.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.setPassword = function (value) {
+    this.resetIfRequired();
+    if (this.password == null || this.password == undefined) {
+      this.password = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.password.setSetter(true);
+    this.password.setValue(value);
+    this.orderSet++;
+    this.password.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.setEnabled = function (value) {
+    this.resetIfRequired();
+    if (this.enabled == null || this.enabled == undefined) {
+      this.enabled = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.enabled.setSetter(true);
+    this.enabled.setValue(value);
+    this.orderSet++;
+    this.enabled.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.setEditable = function (value) {
+    this.resetIfRequired();
+    if (this.editable == null || this.editable == undefined) {
+      this.editable = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.editable.setSetter(true);
+    this.editable.setValue(value);
+    this.orderSet++;
+    this.editable.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.setDrawableTint = function (value) {
+    this.resetIfRequired();
+    if (this.drawableTint == null || this.drawableTint == undefined) {
+      this.drawableTint = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.drawableTint.setSetter(true);
+    this.drawableTint.setValue(value);
+    this.orderSet++;
+    this.drawableTint.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.setDrawableTintMode = function (value) {
+    this.resetIfRequired();
+    if (this.drawableTintMode == null || this.drawableTintMode == undefined) {
+      this.drawableTintMode = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.drawableTintMode.setSetter(true);
+    this.drawableTintMode.setValue(value);
+    this.orderSet++;
+    this.drawableTintMode.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.tryGetAutoSizeTextType = function () {
+    this.resetIfRequired();
+    if (this.autoSizeTextType == null || this.autoSizeTextType == undefined) {
+      this.autoSizeTextType = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.autoSizeTextType.setGetter(true);
+    this.orderGet++;
+    this.autoSizeTextType.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.getAutoSizeTextType = function () {
+    if (this.autoSizeTextType == null || this.autoSizeTextType == undefined) {
+      this.autoSizeTextType = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.autoSizeTextType.getCommandReturnValue();
+  };
+  TextViewImpl.prototype.setAutoSizeTextType = function (value) {
+    this.resetIfRequired();
+    if (this.autoSizeTextType == null || this.autoSizeTextType == undefined) {
+      this.autoSizeTextType = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.autoSizeTextType.setSetter(true);
+    this.autoSizeTextType.setValue(value);
+    this.orderSet++;
+    this.autoSizeTextType.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.tryGetAutoSizeMaxTextSize = function () {
+    this.resetIfRequired();
+    if (this.autoSizeMaxTextSize == null || this.autoSizeMaxTextSize == undefined) {
+      this.autoSizeMaxTextSize = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.autoSizeMaxTextSize.setGetter(true);
+    this.orderGet++;
+    this.autoSizeMaxTextSize.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.getAutoSizeMaxTextSize = function () {
+    if (this.autoSizeMaxTextSize == null || this.autoSizeMaxTextSize == undefined) {
+      this.autoSizeMaxTextSize = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.autoSizeMaxTextSize.getCommandReturnValue();
+  };
+  TextViewImpl.prototype.setAutoSizeMaxTextSize = function (value) {
+    this.resetIfRequired();
+    if (this.autoSizeMaxTextSize == null || this.autoSizeMaxTextSize == undefined) {
+      this.autoSizeMaxTextSize = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.autoSizeMaxTextSize.setSetter(true);
+    this.autoSizeMaxTextSize.setValue(value);
+    this.orderSet++;
+    this.autoSizeMaxTextSize.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.tryGetAutoSizeMinTextSize = function () {
+    this.resetIfRequired();
+    if (this.autoSizeMinTextSize == null || this.autoSizeMinTextSize == undefined) {
+      this.autoSizeMinTextSize = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.autoSizeMinTextSize.setGetter(true);
+    this.orderGet++;
+    this.autoSizeMinTextSize.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.getAutoSizeMinTextSize = function () {
+    if (this.autoSizeMinTextSize == null || this.autoSizeMinTextSize == undefined) {
+      this.autoSizeMinTextSize = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.autoSizeMinTextSize.getCommandReturnValue();
+  };
+  TextViewImpl.prototype.setAutoSizeMinTextSize = function (value) {
+    this.resetIfRequired();
+    if (this.autoSizeMinTextSize == null || this.autoSizeMinTextSize == undefined) {
+      this.autoSizeMinTextSize = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.autoSizeMinTextSize.setSetter(true);
+    this.autoSizeMinTextSize.setValue(value);
+    this.orderSet++;
+    this.autoSizeMinTextSize.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.tryGetAutoSizeStepGranularity = function () {
+    this.resetIfRequired();
+    if (this.autoSizeStepGranularity == null || this.autoSizeStepGranularity == undefined) {
+      this.autoSizeStepGranularity = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.autoSizeStepGranularity.setGetter(true);
+    this.orderGet++;
+    this.autoSizeStepGranularity.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.getAutoSizeStepGranularity = function () {
+    if (this.autoSizeStepGranularity == null || this.autoSizeStepGranularity == undefined) {
+      this.autoSizeStepGranularity = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.autoSizeStepGranularity.getCommandReturnValue();
+  };
+  TextViewImpl.prototype.setAutoSizeStepGranularity = function (value) {
+    this.resetIfRequired();
+    if (this.autoSizeStepGranularity == null || this.autoSizeStepGranularity == undefined) {
+      this.autoSizeStepGranularity = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.autoSizeStepGranularity.setSetter(true);
+    this.autoSizeStepGranularity.setValue(value);
+    this.orderSet++;
+    this.autoSizeStepGranularity.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.setLinksClickable = function (value) {
+    this.resetIfRequired();
+    if (this.linksClickable == null || this.linksClickable == undefined) {
+      this.linksClickable = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.linksClickable.setSetter(true);
+    this.linksClickable.setValue(value);
+    this.orderSet++;
+    this.linksClickable.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.setStartOrStopMarquee = function (value) {
+    this.resetIfRequired();
+    if (this.startOrStopMarquee == null || this.startOrStopMarquee == undefined) {
+      this.startOrStopMarquee = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.startOrStopMarquee.setSetter(true);
+    this.startOrStopMarquee.setValue(value);
+    this.orderSet++;
+    this.startOrStopMarquee.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.setPadding = function (value) {
+    this.resetIfRequired();
+    if (this.padding == null || this.padding == undefined) {
+      this.padding = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.padding.setSetter(true);
+    this.padding.setValue(value);
+    this.orderSet++;
+    this.padding.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.tryGetPaddingBottom = function () {
+    this.resetIfRequired();
+    if (this.paddingBottom == null || this.paddingBottom == undefined) {
+      this.paddingBottom = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.paddingBottom.setGetter(true);
+    this.orderGet++;
+    this.paddingBottom.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.getPaddingBottom = function () {
+    if (this.paddingBottom == null || this.paddingBottom == undefined) {
+      this.paddingBottom = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.paddingBottom.getCommandReturnValue();
+  };
+  TextViewImpl.prototype.setPaddingBottom = function (value) {
+    this.resetIfRequired();
+    if (this.paddingBottom == null || this.paddingBottom == undefined) {
+      this.paddingBottom = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.paddingBottom.setSetter(true);
+    this.paddingBottom.setValue(value);
+    this.orderSet++;
+    this.paddingBottom.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.tryGetPaddingRight = function () {
+    this.resetIfRequired();
+    if (this.paddingRight == null || this.paddingRight == undefined) {
+      this.paddingRight = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.paddingRight.setGetter(true);
+    this.orderGet++;
+    this.paddingRight.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.getPaddingRight = function () {
+    if (this.paddingRight == null || this.paddingRight == undefined) {
+      this.paddingRight = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.paddingRight.getCommandReturnValue();
+  };
+  TextViewImpl.prototype.setPaddingRight = function (value) {
+    this.resetIfRequired();
+    if (this.paddingRight == null || this.paddingRight == undefined) {
+      this.paddingRight = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.paddingRight.setSetter(true);
+    this.paddingRight.setValue(value);
+    this.orderSet++;
+    this.paddingRight.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.tryGetPaddingLeft = function () {
+    this.resetIfRequired();
+    if (this.paddingLeft == null || this.paddingLeft == undefined) {
+      this.paddingLeft = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.paddingLeft.setGetter(true);
+    this.orderGet++;
+    this.paddingLeft.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.getPaddingLeft = function () {
+    if (this.paddingLeft == null || this.paddingLeft == undefined) {
+      this.paddingLeft = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.paddingLeft.getCommandReturnValue();
+  };
+  TextViewImpl.prototype.setPaddingLeft = function (value) {
+    this.resetIfRequired();
+    if (this.paddingLeft == null || this.paddingLeft == undefined) {
+      this.paddingLeft = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.paddingLeft.setSetter(true);
+    this.paddingLeft.setValue(value);
+    this.orderSet++;
+    this.paddingLeft.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.tryGetPaddingStart = function () {
+    this.resetIfRequired();
+    if (this.paddingStart == null || this.paddingStart == undefined) {
+      this.paddingStart = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.paddingStart.setGetter(true);
+    this.orderGet++;
+    this.paddingStart.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.getPaddingStart = function () {
+    if (this.paddingStart == null || this.paddingStart == undefined) {
+      this.paddingStart = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.paddingStart.getCommandReturnValue();
+  };
+  TextViewImpl.prototype.setPaddingStart = function (value) {
+    this.resetIfRequired();
+    if (this.paddingStart == null || this.paddingStart == undefined) {
+      this.paddingStart = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.paddingStart.setSetter(true);
+    this.paddingStart.setValue(value);
+    this.orderSet++;
+    this.paddingStart.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.tryGetPaddingEnd = function () {
+    this.resetIfRequired();
+    if (this.paddingEnd == null || this.paddingEnd == undefined) {
+      this.paddingEnd = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.paddingEnd.setGetter(true);
+    this.orderGet++;
+    this.paddingEnd.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.getPaddingEnd = function () {
+    if (this.paddingEnd == null || this.paddingEnd == undefined) {
+      this.paddingEnd = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.paddingEnd.getCommandReturnValue();
+  };
+  TextViewImpl.prototype.setPaddingEnd = function (value) {
+    this.resetIfRequired();
+    if (this.paddingEnd == null || this.paddingEnd == undefined) {
+      this.paddingEnd = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.paddingEnd.setSetter(true);
+    this.paddingEnd.setValue(value);
+    this.orderSet++;
+    this.paddingEnd.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.tryGetPaddingTop = function () {
+    this.resetIfRequired();
+    if (this.paddingTop == null || this.paddingTop == undefined) {
+      this.paddingTop = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.paddingTop.setGetter(true);
+    this.orderGet++;
+    this.paddingTop.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.getPaddingTop = function () {
+    if (this.paddingTop == null || this.paddingTop == undefined) {
+      this.paddingTop = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.paddingTop.getCommandReturnValue();
+  };
+  TextViewImpl.prototype.setPaddingTop = function (value) {
+    this.resetIfRequired();
+    if (this.paddingTop == null || this.paddingTop == undefined) {
+      this.paddingTop = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.paddingTop.setSetter(true);
+    this.paddingTop.setValue(value);
+    this.orderSet++;
+    this.paddingTop.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.setPaddingHorizontal = function (value) {
+    this.resetIfRequired();
+    if (this.paddingHorizontal == null || this.paddingHorizontal == undefined) {
+      this.paddingHorizontal = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.paddingHorizontal.setSetter(true);
+    this.paddingHorizontal.setValue(value);
+    this.orderSet++;
+    this.paddingHorizontal.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.setPaddingVertical = function (value) {
+    this.resetIfRequired();
+    if (this.paddingVertical == null || this.paddingVertical == undefined) {
+      this.paddingVertical = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.paddingVertical.setSetter(true);
+    this.paddingVertical.setValue(value);
+    this.orderSet++;
+    this.paddingVertical.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.setAutoSizePresetSizes = function (value) {
+    this.resetIfRequired();
+    if (this.autoSizePresetSizes == null || this.autoSizePresetSizes == undefined) {
+      this.autoSizePresetSizes = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.autoSizePresetSizes.setSetter(true);
+    this.autoSizePresetSizes.setValue(value);
+    this.orderSet++;
+    this.autoSizePresetSizes.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  TextViewImpl.prototype.setTextFormat = function (value) {
+    this.resetIfRequired();
+    if (this.textFormat == null || this.textFormat == undefined) {
+      this.textFormat = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.textFormat.setSetter(true);
+    this.textFormat.setValue(value);
+    this.orderSet++;
+    this.textFormat.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "autoLink"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "autoLink", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "breakStrategy"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "breakStrategy", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "drawablePadding"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "drawablePadding", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "elegantTextHeight"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "elegantTextHeight", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "ellipsize"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "ellipsize", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "ems"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "ems", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "fallbackLineSpacing"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "fallbackLineSpacing", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "firstBaselineToTopHeight"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "firstBaselineToTopHeight", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "fontFeatureSettings"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "fontFeatureSettings", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "gravity"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "gravity", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "height"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "height", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "hyphenationFrequency"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "hyphenationFrequency", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "includeFontPadding"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "includeFontPadding", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "justificationMode"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "justificationMode", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "lastBaselineToBottomHeight"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "lastBaselineToBottomHeight", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "letterSpacing"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "letterSpacing", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "lineHeight"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "lineHeight", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "lineSpacingExtra"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "lineSpacingExtra", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "lineSpacingMultiplier"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "lineSpacingMultiplier", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "lines"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "lines", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "marqueeRepeatLimit"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "marqueeRepeatLimit", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "maxEms"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "maxEms", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "maxHeight"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "maxHeight", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "maxLines"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "maxLines", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "maxWidth"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "maxWidth", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "minEms"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "minEms", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "minHeight"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "minHeight", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "minLines"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "minLines", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "minWidth"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "minWidth", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "scrollHorizontally"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "scrollHorizontally", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "shadowColor"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "shadowColor", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "shadowDx"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "shadowDx", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "shadowDy"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "shadowDy", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "shadowRadius"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "shadowRadius", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "singleLine"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "singleLine", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "textAllCaps"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "textAllCaps", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "textColor"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "textColor", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "textColorHighlight"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "textColorHighlight", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "textColorLink"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "textColorLink", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "textIsSelectable"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "textIsSelectable", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "textScaleX"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "textScaleX", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "width"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "width", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "onafterTextChange"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "onafterTextChange", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "onbeforeTextChange"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "onbeforeTextChange", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "onTextChange"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "onTextChange", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "text"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "text", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "textSize"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "textSize", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "drawableLeft"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "drawableLeft", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "drawableStart"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "drawableStart", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "drawableRight"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "drawableRight", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "drawableEnd"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "drawableEnd", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "drawableTop"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "drawableTop", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "drawableBottom"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "drawableBottom", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "maxLength"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "maxLength", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "typeface"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "typeface", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "textStyle"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "textStyle", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "fontFamily"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "fontFamily", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "systemTextAppearance"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "systemTextAppearance", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "textAppearance"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "textAppearance", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "password"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "password", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "enabled"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "enabled", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "editable"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "editable", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "drawableTint"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "drawableTint", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "drawableTintMode"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "drawableTintMode", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "autoSizeTextType"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "autoSizeTextType", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "autoSizeMaxTextSize"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "autoSizeMaxTextSize", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "autoSizeMinTextSize"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "autoSizeMinTextSize", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "autoSizeStepGranularity"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "autoSizeStepGranularity", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "linksClickable"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "linksClickable", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "startOrStopMarquee"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "startOrStopMarquee", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "padding"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "padding", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "paddingBottom"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "paddingBottom", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "paddingRight"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "paddingRight", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "paddingLeft"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "paddingLeft", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "paddingStart"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "paddingStart", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "paddingEnd"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "paddingEnd", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "paddingTop"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "paddingTop", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "paddingHorizontal"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "paddingHorizontal", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "paddingVertical"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "paddingVertical", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "autoSizePresetSizes"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "autoSizePresetSizes", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "textFormat"
+  }), __metadata("design:type", Object)], TextViewImpl.prototype, "textFormat", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Exclude)(), __metadata("design:type", Object)], TextViewImpl.prototype, "thisPointer", void 0);
+  return TextViewImpl;
+}(_ViewImpl__WEBPACK_IMPORTED_MODULE_3__.ViewImpl);
+
+//start - staticinit
+var TextView = /** @class */function (_super) {
+  __extends(TextView, _super);
+  function TextView(id, path, event) {
+    return _super.call(this, id, path, event) || this;
+  }
+  TextView.prototype.getThisPointer = function () {
+    return this;
+  };
+  TextView.prototype.getClass = function () {
+    return TextView;
+  };
+  return TextView;
+}(TextViewImpl);
+
+TextViewImpl.initialize();
 //end - staticinit
 
 /***/ }),
@@ -13267,7 +16346,6 @@ var Fragment = /** @class */function () {
         });
       });
     };
-
     this.startActivity = function (fileName, varExpression, data) {
       return __awaiter(_this, void 0, void 0, function () {
         var result;
@@ -15532,7 +18610,6 @@ module.exports = function (TYPE, $create) {
         } else if (IS_EVERY) return false; // every
       }
     }
-
     return IS_FIND_INDEX ? -1 : IS_SOME || IS_EVERY ? IS_EVERY : result;
   };
 };
@@ -15815,7 +18892,6 @@ module.exports = {
         // <- next entry
         r: false // <- removed
       };
-
       if (!that._f) that._f = entry;
       if (prev) prev.n = entry;
       that[SIZE]++;
@@ -17122,7 +20198,6 @@ var setMeta = function (it) {
     }
   });
 };
-
 var fastKey = function (it, create) {
   // return primitive with prefix
   if (!isObject(it)) return typeof it == 'symbol' ? it : (typeof it == 'string' ? 'S' : 'P') + it;
@@ -21375,7 +24450,6 @@ if (!USE_NATIVE) {
     this._h = 0; // <- rejection state, 0 - default, 1 - handled, 2 - unhandled
     this._n = false; // <- notify
   };
-
   Internal.prototype = __webpack_require__(/*! ./_redefine-all */ "./node_modules/core-js/modules/_redefine-all.js")($Promise.prototype, {
     // 25.4.5.3 Promise.prototype.then(onFulfilled, onRejected)
     then: function then(onFulfilled, onRejected) {
@@ -22213,7 +25287,6 @@ __webpack_require__(/*! ./_fix-re-wks */ "./node_modules/core-js/modules/_fix-re
         }
         if (separatorCopy[LAST_INDEX] === match.index) separatorCopy[LAST_INDEX]++; // Avoid an infinite loop
       }
-
       if (lastLastIndex === string[LENGTH]) {
         if (lastLength || !separatorCopy.test('')) output.push('');
       } else output.push(string.slice(lastLastIndex));
@@ -25044,7 +28117,7 @@ var Reflect;
     };
     // Load global or shim versions of Map, Set, and WeakMap
     var functionPrototype = Object.getPrototypeOf(Function);
-    var usePolyfill = typeof process === "object" && process.env && process.env["REFLECT_METADATA_USE_MAP_POLYFILL"] === "true";
+    var usePolyfill = typeof process === "object" && process["env" + ""] && process["env" + ""]["REFLECT_METADATA_USE_MAP_POLYFILL"] === "true";
     var _Map = !usePolyfill && typeof Map === "function" && typeof Map.prototype.entries === "function" ? Map : CreateMapPolyfill();
     var _Set = !usePolyfill && typeof Set === "function" && typeof Set.prototype.entries === "function" ? Set : CreateSetPolyfill();
     var _WeakMap = !usePolyfill && typeof WeakMap === "function" ? WeakMap : CreateWeakMapPolyfill();

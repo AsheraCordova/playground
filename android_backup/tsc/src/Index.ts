@@ -48,10 +48,17 @@ export default class Index extends Fragment {
         var data: any = this.getRecyclerData();
         var groupiedata: any = this.getGroupieData();
 		let viewPagerData = this.getViewPagerData();
+        let list: any = [];
+        let images = ["@drawable/bryce_canyon", "@drawable/cathedral_rock", "@drawable/death_valley", "@drawable/fitzgerald_marine_reserve", "@drawable/goldengate", "@drawable/golden_gate_bridge", "@drawable/shipwreck_1", "@drawable/shipwreck_2", "@drawable/grand_canyon", "@drawable/horseshoe_bend", "@drawable/muir_beach", "@drawable/rainbow_falls"];
+        var colors = [ ("#9C4B8F"), ("#945693"), ("#8C6096"), ("#846B9A"), ("#7C769E"), ("#7480A2"), ("#6D8BA5"), ("#6595A9"), ("#5DA0AD"), ("#55ABB1"), ("#4DB5B4"), ("#45C0B8")];
+        for(let i=0; i<10;i++) {
+            list.push({"id":i, "name": i + "", "background": (i % 2) == 0 ? "#ff0" : "#f00", "src" : images[i], "mybackground": colors[i]});
+        }
         this.xmlEditText.setText(obj.xml).updateModelDataWithScopedObject(
             new ScopedObject("testObj->view as pathmap", { looptest: { textlayout: data } }),
             new ScopedObject("sectionInfo->view as list", groupiedata),
-            new ScopedObject("viewpagerInfo->view as list", viewPagerData));
+            new ScopedObject("viewpagerInfo->view as list", viewPagerData),
+            new ScopedObject("carouselInfo->view as list", list));
         this.executeCommand(this.xmlEditText);
     }
 
