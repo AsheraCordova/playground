@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "description": "A sample Apache Cordova application that responds to the deviceready event.",
   "main": "index.js",
+  "browserslist": "> 0.25%, not dead, ie >= 11",
   "scripts": {
     "clean": "npm install && node cleanup.js",
     "swt": "cd platforms/swt/app && gradle run",
