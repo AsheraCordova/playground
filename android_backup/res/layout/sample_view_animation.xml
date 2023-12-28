@@ -1,0 +1,50 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="MissingPrefix">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <View
+                android:id="@+id/animator0"
+                animatorXml="@animator/sample_animator"
+                startAnimator="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:background="#ff0"
+                onAnimationEnd="showAlert"
+                android:minHeight="50dp"></View>
+
+            <View
+                android:id="@+id/animator1"
+                animatorXml="@animator/sample_animator1"
+                modelParam="let state0 = . from translationX->constants into local as string;let state1 = . from translationY->constants into local as string;let stateConverter0 = . from dimensionfloat->constants into local as string;let stateConverter1 = . from dimensionfloat->constants into local as string;let stateStringFormat0 = . from dpFormat->strings into local as string;let stateStringFormat1 = . from dpFormat->strings into local as string;"
+                startAnimator=""
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginVertical="10dp"
+                android:background="#f00"></View>
+
+
+            <View
+                android:id="@+id/animator2"
+                animatorXml="@animator/sample_animator2"
+                startAnimator=""
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginVertical="10dp"
+                android:background="#f00"></View>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
+

@@ -19,6 +19,7 @@ import { Snackbar } from './android/widget/SnackbarImpl';
 import { motionLayout } from './R/SampleMotionLayoutDrawerLayout';
 import { TextView } from './android/widget/TextViewImpl';
 import { Carousel } from './android/widget/CarouselImpl';
+import { View } from './android/widget/ViewImpl';
 export default class Index extends Fragment {
     @InjectController({})
     navController!: NavController;
@@ -32,6 +33,14 @@ export default class Index extends Fragment {
     @Inject({ id : "@+id/userProfile"})
     private userProfile:ImageView;
 
+    @Inject({ id : "@+id/animator0"})
+    private animator0:View;
+
+    @Inject({ id : "@+id/animator1"})
+    private animator1:View;
+
+    @Inject({ id : "@+id/animator2"})
+    private animator2:View;
     constructor() {
         super();
     }
@@ -40,8 +49,9 @@ export default class Index extends Fragment {
     }
 
     preview(obj: any) {
+        this.endAllAnimations();
         this.previewPane.setChildXml(obj.xml);
-        this.executeCommand(this.previewPane);
+        this.executeCommand(this.animator0, this.animator1, this.animator2, this.previewPane);
     }
 
     setXml(obj: any) {
@@ -54,16 +64,23 @@ export default class Index extends Fragment {
         for(let i=0; i<10;i++) {
             list.push({"id":i, "name": i + "", "background": (i % 2) == 0 ? "#ff0" : "#f00", "src" : images[i], "mybackground": colors[i]});
         }
+        this.endAllAnimations();
         this.xmlEditText.setText(obj.xml).updateModelDataWithScopedObject(
             new ScopedObject("testObj->view as pathmap", { looptest: { textlayout: data } }),
             new ScopedObject("sectionInfo->view as list", groupiedata),
             new ScopedObject("viewpagerInfo->view as list", viewPagerData),
             new ScopedObject("carouselInfo->view as list", list));
-        this.executeCommand(this.xmlEditText);
+        this.executeCommand(this.animator0, this.animator1, this.animator2, this.xmlEditText);
     }
 
     @Inject({ id: "@+id/validateButton" })
     private validateButton!: Button;
+    private endAllAnimations() {
+        this.animator0.endAnimator();
+        this.animator1.endAnimator();
+        this.animator2.endAnimator();        
+    }
+
     private getViewPagerData() {
         let viewPagerData = [];
         for (let i = 0; i < 10; i++) {

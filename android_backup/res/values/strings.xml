@@ -1,6 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="app_name">HelloCordova</string>
+    <string name="dpFormat">%sdp</string>
     <string name="launcher_name">@string/app_name</string>
     <string name="activity_name">@string/launcher_name</string>
     <string name="error_text">There were errors on the page. Click here to view the same.</string>
@@ -57,6 +58,7 @@
         <item>Toolbar layout</item>
         <item>Webview</item>
         <item>Widgets</item>
+        <item>Animation</item>
         <item>Validations</item>
         <item>Border</item>
         <item>CapInsets</item>
@@ -93,6 +95,7 @@
         <item>www/layout/sample_toolbar.xml</item>
         <item>www/layout/sample_webview.xml</item>
         <item>www/layout/sample_formwidgets.xml</item>
+        <item>www/layout/sample_view_animation.xml</item>
         <item>www/layout/sample_validations.xml</item>
         <item>www/layout/sample_border.xml</item>
         <item>www/layout/sample_capinsets.xml</item>
