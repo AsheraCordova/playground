@@ -8144,6 +8144,7 @@ var RecyclerViewImpl = /** @class */function (_super) {
     this.spanCount = undefined;
     this.layout = undefined;
     this.orientation = undefined;
+    this.nestedScrollingEnabled = undefined;
     this.addSectionItem_ = undefined;
     this.removeSectionItem_ = undefined;
     this.removeAllItems_ = undefined;
@@ -8259,6 +8260,33 @@ var RecyclerViewImpl = /** @class */function (_super) {
     this.orientation.setValue(value);
     this.orderSet++;
     this.orientation.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  RecyclerViewImpl.prototype.tryGetNestedScrollingEnabled = function () {
+    this.resetIfRequired();
+    if (this.nestedScrollingEnabled == null || this.nestedScrollingEnabled == undefined) {
+      this.nestedScrollingEnabled = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.nestedScrollingEnabled.setGetter(true);
+    this.orderGet++;
+    this.nestedScrollingEnabled.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  RecyclerViewImpl.prototype.isNestedScrollingEnabled = function () {
+    if (this.nestedScrollingEnabled == null || this.nestedScrollingEnabled == undefined) {
+      this.nestedScrollingEnabled = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.nestedScrollingEnabled.getCommandReturnValue();
+  };
+  RecyclerViewImpl.prototype.setNestedScrollingEnabled = function (value) {
+    this.resetIfRequired();
+    if (this.nestedScrollingEnabled == null || this.nestedScrollingEnabled == undefined) {
+      this.nestedScrollingEnabled = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.nestedScrollingEnabled.setSetter(true);
+    this.nestedScrollingEnabled.setValue(value);
+    this.orderSet++;
+    this.nestedScrollingEnabled.setOrderSet(this.orderSet);
     return this.thisPointer;
   };
   RecyclerViewImpl.prototype.addSectionItem = function (sectionId, itemConfigId, item) {
@@ -8453,6 +8481,11 @@ var RecyclerViewImpl = /** @class */function (_super) {
   }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "orientation"
   }), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "orientation", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+    name: "nestedScrollingEnabled"
+  }), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "nestedScrollingEnabled", void 0);
   __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
   }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
@@ -11162,6 +11195,7 @@ TextViewImpl.initialize();
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   LayoutTransitionTransformer: function() { return /* binding */ LayoutTransitionTransformer; },
 /* harmony export */   PersistentDrawingCacheTransformer: function() { return /* binding */ PersistentDrawingCacheTransformer; },
 /* harmony export */   ViewGroup: function() { return /* binding */ ViewGroup; },
 /* harmony export */   ViewGroupImpl: function() { return /* binding */ ViewGroupImpl; },
@@ -11242,6 +11276,39 @@ var PersistentDrawingCacheTransformer = /** @class */function () {
   return PersistentDrawingCacheTransformer;
 }();
 
+var LayoutTransitionTransformer = /** @class */function () {
+  function LayoutTransitionTransformer() {}
+  LayoutTransitionTransformer.prototype.transform = function (value, obj, type) {
+    if (type == 1) {
+      return value.toString().replace(",", "|");
+    } else {
+      var strArray = value.toString().split("|");
+      var valueArr = new Array();
+      for (var i = 0; i < strArray.length; i++) {
+        switch (strArray[i]) {
+          case "change_appearing":
+            valueArr.push("change_appearing" /* LayoutTransition.change_appearing */);
+            break;
+          case "change_disappearing":
+            valueArr.push("change_disappearing" /* LayoutTransition.change_disappearing */);
+            break;
+          case "appearing":
+            valueArr.push("appearing" /* LayoutTransition.appearing */);
+            break;
+          case "disappearing":
+            valueArr.push("disappearing" /* LayoutTransition.disappearing */);
+            break;
+          case "changing":
+            valueArr.push("changing" /* LayoutTransition.changing */);
+            break;
+        }
+      }
+      return valueArr;
+    }
+  };
+  return LayoutTransitionTransformer;
+}();
+
 // end - imports
 
 var ViewGroupImpl = /** @class */function (_super) {
@@ -11254,6 +11321,7 @@ var ViewGroupImpl = /** @class */function (_super) {
   //start - body
   ViewGroupImpl.initialize = function () {
     _widget_TransformerFactory__WEBPACK_IMPORTED_MODULE_2__.TransformerFactory.getInstance().register("persistentDrawingCache", new PersistentDrawingCacheTransformer());
+    _widget_TransformerFactory__WEBPACK_IMPORTED_MODULE_2__.TransformerFactory.getInstance().register("layoutTransition", new LayoutTransitionTransformer());
   };
   ViewGroupImpl.prototype.reset = function () {
     _super.prototype.reset.call(this);
@@ -11268,6 +11336,9 @@ var ViewGroupImpl = /** @class */function (_super) {
     this.onChildViewAdded = undefined;
     this.onChildViewRemoved = undefined;
     this.animateLayoutChanges = undefined;
+    this.layoutTransition = undefined;
+    this.layoutTransitionDuration = undefined;
+    this.animateParentHierarchy = undefined;
     this.listitem = undefined;
     this.addStatesFromChildren = undefined;
     this.childXml = undefined;
@@ -11528,6 +11599,44 @@ var ViewGroupImpl = /** @class */function (_super) {
     this.animateLayoutChanges.setOrderSet(this.orderSet);
     return this.thisPointer;
   };
+  ViewGroupImpl.prototype.setLayoutTransition = function () {
+    var value = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+      value[_i] = arguments[_i];
+    }
+    this.resetIfRequired();
+    if (this.layoutTransition == null || this.layoutTransition == undefined) {
+      this.layoutTransition = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.layoutTransition.setSetter(true);
+    this.layoutTransition.setValue(value);
+    this.orderSet++;
+    this.layoutTransition.setOrderSet(this.orderSet);
+    this.layoutTransition.setTransformer('layoutTransition');
+    return this.thisPointer;
+  };
+  ViewGroupImpl.prototype.setLayoutTransitionDuration = function (value) {
+    this.resetIfRequired();
+    if (this.layoutTransitionDuration == null || this.layoutTransitionDuration == undefined) {
+      this.layoutTransitionDuration = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.layoutTransitionDuration.setSetter(true);
+    this.layoutTransitionDuration.setValue(value);
+    this.orderSet++;
+    this.layoutTransitionDuration.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  ViewGroupImpl.prototype.setAnimateParentHierarchy = function (value) {
+    this.resetIfRequired();
+    if (this.animateParentHierarchy == null || this.animateParentHierarchy == undefined) {
+      this.animateParentHierarchy = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.animateParentHierarchy.setSetter(true);
+    this.animateParentHierarchy.setValue(value);
+    this.orderSet++;
+    this.animateParentHierarchy.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
   ViewGroupImpl.prototype.setListitem = function (value) {
     this.resetIfRequired();
     if (this.listitem == null || this.listitem == undefined) {
@@ -11632,6 +11741,21 @@ var ViewGroupImpl = /** @class */function (_super) {
   }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
     name: "animateLayoutChanges"
   }), __metadata("design:type", Object)], ViewGroupImpl.prototype, "animateLayoutChanges", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "layoutTransition"
+  }), __metadata("design:type", Object)], ViewGroupImpl.prototype, "layoutTransition", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "layoutTransitionDuration"
+  }), __metadata("design:type", Object)], ViewGroupImpl.prototype, "layoutTransitionDuration", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "animateParentHierarchy"
+  }), __metadata("design:type", Object)], ViewGroupImpl.prototype, "animateParentHierarchy", void 0);
   __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
   }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
@@ -12597,6 +12721,10 @@ var ViewImpl = /** @class */function () {
     this.onAnimationEnd = undefined;
     this.onAnimationCancel = undefined;
     this.onAnimationRepeat = undefined;
+    this.left = undefined;
+    this.right = undefined;
+    this.top = undefined;
+    this.bottom = undefined;
     this.orderGet = 0;
     this.orderSet = 0;
     this.flush = false;
@@ -15570,6 +15698,114 @@ var ViewImpl = /** @class */function () {
     this.onAnimationRepeat.setOrderSet(this.orderSet);
     return this.thisPointer;
   };
+  ViewImpl.prototype.tryGetLeft = function () {
+    this.resetIfRequired();
+    if (this.left == null || this.left == undefined) {
+      this.left = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.left.setGetter(true);
+    this.orderGet++;
+    this.left.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  ViewImpl.prototype.getLeft = function () {
+    if (this.left == null || this.left == undefined) {
+      this.left = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.left.getCommandReturnValue();
+  };
+  ViewImpl.prototype.setLeft = function (value) {
+    this.resetIfRequired();
+    if (this.left == null || this.left == undefined) {
+      this.left = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.left.setSetter(true);
+    this.left.setValue(value);
+    this.orderSet++;
+    this.left.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  ViewImpl.prototype.tryGetRight = function () {
+    this.resetIfRequired();
+    if (this.right == null || this.right == undefined) {
+      this.right = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.right.setGetter(true);
+    this.orderGet++;
+    this.right.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  ViewImpl.prototype.getRight = function () {
+    if (this.right == null || this.right == undefined) {
+      this.right = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.right.getCommandReturnValue();
+  };
+  ViewImpl.prototype.setRight = function (value) {
+    this.resetIfRequired();
+    if (this.right == null || this.right == undefined) {
+      this.right = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.right.setSetter(true);
+    this.right.setValue(value);
+    this.orderSet++;
+    this.right.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  ViewImpl.prototype.tryGetTop = function () {
+    this.resetIfRequired();
+    if (this.top == null || this.top == undefined) {
+      this.top = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.top.setGetter(true);
+    this.orderGet++;
+    this.top.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  ViewImpl.prototype.getTop = function () {
+    if (this.top == null || this.top == undefined) {
+      this.top = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.top.getCommandReturnValue();
+  };
+  ViewImpl.prototype.setTop = function (value) {
+    this.resetIfRequired();
+    if (this.top == null || this.top == undefined) {
+      this.top = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.top.setSetter(true);
+    this.top.setValue(value);
+    this.orderSet++;
+    this.top.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  ViewImpl.prototype.tryGetBottom = function () {
+    this.resetIfRequired();
+    if (this.bottom == null || this.bottom == undefined) {
+      this.bottom = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.bottom.setGetter(true);
+    this.orderGet++;
+    this.bottom.setOrderGet(this.orderGet);
+    return this.thisPointer;
+  };
+  ViewImpl.prototype.getBottom = function () {
+    if (this.bottom == null || this.bottom == undefined) {
+      this.bottom = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    return this.bottom.getCommandReturnValue();
+  };
+  ViewImpl.prototype.setBottom = function (value) {
+    this.resetIfRequired();
+    if (this.bottom == null || this.bottom == undefined) {
+      this.bottom = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.bottom.setSetter(true);
+    this.bottom.setValue(value);
+    this.orderSet++;
+    this.bottom.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
   __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
   }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
@@ -16275,6 +16511,26 @@ var ViewImpl = /** @class */function () {
   }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
     name: "onAnimationRepeat"
   }), __metadata("design:type", Object)], ViewImpl.prototype, "onAnimationRepeat", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+    name: "left"
+  }), __metadata("design:type", Object)], ViewImpl.prototype, "left", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+    name: "right"
+  }), __metadata("design:type", Object)], ViewImpl.prototype, "right", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+    name: "top"
+  }), __metadata("design:type", Object)], ViewImpl.prototype, "top", void 0);
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  }), (0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+    name: "bottom"
+  }), __metadata("design:type", Object)], ViewImpl.prototype, "bottom", void 0);
   __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_7__.Exclude)(), __metadata("design:type", Object)], ViewImpl.prototype, "thisPointer", void 0);
   __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_7__.Exclude)(), __metadata("design:type", Number)], ViewImpl.prototype, "orderGet", void 0);
   __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_7__.Exclude)(), __metadata("design:type", Number)], ViewImpl.prototype, "orderSet", void 0);

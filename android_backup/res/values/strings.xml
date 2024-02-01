@@ -1,6 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="app_name">HelloCordova</string>
+    <string name="nested_scroll_text">Ukacademe.com presents tutorial on NestedScrollView! NestedScrollView is just like ScrollView, but it supports acting as both a nested scrolling parent and child on both new and old versions of Android. Nested scrolling is enabled by default. NestedScrollView is used when there is need for scrolling inside another scrolling view. Normally this would be difficult task because system would be unable to decide which view to scroll. This is where NestedScrollView comes into role.</string>
     <string name="dpFormat">%sdp</string>
     <string name="launcher_name">@string/app_name</string>
     <string name="activity_name">@string/launcher_name</string>
@@ -65,6 +66,7 @@
         <item>Model</item>
         <item>ViewPager</item>
         <item>Coordinator Layout</item>
+        <item>Appbar Layout</item>
         <item>Camera</item>
         <item>QRCode</item>
     </array>
@@ -102,6 +104,7 @@
         <item>www/layout/sample_model.xml</item>
         <item>www/layout/sample_viewpager.xml</item>
         <item>www/layout/sample_coordinator_layout.xml</item>
+        <item>www/layout/sample_appbarlayout.xml</item>
         <item>www/layout/sample_camera.xml</item>
         <item>www/layout/sample_qrcode.xml</item>
     </array>

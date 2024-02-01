@@ -58,7 +58,9 @@
     "cordova-plugin-qrscanner": "git+https://github.com/AsheraCordova/cordova-plugin-qrscanner.git",
     "cordova-plugin-qrscanner-swt": "git+https://github.com/AsheraCordova/cordova-plugin-qrscanner-swt.git",
     "cordova-plugin-splashscreen-ashera": "git+https://github.com/AsheraCordova/Splash.git",
-    "swt": "git+https://github.com/AsheraCordova/cordova-swt.git"
+    "swt": "git+https://github.com/AsheraCordova/cordova-swt.git",
+    "com.ashera.appbarlayout": "git+https://github.com/AsheraCordova/AppBarLayout.git",
+    "com.ashera.nestedscrollview": "git+https://github.com/AsheraCordova/NestedScrollView.git"
   },
   "cordova": {
     "plugins": {
@@ -88,7 +90,9 @@
       "com.ashera.viewpager": {},
       "com.ashera.coordinatorlayout": {},
       "com.ashera.snackbar": {},
-      "com.ashera.textinputlayout": {}
+      "com.ashera.textinputlayout": {},
+      "com.ashera.appbarlayout": {},
+      "com.ashera.nestedscrollview": {}
     },
     "platforms": [
       "android",
