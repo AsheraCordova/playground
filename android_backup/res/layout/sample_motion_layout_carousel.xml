@@ -7,7 +7,8 @@
     android:background="#0C355A"
     android:orientation="vertical"
     app:layoutDescription="@xml/demo_060_carousel_scene"
-    tools:ignore="MissingPrefix">
+    tools:ignore="MissingPrefix"
+    reduceFlicker="true">
 
     <TextView
         modelPojoToUi="text = name from data->local;background = mybackground from data->local;"
