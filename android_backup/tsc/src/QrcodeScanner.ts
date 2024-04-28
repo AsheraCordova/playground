@@ -1,10 +1,11 @@
 
 //start - import
+
+//end - import
 import { Fragment, Inject } from './app/Fragment';
 import { NavController, InjectController } from './navigation/NavController';
 import { ScopedObject } from './app/ScopedObject';
 
-//end - import
 declare var QRScanner: any;
 //start - className
 export default class QrcodeScanner extends Fragment

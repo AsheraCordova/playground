@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/search_bar"
+        android:title="Search"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        app:showAsAction="ifRoom|withText" />
     <item
         android:id="@+id/notify"
         android:icon="@drawable/icon_calendar"
@@ -9,7 +15,32 @@
 
     <item
         android:id="@+id/transactions"
-        android:icon="@drawable/icon_time"
-        app:showAsAction="always"
-        android:title=""></item>
+        app:actionLayout="@layout/sample_toolbar_action_layout"
+        android:title="Setting"
+        app:showAsAction="always"/>
+
+    <group android:id="@+id/grp1">
+        <item
+            android:id="@+id/item1"
+            app:showAsAction="never"
+            android:title="Group1 - Item1"></item>
+
+        <item
+            android:id="@+id/item2"
+            app:showAsAction="never"
+            android:title="Group1 - Item2"></item>
+    </group>
+
+    <group android:id="@+id/grp2">
+        <item
+            android:id="@+id/item3"
+            app:showAsAction="never"
+            android:title="Group2 - Item3"></item>
+
+        <item
+            android:id="@+id/item4"
+            app:showAsAction="never"
+            android:title="Group2 - Item4"></item>
+    </group>
+
 </menu>

@@ -128,7 +128,7 @@ export default class Index extends Fragment {
         await this.executeCommand(this.songsRecyclerView);
     }
     async clearSongs(obj: any) {
-        this.songsRecyclerView.reset().removeAllItems(obj.id);
+        this.songsRecyclerView.reset().removeAllItems(obj.id, "songs");
         await this.executeCommand(this.songsRecyclerView);
     }
 
@@ -266,4 +266,12 @@ export default class Index extends Fragment {
 		this.label.setText("#" + obj["index"]);
 		await this.executeCommand(this.label);
 	}
+
+    @Inject({ id : "@+id/adapterConfig0"})
+	private adapterConfig0!: RecyclerView;
+    async filter(obj:any) {
+		this.adapterConfig0.filter(obj.newText);
+		await this.executeCommand(this.adapterConfig0);
+	} 	
+
 }

@@ -5,19 +5,31 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:ignore="MissingPrefix">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/appbarlayout_tool_bar"
+        onQueryTextChange="filter"
+        searchview_attributes="listitem: @layout/autocomplete_item;completionThreshold:0;modelFor:let item in looptest.textlayout from testObj->view into loopvar as pathmap;modelIdPath=id;modelDescPath:a"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ff0"
+        app:menu="@menu/main_menu"
+        app:title="Sample Title" />
+
     <androidx.recyclerview.widget.RecyclerView
-        onScrolled="logData"
-        onScrollStateChange="logData"
         android:id="@+id/adapterConfig0"
         layout="@xml/recyclerview_simple"
         modelFor="let item in looptest.textlayout from testObj->view into loopvar as pathmap"
         modelIdPath="id"
+        filterItemPath="a"
+        onScrollStateChange="logData"
+        onScrolled="logData"
         viewHolderIds="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         android:scrollbars="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        android:orientation="vertical"
         app:spanCount="3"
         tools:listitem="@layout/listview_testitem"></androidx.recyclerview.widget.RecyclerView>
 </LinearLayout>
