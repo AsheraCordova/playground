@@ -216,7 +216,7 @@
         app:layout_constraintStart_toStartOf="parent" />
     <androidx.constraintlayout.helper.widget.Carousel
         onNewItem="onNewItem"
-        modelParam="let data = . from carouselInfo->view into view as list"
+        modelParam="let data = . from carouselInfo->parentview into view as list"
         android:id="@+id/n__carousel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

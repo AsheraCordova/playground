@@ -36,7 +36,7 @@
             onItemClick="gotoErrorDetails(error=. from error->loopvar)"
             android:id="@+id/listView"
             listitem="@layout/erroritem"
-            modelFor="let error in . from errors->view into loopvar as map"            
+            modelFor="let error in . from errors->parentview into loopvar as map"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:listitem="@layout/erroritem" />

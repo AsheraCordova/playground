@@ -13,6 +13,7 @@ export const fragmentMapper : any = {
   'layout/error_detail.xml': ErrorDetailFragment,
   'layout/dialog_sample.xml': Index,
   'layout/dialog_child.xml': Index,
+  '@+id/preview': Index,
   //start - body
     
      'layout/index.xml': Index,

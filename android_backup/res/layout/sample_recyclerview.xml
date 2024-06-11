@@ -9,7 +9,7 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/appbarlayout_tool_bar"
         onQueryTextChange="filter"
-        searchview_attributes="listitem: @layout/autocomplete_item;completionThreshold:0;modelFor:let item in looptest.textlayout from testObj->view into loopvar as pathmap;modelIdPath=id;modelDescPath:a"
+        searchview_attributes="listitem: @layout/autocomplete_item;completionThreshold:0;modelFor:let item in looptest.textlayout from testObj->parentview into loopvar as pathmap;modelIdPath=id;modelDescPath:a"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#ff0"
@@ -19,7 +19,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/adapterConfig0"
         layout="@xml/recyclerview_simple"
-        modelFor="let item in looptest.textlayout from testObj->view into loopvar as pathmap"
+        modelFor="let item in looptest.textlayout from testObj->parentview into loopvar as pathmap"
         modelIdPath="id"
         filterItemPath="a"
         onScrollStateChange="logData"

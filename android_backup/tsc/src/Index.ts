@@ -20,12 +20,13 @@ import { motionLayout } from './R/SampleMotionLayoutDrawerLayout';
 import { TextView } from './android/widget/TextViewImpl';
 import { Carousel } from './android/widget/CarouselImpl';
 import { View } from './android/widget/ViewImpl';
+import { fragment } from './android/widget/fragmentImpl';
 export default class Index extends Fragment {
     @InjectController({})
     navController!: NavController;
 
     @Inject({ id: preview })
-    private previewPane: FrameLayout;
+    private previewPane: fragment;
 
     @Inject({ id: xml })
     private xmlEditText: EditText;
@@ -50,7 +51,7 @@ export default class Index extends Fragment {
 
     preview(obj: any) {
         this.endAllAnimations();
-        this.previewPane.setChildXml(obj.xml);
+        this.previewPane.replace(obj.xml);
         this.executeCommand(this.animator0, this.animator1, this.animator2, this.previewPane);
     }
 

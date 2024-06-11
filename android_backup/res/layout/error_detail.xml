@@ -13,7 +13,7 @@
 
         <TextView
             android:id="@+id/description" 
-            modelPojoToUi="text=description from error->view" 
+            modelPojoToUi="text=description from error->parentview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -30,7 +30,7 @@
 
             <TextView
                 android:id="@+id/stacktrace"
-                modelPojoToUi="text=stackTrace from error->view"
+                modelPojoToUi="text=stackTrace from error->parentview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"

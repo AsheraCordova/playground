@@ -11,16 +11,16 @@
         tools:ignore="MissingPrefix">
 
         <EditText
-            modelPojoToUi="text = emailIntent from testObj->view"
+            modelPojoToUi="text = emailIntent from testObj->parentview"
             modelSyncEvents="onTextChange"
-            modelUiToPojo="emailIntent = text into testObj->view"
+            modelUiToPojo="emailIntent = text into testObj->parentview"
             onTextChange=""
             android:layout_width="match_parent"
             android:layout_height="wrap_content"></EditText>
 
         <AutoCompleteTextView
-            modelPojoToUi="text = autotext from testObj->view"
-            modelUiToPojo="autotext = text into testObj->view"
+            modelPojoToUi="text = autotext from testObj->parentview"
+            modelUiToPojo="autotext = text into testObj->parentview"
             modelSyncEvents="onTextChange"
             onTextChange=""
             android:hint="AutoCompleteText"
@@ -35,9 +35,9 @@
             android:layout_height="wrap_content">
 
             <com.google.android.material.textfield.TextInputEditText
-                modelPojoToUi="text = floatingText from testObj->view"
+                modelPojoToUi="text = floatingText from testObj->parentview"
                 modelSyncEvents="onTextChange"
-                modelUiToPojo="floatingText = text into testObj->view"
+                modelUiToPojo="floatingText = text into testObj->parentview"
                 onTextChange=""
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -47,7 +47,7 @@
 
         <CheckBox
             modelSyncEvents="onCheckedChange"
-            modelUiToPojo="terms = checked into testObj->view"
+            modelUiToPojo="terms = checked into testObj->parentview"
             onCheckedChange=""
             android:layout_width="match_parent"
             android:layout_height="wrap_content"></CheckBox>
@@ -55,7 +55,7 @@
 
         <RadioGroup
             modelSyncEvents="onCheckedChange"
-            modelUiToPojo="gender = checkedButton into testObj->view"
+            modelUiToPojo="gender = checkedButton into testObj->parentview"
             onCheckedChange=""
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -76,39 +76,39 @@
         <Switch
             android:id="@+id/checked1"
             modelSyncEvents="onCheckedChange"
-            modelUiToPojo="notification = checked into testObj->view"
+            modelUiToPojo="notification = checked into testObj->parentview"
             onCheckedChange=""
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="false"></Switch>
 
         <com.ashera.datetime.DatePicker
-            modelPojoToUi="text = date from testObj->view"
+            modelPojoToUi="text = date from testObj->parentview"
             modelSyncEvents="onTextChange"
-            modelUiToPojo="date = text into testObj->view"
+            modelUiToPojo="date = text into testObj->parentview"
             onTextChange=''
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <Spinner
-            modelFor="let item in looptest.textlayout from testObj->view into loopvar as pathmap"
+            modelFor="let item in looptest.textlayout from testObj->parentview into loopvar as pathmap"
             modelIdPath="id"
             modelOptionTextPath="a from item->loopvar"
-            modelPojoToUi="selectedValue = spinner from testObj->view"
+            modelPojoToUi="selectedValue = spinner from testObj->parentview"
             modelSyncEvents="onItemSelected"
-            modelUiToPojo="spinner = selectedValue into testObj->view"
+            modelUiToPojo="spinner = selectedValue into testObj->parentview"
             onItemSelected=''
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <com.ashera.layout.MultiSelectionSpinner
             android:id="@+id/modelOptionTextPath0"
-            modelFor="let item in looptest.textlayout from testObj->view into loopvar as pathmap"
+            modelFor="let item in looptest.textlayout from testObj->parentview into loopvar as pathmap"
             modelIdPath="id"
             modelOptionTextPath="a from item->loopvar"
-            modelPojoToUi="selectedValues = multispinner from testObj->view"
+            modelPojoToUi="selectedValues = multispinner from testObj->parentview"
             modelSyncEvents="onItemSelected"
-            modelUiToPojo="multispinner = selectedValues into testObj->view"
+            modelUiToPojo="multispinner = selectedValues into testObj->parentview"
             onItemSelected=""
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -116,7 +116,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="login(model=. from testObj->view)"
+            android:onClick="login(model=. from testObj->parentview)"
             android:text="Login"
             tools:ignore="OnClick"></Button>
     </LinearLayout>

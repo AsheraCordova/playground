@@ -49,8 +49,8 @@
                     android:minWidth="150dp"
                     android:id="@+id/spinner"
                     modelSyncEvents="onItemSelected"
-                    modelUiToPojo=". = selectedValue into xml->view"
-                    onItemSelected="setXml(xml = getFileAsset{.} from xml->view)"
+                    modelUiToPojo=". = selectedValue into xml->parentview"
+                    onItemSelected="setXml(xml = getFileAsset{.} from xml->parentview)"
                     values="@array/samples_values"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -64,13 +64,14 @@
                 android:orientation="horizontal"
                 android:weightSum="10">
 
-                <FrameLayout
+                <fragment
+                    android:name="com.ashera.core.GenericFragment"
                     android:id="@+id/preview"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="6">
 
-                </FrameLayout>
+                </fragment>
 
                 <FrameLayout
                     android:layout_width="match_parent"
@@ -80,10 +81,10 @@
                     <EditText
                         android:background="@color/color_white"
                         android:id="@+id/xml"
-                        modelPojoToUi="text = . from xml->view"
+                        modelPojoToUi="text = . from xml->parentview"
                         modelSyncEvents="onTextChange"
-                        modelUiToPojo=". = text into xml->view"
-                        onTextChange="preview(xml = . from xml->view)"
+                        modelUiToPojo=". = text into xml->parentview"
+                        onTextChange="preview(xml = . from xml->parentview)"
                         swtTextStyle="multi|v_scroll|h_scroll"
                         widget-override-web="TextArea"
                         widget-override-ios="UITextView"

@@ -298,6 +298,7 @@ var fragmentMapper = {
   'layout/error_detail.xml': _ErrorDetailFragment__WEBPACK_IMPORTED_MODULE_1__["default"],
   'layout/dialog_sample.xml': _Index__WEBPACK_IMPORTED_MODULE_2__["default"],
   'layout/dialog_child.xml': _Index__WEBPACK_IMPORTED_MODULE_2__["default"],
+  '@+id/preview': _Index__WEBPACK_IMPORTED_MODULE_2__["default"],
   //start - body
   'layout/index.xml': _Index__WEBPACK_IMPORTED_MODULE_2__["default"],
   'layout/qrcode_scanner.xml': _QrcodeScanner__WEBPACK_IMPORTED_MODULE_3__["default"]
@@ -316,24 +317,24 @@ var fragmentMapper = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _android_widget_ButtonImpl__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./android/widget/ButtonImpl */ "./src/android/widget/ButtonImpl.ts");
 /* harmony import */ var _android_widget_EditTextImpl__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./android/widget/EditTextImpl */ "./src/android/widget/EditTextImpl.ts");
-/* harmony import */ var _android_widget_FrameLayoutImpl__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./android/widget/FrameLayoutImpl */ "./src/android/widget/FrameLayoutImpl.ts");
-/* harmony import */ var _android_widget_GroupImpl__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./android/widget/GroupImpl */ "./src/android/widget/GroupImpl.ts");
-/* harmony import */ var _android_widget_PlaceholderImpl__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./android/widget/PlaceholderImpl */ "./src/android/widget/PlaceholderImpl.ts");
-/* harmony import */ var _android_widget_RecyclerViewImpl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./android/widget/RecyclerViewImpl */ "./src/android/widget/RecyclerViewImpl.ts");
-/* harmony import */ var _app_Fragment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./app/Fragment */ "./src/app/Fragment.ts");
-/* harmony import */ var _app_GroupieBuilder__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./app/GroupieBuilder */ "./src/app/GroupieBuilder.ts");
-/* harmony import */ var _app_ScopedObject__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./app/ScopedObject */ "./src/app/ScopedObject.ts");
-/* harmony import */ var _R_Index__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./R/Index */ "./src/R/Index.ts");
-/* harmony import */ var _navigation_NavController__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./navigation/NavController */ "./src/navigation/NavController.ts");
-/* harmony import */ var _R_NavGraph__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./R/NavGraph */ "./src/R/NavGraph.ts");
-/* harmony import */ var _android_widget_ImageViewImpl__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./android/widget/ImageViewImpl */ "./src/android/widget/ImageViewImpl.ts");
-/* harmony import */ var _android_widget_DrawerLayoutImpl__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./android/widget/DrawerLayoutImpl */ "./src/android/widget/DrawerLayoutImpl.ts");
-/* harmony import */ var _R_SampleDrawerlayout__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./R/SampleDrawerlayout */ "./src/R/SampleDrawerlayout.ts");
-/* harmony import */ var _android_widget_SnackbarImpl__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./android/widget/SnackbarImpl */ "./src/android/widget/SnackbarImpl.ts");
-/* harmony import */ var _R_SampleMotionLayoutDrawerLayout__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./R/SampleMotionLayoutDrawerLayout */ "./src/R/SampleMotionLayoutDrawerLayout.ts");
-/* harmony import */ var _android_widget_TextViewImpl__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./android/widget/TextViewImpl */ "./src/android/widget/TextViewImpl.ts");
-/* harmony import */ var _android_widget_CarouselImpl__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./android/widget/CarouselImpl */ "./src/android/widget/CarouselImpl.ts");
-/* harmony import */ var _android_widget_ViewImpl__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./android/widget/ViewImpl */ "./src/android/widget/ViewImpl.ts");
+/* harmony import */ var _android_widget_GroupImpl__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./android/widget/GroupImpl */ "./src/android/widget/GroupImpl.ts");
+/* harmony import */ var _android_widget_PlaceholderImpl__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./android/widget/PlaceholderImpl */ "./src/android/widget/PlaceholderImpl.ts");
+/* harmony import */ var _android_widget_RecyclerViewImpl__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./android/widget/RecyclerViewImpl */ "./src/android/widget/RecyclerViewImpl.ts");
+/* harmony import */ var _app_Fragment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./app/Fragment */ "./src/app/Fragment.ts");
+/* harmony import */ var _app_GroupieBuilder__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./app/GroupieBuilder */ "./src/app/GroupieBuilder.ts");
+/* harmony import */ var _app_ScopedObject__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./app/ScopedObject */ "./src/app/ScopedObject.ts");
+/* harmony import */ var _R_Index__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./R/Index */ "./src/R/Index.ts");
+/* harmony import */ var _navigation_NavController__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./navigation/NavController */ "./src/navigation/NavController.ts");
+/* harmony import */ var _R_NavGraph__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./R/NavGraph */ "./src/R/NavGraph.ts");
+/* harmony import */ var _android_widget_ImageViewImpl__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./android/widget/ImageViewImpl */ "./src/android/widget/ImageViewImpl.ts");
+/* harmony import */ var _android_widget_DrawerLayoutImpl__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./android/widget/DrawerLayoutImpl */ "./src/android/widget/DrawerLayoutImpl.ts");
+/* harmony import */ var _R_SampleDrawerlayout__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./R/SampleDrawerlayout */ "./src/R/SampleDrawerlayout.ts");
+/* harmony import */ var _android_widget_SnackbarImpl__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./android/widget/SnackbarImpl */ "./src/android/widget/SnackbarImpl.ts");
+/* harmony import */ var _R_SampleMotionLayoutDrawerLayout__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./R/SampleMotionLayoutDrawerLayout */ "./src/R/SampleMotionLayoutDrawerLayout.ts");
+/* harmony import */ var _android_widget_TextViewImpl__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./android/widget/TextViewImpl */ "./src/android/widget/TextViewImpl.ts");
+/* harmony import */ var _android_widget_CarouselImpl__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./android/widget/CarouselImpl */ "./src/android/widget/CarouselImpl.ts");
+/* harmony import */ var _android_widget_ViewImpl__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./android/widget/ViewImpl */ "./src/android/widget/ViewImpl.ts");
+/* harmony import */ var _android_widget_fragmentImpl__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./android/widget/fragmentImpl */ "./src/android/widget/fragmentImpl.ts");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 var __extends = undefined && undefined.__extends || function () {
   var _extendStatics = function extendStatics(d, b) {
@@ -508,7 +509,7 @@ var Index = /** @class */function (_super) {
   Index.prototype.onCreate = function (obj) {};
   Index.prototype.preview = function (obj) {
     this.endAllAnimations();
-    this.previewPane.setChildXml(obj.xml);
+    this.previewPane.replace(obj.xml);
     this.executeCommand(this.animator0, this.animator1, this.animator2, this.previewPane);
   };
   Index.prototype.setXml = function (obj) {
@@ -528,11 +529,11 @@ var Index = /** @class */function (_super) {
       });
     }
     this.endAllAnimations();
-    this.xmlEditText.setText(obj.xml).updateModelDataWithScopedObject(new _app_ScopedObject__WEBPACK_IMPORTED_MODULE_8__.ScopedObject("testObj->view as pathmap", {
+    this.xmlEditText.setText(obj.xml).updateModelDataWithScopedObject(new _app_ScopedObject__WEBPACK_IMPORTED_MODULE_7__.ScopedObject("testObj->view as pathmap", {
       looptest: {
         textlayout: data
       }
-    }), new _app_ScopedObject__WEBPACK_IMPORTED_MODULE_8__.ScopedObject("sectionInfo->view as list", groupiedata), new _app_ScopedObject__WEBPACK_IMPORTED_MODULE_8__.ScopedObject("viewpagerInfo->view as list", viewPagerData), new _app_ScopedObject__WEBPACK_IMPORTED_MODULE_8__.ScopedObject("carouselInfo->view as list", list));
+    }), new _app_ScopedObject__WEBPACK_IMPORTED_MODULE_7__.ScopedObject("sectionInfo->view as list", groupiedata), new _app_ScopedObject__WEBPACK_IMPORTED_MODULE_7__.ScopedObject("viewpagerInfo->view as list", viewPagerData), new _app_ScopedObject__WEBPACK_IMPORTED_MODULE_7__.ScopedObject("carouselInfo->view as list", list));
     this.executeCommand(this.animator0, this.animator1, this.animator2, this.xmlEditText);
   };
   Index.prototype.endAllAnimations = function () {
@@ -567,7 +568,7 @@ var Index = /** @class */function (_super) {
   Index.prototype.getGroupieData = function () {
     var data = [];
     for (var j = 0; j < 5; j++) {
-      var groupieBuilder = new _app_GroupieBuilder__WEBPACK_IMPORTED_MODULE_7__.GroupieBuilder();
+      var groupieBuilder = new _app_GroupieBuilder__WEBPACK_IMPORTED_MODULE_6__.GroupieBuilder();
       var favourite = groupieBuilder.withSection("mydata");
       for (var i = 0; i < 10; i++) {
         var x = (i + 1) * (10 + j);
@@ -693,7 +694,7 @@ var Index = /** @class */function (_super) {
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
-            return [4 /*yield*/, this.navController.reset().navigate(_R_NavGraph__WEBPACK_IMPORTED_MODULE_11__.myDialog, "testObj->view as pathmap", {
+            return [4 /*yield*/, this.navController.reset().navigate(_R_NavGraph__WEBPACK_IMPORTED_MODULE_10__.myDialog, "testObj->view as pathmap", {
               "testObj": {
                 "emailIntent": "ram@a.com",
                 "passwordIntent": "b.com"
@@ -724,7 +725,7 @@ var Index = /** @class */function (_super) {
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
-            return [4 /*yield*/, this.navController.reset().navigate(_R_NavGraph__WEBPACK_IMPORTED_MODULE_11__.myDialogMatchContent, "testObj->view as pathmap", {
+            return [4 /*yield*/, this.navController.reset().navigate(_R_NavGraph__WEBPACK_IMPORTED_MODULE_10__.myDialogMatchContent, "testObj->view as pathmap", {
               "testObj": {
                 "emailIntent": "ram@a.com",
                 "passwordIntent": "b.com"
@@ -742,7 +743,7 @@ var Index = /** @class */function (_super) {
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
-            return [4 /*yield*/, this.navController.reset().navigate(_R_NavGraph__WEBPACK_IMPORTED_MODULE_11__.myDialogWrapContent, "testObj->view as pathmap", {
+            return [4 /*yield*/, this.navController.reset().navigate(_R_NavGraph__WEBPACK_IMPORTED_MODULE_10__.myDialogWrapContent, "testObj->view as pathmap", {
               "testObj": {
                 "emailIntent": "ram@a.com",
                 "passwordIntent": "b.com"
@@ -760,7 +761,7 @@ var Index = /** @class */function (_super) {
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
-            return [4 /*yield*/, this.navController.reset().navigate(_R_NavGraph__WEBPACK_IMPORTED_MODULE_11__.myDialogCustomBackdrop, "testObj->view as pathmap", {
+            return [4 /*yield*/, this.navController.reset().navigate(_R_NavGraph__WEBPACK_IMPORTED_MODULE_10__.myDialogCustomBackdrop, "testObj->view as pathmap", {
               "testObj": {
                 "emailIntent": "ram@a.com",
                 "passwordIntent": "b.com"
@@ -778,7 +779,7 @@ var Index = /** @class */function (_super) {
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
-            return [4 /*yield*/, this.navController.reset().navigate(_R_NavGraph__WEBPACK_IMPORTED_MODULE_11__.myDialogCancelOnTouch, "testObj->view as pathmap", {
+            return [4 /*yield*/, this.navController.reset().navigate(_R_NavGraph__WEBPACK_IMPORTED_MODULE_10__.myDialogCancelOnTouch, "testObj->view as pathmap", {
               "testObj": {
                 "emailIntent": "ram@a.com",
                 "passwordIntent": "b.com"
@@ -796,7 +797,7 @@ var Index = /** @class */function (_super) {
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
-            return [4 /*yield*/, this.navController.reset().navigate(_R_NavGraph__WEBPACK_IMPORTED_MODULE_11__.myDialogFullScreen, "testObj->view as pathmap", {
+            return [4 /*yield*/, this.navController.reset().navigate(_R_NavGraph__WEBPACK_IMPORTED_MODULE_10__.myDialogFullScreen, "testObj->view as pathmap", {
               "testObj": {
                 "emailIntent": "ram@a.com",
                 "passwordIntent": "b.com"
@@ -814,7 +815,7 @@ var Index = /** @class */function (_super) {
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
-            return [4 /*yield*/, this.navController.reset().navigate(_R_NavGraph__WEBPACK_IMPORTED_MODULE_11__.myDialogBackgroundDimDisabled, "testObj->view as pathmap", {
+            return [4 /*yield*/, this.navController.reset().navigate(_R_NavGraph__WEBPACK_IMPORTED_MODULE_10__.myDialogBackgroundDimDisabled, "testObj->view as pathmap", {
               "testObj": {
                 "emailIntent": "ram@a.com",
                 "passwordIntent": "b.com"
@@ -864,7 +865,7 @@ var Index = /** @class */function (_super) {
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
-            return [4 /*yield*/, this.navController.navigateTo(_R_NavGraph__WEBPACK_IMPORTED_MODULE_11__.qrcode_scanner).executeCommand()];
+            return [4 /*yield*/, this.navController.navigateTo(_R_NavGraph__WEBPACK_IMPORTED_MODULE_10__.qrcode_scanner).executeCommand()];
           case 1:
             _a.sent();
             return [2 /*return*/];
@@ -998,60 +999,60 @@ var Index = /** @class */function (_super) {
       });
     });
   };
-  __decorate([(0,_navigation_NavController__WEBPACK_IMPORTED_MODULE_10__.InjectController)({}), __metadata("design:type", _navigation_NavController__WEBPACK_IMPORTED_MODULE_10__.NavController)], Index.prototype, "navController", void 0);
-  __decorate([(0,_app_Fragment__WEBPACK_IMPORTED_MODULE_6__.Inject)({
-    id: _R_Index__WEBPACK_IMPORTED_MODULE_9__.preview
-  }), __metadata("design:type", _android_widget_FrameLayoutImpl__WEBPACK_IMPORTED_MODULE_2__.FrameLayout)], Index.prototype, "previewPane", void 0);
-  __decorate([(0,_app_Fragment__WEBPACK_IMPORTED_MODULE_6__.Inject)({
-    id: _R_Index__WEBPACK_IMPORTED_MODULE_9__.xml
+  __decorate([(0,_navigation_NavController__WEBPACK_IMPORTED_MODULE_9__.InjectController)({}), __metadata("design:type", _navigation_NavController__WEBPACK_IMPORTED_MODULE_9__.NavController)], Index.prototype, "navController", void 0);
+  __decorate([(0,_app_Fragment__WEBPACK_IMPORTED_MODULE_5__.Inject)({
+    id: _R_Index__WEBPACK_IMPORTED_MODULE_8__.preview
+  }), __metadata("design:type", _android_widget_fragmentImpl__WEBPACK_IMPORTED_MODULE_19__.fragment)], Index.prototype, "previewPane", void 0);
+  __decorate([(0,_app_Fragment__WEBPACK_IMPORTED_MODULE_5__.Inject)({
+    id: _R_Index__WEBPACK_IMPORTED_MODULE_8__.xml
   }), __metadata("design:type", _android_widget_EditTextImpl__WEBPACK_IMPORTED_MODULE_1__.EditText)], Index.prototype, "xmlEditText", void 0);
-  __decorate([(0,_app_Fragment__WEBPACK_IMPORTED_MODULE_6__.Inject)({
+  __decorate([(0,_app_Fragment__WEBPACK_IMPORTED_MODULE_5__.Inject)({
     id: "@+id/userProfile"
-  }), __metadata("design:type", _android_widget_ImageViewImpl__WEBPACK_IMPORTED_MODULE_12__.ImageView)], Index.prototype, "userProfile", void 0);
-  __decorate([(0,_app_Fragment__WEBPACK_IMPORTED_MODULE_6__.Inject)({
+  }), __metadata("design:type", _android_widget_ImageViewImpl__WEBPACK_IMPORTED_MODULE_11__.ImageView)], Index.prototype, "userProfile", void 0);
+  __decorate([(0,_app_Fragment__WEBPACK_IMPORTED_MODULE_5__.Inject)({
     id: "@+id/animator0"
-  }), __metadata("design:type", _android_widget_ViewImpl__WEBPACK_IMPORTED_MODULE_19__.View)], Index.prototype, "animator0", void 0);
-  __decorate([(0,_app_Fragment__WEBPACK_IMPORTED_MODULE_6__.Inject)({
+  }), __metadata("design:type", _android_widget_ViewImpl__WEBPACK_IMPORTED_MODULE_18__.View)], Index.prototype, "animator0", void 0);
+  __decorate([(0,_app_Fragment__WEBPACK_IMPORTED_MODULE_5__.Inject)({
     id: "@+id/animator1"
-  }), __metadata("design:type", _android_widget_ViewImpl__WEBPACK_IMPORTED_MODULE_19__.View)], Index.prototype, "animator1", void 0);
-  __decorate([(0,_app_Fragment__WEBPACK_IMPORTED_MODULE_6__.Inject)({
+  }), __metadata("design:type", _android_widget_ViewImpl__WEBPACK_IMPORTED_MODULE_18__.View)], Index.prototype, "animator1", void 0);
+  __decorate([(0,_app_Fragment__WEBPACK_IMPORTED_MODULE_5__.Inject)({
     id: "@+id/animator2"
-  }), __metadata("design:type", _android_widget_ViewImpl__WEBPACK_IMPORTED_MODULE_19__.View)], Index.prototype, "animator2", void 0);
-  __decorate([(0,_app_Fragment__WEBPACK_IMPORTED_MODULE_6__.Inject)({
+  }), __metadata("design:type", _android_widget_ViewImpl__WEBPACK_IMPORTED_MODULE_18__.View)], Index.prototype, "animator2", void 0);
+  __decorate([(0,_app_Fragment__WEBPACK_IMPORTED_MODULE_5__.Inject)({
     id: "@+id/validateButton"
   }), __metadata("design:type", _android_widget_ButtonImpl__WEBPACK_IMPORTED_MODULE_0__.Button)], Index.prototype, "validateButton", void 0);
-  __decorate([(0,_app_Fragment__WEBPACK_IMPORTED_MODULE_6__.Inject)({
+  __decorate([(0,_app_Fragment__WEBPACK_IMPORTED_MODULE_5__.Inject)({
     id: "@+id/songs"
-  }), __metadata("design:type", _android_widget_RecyclerViewImpl__WEBPACK_IMPORTED_MODULE_5__.RecyclerView)], Index.prototype, "songsRecyclerView", void 0);
-  __decorate([(0,_app_Fragment__WEBPACK_IMPORTED_MODULE_6__.Inject)({
+  }), __metadata("design:type", _android_widget_RecyclerViewImpl__WEBPACK_IMPORTED_MODULE_4__.RecyclerView)], Index.prototype, "songsRecyclerView", void 0);
+  __decorate([(0,_app_Fragment__WEBPACK_IMPORTED_MODULE_5__.Inject)({
     id: "@+id/placeholder"
-  }), __metadata("design:type", _android_widget_PlaceholderImpl__WEBPACK_IMPORTED_MODULE_4__.Placeholder)], Index.prototype, "placeholder", void 0);
-  __decorate([(0,_app_Fragment__WEBPACK_IMPORTED_MODULE_6__.Inject)({
+  }), __metadata("design:type", _android_widget_PlaceholderImpl__WEBPACK_IMPORTED_MODULE_3__.Placeholder)], Index.prototype, "placeholder", void 0);
+  __decorate([(0,_app_Fragment__WEBPACK_IMPORTED_MODULE_5__.Inject)({
     id: "@+id/nonEditableFields"
-  }), __metadata("design:type", _android_widget_GroupImpl__WEBPACK_IMPORTED_MODULE_3__.Group)], Index.prototype, "nonEditableFields", void 0);
-  __decorate([(0,_app_Fragment__WEBPACK_IMPORTED_MODULE_6__.Inject)({
+  }), __metadata("design:type", _android_widget_GroupImpl__WEBPACK_IMPORTED_MODULE_2__.Group)], Index.prototype, "nonEditableFields", void 0);
+  __decorate([(0,_app_Fragment__WEBPACK_IMPORTED_MODULE_5__.Inject)({
     id: "@+id/editableFields"
-  }), __metadata("design:type", _android_widget_GroupImpl__WEBPACK_IMPORTED_MODULE_3__.Group)], Index.prototype, "editableFields", void 0);
-  __decorate([(0,_app_Fragment__WEBPACK_IMPORTED_MODULE_6__.Inject)({
-    id: _R_SampleDrawerlayout__WEBPACK_IMPORTED_MODULE_14__.drawer_layout
-  }), __metadata("design:type", _android_widget_DrawerLayoutImpl__WEBPACK_IMPORTED_MODULE_13__.DrawerLayout)], Index.prototype, "drawer_layout", void 0);
-  __decorate([(0,_app_Fragment__WEBPACK_IMPORTED_MODULE_6__.Inject)({
+  }), __metadata("design:type", _android_widget_GroupImpl__WEBPACK_IMPORTED_MODULE_2__.Group)], Index.prototype, "editableFields", void 0);
+  __decorate([(0,_app_Fragment__WEBPACK_IMPORTED_MODULE_5__.Inject)({
+    id: _R_SampleDrawerlayout__WEBPACK_IMPORTED_MODULE_13__.drawer_layout
+  }), __metadata("design:type", _android_widget_DrawerLayoutImpl__WEBPACK_IMPORTED_MODULE_12__.DrawerLayout)], Index.prototype, "drawer_layout", void 0);
+  __decorate([(0,_app_Fragment__WEBPACK_IMPORTED_MODULE_5__.Inject)({
     id: "@+id/snackbar"
-  }), __metadata("design:type", _android_widget_SnackbarImpl__WEBPACK_IMPORTED_MODULE_15__.Snackbar)], Index.prototype, "snackbar", void 0);
-  __decorate([(0,_app_Fragment__WEBPACK_IMPORTED_MODULE_6__.Inject)({
-    id: _R_SampleMotionLayoutDrawerLayout__WEBPACK_IMPORTED_MODULE_16__.motionLayout
-  }), __metadata("design:type", _android_widget_DrawerLayoutImpl__WEBPACK_IMPORTED_MODULE_13__.DrawerLayout)], Index.prototype, "motionLayout", void 0);
-  __decorate([(0,_app_Fragment__WEBPACK_IMPORTED_MODULE_6__.Inject)({
+  }), __metadata("design:type", _android_widget_SnackbarImpl__WEBPACK_IMPORTED_MODULE_14__.Snackbar)], Index.prototype, "snackbar", void 0);
+  __decorate([(0,_app_Fragment__WEBPACK_IMPORTED_MODULE_5__.Inject)({
+    id: _R_SampleMotionLayoutDrawerLayout__WEBPACK_IMPORTED_MODULE_15__.motionLayout
+  }), __metadata("design:type", _android_widget_DrawerLayoutImpl__WEBPACK_IMPORTED_MODULE_12__.DrawerLayout)], Index.prototype, "motionLayout", void 0);
+  __decorate([(0,_app_Fragment__WEBPACK_IMPORTED_MODULE_5__.Inject)({
     id: "@+id/n__carousel"
-  }), __metadata("design:type", _android_widget_CarouselImpl__WEBPACK_IMPORTED_MODULE_18__.Carousel)], Index.prototype, "carousel", void 0);
-  __decorate([(0,_app_Fragment__WEBPACK_IMPORTED_MODULE_6__.Inject)({
+  }), __metadata("design:type", _android_widget_CarouselImpl__WEBPACK_IMPORTED_MODULE_17__.Carousel)], Index.prototype, "carousel", void 0);
+  __decorate([(0,_app_Fragment__WEBPACK_IMPORTED_MODULE_5__.Inject)({
     id: "@+id/n__label"
-  }), __metadata("design:type", _android_widget_TextViewImpl__WEBPACK_IMPORTED_MODULE_17__.TextView)], Index.prototype, "label", void 0);
-  __decorate([(0,_app_Fragment__WEBPACK_IMPORTED_MODULE_6__.Inject)({
+  }), __metadata("design:type", _android_widget_TextViewImpl__WEBPACK_IMPORTED_MODULE_16__.TextView)], Index.prototype, "label", void 0);
+  __decorate([(0,_app_Fragment__WEBPACK_IMPORTED_MODULE_5__.Inject)({
     id: "@+id/adapterConfig0"
-  }), __metadata("design:type", _android_widget_RecyclerViewImpl__WEBPACK_IMPORTED_MODULE_5__.RecyclerView)], Index.prototype, "adapterConfig0", void 0);
+  }), __metadata("design:type", _android_widget_RecyclerViewImpl__WEBPACK_IMPORTED_MODULE_4__.RecyclerView)], Index.prototype, "adapterConfig0", void 0);
   return Index;
-}(_app_Fragment__WEBPACK_IMPORTED_MODULE_6__.Fragment);
+}(_app_Fragment__WEBPACK_IMPORTED_MODULE_5__.Fragment);
 /* harmony default export */ __webpack_exports__["default"] = (Index);
 
 /***/ }),
@@ -6812,222 +6813,6 @@ var EditText = /** @class */function (_super) {
 }(EditTextImpl);
 
 EditTextImpl.initialize();
-//end - staticinit
-
-/***/ }),
-
-/***/ "./src/android/widget/FrameLayoutImpl.ts":
-/*!***********************************************!*\
-  !*** ./src/android/widget/FrameLayoutImpl.ts ***!
-  \***********************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   FrameLayout: function() { return /* binding */ FrameLayout; },
-/* harmony export */   FrameLayoutImpl: function() { return /* binding */ FrameLayoutImpl; },
-/* harmony export */   FrameLayoutImpl_LayoutParams: function() { return /* binding */ FrameLayoutImpl_LayoutParams; },
-/* harmony export */   FrameLayout_LayoutParams: function() { return /* binding */ FrameLayout_LayoutParams; }
-/* harmony export */ });
-/* harmony import */ var _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../widget/CommandAttr */ "./src/widget/CommandAttr.ts");
-/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/type.decorator.js");
-/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/expose.decorator.js");
-/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/exclude.decorator.js");
-/* harmony import */ var babel_polyfill__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! babel-polyfill */ "./node_modules/babel-polyfill/lib/index.js");
-/* harmony import */ var babel_polyfill__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(babel_polyfill__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var ts_mixer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ts-mixer */ "./node_modules/ts-mixer/dist/esm/index.js");
-/* harmony import */ var _ViewGroupImpl__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ViewGroupImpl */ "./src/android/widget/ViewGroupImpl.ts");
-function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
-// start - imports
-var __extends = undefined && undefined.__extends || function () {
-  var _extendStatics = function extendStatics(d, b) {
-    _extendStatics = Object.setPrototypeOf || {
-      __proto__: []
-    } instanceof Array && function (d, b) {
-      d.__proto__ = b;
-    } || function (d, b) {
-      for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p];
-    };
-    return _extendStatics(d, b);
-  };
-  return function (d, b) {
-    if (typeof b !== "function" && b !== null) throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-    _extendStatics(d, b);
-    function __() {
-      this.constructor = d;
-    }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-  };
-}();
-var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-  var c = arguments.length,
-    r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
-    d;
-  if ((typeof Reflect === "undefined" ? "undefined" : _typeof(Reflect)) === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-  return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = undefined && undefined.__metadata || function (k, v) {
-  if ((typeof Reflect === "undefined" ? "undefined" : _typeof(Reflect)) === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-// end - imports
-
-var FrameLayoutImpl = /** @class */function (_super) {
-  __extends(FrameLayoutImpl, _super);
-  function FrameLayoutImpl(id, path, event) {
-    var _this = _super.call(this, id, path, event) || this;
-    _this.thisPointer = _this.getThisPointer();
-    return _this;
-  }
-  //start - body
-  FrameLayoutImpl.initialize = function () {};
-  FrameLayoutImpl.prototype.reset = function () {
-    _super.prototype.reset.call(this);
-    this.foregroundGravity = undefined;
-    this.measureAllChildren = undefined;
-    return this.thisPointer;
-  };
-  FrameLayoutImpl.prototype.setForegroundGravity = function () {
-    var value = [];
-    for (var _i = 0; _i < arguments.length; _i++) {
-      value[_i] = arguments[_i];
-    }
-    this.resetIfRequired();
-    if (this.foregroundGravity == null || this.foregroundGravity == undefined) {
-      this.foregroundGravity = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
-    }
-    this.foregroundGravity.setSetter(true);
-    this.foregroundGravity.setValue(value);
-    this.orderSet++;
-    this.foregroundGravity.setOrderSet(this.orderSet);
-    this.foregroundGravity.setTransformer('gravity');
-    return this.thisPointer;
-  };
-  FrameLayoutImpl.prototype.tryGetMeasureAllChildren = function () {
-    this.resetIfRequired();
-    if (this.measureAllChildren == null || this.measureAllChildren == undefined) {
-      this.measureAllChildren = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
-    }
-    this.measureAllChildren.setGetter(true);
-    this.orderGet++;
-    this.measureAllChildren.setOrderGet(this.orderGet);
-    return this.thisPointer;
-  };
-  FrameLayoutImpl.prototype.isMeasureAllChildren = function () {
-    if (this.measureAllChildren == null || this.measureAllChildren == undefined) {
-      this.measureAllChildren = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
-    }
-    return this.measureAllChildren.getCommandReturnValue();
-  };
-  FrameLayoutImpl.prototype.setMeasureAllChildren = function (value) {
-    this.resetIfRequired();
-    if (this.measureAllChildren == null || this.measureAllChildren == undefined) {
-      this.measureAllChildren = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
-    }
-    this.measureAllChildren.setSetter(true);
-    this.measureAllChildren.setValue(value);
-    this.orderSet++;
-    this.measureAllChildren.setOrderSet(this.orderSet);
-    return this.thisPointer;
-  };
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
-    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
-    name: "foregroundGravity"
-  })), __metadata("design:type", Object)], FrameLayoutImpl.prototype, "foregroundGravity", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
-    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
-    name: "measureAllChildren"
-  })), __metadata("design:type", Object)], FrameLayoutImpl.prototype, "measureAllChildren", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Exclude)()), __metadata("design:type", Object)], FrameLayoutImpl.prototype, "thisPointer", void 0);
-  return FrameLayoutImpl;
-}(_ViewGroupImpl__WEBPACK_IMPORTED_MODULE_3__.ViewGroupImpl);
-
-//start - staticinit
-var FrameLayoutImpl_LayoutParams = /** @class */function (_super) {
-  __extends(FrameLayoutImpl_LayoutParams, _super);
-  function FrameLayoutImpl_LayoutParams() {
-    var _this = _super.call(this) || this;
-    _this.thisPointer = _this.getThisPointer();
-    return _this;
-  }
-  FrameLayoutImpl_LayoutParams.prototype.reset = function () {
-    _super.prototype.reset.call(this);
-    this.layout_gravity = undefined;
-    return this.thisPointer;
-  };
-  FrameLayoutImpl_LayoutParams.prototype.tryGetLayoutGravity = function () {
-    if (this.layout_gravity == null || this.layout_gravity == undefined) {
-      this.layout_gravity = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
-    }
-    this.layout_gravity.setGetter(true);
-    this.orderGet++;
-    this.layout_gravity.setOrderGet(this.orderGet);
-    return this.thisPointer;
-  };
-  FrameLayoutImpl_LayoutParams.prototype.getLayoutGravity = function () {
-    if (this.layout_gravity == null || this.layout_gravity == undefined) {
-      this.layout_gravity = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
-    }
-    this.layout_gravity.setTransformer('gravity');
-    return this.layout_gravity.getCommandReturnValue();
-  };
-  FrameLayoutImpl_LayoutParams.prototype.setLayoutGravity = function () {
-    var value = [];
-    for (var _i = 0; _i < arguments.length; _i++) {
-      value[_i] = arguments[_i];
-    }
-    if (this.layout_gravity == null || this.layout_gravity == undefined) {
-      this.layout_gravity = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
-    }
-    this.layout_gravity.setSetter(true);
-    this.layout_gravity.setValue(value);
-    this.orderSet++;
-    this.layout_gravity.setOrderSet(this.orderSet);
-    this.layout_gravity.setTransformer('gravity');
-    return this.thisPointer;
-  };
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
-    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
-    name: "layout_gravity"
-  })), __metadata("design:type", Object)], FrameLayoutImpl_LayoutParams.prototype, "layout_gravity", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Exclude)()), __metadata("design:type", Object)], FrameLayoutImpl_LayoutParams.prototype, "thisPointer", void 0);
-  return FrameLayoutImpl_LayoutParams;
-}(_ViewGroupImpl__WEBPACK_IMPORTED_MODULE_3__.ViewGroupImpl_LayoutParams);
-
-var FrameLayout_LayoutParams = /** @class */function (_super) {
-  __extends(FrameLayout_LayoutParams, _super);
-  function FrameLayout_LayoutParams() {
-    return _super.call(this) || this;
-  }
-  FrameLayout_LayoutParams.prototype.getThisPointer = function () {
-    return this;
-  };
-  return FrameLayout_LayoutParams;
-}(FrameLayoutImpl_LayoutParams);
-
-var FrameLayout = /** @class */function (_super) {
-  __extends(FrameLayout, _super);
-  function FrameLayout(id, path, event) {
-    return _super.call(this, id, path, event) || this;
-  }
-  FrameLayout.prototype.getThisPointer = function () {
-    return this;
-  };
-  FrameLayout.prototype.getClass = function () {
-    return FrameLayout;
-  };
-  return FrameLayout;
-}(FrameLayoutImpl);
-
-FrameLayoutImpl.initialize();
 //end - staticinit
 
 /***/ }),
@@ -16725,6 +16510,370 @@ var View = /** @class */function (_super) {
 }(ViewImpl);
 
 ViewImpl.initialize();
+//end - staticinit
+
+/***/ }),
+
+/***/ "./src/android/widget/fragmentImpl.ts":
+/*!********************************************!*\
+  !*** ./src/android/widget/fragmentImpl.ts ***!
+  \********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   fragment: function() { return /* binding */ fragment; },
+/* harmony export */   fragmentImpl: function() { return /* binding */ fragmentImpl; },
+/* harmony export */   fragmentImpl_navigate: function() { return /* binding */ fragmentImpl_navigate; },
+/* harmony export */   fragmentImpl_navigateAsTop: function() { return /* binding */ fragmentImpl_navigateAsTop; },
+/* harmony export */   fragmentImpl_navigateWithPopBackStack: function() { return /* binding */ fragmentImpl_navigateWithPopBackStack; },
+/* harmony export */   fragmentImpl_navigateWithPopBackStackTo: function() { return /* binding */ fragmentImpl_navigateWithPopBackStackTo; },
+/* harmony export */   fragmentImpl_popBackStackTo: function() { return /* binding */ fragmentImpl_popBackStackTo; }
+/* harmony export */ });
+/* harmony import */ var _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../widget/CommandAttr */ "./src/widget/CommandAttr.ts");
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/expose.decorator.js");
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/type.decorator.js");
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/exclude.decorator.js");
+/* harmony import */ var babel_polyfill__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! babel-polyfill */ "./node_modules/babel-polyfill/lib/index.js");
+/* harmony import */ var babel_polyfill__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(babel_polyfill__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var ts_mixer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ts-mixer */ "./node_modules/ts-mixer/dist/esm/index.js");
+/* harmony import */ var _ViewGroupImpl__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ViewGroupImpl */ "./src/android/widget/ViewGroupImpl.ts");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+// start - imports
+var __extends = undefined && undefined.__extends || function () {
+  var _extendStatics = function extendStatics(d, b) {
+    _extendStatics = Object.setPrototypeOf || {
+      __proto__: []
+    } instanceof Array && function (d, b) {
+      d.__proto__ = b;
+    } || function (d, b) {
+      for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p];
+    };
+    return _extendStatics(d, b);
+  };
+  return function (d, b) {
+    if (typeof b !== "function" && b !== null) throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+    _extendStatics(d, b);
+    function __() {
+      this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  };
+}();
+var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+  var c = arguments.length,
+    r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+    d;
+  if ((typeof Reflect === "undefined" ? "undefined" : _typeof(Reflect)) === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+  return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = undefined && undefined.__metadata || function (k, v) {
+  if ((typeof Reflect === "undefined" ? "undefined" : _typeof(Reflect)) === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var fragmentImpl_navigate = /** @class */function () {
+  function fragmentImpl_navigate() {}
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Expose)({
+    name: "actionId"
+  })), __metadata("design:type", String)], fragmentImpl_navigate.prototype, "actionId", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Expose)({
+    name: "scopeObjects"
+  })), __metadata("design:type", Object)], fragmentImpl_navigate.prototype, "scopeObjects", void 0);
+  return fragmentImpl_navigate;
+}();
+
+var fragmentImpl_navigateWithPopBackStack = /** @class */function () {
+  function fragmentImpl_navigateWithPopBackStack() {}
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Expose)({
+    name: "actionId"
+  })), __metadata("design:type", String)], fragmentImpl_navigateWithPopBackStack.prototype, "actionId", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Expose)({
+    name: "scopeObjects"
+  })), __metadata("design:type", Object)], fragmentImpl_navigateWithPopBackStack.prototype, "scopeObjects", void 0);
+  return fragmentImpl_navigateWithPopBackStack;
+}();
+
+var fragmentImpl_navigateAsTop = /** @class */function () {
+  function fragmentImpl_navigateAsTop() {}
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Expose)({
+    name: "actionId"
+  })), __metadata("design:type", String)], fragmentImpl_navigateAsTop.prototype, "actionId", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Expose)({
+    name: "scopeObjects"
+  })), __metadata("design:type", Object)], fragmentImpl_navigateAsTop.prototype, "scopeObjects", void 0);
+  return fragmentImpl_navigateAsTop;
+}();
+
+var fragmentImpl_navigateWithPopBackStackTo = /** @class */function () {
+  function fragmentImpl_navigateWithPopBackStackTo() {}
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Expose)({
+    name: "actionId"
+  })), __metadata("design:type", String)], fragmentImpl_navigateWithPopBackStackTo.prototype, "actionId", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Expose)({
+    name: "destinationId"
+  })), __metadata("design:type", String)], fragmentImpl_navigateWithPopBackStackTo.prototype, "destinationId", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Expose)({
+    name: "inclusive"
+  })), __metadata("design:type", Boolean)], fragmentImpl_navigateWithPopBackStackTo.prototype, "inclusive", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Expose)({
+    name: "scopeObjects"
+  })), __metadata("design:type", Object)], fragmentImpl_navigateWithPopBackStackTo.prototype, "scopeObjects", void 0);
+  return fragmentImpl_navigateWithPopBackStackTo;
+}();
+
+var fragmentImpl_popBackStackTo = /** @class */function () {
+  function fragmentImpl_popBackStackTo() {}
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Expose)({
+    name: "destinationId"
+  })), __metadata("design:type", String)], fragmentImpl_popBackStackTo.prototype, "destinationId", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Expose)({
+    name: "inclusive"
+  })), __metadata("design:type", Boolean)], fragmentImpl_popBackStackTo.prototype, "inclusive", void 0);
+  return fragmentImpl_popBackStackTo;
+}();
+
+// end - imports
+
+var fragmentImpl = /** @class */function (_super) {
+  __extends(fragmentImpl, _super);
+  function fragmentImpl(id, path, event) {
+    var _this = _super.call(this, id, path, event) || this;
+    _this.thisPointer = _this.getThisPointer();
+    return _this;
+  }
+  //start - body
+  fragmentImpl.initialize = function () {};
+  fragmentImpl.prototype.reset = function () {
+    _super.prototype.reset.call(this);
+    this.name = undefined;
+    this.layout = undefined;
+    this.navGraph = undefined;
+    this.tag = undefined;
+    this.replace_ = undefined;
+    this.navigate_ = undefined;
+    this.popBackStack_ = undefined;
+    this.navigateWithPopBackStack_ = undefined;
+    this.navigateAsTop_ = undefined;
+    this.navigateWithPopBackStackTo_ = undefined;
+    this.popBackStackTo_ = undefined;
+    return this.thisPointer;
+  };
+  fragmentImpl.prototype.setName = function (value) {
+    this.resetIfRequired();
+    if (this.name == null || this.name == undefined) {
+      this.name = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.name.setSetter(true);
+    this.name.setValue(value);
+    this.orderSet++;
+    this.name.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  fragmentImpl.prototype.setLayout = function (value) {
+    this.resetIfRequired();
+    if (this.layout == null || this.layout == undefined) {
+      this.layout = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.layout.setSetter(true);
+    this.layout.setValue(value);
+    this.orderSet++;
+    this.layout.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  fragmentImpl.prototype.setNavGraph = function (value) {
+    this.resetIfRequired();
+    if (this.navGraph == null || this.navGraph == undefined) {
+      this.navGraph = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.navGraph.setSetter(true);
+    this.navGraph.setValue(value);
+    this.orderSet++;
+    this.navGraph.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  fragmentImpl.prototype.setTag = function (value) {
+    this.resetIfRequired();
+    if (this.tag == null || this.tag == undefined) {
+      this.tag = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.tag.setSetter(true);
+    this.tag.setValue(value);
+    this.orderSet++;
+    this.tag.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  fragmentImpl.prototype.replace = function (value) {
+    this.resetIfRequired();
+    if (this.replace_ == null || this.replace_ == undefined) {
+      this.replace_ = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.replace_.setSetter(true);
+    this.replace_.setValue(value);
+    this.orderSet++;
+    this.replace_.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  fragmentImpl.prototype.navigate = function (actionId, scopeObjects) {
+    this.resetIfRequired();
+    if (this.navigate_ == null || this.navigate_ == undefined) {
+      this.navigate_ = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    var wrapper = new fragmentImpl_navigate();
+    wrapper.actionId = actionId;
+    wrapper.scopeObjects = scopeObjects;
+    this.navigate_.setSetter(true);
+    this.navigate_.setValue(wrapper);
+    this.orderSet++;
+    this.navigate_.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  fragmentImpl.prototype.popBackStack = function () {
+    this.resetIfRequired();
+    if (this.popBackStack_ == null || this.popBackStack_ == undefined) {
+      this.popBackStack_ = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.popBackStack_.setSetter(true);
+    this.orderSet++;
+    this.popBackStack_.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  fragmentImpl.prototype.navigateWithPopBackStack = function (actionId, scopeObjects) {
+    this.resetIfRequired();
+    if (this.navigateWithPopBackStack_ == null || this.navigateWithPopBackStack_ == undefined) {
+      this.navigateWithPopBackStack_ = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    var wrapper = new fragmentImpl_navigateWithPopBackStack();
+    wrapper.actionId = actionId;
+    wrapper.scopeObjects = scopeObjects;
+    this.navigateWithPopBackStack_.setSetter(true);
+    this.navigateWithPopBackStack_.setValue(wrapper);
+    this.orderSet++;
+    this.navigateWithPopBackStack_.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  fragmentImpl.prototype.navigateAsTop = function (actionId, scopeObjects) {
+    this.resetIfRequired();
+    if (this.navigateAsTop_ == null || this.navigateAsTop_ == undefined) {
+      this.navigateAsTop_ = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    var wrapper = new fragmentImpl_navigateAsTop();
+    wrapper.actionId = actionId;
+    wrapper.scopeObjects = scopeObjects;
+    this.navigateAsTop_.setSetter(true);
+    this.navigateAsTop_.setValue(wrapper);
+    this.orderSet++;
+    this.navigateAsTop_.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  fragmentImpl.prototype.navigateWithPopBackStackTo = function (actionId, destinationId, inclusive, scopeObjects) {
+    this.resetIfRequired();
+    if (this.navigateWithPopBackStackTo_ == null || this.navigateWithPopBackStackTo_ == undefined) {
+      this.navigateWithPopBackStackTo_ = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    var wrapper = new fragmentImpl_navigateWithPopBackStackTo();
+    wrapper.actionId = actionId;
+    wrapper.destinationId = destinationId;
+    wrapper.inclusive = inclusive;
+    wrapper.scopeObjects = scopeObjects;
+    this.navigateWithPopBackStackTo_.setSetter(true);
+    this.navigateWithPopBackStackTo_.setValue(wrapper);
+    this.orderSet++;
+    this.navigateWithPopBackStackTo_.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  fragmentImpl.prototype.popBackStackTo = function (destinationId, inclusive) {
+    this.resetIfRequired();
+    if (this.popBackStackTo_ == null || this.popBackStackTo_ == undefined) {
+      this.popBackStackTo_ = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    var wrapper = new fragmentImpl_popBackStackTo();
+    wrapper.destinationId = destinationId;
+    wrapper.inclusive = inclusive;
+    this.popBackStackTo_.setSetter(true);
+    this.popBackStackTo_.setValue(wrapper);
+    this.orderSet++;
+    this.popBackStackTo_.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Expose)({
+    name: "name"
+  })), __metadata("design:type", Object)], fragmentImpl.prototype, "name", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Expose)({
+    name: "layout"
+  })), __metadata("design:type", Object)], fragmentImpl.prototype, "layout", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Expose)({
+    name: "navGraph"
+  })), __metadata("design:type", Object)], fragmentImpl.prototype, "navGraph", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Expose)({
+    name: "tag"
+  })), __metadata("design:type", Object)], fragmentImpl.prototype, "tag", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Expose)({
+    name: "replace"
+  })), __metadata("design:type", Object)], fragmentImpl.prototype, "replace_", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Expose)({
+    name: "navigate"
+  })), __metadata("design:type", Object)], fragmentImpl.prototype, "navigate_", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Expose)({
+    name: "popBackStack"
+  })), __metadata("design:type", Object)], fragmentImpl.prototype, "popBackStack_", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Expose)({
+    name: "navigateWithPopBackStack"
+  })), __metadata("design:type", Object)], fragmentImpl.prototype, "navigateWithPopBackStack_", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Expose)({
+    name: "navigateAsTop"
+  })), __metadata("design:type", Object)], fragmentImpl.prototype, "navigateAsTop_", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Expose)({
+    name: "navigateWithPopBackStackTo"
+  })), __metadata("design:type", Object)], fragmentImpl.prototype, "navigateWithPopBackStackTo_", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Expose)({
+    name: "popBackStackTo"
+  })), __metadata("design:type", Object)], fragmentImpl.prototype, "popBackStackTo_", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Exclude)()), __metadata("design:type", Object)], fragmentImpl.prototype, "thisPointer", void 0);
+  return fragmentImpl;
+}(_ViewGroupImpl__WEBPACK_IMPORTED_MODULE_4__.ViewGroupImpl);
+
+//start - staticinit
+var fragment = /** @class */function (_super) {
+  __extends(fragment, _super);
+  function fragment(id, path, event) {
+    return _super.call(this, id, path, event) || this;
+  }
+  fragment.prototype.getThisPointer = function () {
+    return this;
+  };
+  fragment.prototype.getClass = function () {
+    return fragment;
+  };
+  return fragment;
+}(fragmentImpl);
+
+fragmentImpl.initialize();
 //end - staticinit
 
 /***/ }),
@@ -30423,18 +30572,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _construct(t, e, r) { if (_isNativeReflectConstruct()) return Reflect.construct.apply(null, arguments); var o = [null]; o.push.apply(o, e); var p = new (t.bind.apply(t, o))(); return r && _setPrototypeOf(p, r.prototype), p; }
+function _setPrototypeOf(t, e) { return _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function (t, e) { return t.__proto__ = e, t; }, _setPrototypeOf(t, e); }
 function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct = function _isNativeReflectConstruct() { return !!t; })(); }
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
 function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
 function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e2) { throw _e2; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e3) { didErr = true; err = _e3; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+function _createForOfIteratorHelper(r, e) { var t = "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (!t) { if (Array.isArray(r) || (t = _unsupportedIterableToArray(r)) || e && r && "number" == typeof r.length) { t && (r = t); var _n = 0, F = function F() {}; return { s: F, n: function n() { return _n >= r.length ? { done: !0 } : { done: !1, value: r[_n++] }; }, e: function e(r) { throw r; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var o, a = !0, u = !1; return { s: function s() { t = t.call(r); }, n: function n() { var r = t.next(); return a = r.done, r; }, e: function e(r) { u = !0, o = r; }, f: function f() { try { a || null == t.return || t.return(); } finally { if (u) throw o; } } }; }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 /**
  * Utility function that works like `Object.apply`, but copies getters and setters properly as well.  Additionally gives
  * the option to exclude properties by name.
