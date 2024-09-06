@@ -21,6 +21,7 @@ import { TextView } from './android/widget/TextViewImpl';
 import { Carousel } from './android/widget/CarouselImpl';
 import { View } from './android/widget/ViewImpl';
 import { fragment } from './android/widget/fragmentImpl';
+import { DialogHelper } from './helpers/DialogHelper';
 export default class Index extends Fragment {
     @InjectController({})
     navController!: NavController;
@@ -118,7 +119,7 @@ export default class Index extends Fragment {
     async validateMyForm() {
         this.validateButton.validateForm("loginForm").tryGetValidateForm();
         await this.executeCommand(this.validateButton);
-        alert(this.validateButton.getValidateForm());
+        this.alertMe(this.validateButton.getValidateForm());
     }
 
 
@@ -193,11 +194,11 @@ export default class Index extends Fragment {
      }
 
     async showAlert() {
-        alert("test");
+        this.alertMe("test");
      }
 
      async login(obj:any) {		
-		alert(JSON.stringify(obj.model));		
+		this.alertMe(JSON.stringify(obj.model));		
 	}
 
     async openCamera() {
@@ -205,7 +206,7 @@ export default class Index extends Fragment {
             this.userProfile.setSrc("data:image/png;base64," + imageData);
             this.executeCommand(this.userProfile);
         }, (message: any) => {
-            alert(message);
+            this.alertMe(message);
         }, {            
             destinationType: 0            
         });
@@ -273,6 +274,10 @@ export default class Index extends Fragment {
     async filter(obj:any) {
 		this.adapterConfig0.filter(obj.newText);
 		await this.executeCommand(this.adapterConfig0);
-	} 	
+	}
+	
+	alertMe(msg: string) {
+		DialogHelper.alert(msg, () => {});
+	}
 
 }

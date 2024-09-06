@@ -5,7 +5,7 @@
 import { Fragment, Inject } from './app/Fragment';
 import { NavController, InjectController } from './navigation/NavController';
 import { ScopedObject } from './app/ScopedObject';
-
+import { DialogHelper } from './helpers/DialogHelper';
 declare var QRScanner: any;
 //start - className
 export default class QrcodeScanner extends Fragment
@@ -33,7 +33,7 @@ export default class QrcodeScanner extends Fragment
     onDone(err: any, status: any) {
         if (err) {
             // here we can handle errors and clean up any loose ends.
-            alert(JSON.stringify(err));
+            this.alertMe(JSON.stringify(err));
             return;
         }
         if (status.authorized) {
@@ -44,22 +44,22 @@ export default class QrcodeScanner extends Fragment
             // The video preview will remain black, and scanning is disabled. We can
             // try to ask the user to change their mind, but we'll have to send them
             // to their device settings with `QRScanner.openSettings()`.
-            alert("Access is denied");
+            this.alertMe("Access is denied");
         } else {
             // we didn't get permission, but we didn't get permanently denied. (On
             // Android, a denial isn't permanent unless the user checks the "Don't
             // ask again" box.) We can ask again at the next relevant opportunity.
-            alert("onDone");
+            this.alertMe("onDone");
         }
     }
 
     displayContents(err: any, text: any) {
         if (err) {
             // an error occurred, or the scan was canceled (error code `6`)
-            alert(JSON.stringify(err));
+            this.alertMe(JSON.stringify(err));
         } else {
             // The scan completed, display the contents of the QR code:
-            alert(JSON.stringify(text));
+            this.alertMe(JSON.stringify(text));
         }
     }
 
@@ -68,4 +68,8 @@ export default class QrcodeScanner extends Fragment
             console.log(status);
         });
     }
+
+    alertMe(msg: string) {
+		DialogHelper.alert(msg, () => {});
+	}
 }
