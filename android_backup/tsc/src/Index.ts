@@ -108,7 +108,7 @@ export default class Index extends Fragment {
             var favourite = groupieBuilder.withSection("mydata");
             for (var i = 0; i < 10; i++) {
                 let x = ((i + 1) * (10 + j));
-                favourite.addItem({ "background": "#0f0", "name": i + "", image: "https://source.unsplash.com/random/" + x + "X" + x + "?img=" + x });
+                favourite.addItem({ "background": "#0f0", "name": i + "", image: "https://loremflickr.com/" + x + "/" + x + "?img=" + x });
             }
             favourite.updateSection("title", "Favourites" + j);
             data.push(favourite.getSectionData());

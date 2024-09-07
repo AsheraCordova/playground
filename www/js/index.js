@@ -577,7 +577,7 @@ var Index = /** @class */function (_super) {
         favourite.addItem({
           "background": "#0f0",
           "name": i + "",
-          image: "https://source.unsplash.com/random/" + x + "X" + x + "?img=" + x
+          image: "https://loremflickr.com/" + x + "/" + x + "?img=" + x
         });
       }
       favourite.updateSection("title", "Favourites" + j);
