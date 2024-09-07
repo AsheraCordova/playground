@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:menu="@menu/bottom_nav_menu"
-        android:background="#fff"
+        android:background="#0f0"
         menuItemIds="@+id/n__settings"
         badgeNumbers="10"></com.google.android.material.bottomnavigation.BottomNavigationView>
 

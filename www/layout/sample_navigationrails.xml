@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         app:menu="@menu/bottom_nav_menu"
-        android:background="#fff"
+        android:background="#0f0"
         menuItemIds="@+id/n__settings"
         badgeNumbers="10"></com.google.android.material.navigationrail.NavigationRailView>
 
