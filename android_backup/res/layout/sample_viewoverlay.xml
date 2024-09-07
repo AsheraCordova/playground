@@ -1,0 +1,96 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:ignore="MissingPrefix">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        webOverflow="hidden"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/mountains"
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            android:contentDescription="@null"
+            android:scaleType="centerCrop"
+            android:src="@drawable/mountains_no_resize"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.ashera.layout.ViewOverlay
+            android:id="@+id/viewOverlay1"
+            anchorRef="@+id/mountains"
+            drawable="@drawable/ic_bookmark"
+            swtUseGC="true"
+            drawableHeight="40dp"
+            drawableWidth="40dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.ashera.layout.ViewOverlay
+            android:id="@+id/viewOverlay2"
+            anchorRef="@+id/mountains"
+            boundsType="top_left"
+            drawable="@drawable/ic_bookmark"
+            drawableHeight="40dp"
+            drawableWidth="40dp"
+            swtUseGC="true"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.ashera.layout.ViewOverlay
+            android:id="@+id/viewOverlay3"
+            anchorRef="@+id/mountains"
+            boundsType="top_right"
+            drawable="@drawable/ic_bookmark"
+            drawableHeight="40dp"
+            drawableWidth="40dp"
+            swtUseGC="true"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.ashera.layout.ViewOverlay
+            android:id="@+id/viewOverlay4"
+            anchorRef="@+id/mountains"
+            boundsType="bottom_left"
+            drawable="@drawable/ic_bookmark"
+            drawableHeight="40dp"
+            drawableWidth="40dp"
+            swtUseGC="true"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.ashera.layout.ViewOverlay
+            android:id="@+id/viewOverlay5"
+            anchorRef="@+id/mountains"
+            boundsType="bottom_right"
+            drawable="@drawable/ic_bookmark"
+            drawableHeight="40dp"
+            drawableWidth="40dp"
+            swtUseGC="true"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
+

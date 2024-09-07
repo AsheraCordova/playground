@@ -13,5 +13,7 @@
         app:menu="@menu/main_menu"
         app:title="Sample Title"
         android:background="#ff0"
+        menuItemIds="@+id/n__notify"
+        badgeNumbers="1"
         app:titleTextColor="#000"></androidx.appcompat.widget.Toolbar>
 </LinearLayout>

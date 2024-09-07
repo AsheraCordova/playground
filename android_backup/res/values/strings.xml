@@ -35,6 +35,13 @@
     <array name="samples">
         <item></item>
         <item>Absolute layout</item>
+        <item>Animation</item>
+        <item>Appbar Layout</item>
+        <item>Border</item>
+        <item>Bottom Navigation View</item>
+        <item>Camera</item>
+        <item>CapInsets</item>
+        <item>Coordinator Layout</item>
         <item>Constraint layout</item>
         <item>Constraint layout (Barrier)</item>
         <item>Constraint layout (Circularflow)</item>
@@ -42,37 +49,40 @@
         <item>Constraint layout (Group)</item>
         <item>Constraint layout (Guideline)</item>
         <item>Constraint layout (Placeholder)</item>
-        <item>Motion Layout</item>
-        <item>Motion Layout (DrawerLayout)</item>
-        <item>Motion Layout (ViewPager)</item>
-        <item>Motion Layout (Multi state)</item>
-        <item>Motion Layout (Carousel)</item>
         <item>Dialog</item>
         <item>Drawer layout</item>
         <item>Frame layout</item>
         <item>Grid layout</item>
         <item>Linear layout</item>
+        <item>Model</item>
+        <item>Motion Layout</item>
+        <item>Motion Layout (DrawerLayout)</item>
+        <item>Motion Layout (ViewPager)</item>
+        <item>Motion Layout (Multi state)</item>
+        <item>Motion Layout (Carousel)</item>
+        <item>Navigation Rails</item>
+        <item>QRCode</item>
         <item>Relative layout</item>
         <item>Recyclerview</item>
         <item>Recyclerview (Groupie)</item>
         <item>Table layout</item>
         <item>Toolbar layout</item>
+        <item>Validations</item>
+        <item>ViewPager</item>
+        <item>ViewOverlay</item>
         <item>Webview</item>
         <item>Widgets</item>
-        <item>Animation</item>
-        <item>Validations</item>
-        <item>Border</item>
-        <item>CapInsets</item>
-        <item>Model</item>
-        <item>ViewPager</item>
-        <item>Coordinator Layout</item>
-        <item>Appbar Layout</item>
-        <item>Camera</item>
-        <item>QRCode</item>
     </array>
     <array name="samples_values" separator="~">
         <item>www/layout/sample_start.xml</item>
         <item>www/layout/sample_absolute_layout.xml</item>
+        <item>www/layout/sample_view_animation.xml</item>
+        <item>www/layout/sample_appbarlayout.xml</item>
+        <item>www/layout/sample_border.xml</item>
+        <item>www/layout/sample_bottom_navigationview.xml</item>
+        <item>www/layout/sample_camera.xml</item>
+        <item>www/layout/sample_capinsets.xml</item>
+        <item>www/layout/sample_coordinator_layout.xml</item>
         <item>www/layout/sample_constraintlayout.xml</item>
         <item>www/layout/sample_constraintlayout_barrier.xml</item>
         <item>www/layout/sample_constraintlayout_circularflow.xml</item>
@@ -80,32 +90,28 @@
         <item>www/layout/sample_constraintlayout_group.xml</item>
         <item>www/layout/sample_constraintlayout_guideline.xml</item>
         <item>www/layout/sample_constraintlayout_placeholder.xml</item>
-        <item>www/layout/sample_motion_layout.xml</item>
-        <item>www/layout/sample_motion_layout_drawer_layout.xml</item>
-        <item>www/layout/sample_motion_layout_viewpager.xml</item>
-        <item>www/layout/sample_motion_layout_multistate.xml</item>
-        <item>www/layout/sample_motion_layout_carousel.xml</item>
         <item>www/layout/sample_dialog.xml</item>
         <item>www/layout/sample_drawerlayout.xml</item>
         <item>www/layout/sample_framelayout.xml</item>
         <item>www/layout/sample_gridlayout.xml</item>
         <item>www/layout/sample_linearlayout.xml</item>
+        <item>www/layout/sample_model.xml</item>
+        <item>www/layout/sample_motion_layout.xml</item>
+        <item>www/layout/sample_motion_layout_drawer_layout.xml</item>
+        <item>www/layout/sample_motion_layout_viewpager.xml</item>
+        <item>www/layout/sample_motion_layout_multistate.xml</item>
+        <item>www/layout/sample_motion_layout_carousel.xml</item>
+        <item>www/layout/sample_navigationrails.xml</item>
+        <item>www/layout/sample_qrcode.xml</item>
         <item>www/layout/sample_relativelayout.xml</item>
         <item>www/layout/sample_recyclerview.xml</item>
         <item>www/layout/sample_recycleview_groupieadapter.xml</item>
         <item>www/layout/sample_tablelayout.xml</item>
         <item>www/layout/sample_toolbar.xml</item>
+        <item>www/layout/sample_validations.xml</item>
+        <item>www/layout/sample_viewpager.xml</item>
+        <item>www/layout/sample_viewoverlay.xml</item>
         <item>www/layout/sample_webview.xml</item>
         <item>www/layout/sample_formwidgets.xml</item>
-        <item>www/layout/sample_view_animation.xml</item>
-        <item>www/layout/sample_validations.xml</item>
-        <item>www/layout/sample_border.xml</item>
-        <item>www/layout/sample_capinsets.xml</item>
-        <item>www/layout/sample_model.xml</item>
-        <item>www/layout/sample_viewpager.xml</item>
-        <item>www/layout/sample_coordinator_layout.xml</item>
-        <item>www/layout/sample_appbarlayout.xml</item>
-        <item>www/layout/sample_camera.xml</item>
-        <item>www/layout/sample_qrcode.xml</item>
     </array>
 </resources>
