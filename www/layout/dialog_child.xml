@@ -22,10 +22,30 @@
             android:gravity="center"
             android:text="test text"></TextView>
 
+        <com.ashera.datetime.DatePicker
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <com.ashera.datetime.TimePicker
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="showAlert"
-            android:text="Show ALert"></Button>
+            android:text="Show Alert"></Button>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="showDialogAlert"
+            android:text="Show Dialog Alert"></Button>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="showProgressDialog"
+            android:text="Show Progress Dialog"></Button>
     </LinearLayout>
 </layout>

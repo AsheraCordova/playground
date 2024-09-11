@@ -22,6 +22,7 @@ import { Carousel } from './android/widget/CarouselImpl';
 import { View } from './android/widget/ViewImpl';
 import { fragment } from './android/widget/fragmentImpl';
 import { DialogHelper } from './helpers/DialogHelper';
+declare var SpinnerDialog:any;
 export default class Index extends Fragment {
     @InjectController({})
     navController!: NavController;
@@ -280,4 +281,14 @@ export default class Index extends Fragment {
 		DialogHelper.alert(msg, () => {});
 	}
 
+    showDialogAlert() {
+        DialogHelper.alert("test", () => {});
+    }
+
+    async showProgressDialog() {
+		SpinnerDialog.show();
+        setTimeout(() => {
+            SpinnerDialog.hide();
+        }, 5000);
+	}
 }

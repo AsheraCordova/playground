@@ -1004,6 +1004,20 @@ var Index = /** @class */function (_super) {
   Index.prototype.alertMe = function (msg) {
     _helpers_DialogHelper__WEBPACK_IMPORTED_MODULE_20__.DialogHelper.alert(msg, function () {});
   };
+  Index.prototype.showDialogAlert = function () {
+    _helpers_DialogHelper__WEBPACK_IMPORTED_MODULE_20__.DialogHelper.alert("test", function () {});
+  };
+  Index.prototype.showProgressDialog = function () {
+    return __awaiter(this, void 0, void 0, function () {
+      return __generator(this, function (_a) {
+        SpinnerDialog.show();
+        setTimeout(function () {
+          SpinnerDialog.hide();
+        }, 5000);
+        return [2 /*return*/];
+      });
+    });
+  };
   __decorate([(0,_navigation_NavController__WEBPACK_IMPORTED_MODULE_9__.InjectController)({}), __metadata("design:type", _navigation_NavController__WEBPACK_IMPORTED_MODULE_9__.NavController)], Index.prototype, "navController", void 0);
   __decorate([(0,_app_Fragment__WEBPACK_IMPORTED_MODULE_5__.Inject)({
     id: _R_Index__WEBPACK_IMPORTED_MODULE_8__.preview
