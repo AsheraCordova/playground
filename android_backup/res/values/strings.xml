@@ -50,7 +50,7 @@
         <item>Constraint layout (Guideline)</item>
         <item>Constraint layout (Placeholder)</item>
         <item>Dialog</item>
-        <item>Drawer layout</item>
+        <item>Drawer layout + Nav View</item>
         <item>Frame layout</item>
         <item>Grid layout</item>
         <item>Linear layout</item>
@@ -65,6 +65,7 @@
         <item>Relative layout</item>
         <item>Recyclerview</item>
         <item>Recyclerview (Groupie)</item>
+        <item>Tab layout</item>
         <item>Table layout</item>
         <item>Toolbar layout</item>
         <item>Validations</item>
@@ -106,6 +107,7 @@
         <item>www/layout/sample_relativelayout.xml</item>
         <item>www/layout/sample_recyclerview.xml</item>
         <item>www/layout/sample_recycleview_groupieadapter.xml</item>
+        <item>www/layout/sample_tablayout.xml</item>
         <item>www/layout/sample_tablelayout.xml</item>
         <item>www/layout/sample_toolbar.xml</item>
         <item>www/layout/sample_validations.xml</item>

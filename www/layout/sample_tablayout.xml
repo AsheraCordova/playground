@@ -1,0 +1,29 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.viewpager.widget.ViewPager
+        modelFor="let item in . from viewpagerInfo->parentview into loopvar as pathmap"
+        modelIdPath="id"
+        pageTitles="1,2,3,4,5,6,7,8,9,10"
+        swtAttachEventBubbler="keyup,keydown,mousedown,mouseup,mousemove"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/viewpager"
+        tools:listitem="@layout/viewpager_item">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/viewpagertest"
+            swtIgnoreEventBubblers="true"
+            app:tabMode="scrollable"
+            android:layout_gravity="top"
+            setupWithViewPager="@+id/viewpager"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            layout_isdecor="true">
+        </com.google.android.material.tabs.TabLayout>
+    </androidx.viewpager.widget.ViewPager>
+</LinearLayout>
