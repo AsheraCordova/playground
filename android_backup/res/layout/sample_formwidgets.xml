@@ -213,6 +213,7 @@
             android:layout_height="wrap_content"
             android:indeterminate="false"
             android:progressTint="#f00"
+            widget-override-ios="UIProgressView"
             systemAndroidAttrStyle="progressBarStyleHorizontal"
             android:max="60"
             android:progress="20"
