@@ -12549,8 +12549,6 @@ var ViewImpl = /** @class */function () {
     this.nextFocusLeft = undefined;
     this.nextFocusRight = undefined;
     this.nextFocusUp = undefined;
-    this.outlineAmbientShadowColor = undefined;
-    this.outlineSpotShadowColor = undefined;
     this.rotation = undefined;
     this.rotationX = undefined;
     this.rotationY = undefined;
@@ -12654,6 +12652,9 @@ var ViewImpl = /** @class */function () {
     this.right = undefined;
     this.top = undefined;
     this.bottom = undefined;
+    this.outlineAmbientShadowColor = undefined;
+    this.outlineSpotShadowColor = undefined;
+    this.cornerRadius = undefined;
     this.orderGet = 0;
     this.orderSet = 0;
     this.flush = false;
@@ -13718,60 +13719,6 @@ var ViewImpl = /** @class */function () {
     this.nextFocusUp.setValue(value);
     this.orderSet++;
     this.nextFocusUp.setOrderSet(this.orderSet);
-    return this.thisPointer;
-  };
-  ViewImpl.prototype.tryGetOutlineAmbientShadowColor = function () {
-    this.resetIfRequired();
-    if (this.outlineAmbientShadowColor == null || this.outlineAmbientShadowColor == undefined) {
-      this.outlineAmbientShadowColor = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
-    }
-    this.outlineAmbientShadowColor.setGetter(true);
-    this.orderGet++;
-    this.outlineAmbientShadowColor.setOrderGet(this.orderGet);
-    return this.thisPointer;
-  };
-  ViewImpl.prototype.getOutlineAmbientShadowColor = function () {
-    if (this.outlineAmbientShadowColor == null || this.outlineAmbientShadowColor == undefined) {
-      this.outlineAmbientShadowColor = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
-    }
-    return this.outlineAmbientShadowColor.getCommandReturnValue();
-  };
-  ViewImpl.prototype.setOutlineAmbientShadowColor = function (value) {
-    this.resetIfRequired();
-    if (this.outlineAmbientShadowColor == null || this.outlineAmbientShadowColor == undefined) {
-      this.outlineAmbientShadowColor = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
-    }
-    this.outlineAmbientShadowColor.setSetter(true);
-    this.outlineAmbientShadowColor.setValue(value);
-    this.orderSet++;
-    this.outlineAmbientShadowColor.setOrderSet(this.orderSet);
-    return this.thisPointer;
-  };
-  ViewImpl.prototype.tryGetOutlineSpotShadowColor = function () {
-    this.resetIfRequired();
-    if (this.outlineSpotShadowColor == null || this.outlineSpotShadowColor == undefined) {
-      this.outlineSpotShadowColor = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
-    }
-    this.outlineSpotShadowColor.setGetter(true);
-    this.orderGet++;
-    this.outlineSpotShadowColor.setOrderGet(this.orderGet);
-    return this.thisPointer;
-  };
-  ViewImpl.prototype.getOutlineSpotShadowColor = function () {
-    if (this.outlineSpotShadowColor == null || this.outlineSpotShadowColor == undefined) {
-      this.outlineSpotShadowColor = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
-    }
-    return this.outlineSpotShadowColor.getCommandReturnValue();
-  };
-  ViewImpl.prototype.setOutlineSpotShadowColor = function (value) {
-    this.resetIfRequired();
-    if (this.outlineSpotShadowColor == null || this.outlineSpotShadowColor == undefined) {
-      this.outlineSpotShadowColor = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
-    }
-    this.outlineSpotShadowColor.setSetter(true);
-    this.outlineSpotShadowColor.setValue(value);
-    this.orderSet++;
-    this.outlineSpotShadowColor.setOrderSet(this.orderSet);
     return this.thisPointer;
   };
   ViewImpl.prototype.tryGetRotation = function () {
@@ -15735,6 +15682,39 @@ var ViewImpl = /** @class */function () {
     this.bottom.setOrderSet(this.orderSet);
     return this.thisPointer;
   };
+  ViewImpl.prototype.setOutlineAmbientShadowColor = function (value) {
+    this.resetIfRequired();
+    if (this.outlineAmbientShadowColor == null || this.outlineAmbientShadowColor == undefined) {
+      this.outlineAmbientShadowColor = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.outlineAmbientShadowColor.setSetter(true);
+    this.outlineAmbientShadowColor.setValue(value);
+    this.orderSet++;
+    this.outlineAmbientShadowColor.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  ViewImpl.prototype.setOutlineSpotShadowColor = function (value) {
+    this.resetIfRequired();
+    if (this.outlineSpotShadowColor == null || this.outlineSpotShadowColor == undefined) {
+      this.outlineSpotShadowColor = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.outlineSpotShadowColor.setSetter(true);
+    this.outlineSpotShadowColor.setValue(value);
+    this.orderSet++;
+    this.outlineSpotShadowColor.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  ViewImpl.prototype.setCornerRadius = function (value) {
+    this.resetIfRequired();
+    if (this.cornerRadius == null || this.cornerRadius == undefined) {
+      this.cornerRadius = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.cornerRadius.setSetter(true);
+    this.cornerRadius.setValue(value);
+    this.orderSet++;
+    this.cornerRadius.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
   __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_7__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
   })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
@@ -15935,16 +15915,6 @@ var ViewImpl = /** @class */function () {
   })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
     name: "nextFocusUp"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "nextFocusUp", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_7__.Type)(function () {
-    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
-    name: "outlineAmbientShadowColor"
-  })), __metadata("design:type", Object)], ViewImpl.prototype, "outlineAmbientShadowColor", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_7__.Type)(function () {
-    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
-    name: "outlineSpotShadowColor"
-  })), __metadata("design:type", Object)], ViewImpl.prototype, "outlineSpotShadowColor", void 0);
   __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_7__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
   })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
@@ -16460,6 +16430,21 @@ var ViewImpl = /** @class */function () {
   })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
     name: "bottom"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "bottom", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_7__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "outlineAmbientShadowColor"
+  })), __metadata("design:type", Object)], ViewImpl.prototype, "outlineAmbientShadowColor", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_7__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "outlineSpotShadowColor"
+  })), __metadata("design:type", Object)], ViewImpl.prototype, "outlineSpotShadowColor", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_7__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+    name: "cornerRadius"
+  })), __metadata("design:type", Object)], ViewImpl.prototype, "cornerRadius", void 0);
   __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_8__.Exclude)()), __metadata("design:type", Object)], ViewImpl.prototype, "thisPointer", void 0);
   __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_8__.Exclude)()), __metadata("design:type", Number)], ViewImpl.prototype, "orderGet", void 0);
   __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_8__.Exclude)()), __metadata("design:type", Number)], ViewImpl.prototype, "orderSet", void 0);

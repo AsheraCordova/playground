@@ -41,6 +41,7 @@
         <item>Bottom Navigation View</item>
         <item>Camera</item>
         <item>CapInsets</item>
+        <item>Card View</item>
         <item>Coordinator Layout</item>
         <item>Constraint layout</item>
         <item>Constraint layout (Barrier)</item>
@@ -83,6 +84,7 @@
         <item>www/layout/sample_bottom_navigationview.xml</item>
         <item>www/layout/sample_camera.xml</item>
         <item>www/layout/sample_capinsets.xml</item>
+        <item>www/layout/sample_card_view.xml</item>
         <item>www/layout/sample_coordinator_layout.xml</item>
         <item>www/layout/sample_constraintlayout.xml</item>
         <item>www/layout/sample_constraintlayout_barrier.xml</item>
