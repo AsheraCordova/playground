@@ -34,6 +34,7 @@
     "com.ashera.appbarlayout": "git+https://github.com/AsheraCordova/AppBarLayout.git",
     "com.ashera.capinsets": "git+https://github.com/AsheraCordova/CapInsets.git",
     "com.ashera.cardview": "github:AsheraCordova/CardView",
+    "com.ashera.chip": "github:AsheraCordova/Chip",
     "com.ashera.constraintlayout": "git+https://github.com/AsheraCordova/ConstraintLayout.git",
     "com.ashera.coordinatorlayout": "git+https://github.com/AsheraCordova/CoordinatorLayout.git",
     "com.ashera.core": "git+https://github.com/AsheraCordova/Core.git",
@@ -102,7 +103,8 @@
       "cordova-plugin-dialogs-ashera": {},
       "com.ashera.navigationview": {},
       "com.ashera.tablayout": {},
-      "com.ashera.cardview": {}
+      "com.ashera.cardview": {},
+      "com.ashera.chip": {}
     },
     "platforms": [
       "android",

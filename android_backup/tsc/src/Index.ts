@@ -291,4 +291,34 @@ export default class Index extends Fragment {
             SpinnerDialog.hide();
         }, 5000);
 	}
+
+    async showSelection(obj:any) {
+		alert(obj.checkedIds[0]);
+	}
+
+	async chipAlarm() {
+		alert("alarm");
+	}
+
+	async chipMusic() {
+		alert("music");
+	}
+
+	async chipCall() {
+		alert("Call");
+	}
+
+	async chipSendMessage() {
+		alert("SendMessage");
+	}
+
+    async filterGroup(obj:any) {
+        let checkedIds = obj.checkedIds;
+        let filter = '';
+        if (checkedIds.length > 0) {
+            filter = checkedIds[0].slice(-1);
+        }
+		this.adapterConfig0.filter(filter);
+		await this.executeCommand(this.adapterConfig0);
+	}
 }
