@@ -293,23 +293,23 @@ export default class Index extends Fragment {
 	}
 
     async showSelection(obj:any) {
-		alert(obj.checkedIds[0]);
+		DialogHelper.alert(obj.checkedIds[0], () => {});
 	}
 
 	async chipAlarm() {
-		alert("alarm");
+		DialogHelper.alert("alarm", () => {});
 	}
 
 	async chipMusic() {
-		alert("music");
+		DialogHelper.alert("music", () => {});
 	}
 
 	async chipCall() {
-		alert("Call");
+		DialogHelper.alert("Call", () => {});
 	}
 
 	async chipSendMessage() {
-		alert("SendMessage");
+		DialogHelper.alert("SendMessage", () => {});
 	}
 
     async filterGroup(obj:any) {
