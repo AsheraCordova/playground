@@ -30,7 +30,7 @@
         <item name="android:textSize">@dimen/font_normal</item>
     </style>
 
-    <style name="button_style" attrs="backgroundCapInsetsLeft-swt:30dp;backgroundCapInsetsRight-swt:30dp;backgroundCapInsetsLeft-web:30dp;backgroundCapInsetsRight-web:30dp;backgroundCapInsetsLeft-ios:30dp;backgroundCapInsetsRight-ios:30dp;">
+    <style name="button_style" attrs="backgroundCapInsetsLeft:30dp;backgroundCapInsetsRight:30dp;">
         <item name="android:background">@drawable/common_9_button</item>
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">@color/color_red</item>

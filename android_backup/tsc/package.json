@@ -5,7 +5,8 @@
   "browserslist": "> 0.25%, not dead, ie >= 11",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --mode=development --watch",
+    "build": "webpack --config-name full --mode=development --watch",
+	"build-child": " webpack --config webpack.config.js --config-name child",
     "dev-server": "webpack-dev-server --history-api-fallback --host 0.0.0.0",
     "lint": "tslint --project ."
   },
