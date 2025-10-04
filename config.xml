@@ -28,5 +28,5 @@
 	<preference name="webScaleFactor" value="1.4" />
 	<preference name="macScaleFactor" value="1.8" />
 	<preference name="iosHidetoolbar" value="true" />
-	<!--preference name="webHistoryUrlPrefix" value="/playground" /--> 
+	<preference name="webHistoryUrlPrefix" value="/playground" /> 
 </widget>

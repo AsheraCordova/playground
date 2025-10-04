@@ -14,6 +14,17 @@
             style="@style/blackBg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="TextView"></TextView>
+         
+		<TextView
+			android:typeface="@font/nutso2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Custom Font"></TextView>   
+        <TextView
+            style="@style/blackBg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="EditText"></TextView>
 
         <EditText

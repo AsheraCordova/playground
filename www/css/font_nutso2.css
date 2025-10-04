@@ -1,0 +1,29 @@
+
+            @font-face {
+  				font-family: 'Nutso2';
+  				font-style: normal;
+  				font-weight: 400;
+  				src: url(/res/font/nutso2_regular.otf)
+			}
+        
+            @font-face {
+  				font-family: 'Nutso2';
+  				font-style: italic;
+  				font-weight: 400;
+  				src: url(/res/font/nutso2_regular.otf)
+			}
+        
+            @font-face {
+  				font-family: 'Nutso2';
+  				font-style: italic;
+  				font-weight: 700;
+  				src: url(/res/font/nutso2_regular.otf)
+			}
+        
+            @font-face {
+  				font-family: 'Nutso2';
+  				font-style: normal;
+  				font-weight: 700;
+  				src: url(/res/font/nutso2_regular.otf)
+			}
+        

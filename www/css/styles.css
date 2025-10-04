@@ -42,12 +42,8 @@
 			textSize:"14sp";
 			textColor:"@color/color_red";
 			textStyle:"bold";
-			backgroundCapInsetsLeft-swt:"30dp";
-				backgroundCapInsetsRight-swt:"30dp";
-				backgroundCapInsetsLeft-web:"30dp";
-				backgroundCapInsetsRight-web:"30dp";
-				backgroundCapInsetsLeft-ios:"30dp";
-				backgroundCapInsetsRight-ios:"30dp";
+			backgroundCapInsetsLeft:"30dp";
+				backgroundCapInsetsRight:"30dp";
 				
                  }
         
