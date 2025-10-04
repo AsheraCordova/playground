@@ -336,10 +336,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   TransformOperationExecutor: function() { return /* binding */ TransformOperationExecutor; }
 /* harmony export */ });
-/* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./storage */ "./node_modules/class-transformer/esm5/storage.js");
-/* harmony import */ var _enums__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./enums */ "./node_modules/class-transformer/esm5/enums/transformation-type.enum.js");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils */ "./node_modules/class-transformer/esm5/utils/get-global.util.js");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./utils */ "./node_modules/class-transformer/esm5/utils/is-promise.util.js");
+/* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./storage */ "./node_modules/class-transformer/esm5/storage.js");
+/* harmony import */ var _enums__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./enums */ "./node_modules/class-transformer/esm5/enums/transformation-type.enum.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./utils */ "./node_modules/class-transformer/esm5/utils/get-global.util.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./utils */ "./node_modules/class-transformer/esm5/utils/is-promise.util.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 var __spreadArray = undefined && undefined.__spreadArray || function (to, from, pack) {
   if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
@@ -381,13 +381,13 @@ var TransformOperationExecutor = /** @class */function () {
       level = 0;
     }
     if (Array.isArray(value) || value instanceof Set) {
-      var newValue_1 = arrayType && this.transformationType === _enums__WEBPACK_IMPORTED_MODULE_0__.TransformationType.PLAIN_TO_CLASS ? instantiateArrayType(arrayType) : [];
+      var newValue_1 = arrayType && this.transformationType === _enums__WEBPACK_IMPORTED_MODULE_1__.TransformationType.PLAIN_TO_CLASS ? instantiateArrayType(arrayType) : [];
       value.forEach(function (subValue, index) {
         var subSource = source ? source[index] : undefined;
         if (!_this.options.enableCircularCheck || !_this.isCircular(subValue)) {
           var realTargetType = void 0;
           if (typeof targetType !== 'function' && targetType && targetType.options && targetType.options.discriminator && targetType.options.discriminator.property && targetType.options.discriminator.subTypes) {
-            if (_this.transformationType === _enums__WEBPACK_IMPORTED_MODULE_0__.TransformationType.PLAIN_TO_CLASS) {
+            if (_this.transformationType === _enums__WEBPACK_IMPORTED_MODULE_1__.TransformationType.PLAIN_TO_CLASS) {
               realTargetType = targetType.options.discriminator.subTypes.find(function (subType) {
                 return subType.name === subValue[targetType.options.discriminator.property];
               });
@@ -400,10 +400,10 @@ var TransformOperationExecutor = /** @class */function () {
               realTargetType === undefined ? realTargetType = newType : realTargetType = realTargetType.value;
               if (!targetType.options.keepDiscriminatorProperty) delete subValue[targetType.options.discriminator.property];
             }
-            if (_this.transformationType === _enums__WEBPACK_IMPORTED_MODULE_0__.TransformationType.CLASS_TO_CLASS) {
+            if (_this.transformationType === _enums__WEBPACK_IMPORTED_MODULE_1__.TransformationType.CLASS_TO_CLASS) {
               realTargetType = subValue.constructor;
             }
-            if (_this.transformationType === _enums__WEBPACK_IMPORTED_MODULE_0__.TransformationType.CLASS_TO_PLAIN) {
+            if (_this.transformationType === _enums__WEBPACK_IMPORTED_MODULE_1__.TransformationType.CLASS_TO_PLAIN) {
               subValue[targetType.options.discriminator.property] = targetType.options.discriminator.subTypes.find(function (subType) {
                 return subType.value === subValue.constructor;
               }).name;
@@ -417,7 +417,7 @@ var TransformOperationExecutor = /** @class */function () {
           } else {
             newValue_1.push(value_1);
           }
-        } else if (_this.transformationType === _enums__WEBPACK_IMPORTED_MODULE_0__.TransformationType.CLASS_TO_CLASS) {
+        } else if (_this.transformationType === _enums__WEBPACK_IMPORTED_MODULE_1__.TransformationType.CLASS_TO_CLASS) {
           if (newValue_1 instanceof Set) {
             newValue_1.add(subValue);
           } else {
@@ -441,10 +441,10 @@ var TransformOperationExecutor = /** @class */function () {
       }
       if (value === null || value === undefined) return value;
       return new Date(value);
-    } else if (!!(0,_utils__WEBPACK_IMPORTED_MODULE_1__.getGlobal)().Buffer && (targetType === Buffer || value instanceof Buffer) && !isMap) {
+    } else if (!!(0,_utils__WEBPACK_IMPORTED_MODULE_2__.getGlobal)().Buffer && (targetType === Buffer || value instanceof Buffer) && !isMap) {
       if (value === null || value === undefined) return value;
       return Buffer.from(value);
-    } else if ((0,_utils__WEBPACK_IMPORTED_MODULE_2__.isPromise)(value) && !isMap) {
+    } else if ((0,_utils__WEBPACK_IMPORTED_MODULE_3__.isPromise)(value) && !isMap) {
       return new Promise(function (resolve, reject) {
         value.then(function (data) {
           return resolve(_this.transform(undefined, data, targetType, undefined, undefined, level + 1));
@@ -472,7 +472,7 @@ var TransformOperationExecutor = /** @class */function () {
       }
       var keys = this.getKeys(targetType, value, isMap);
       var newValue = source ? source : {};
-      if (!source && (this.transformationType === _enums__WEBPACK_IMPORTED_MODULE_0__.TransformationType.PLAIN_TO_CLASS || this.transformationType === _enums__WEBPACK_IMPORTED_MODULE_0__.TransformationType.CLASS_TO_CLASS)) {
+      if (!source && (this.transformationType === _enums__WEBPACK_IMPORTED_MODULE_1__.TransformationType.PLAIN_TO_CLASS || this.transformationType === _enums__WEBPACK_IMPORTED_MODULE_1__.TransformationType.CLASS_TO_CLASS)) {
         if (isMap) {
           newValue = new Map();
         } else if (targetType) {
@@ -489,14 +489,14 @@ var TransformOperationExecutor = /** @class */function () {
         var newValueKey = key,
           propertyName = key;
         if (!this_1.options.ignoreDecorators && targetType) {
-          if (this_1.transformationType === _enums__WEBPACK_IMPORTED_MODULE_0__.TransformationType.PLAIN_TO_CLASS) {
-            var exposeMetadata = _storage__WEBPACK_IMPORTED_MODULE_3__.defaultMetadataStorage.findExposeMetadataByCustomName(targetType, key);
+          if (this_1.transformationType === _enums__WEBPACK_IMPORTED_MODULE_1__.TransformationType.PLAIN_TO_CLASS) {
+            var exposeMetadata = _storage__WEBPACK_IMPORTED_MODULE_0__.defaultMetadataStorage.findExposeMetadataByCustomName(targetType, key);
             if (exposeMetadata) {
               propertyName = exposeMetadata.propertyName;
               newValueKey = exposeMetadata.propertyName;
             }
-          } else if (this_1.transformationType === _enums__WEBPACK_IMPORTED_MODULE_0__.TransformationType.CLASS_TO_PLAIN || this_1.transformationType === _enums__WEBPACK_IMPORTED_MODULE_0__.TransformationType.CLASS_TO_CLASS) {
-            var exposeMetadata = _storage__WEBPACK_IMPORTED_MODULE_3__.defaultMetadataStorage.findExposeMetadata(targetType, key);
+          } else if (this_1.transformationType === _enums__WEBPACK_IMPORTED_MODULE_1__.TransformationType.CLASS_TO_PLAIN || this_1.transformationType === _enums__WEBPACK_IMPORTED_MODULE_1__.TransformationType.CLASS_TO_CLASS) {
+            var exposeMetadata = _storage__WEBPACK_IMPORTED_MODULE_0__.defaultMetadataStorage.findExposeMetadata(targetType, key);
             if (exposeMetadata && exposeMetadata.options && exposeMetadata.options.name) {
               newValueKey = exposeMetadata.options.name;
             }
@@ -504,7 +504,7 @@ var TransformOperationExecutor = /** @class */function () {
         }
         // get a subvalue
         var subValue = undefined;
-        if (this_1.transformationType === _enums__WEBPACK_IMPORTED_MODULE_0__.TransformationType.PLAIN_TO_CLASS) {
+        if (this_1.transformationType === _enums__WEBPACK_IMPORTED_MODULE_1__.TransformationType.PLAIN_TO_CLASS) {
           /**
            * This section is added for the following report:
            * https://github.com/typestack/class-transformer/issues/596
@@ -527,7 +527,7 @@ var TransformOperationExecutor = /** @class */function () {
         if (targetType && isMap) {
           type = targetType;
         } else if (targetType) {
-          var metadata_1 = _storage__WEBPACK_IMPORTED_MODULE_3__.defaultMetadataStorage.findTypeMetadata(targetType, propertyName);
+          var metadata_1 = _storage__WEBPACK_IMPORTED_MODULE_0__.defaultMetadataStorage.findTypeMetadata(targetType, propertyName);
           if (metadata_1) {
             var options = {
               newObject: newValue,
@@ -537,7 +537,7 @@ var TransformOperationExecutor = /** @class */function () {
             var newType = metadata_1.typeFunction ? metadata_1.typeFunction(options) : metadata_1.reflectedType;
             if (metadata_1.options && metadata_1.options.discriminator && metadata_1.options.discriminator.property && metadata_1.options.discriminator.subTypes) {
               if (!(value[valueKey] instanceof Array)) {
-                if (this_1.transformationType === _enums__WEBPACK_IMPORTED_MODULE_0__.TransformationType.PLAIN_TO_CLASS) {
+                if (this_1.transformationType === _enums__WEBPACK_IMPORTED_MODULE_1__.TransformationType.PLAIN_TO_CLASS) {
                   type = metadata_1.options.discriminator.subTypes.find(function (subType) {
                     if (subValue && subValue instanceof Object && metadata_1.options.discriminator.property in subValue) {
                       return subType.name === subValue[metadata_1.options.discriminator.property];
@@ -550,10 +550,10 @@ var TransformOperationExecutor = /** @class */function () {
                     }
                   }
                 }
-                if (this_1.transformationType === _enums__WEBPACK_IMPORTED_MODULE_0__.TransformationType.CLASS_TO_CLASS) {
+                if (this_1.transformationType === _enums__WEBPACK_IMPORTED_MODULE_1__.TransformationType.CLASS_TO_CLASS) {
                   type = subValue.constructor;
                 }
-                if (this_1.transformationType === _enums__WEBPACK_IMPORTED_MODULE_0__.TransformationType.CLASS_TO_PLAIN) {
+                if (this_1.transformationType === _enums__WEBPACK_IMPORTED_MODULE_1__.TransformationType.CLASS_TO_PLAIN) {
                   if (subValue) {
                     subValue[metadata_1.options.discriminator.property] = metadata_1.options.discriminator.subTypes.find(function (subType) {
                       return subType.value === subValue.constructor;
@@ -574,7 +574,7 @@ var TransformOperationExecutor = /** @class */function () {
             }).forEach(function (map) {
               return type = map.properties[propertyName];
             });
-          } else if (this_1.options.enableImplicitConversion && this_1.transformationType === _enums__WEBPACK_IMPORTED_MODULE_0__.TransformationType.PLAIN_TO_CLASS) {
+          } else if (this_1.options.enableImplicitConversion && this_1.transformationType === _enums__WEBPACK_IMPORTED_MODULE_1__.TransformationType.PLAIN_TO_CLASS) {
             // if we have no registererd type via the @Type() decorator then we check if we have any
             // type declarations in reflect-metadata (type declaration is emited only if some decorator is added to the property.)
             var reflectedType = Reflect.getMetadata('design:type', targetType.prototype, propertyName);
@@ -594,14 +594,14 @@ var TransformOperationExecutor = /** @class */function () {
         // if newValue is a source object that has method that match newKeyName then skip it
         if (newValue.constructor.prototype) {
           var descriptor = Object.getOwnPropertyDescriptor(newValue.constructor.prototype, newValueKey);
-          if ((this_1.transformationType === _enums__WEBPACK_IMPORTED_MODULE_0__.TransformationType.PLAIN_TO_CLASS || this_1.transformationType === _enums__WEBPACK_IMPORTED_MODULE_0__.TransformationType.CLASS_TO_CLASS) && (
+          if ((this_1.transformationType === _enums__WEBPACK_IMPORTED_MODULE_1__.TransformationType.PLAIN_TO_CLASS || this_1.transformationType === _enums__WEBPACK_IMPORTED_MODULE_1__.TransformationType.CLASS_TO_CLASS) && (
           // eslint-disable-next-line @typescript-eslint/unbound-method
           descriptor && !descriptor.set || newValue[newValueKey] instanceof Function)) return "continue";
         }
         if (!this_1.options.enableCircularCheck || !this_1.isCircular(subValue)) {
-          var transformKey = this_1.transformationType === _enums__WEBPACK_IMPORTED_MODULE_0__.TransformationType.PLAIN_TO_CLASS ? newValueKey : key;
+          var transformKey = this_1.transformationType === _enums__WEBPACK_IMPORTED_MODULE_1__.TransformationType.PLAIN_TO_CLASS ? newValueKey : key;
           var finalValue = void 0;
-          if (this_1.transformationType === _enums__WEBPACK_IMPORTED_MODULE_0__.TransformationType.CLASS_TO_PLAIN) {
+          if (this_1.transformationType === _enums__WEBPACK_IMPORTED_MODULE_1__.TransformationType.CLASS_TO_PLAIN) {
             // Get original value
             finalValue = value[transformKey];
             // Apply custom transformation
@@ -626,7 +626,7 @@ var TransformOperationExecutor = /** @class */function () {
               newValue[newValueKey] = finalValue;
             }
           }
-        } else if (this_1.transformationType === _enums__WEBPACK_IMPORTED_MODULE_0__.TransformationType.CLASS_TO_CLASS) {
+        } else if (this_1.transformationType === _enums__WEBPACK_IMPORTED_MODULE_1__.TransformationType.CLASS_TO_CLASS) {
           var finalValue = subValue;
           finalValue = this_1.applyCustomTransformations(finalValue, targetType, key, value, this_1.transformationType);
           if (finalValue !== undefined || this_1.options.exposeUnsetFields) {
@@ -654,7 +654,7 @@ var TransformOperationExecutor = /** @class */function () {
   };
   TransformOperationExecutor.prototype.applyCustomTransformations = function (value, target, key, obj, transformationType) {
     var _this = this;
-    var metadatas = _storage__WEBPACK_IMPORTED_MODULE_3__.defaultMetadataStorage.findTransformMetadatas(target, key, this.transformationType);
+    var metadatas = _storage__WEBPACK_IMPORTED_MODULE_0__.defaultMetadataStorage.findTransformMetadatas(target, key, this.transformationType);
     // apply versioning options
     if (this.options.version !== undefined) {
       metadatas = metadatas.filter(function (metadata) {
@@ -690,13 +690,13 @@ var TransformOperationExecutor = /** @class */function () {
   };
   TransformOperationExecutor.prototype.getReflectedType = function (target, propertyName) {
     if (!target) return undefined;
-    var meta = _storage__WEBPACK_IMPORTED_MODULE_3__.defaultMetadataStorage.findTypeMetadata(target, propertyName);
+    var meta = _storage__WEBPACK_IMPORTED_MODULE_0__.defaultMetadataStorage.findTypeMetadata(target, propertyName);
     return meta ? meta.reflectedType : undefined;
   };
   TransformOperationExecutor.prototype.getKeys = function (target, object, isMap) {
     var _this = this;
     // determine exclusion strategy
-    var strategy = _storage__WEBPACK_IMPORTED_MODULE_3__.defaultMetadataStorage.getStrategy(target);
+    var strategy = _storage__WEBPACK_IMPORTED_MODULE_0__.defaultMetadataStorage.getStrategy(target);
     if (strategy === 'none') strategy = this.options.strategy || 'exposeAll'; // exposeAll is default strategy
     // get all keys that need to expose
     var keys = [];
@@ -716,16 +716,16 @@ var TransformOperationExecutor = /** @class */function () {
      * metadata to decide which property is needed, but doesn't apply the decorator effect.
      */
     if (this.options.ignoreDecorators && this.options.excludeExtraneousValues && target) {
-      var exposedProperties = _storage__WEBPACK_IMPORTED_MODULE_3__.defaultMetadataStorage.getExposedProperties(target, this.transformationType);
-      var excludedProperties = _storage__WEBPACK_IMPORTED_MODULE_3__.defaultMetadataStorage.getExcludedProperties(target, this.transformationType);
+      var exposedProperties = _storage__WEBPACK_IMPORTED_MODULE_0__.defaultMetadataStorage.getExposedProperties(target, this.transformationType);
+      var excludedProperties = _storage__WEBPACK_IMPORTED_MODULE_0__.defaultMetadataStorage.getExcludedProperties(target, this.transformationType);
       keys = __spreadArray(__spreadArray([], exposedProperties, true), excludedProperties, true);
     }
     if (!this.options.ignoreDecorators && target) {
       // add all exposed to list of keys
-      var exposedProperties = _storage__WEBPACK_IMPORTED_MODULE_3__.defaultMetadataStorage.getExposedProperties(target, this.transformationType);
-      if (this.transformationType === _enums__WEBPACK_IMPORTED_MODULE_0__.TransformationType.PLAIN_TO_CLASS) {
+      var exposedProperties = _storage__WEBPACK_IMPORTED_MODULE_0__.defaultMetadataStorage.getExposedProperties(target, this.transformationType);
+      if (this.transformationType === _enums__WEBPACK_IMPORTED_MODULE_1__.TransformationType.PLAIN_TO_CLASS) {
         exposedProperties = exposedProperties.map(function (key) {
-          var exposeMetadata = _storage__WEBPACK_IMPORTED_MODULE_3__.defaultMetadataStorage.findExposeMetadata(target, key);
+          var exposeMetadata = _storage__WEBPACK_IMPORTED_MODULE_0__.defaultMetadataStorage.findExposeMetadata(target, key);
           if (exposeMetadata && exposeMetadata.options && exposeMetadata.options.name) {
             return exposeMetadata.options.name;
           }
@@ -738,7 +738,7 @@ var TransformOperationExecutor = /** @class */function () {
         keys = keys.concat(exposedProperties);
       }
       // exclude excluded properties
-      var excludedProperties_1 = _storage__WEBPACK_IMPORTED_MODULE_3__.defaultMetadataStorage.getExcludedProperties(target, this.transformationType);
+      var excludedProperties_1 = _storage__WEBPACK_IMPORTED_MODULE_0__.defaultMetadataStorage.getExcludedProperties(target, this.transformationType);
       if (excludedProperties_1.length > 0) {
         keys = keys.filter(function (key) {
           return !excludedProperties_1.includes(key);
@@ -747,7 +747,7 @@ var TransformOperationExecutor = /** @class */function () {
       // apply versioning options
       if (this.options.version !== undefined) {
         keys = keys.filter(function (key) {
-          var exposeMetadata = _storage__WEBPACK_IMPORTED_MODULE_3__.defaultMetadataStorage.findExposeMetadata(target, key);
+          var exposeMetadata = _storage__WEBPACK_IMPORTED_MODULE_0__.defaultMetadataStorage.findExposeMetadata(target, key);
           if (!exposeMetadata || !exposeMetadata.options) return true;
           return _this.checkVersion(exposeMetadata.options.since, exposeMetadata.options.until);
         });
@@ -755,13 +755,13 @@ var TransformOperationExecutor = /** @class */function () {
       // apply grouping options
       if (this.options.groups && this.options.groups.length) {
         keys = keys.filter(function (key) {
-          var exposeMetadata = _storage__WEBPACK_IMPORTED_MODULE_3__.defaultMetadataStorage.findExposeMetadata(target, key);
+          var exposeMetadata = _storage__WEBPACK_IMPORTED_MODULE_0__.defaultMetadataStorage.findExposeMetadata(target, key);
           if (!exposeMetadata || !exposeMetadata.options) return true;
           return _this.checkGroups(exposeMetadata.options.groups);
         });
       } else {
         keys = keys.filter(function (key) {
-          var exposeMetadata = _storage__WEBPACK_IMPORTED_MODULE_3__.defaultMetadataStorage.findExposeMetadata(target, key);
+          var exposeMetadata = _storage__WEBPACK_IMPORTED_MODULE_0__.defaultMetadataStorage.findExposeMetadata(target, key);
           return !exposeMetadata || !exposeMetadata.options || !exposeMetadata.options.groups || !exposeMetadata.options.groups.length;
         });
       }
@@ -13307,8 +13307,8 @@ function Mixin() {
       _step7;
     try {
       for (_iterator7.s(); !(_step7 = _iterator7.n()).done;) {
-        var _constructor = _step7.value;
-        copyProps(this, _construct(_constructor, args));
+        var constructor = _step7.value;
+        copyProps(this, _construct(constructor, args));
       }
     } catch (err) {
       _iterator7.e(err);
@@ -13358,17 +13358,17 @@ var applyPropAndMethodDecorators = function applyPropAndMethodDecorators(propAnd
     }
   }
   if (methodDecorators) for (var _key8 in methodDecorators) {
-    var _iterator10 = _createForOfIteratorHelper(methodDecorators[_key8]),
-      _step10;
+    var _iterator0 = _createForOfIteratorHelper(methodDecorators[_key8]),
+      _step0;
     try {
-      for (_iterator10.s(); !(_step10 = _iterator10.n()).done;) {
-        var _decorator = _step10.value;
+      for (_iterator0.s(); !(_step0 = _iterator0.n()).done;) {
+        var _decorator = _step0.value;
         _decorator(target, _key8, Object.getOwnPropertyDescriptor(target, _key8));
       }
     } catch (err) {
-      _iterator10.e(err);
+      _iterator0.e(err);
     } finally {
-      _iterator10.f();
+      _iterator0.f();
     }
   }
 };
@@ -13443,9 +13443,6 @@ var ErrorDetailFragment = /** @class */function (_super) {
   function ErrorDetailFragment() {
     return _super.call(this) || this;
   }
-  ErrorDetailFragment.createInstance = function () {
-    return new ErrorDetailFragment();
-  };
   return ErrorDetailFragment;
 }(_app_Fragment__WEBPACK_IMPORTED_MODULE_0__.Fragment);
 /* harmony default export */ __webpack_exports__["default"] = (ErrorDetailFragment);
@@ -13639,9 +13636,6 @@ var ErrorFragment = /** @class */function (_super) {
     };
     return _this;
   }
-  ErrorFragment.createInstance = function () {
-    return new ErrorFragment();
-  };
   __decorate([(0,_navigation_NavController__WEBPACK_IMPORTED_MODULE_1__.InjectController)({}), __metadata("design:type", _navigation_NavController__WEBPACK_IMPORTED_MODULE_1__.NavController)], ErrorFragment.prototype, "navController", void 0);
   return ErrorFragment;
 }(_app_Fragment__WEBPACK_IMPORTED_MODULE_0__.Fragment);
@@ -13661,9 +13655,21 @@ __webpack_require__.r(__webpack_exports__);
 
 var FragmentFactory = /** @class */function () {
   function FragmentFactory() {}
-  FragmentFactory.prototype.createNewInstance = function (fileName) {
-    return new _FragmentMapper__WEBPACK_IMPORTED_MODULE_0__.fragmentMapper[fileName]();
+  FragmentFactory.prototype.createNewInstance = function (fileName, namespace) {
+    if (namespace === void 0) {
+      namespace = '';
+    }
+    if (!namespace || namespace == '') {
+      return new _FragmentMapper__WEBPACK_IMPORTED_MODULE_0__.fragmentMapper[fileName]();
+    } else {
+      var fragment = FragmentFactory.fragmentMapperMap[namespace][fileName];
+      return fragment.createInstance();
+    }
   };
+  FragmentFactory.registerFragmentMapper = function (namespace, fragmentMapper) {
+    FragmentFactory.fragmentMapperMap[namespace] = fragmentMapper;
+  };
+  FragmentFactory.fragmentMapperMap = {};
   return FragmentFactory;
 }();
 /* harmony default export */ __webpack_exports__["default"] = (FragmentFactory);
@@ -14476,9 +14482,6 @@ var Index = /** @class */function (_super) {
       });
     });
   };
-  Index.createInstance = function () {
-    return new Index();
-  };
   __decorate([(0,_navigation_NavController__WEBPACK_IMPORTED_MODULE_9__.InjectController)({}), __metadata("design:type", _navigation_NavController__WEBPACK_IMPORTED_MODULE_9__.NavController)], Index.prototype, "navController", void 0);
   __decorate([(0,_app_Fragment__WEBPACK_IMPORTED_MODULE_5__.Inject)({
     id: _R_Index__WEBPACK_IMPORTED_MODULE_8__.preview
@@ -14705,6 +14708,9 @@ var QrcodeScanner = /** @class */function (_super) {
   function QrcodeScanner() {
     return _super !== null && _super.apply(this, arguments) || this;
   }
+  QrcodeScanner.createInstance = function () {
+    return new QrcodeScanner();
+  };
   QrcodeScanner.prototype.goToPreviousScreen = function () {
     return __awaiter(this, void 0, void 0, function () {
       return __generator(this, function (_a) {
@@ -14900,12 +14906,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   TextStyleTransformer: function() { return /* binding */ TextStyleTransformer; }
 /* harmony export */ });
 /* harmony import */ var _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../widget/CommandAttr */ "./src/widget/CommandAttr.ts");
-/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/type.decorator.js");
-/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/expose.decorator.js");
-/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/exclude.decorator.js");
-/* harmony import */ var _widget_TransformerFactory__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../widget/TransformerFactory */ "./src/widget/TransformerFactory.ts");
-/* harmony import */ var ts_mixer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ts-mixer */ "./node_modules/ts-mixer/dist/esm/index.js");
-/* harmony import */ var _ViewImpl__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ViewImpl */ "./src/android/widget/ViewImpl.ts");
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/exclude.decorator.js");
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/expose.decorator.js");
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/type.decorator.js");
+/* harmony import */ var _widget_TransformerFactory__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../widget/TransformerFactory */ "./src/widget/TransformerFactory.ts");
+/* harmony import */ var ts_mixer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ts-mixer */ "./node_modules/ts-mixer/dist/esm/index.js");
+/* harmony import */ var _ViewImpl__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ViewImpl */ "./src/android/widget/ViewImpl.ts");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 // start - imports
 var __extends = undefined && undefined.__extends || function () {
@@ -14980,7 +14986,7 @@ var ButtonImpl = /** @class */function (_super) {
   }
   //start - body
   ButtonImpl.initialize = function () {
-    _widget_TransformerFactory__WEBPACK_IMPORTED_MODULE_1__.TransformerFactory.getInstance().register("textStyle", new TextStyleTransformer());
+    _widget_TransformerFactory__WEBPACK_IMPORTED_MODULE_4__.TransformerFactory.getInstance().register("textStyle", new TextStyleTransformer());
   };
   ButtonImpl.prototype.reset = function () {
     _super.prototype.reset.call(this);
@@ -16393,324 +16399,324 @@ var ButtonImpl = /** @class */function (_super) {
     this.drawableIconSize.setOrderSet(this.orderSet);
     return this.thisPointer;
   };
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "drawablePadding"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "drawablePadding", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "elegantTextHeight"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "elegantTextHeight", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "ellipsize"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "ellipsize", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "ems"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "ems", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "fallbackLineSpacing"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "fallbackLineSpacing", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "firstBaselineToTopHeight"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "firstBaselineToTopHeight", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "fontFeatureSettings"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "fontFeatureSettings", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "gravity"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "gravity", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "height"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "height", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "includeFontPadding"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "includeFontPadding", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "justificationMode"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "justificationMode", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "lastBaselineToBottomHeight"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "lastBaselineToBottomHeight", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "letterSpacing"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "letterSpacing", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "lineHeight"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "lineHeight", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "lineSpacingExtra"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "lineSpacingExtra", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "lineSpacingMultiplier"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "lineSpacingMultiplier", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "lines"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "lines", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "marqueeRepeatLimit"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "marqueeRepeatLimit", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "maxEms"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "maxEms", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "maxHeight"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "maxHeight", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "maxLines"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "maxLines", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "maxWidth"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "maxWidth", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "minEms"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "minEms", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "minHeight"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "minHeight", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "minLines"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "minLines", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "minWidth"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "minWidth", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "scrollHorizontally"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "scrollHorizontally", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "shadowColor"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "shadowColor", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "shadowDx"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "shadowDx", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "shadowDy"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "shadowDy", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "shadowRadius"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "shadowRadius", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "singleLine"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "singleLine", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "textAllCaps"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "textAllCaps", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "textColor"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "textColor", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "textScaleX"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "textScaleX", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "width"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "width", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "text"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "text", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "textSize"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "textSize", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "drawableStart"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "drawableStart", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "drawableEnd"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "drawableEnd", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "drawableTop"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "drawableTop", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "drawableBottom"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "drawableBottom", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "maxLength"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "maxLength", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "typeface"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "typeface", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "textStyle"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "textStyle", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "fontFamily"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "fontFamily", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "systemTextAppearance"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "systemTextAppearance", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "textAppearance"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "textAppearance", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "enabled"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "enabled", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "editable"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "editable", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "drawableTint"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "drawableTint", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "drawableTintMode"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "drawableTintMode", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "padding"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "padding", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "paddingBottom"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "paddingBottom", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "paddingRight"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "paddingRight", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "paddingLeft"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "paddingLeft", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "paddingStart"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "paddingStart", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "paddingEnd"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "paddingEnd", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "paddingTop"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "paddingTop", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "paddingHorizontal"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "paddingHorizontal", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "paddingVertical"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "paddingVertical", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "textFormat"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "textFormat", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "drawableIconSize"
   })), __metadata("design:type", Object)], ButtonImpl.prototype, "drawableIconSize", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Exclude)()), __metadata("design:type", Object)], ButtonImpl.prototype, "thisPointer", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_1__.Exclude)()), __metadata("design:type", Object)], ButtonImpl.prototype, "thisPointer", void 0);
   return ButtonImpl;
-}(_ViewImpl__WEBPACK_IMPORTED_MODULE_3__.ViewImpl);
+}(_ViewImpl__WEBPACK_IMPORTED_MODULE_6__.ViewImpl);
 
 //start - staticinit
 var Button = /** @class */function (_super) {
@@ -16746,11 +16752,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   CarouselImpl_transitionToIndex: function() { return /* binding */ CarouselImpl_transitionToIndex; }
 /* harmony export */ });
 /* harmony import */ var _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../widget/CommandAttr */ "./src/widget/CommandAttr.ts");
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/exclude.decorator.js");
 /* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/expose.decorator.js");
-/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/type.decorator.js");
-/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/exclude.decorator.js");
-/* harmony import */ var ts_mixer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ts-mixer */ "./node_modules/ts-mixer/dist/esm/index.js");
-/* harmony import */ var _ViewGroupImpl__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ViewGroupImpl */ "./src/android/widget/ViewGroupImpl.ts");
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/type.decorator.js");
+/* harmony import */ var ts_mixer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ts-mixer */ "./node_modules/ts-mixer/dist/esm/index.js");
+/* harmony import */ var _ViewGroupImpl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ViewGroupImpl */ "./src/android/widget/ViewGroupImpl.ts");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 // start - imports
 var __extends = undefined && undefined.__extends || function () {
@@ -16788,10 +16794,10 @@ var __metadata = undefined && undefined.__metadata || function (k, v) {
 
 var CarouselImpl_transitionToIndex = /** @class */function () {
   function CarouselImpl_transitionToIndex() {}
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "index"
   })), __metadata("design:type", Number)], CarouselImpl_transitionToIndex.prototype, "index", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "delay"
   })), __metadata("design:type", Number)], CarouselImpl_transitionToIndex.prototype, "delay", void 0);
   return CarouselImpl_transitionToIndex;
@@ -17276,129 +17282,129 @@ var CarouselImpl = /** @class */function (_super) {
     this.onNewItem.setOrderSet(this.orderSet);
     return this.thisPointer;
   };
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "carousel_firstView"
   })), __metadata("design:type", Object)], CarouselImpl.prototype, "carousel_firstView", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "carousel_previousState"
   })), __metadata("design:type", Object)], CarouselImpl.prototype, "carousel_previousState", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "carousel_nextState"
   })), __metadata("design:type", Object)], CarouselImpl.prototype, "carousel_nextState", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "carousel_infinite"
   })), __metadata("design:type", Object)], CarouselImpl.prototype, "carousel_infinite", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "carousel_forwardTransition"
   })), __metadata("design:type", Object)], CarouselImpl.prototype, "carousel_forwardTransition", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "carousel_backwardTransition"
   })), __metadata("design:type", Object)], CarouselImpl.prototype, "carousel_backwardTransition", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "carousel_touchUp_dampeningFactor"
   })), __metadata("design:type", Object)], CarouselImpl.prototype, "carousel_touchUp_dampeningFactor", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "carousel_touchUpMode"
   })), __metadata("design:type", Object)], CarouselImpl.prototype, "carousel_touchUpMode", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "carousel_touchUp_velocityThreshold"
   })), __metadata("design:type", Object)], CarouselImpl.prototype, "carousel_touchUp_velocityThreshold", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "carousel_emptyViewsBehavior"
   })), __metadata("design:type", Object)], CarouselImpl.prototype, "carousel_emptyViewsBehavior", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "constraint_referenced_ids"
   })), __metadata("design:type", Object)], CarouselImpl.prototype, "constraint_referenced_ids", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "jumpToIndex"
   })), __metadata("design:type", Object)], CarouselImpl.prototype, "jumpToIndex_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "jumpTolast"
   })), __metadata("design:type", Object)], CarouselImpl.prototype, "jumpTolast_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "jumpToNext"
   })), __metadata("design:type", Object)], CarouselImpl.prototype, "jumpToNext_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "jumpToPrevious"
   })), __metadata("design:type", Object)], CarouselImpl.prototype, "jumpToPrevious_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "transitionToIndex"
   })), __metadata("design:type", Object)], CarouselImpl.prototype, "transitionToIndex_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "transitionToLast"
   })), __metadata("design:type", Object)], CarouselImpl.prototype, "transitionToLast_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "transitionToNext"
   })), __metadata("design:type", Object)], CarouselImpl.prototype, "transitionToNext_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "transitionToPrevious"
   })), __metadata("design:type", Object)], CarouselImpl.prototype, "transitionToPrevious_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "dataKey"
   })), __metadata("design:type", Object)], CarouselImpl.prototype, "dataKey", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "childDataKey"
   })), __metadata("design:type", Object)], CarouselImpl.prototype, "childDataKey", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "dataScopeKey"
   })), __metadata("design:type", Object)], CarouselImpl.prototype, "dataScopeKey", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "childDataScopeKey"
   })), __metadata("design:type", Object)], CarouselImpl.prototype, "childDataScopeKey", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "onNewItem"
   })), __metadata("design:type", Object)], CarouselImpl.prototype, "onNewItem", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Exclude)()), __metadata("design:type", Object)], CarouselImpl.prototype, "thisPointer", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_1__.Exclude)()), __metadata("design:type", Object)], CarouselImpl.prototype, "thisPointer", void 0);
   return CarouselImpl;
-}(_ViewGroupImpl__WEBPACK_IMPORTED_MODULE_3__.ViewGroupImpl);
+}(_ViewGroupImpl__WEBPACK_IMPORTED_MODULE_5__.ViewGroupImpl);
 
 //start - staticinit
 var Carousel = /** @class */function (_super) {
@@ -17433,11 +17439,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   DrawerLayoutImpl: function() { return /* binding */ DrawerLayoutImpl; }
 /* harmony export */ });
 /* harmony import */ var _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../widget/CommandAttr */ "./src/widget/CommandAttr.ts");
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/exclude.decorator.js");
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/expose.decorator.js");
 /* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/type.decorator.js");
-/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/expose.decorator.js");
-/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/exclude.decorator.js");
-/* harmony import */ var ts_mixer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ts-mixer */ "./node_modules/ts-mixer/dist/esm/index.js");
-/* harmony import */ var _ViewGroupImpl__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ViewGroupImpl */ "./src/android/widget/ViewGroupImpl.ts");
+/* harmony import */ var ts_mixer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ts-mixer */ "./node_modules/ts-mixer/dist/esm/index.js");
+/* harmony import */ var _ViewGroupImpl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ViewGroupImpl */ "./src/android/widget/ViewGroupImpl.ts");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 // start - imports
 var __extends = undefined && undefined.__extends || function () {
@@ -17697,79 +17703,79 @@ var DrawerLayoutImpl = /** @class */function (_super) {
     this.edgeSize_.setOrderSet(this.orderSet);
     return this.thisPointer;
   };
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "elevation"
   })), __metadata("design:type", Object)], DrawerLayoutImpl.prototype, "elevation", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "scrimColor"
   })), __metadata("design:type", Object)], DrawerLayoutImpl.prototype, "scrimColor", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "drawerLockMode"
   })), __metadata("design:type", Object)], DrawerLayoutImpl.prototype, "drawerLockMode", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "statusBarBackground"
   })), __metadata("design:type", Object)], DrawerLayoutImpl.prototype, "statusBarBackground", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "onDrawerSlide"
   })), __metadata("design:type", Object)], DrawerLayoutImpl.prototype, "onDrawerSlide", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "onDrawerOpened"
   })), __metadata("design:type", Object)], DrawerLayoutImpl.prototype, "onDrawerOpened", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "onDrawerClosed"
   })), __metadata("design:type", Object)], DrawerLayoutImpl.prototype, "onDrawerClosed", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "onDrawerStateChange"
   })), __metadata("design:type", Object)], DrawerLayoutImpl.prototype, "onDrawerStateChange", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "drawerGravity"
   })), __metadata("design:type", Object)], DrawerLayoutImpl.prototype, "drawerGravity", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "openDrawer"
   })), __metadata("design:type", Object)], DrawerLayoutImpl.prototype, "openDrawer_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "closeDrawer"
   })), __metadata("design:type", Object)], DrawerLayoutImpl.prototype, "closeDrawer_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "isOpenStart"
   })), __metadata("design:type", Object)], DrawerLayoutImpl.prototype, "isOpenStart_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "isOpenEnd"
   })), __metadata("design:type", Object)], DrawerLayoutImpl.prototype, "isOpenEnd_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "edgeSize"
   })), __metadata("design:type", Object)], DrawerLayoutImpl.prototype, "edgeSize_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Exclude)()), __metadata("design:type", Object)], DrawerLayoutImpl.prototype, "thisPointer", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_1__.Exclude)()), __metadata("design:type", Object)], DrawerLayoutImpl.prototype, "thisPointer", void 0);
   return DrawerLayoutImpl;
-}(_ViewGroupImpl__WEBPACK_IMPORTED_MODULE_2__.ViewGroupImpl);
+}(_ViewGroupImpl__WEBPACK_IMPORTED_MODULE_5__.ViewGroupImpl);
 
 //start - staticinit
 var DrawerLayout = /** @class */function (_super) {
@@ -17808,12 +17814,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   TextStyleTransformer: function() { return /* binding */ TextStyleTransformer; }
 /* harmony export */ });
 /* harmony import */ var _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../widget/CommandAttr */ "./src/widget/CommandAttr.ts");
-/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/type.decorator.js");
-/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/expose.decorator.js");
-/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/exclude.decorator.js");
-/* harmony import */ var _widget_TransformerFactory__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../widget/TransformerFactory */ "./src/widget/TransformerFactory.ts");
-/* harmony import */ var ts_mixer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ts-mixer */ "./node_modules/ts-mixer/dist/esm/index.js");
-/* harmony import */ var _ViewImpl__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ViewImpl */ "./src/android/widget/ViewImpl.ts");
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/exclude.decorator.js");
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/expose.decorator.js");
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/type.decorator.js");
+/* harmony import */ var _widget_TransformerFactory__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../widget/TransformerFactory */ "./src/widget/TransformerFactory.ts");
+/* harmony import */ var ts_mixer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ts-mixer */ "./node_modules/ts-mixer/dist/esm/index.js");
+/* harmony import */ var _ViewImpl__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ViewImpl */ "./src/android/widget/ViewImpl.ts");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 // start - imports
 var __extends = undefined && undefined.__extends || function () {
@@ -18098,10 +18104,10 @@ var EditTextImpl = /** @class */function (_super) {
   }
   //start - body
   EditTextImpl.initialize = function () {
-    _widget_TransformerFactory__WEBPACK_IMPORTED_MODULE_1__.TransformerFactory.getInstance().register("imeOptions", new ImeOptionsTransformer());
-    _widget_TransformerFactory__WEBPACK_IMPORTED_MODULE_1__.TransformerFactory.getInstance().register("inputType", new InputTypeTransformer());
-    _widget_TransformerFactory__WEBPACK_IMPORTED_MODULE_1__.TransformerFactory.getInstance().register("numeric", new NumericTransformer());
-    _widget_TransformerFactory__WEBPACK_IMPORTED_MODULE_1__.TransformerFactory.getInstance().register("textStyle", new TextStyleTransformer());
+    _widget_TransformerFactory__WEBPACK_IMPORTED_MODULE_4__.TransformerFactory.getInstance().register("imeOptions", new ImeOptionsTransformer());
+    _widget_TransformerFactory__WEBPACK_IMPORTED_MODULE_4__.TransformerFactory.getInstance().register("inputType", new InputTypeTransformer());
+    _widget_TransformerFactory__WEBPACK_IMPORTED_MODULE_4__.TransformerFactory.getInstance().register("numeric", new NumericTransformer());
+    _widget_TransformerFactory__WEBPACK_IMPORTED_MODULE_4__.TransformerFactory.getInstance().register("textStyle", new TextStyleTransformer());
   };
   EditTextImpl.prototype.reset = function () {
     _super.prototype.reset.call(this);
@@ -19814,429 +19820,429 @@ var EditTextImpl = /** @class */function (_super) {
     this.drawableIconSize.setOrderSet(this.orderSet);
     return this.thisPointer;
   };
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "cursorVisible"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "cursorVisible", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "drawablePadding"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "drawablePadding", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "elegantTextHeight"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "elegantTextHeight", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "ems"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "ems", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "fallbackLineSpacing"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "fallbackLineSpacing", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "firstBaselineToTopHeight"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "firstBaselineToTopHeight", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "freezesText"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "freezesText", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "gravity"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "gravity", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "height"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "height", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "hint"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "hint", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "imeActionId"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "imeActionId", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "imeActionLabel"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "imeActionLabel", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "imeOptions"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "imeOptions", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "includeFontPadding"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "includeFontPadding", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "inputType"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "inputType", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "lastBaselineToBottomHeight"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "lastBaselineToBottomHeight", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "letterSpacing"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "letterSpacing", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "lineHeight"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "lineHeight", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "lineSpacingExtra"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "lineSpacingExtra", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "lineSpacingMultiplier"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "lineSpacingMultiplier", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "lines"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "lines", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "maxEms"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "maxEms", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "maxHeight"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "maxHeight", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "maxLines"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "maxLines", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "maxWidth"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "maxWidth", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "minEms"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "minEms", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "minHeight"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "minHeight", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "minLines"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "minLines", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "minWidth"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "minWidth", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "privateImeOptions"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "privateImeOptions", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "scrollHorizontally"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "scrollHorizontally", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "selectAllOnFocus"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "selectAllOnFocus", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "shadowColor"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "shadowColor", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "shadowDx"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "shadowDx", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "shadowDy"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "shadowDy", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "shadowRadius"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "shadowRadius", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "singleLine"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "singleLine", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "textColor"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "textColor", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "textColorHighlight"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "textColorHighlight", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "textColorHint"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "textColorHint", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "textIsSelectable"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "textIsSelectable", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "textScaleX"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "textScaleX", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "width"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "width", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "onafterTextChange"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "onafterTextChange", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "onbeforeTextChange"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "onbeforeTextChange", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "onTextChange"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "onTextChange", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "onEditorAction"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "onEditorAction", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "capitalize"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "capitalize", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "phoneNumber"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "phoneNumber", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "numeric"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "numeric", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "digits"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "digits", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "editorExtras"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "editorExtras", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "autoText"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "autoText", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "textAllCaps"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "textAllCaps", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "setFocus"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "setFocus", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "selectAll"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "selectAll_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "hintTextFormat"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "hintTextFormat", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "text"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "text", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "textSize"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "textSize", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "drawableStart"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "drawableStart", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "drawableEnd"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "drawableEnd", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "drawableTop"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "drawableTop", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "drawableBottom"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "drawableBottom", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "maxLength"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "maxLength", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "typeface"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "typeface", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "textStyle"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "textStyle", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "fontFamily"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "fontFamily", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "systemTextAppearance"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "systemTextAppearance", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "textAppearance"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "textAppearance", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "password"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "password", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "enabled"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "enabled", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "editable"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "editable", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "drawableTint"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "drawableTint", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "drawableTintMode"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "drawableTintMode", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "padding"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "padding", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "paddingBottom"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "paddingBottom", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "paddingRight"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "paddingRight", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "paddingLeft"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "paddingLeft", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "paddingStart"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "paddingStart", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "paddingEnd"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "paddingEnd", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "paddingTop"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "paddingTop", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "paddingHorizontal"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "paddingHorizontal", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "paddingVertical"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "paddingVertical", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "drawableIconSize"
   })), __metadata("design:type", Object)], EditTextImpl.prototype, "drawableIconSize", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Exclude)()), __metadata("design:type", Object)], EditTextImpl.prototype, "thisPointer", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_1__.Exclude)()), __metadata("design:type", Object)], EditTextImpl.prototype, "thisPointer", void 0);
   return EditTextImpl;
-}(_ViewImpl__WEBPACK_IMPORTED_MODULE_3__.ViewImpl);
+}(_ViewImpl__WEBPACK_IMPORTED_MODULE_6__.ViewImpl);
 
 //start - staticinit
 var EditText = /** @class */function (_super) {
@@ -20271,11 +20277,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   GroupImpl: function() { return /* binding */ GroupImpl; }
 /* harmony export */ });
 /* harmony import */ var _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../widget/CommandAttr */ "./src/widget/CommandAttr.ts");
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/exclude.decorator.js");
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/expose.decorator.js");
 /* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/type.decorator.js");
-/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/expose.decorator.js");
-/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/exclude.decorator.js");
-/* harmony import */ var ts_mixer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ts-mixer */ "./node_modules/ts-mixer/dist/esm/index.js");
-/* harmony import */ var _ViewImpl__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ViewImpl */ "./src/android/widget/ViewImpl.ts");
+/* harmony import */ var ts_mixer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ts-mixer */ "./node_modules/ts-mixer/dist/esm/index.js");
+/* harmony import */ var _ViewImpl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ViewImpl */ "./src/android/widget/ViewImpl.ts");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 // start - imports
 var __extends = undefined && undefined.__extends || function () {
@@ -20354,14 +20360,14 @@ var GroupImpl = /** @class */function (_super) {
     this.constraint_referenced_ids.setOrderSet(this.orderSet);
     return this.thisPointer;
   };
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "constraint_referenced_ids"
   })), __metadata("design:type", Object)], GroupImpl.prototype, "constraint_referenced_ids", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Exclude)()), __metadata("design:type", Object)], GroupImpl.prototype, "thisPointer", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_1__.Exclude)()), __metadata("design:type", Object)], GroupImpl.prototype, "thisPointer", void 0);
   return GroupImpl;
-}(_ViewImpl__WEBPACK_IMPORTED_MODULE_2__.ViewImpl);
+}(_ViewImpl__WEBPACK_IMPORTED_MODULE_5__.ViewImpl);
 
 //start - staticinit
 var Group = /** @class */function (_super) {
@@ -20396,11 +20402,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   ImageViewImpl: function() { return /* binding */ ImageViewImpl; }
 /* harmony export */ });
 /* harmony import */ var _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../widget/CommandAttr */ "./src/widget/CommandAttr.ts");
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/exclude.decorator.js");
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/expose.decorator.js");
 /* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/type.decorator.js");
-/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/expose.decorator.js");
-/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/exclude.decorator.js");
-/* harmony import */ var ts_mixer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ts-mixer */ "./node_modules/ts-mixer/dist/esm/index.js");
-/* harmony import */ var _ViewImpl__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ViewImpl */ "./src/android/widget/ViewImpl.ts");
+/* harmony import */ var ts_mixer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ts-mixer */ "./node_modules/ts-mixer/dist/esm/index.js");
+/* harmony import */ var _ViewImpl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ViewImpl */ "./src/android/widget/ViewImpl.ts");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 // start - imports
 var __extends = undefined && undefined.__extends || function () {
@@ -20971,119 +20977,119 @@ var ImageViewImpl = /** @class */function (_super) {
     this.paddingVertical.setOrderSet(this.orderSet);
     return this.thisPointer;
   };
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "adjustViewBounds"
   })), __metadata("design:type", Object)], ImageViewImpl.prototype, "adjustViewBounds", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "baseline"
   })), __metadata("design:type", Object)], ImageViewImpl.prototype, "baseline", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "baselineAlignBottom"
   })), __metadata("design:type", Object)], ImageViewImpl.prototype, "baselineAlignBottom", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "cropToPadding"
   })), __metadata("design:type", Object)], ImageViewImpl.prototype, "cropToPadding", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "maxHeight"
   })), __metadata("design:type", Object)], ImageViewImpl.prototype, "maxHeight", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "maxWidth"
   })), __metadata("design:type", Object)], ImageViewImpl.prototype, "maxWidth", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "scaleType"
   })), __metadata("design:type", Object)], ImageViewImpl.prototype, "scaleType", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "tint"
   })), __metadata("design:type", Object)], ImageViewImpl.prototype, "tint", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "tintMode"
   })), __metadata("design:type", Object)], ImageViewImpl.prototype, "tintMode", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "src"
   })), __metadata("design:type", Object)], ImageViewImpl.prototype, "src", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "imageFromUrl"
   })), __metadata("design:type", Object)], ImageViewImpl.prototype, "imageFromUrl", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "imageFromUrlPlaceHolder"
   })), __metadata("design:type", Object)], ImageViewImpl.prototype, "imageFromUrlPlaceHolder", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "imageFromUrlError"
   })), __metadata("design:type", Object)], ImageViewImpl.prototype, "imageFromUrlError", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "padding"
   })), __metadata("design:type", Object)], ImageViewImpl.prototype, "padding", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "paddingBottom"
   })), __metadata("design:type", Object)], ImageViewImpl.prototype, "paddingBottom", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "paddingRight"
   })), __metadata("design:type", Object)], ImageViewImpl.prototype, "paddingRight", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "paddingLeft"
   })), __metadata("design:type", Object)], ImageViewImpl.prototype, "paddingLeft", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "paddingStart"
   })), __metadata("design:type", Object)], ImageViewImpl.prototype, "paddingStart", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "paddingEnd"
   })), __metadata("design:type", Object)], ImageViewImpl.prototype, "paddingEnd", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "paddingTop"
   })), __metadata("design:type", Object)], ImageViewImpl.prototype, "paddingTop", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "paddingHorizontal"
   })), __metadata("design:type", Object)], ImageViewImpl.prototype, "paddingHorizontal", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "paddingVertical"
   })), __metadata("design:type", Object)], ImageViewImpl.prototype, "paddingVertical", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Exclude)()), __metadata("design:type", Object)], ImageViewImpl.prototype, "thisPointer", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_1__.Exclude)()), __metadata("design:type", Object)], ImageViewImpl.prototype, "thisPointer", void 0);
   return ImageViewImpl;
-}(_ViewImpl__WEBPACK_IMPORTED_MODULE_2__.ViewImpl);
+}(_ViewImpl__WEBPACK_IMPORTED_MODULE_5__.ViewImpl);
 
 //start - staticinit
 var ImageView = /** @class */function (_super) {
@@ -21118,11 +21124,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   PlaceholderImpl: function() { return /* binding */ PlaceholderImpl; }
 /* harmony export */ });
 /* harmony import */ var _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../widget/CommandAttr */ "./src/widget/CommandAttr.ts");
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/exclude.decorator.js");
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/expose.decorator.js");
 /* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/type.decorator.js");
-/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/expose.decorator.js");
-/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/exclude.decorator.js");
-/* harmony import */ var ts_mixer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ts-mixer */ "./node_modules/ts-mixer/dist/esm/index.js");
-/* harmony import */ var _ViewImpl__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ViewImpl */ "./src/android/widget/ViewImpl.ts");
+/* harmony import */ var ts_mixer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ts-mixer */ "./node_modules/ts-mixer/dist/esm/index.js");
+/* harmony import */ var _ViewImpl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ViewImpl */ "./src/android/widget/ViewImpl.ts");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 // start - imports
 var __extends = undefined && undefined.__extends || function () {
@@ -21229,19 +21235,19 @@ var PlaceholderImpl = /** @class */function (_super) {
     this.content.setOrderSet(this.orderSet);
     return this.thisPointer;
   };
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "placeholder_emptyVisibility"
   })), __metadata("design:type", Object)], PlaceholderImpl.prototype, "placeholder_emptyVisibility", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "content"
   })), __metadata("design:type", Object)], PlaceholderImpl.prototype, "content", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Exclude)()), __metadata("design:type", Object)], PlaceholderImpl.prototype, "thisPointer", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_1__.Exclude)()), __metadata("design:type", Object)], PlaceholderImpl.prototype, "thisPointer", void 0);
   return PlaceholderImpl;
-}(_ViewImpl__WEBPACK_IMPORTED_MODULE_2__.ViewImpl);
+}(_ViewImpl__WEBPACK_IMPORTED_MODULE_5__.ViewImpl);
 
 //start - staticinit
 var Placeholder = /** @class */function (_super) {
@@ -21280,11 +21286,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   RecyclerViewImpl_updateSectionItem: function() { return /* binding */ RecyclerViewImpl_updateSectionItem; }
 /* harmony export */ });
 /* harmony import */ var _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../widget/CommandAttr */ "./src/widget/CommandAttr.ts");
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/exclude.decorator.js");
 /* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/expose.decorator.js");
-/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/type.decorator.js");
-/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/exclude.decorator.js");
-/* harmony import */ var ts_mixer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ts-mixer */ "./node_modules/ts-mixer/dist/esm/index.js");
-/* harmony import */ var _ViewGroupImpl__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ViewGroupImpl */ "./src/android/widget/ViewGroupImpl.ts");
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/type.decorator.js");
+/* harmony import */ var ts_mixer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ts-mixer */ "./node_modules/ts-mixer/dist/esm/index.js");
+/* harmony import */ var _ViewGroupImpl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ViewGroupImpl */ "./src/android/widget/ViewGroupImpl.ts");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 // start - imports
 var __extends = undefined && undefined.__extends || function () {
@@ -21322,13 +21328,13 @@ var __metadata = undefined && undefined.__metadata || function (k, v) {
 
 var RecyclerViewImpl_addSectionItem = /** @class */function () {
   function RecyclerViewImpl_addSectionItem() {}
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "sectionId"
   })), __metadata("design:type", String)], RecyclerViewImpl_addSectionItem.prototype, "sectionId", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "itemConfigId"
   })), __metadata("design:type", String)], RecyclerViewImpl_addSectionItem.prototype, "itemConfigId", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "item"
   })), __metadata("design:type", Object)], RecyclerViewImpl_addSectionItem.prototype, "item", void 0);
   return RecyclerViewImpl_addSectionItem;
@@ -21336,13 +21342,13 @@ var RecyclerViewImpl_addSectionItem = /** @class */function () {
 
 var RecyclerViewImpl_removeSectionItem = /** @class */function () {
   function RecyclerViewImpl_removeSectionItem() {}
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "sectionId"
   })), __metadata("design:type", String)], RecyclerViewImpl_removeSectionItem.prototype, "sectionId", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "itemConfigId"
   })), __metadata("design:type", String)], RecyclerViewImpl_removeSectionItem.prototype, "itemConfigId", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "itemId"
   })), __metadata("design:type", String)], RecyclerViewImpl_removeSectionItem.prototype, "itemId", void 0);
   return RecyclerViewImpl_removeSectionItem;
@@ -21350,10 +21356,10 @@ var RecyclerViewImpl_removeSectionItem = /** @class */function () {
 
 var RecyclerViewImpl_removeAllItems = /** @class */function () {
   function RecyclerViewImpl_removeAllItems() {}
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "sectionId"
   })), __metadata("design:type", String)], RecyclerViewImpl_removeAllItems.prototype, "sectionId", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "itemConfigId"
   })), __metadata("design:type", String)], RecyclerViewImpl_removeAllItems.prototype, "itemConfigId", void 0);
   return RecyclerViewImpl_removeAllItems;
@@ -21361,16 +21367,16 @@ var RecyclerViewImpl_removeAllItems = /** @class */function () {
 
 var RecyclerViewImpl_updateSectionItem = /** @class */function () {
   function RecyclerViewImpl_updateSectionItem() {}
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "sectionId"
   })), __metadata("design:type", String)], RecyclerViewImpl_updateSectionItem.prototype, "sectionId", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "itemConfigId"
   })), __metadata("design:type", String)], RecyclerViewImpl_updateSectionItem.prototype, "itemConfigId", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "itemId"
   })), __metadata("design:type", String)], RecyclerViewImpl_updateSectionItem.prototype, "itemId", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "item"
   })), __metadata("design:type", Object)], RecyclerViewImpl_updateSectionItem.prototype, "item", void 0);
   return RecyclerViewImpl_updateSectionItem;
@@ -21779,144 +21785,144 @@ var RecyclerViewImpl = /** @class */function (_super) {
     this.filterQueryGetPath.setOrderSet(this.orderSet);
     return this.thisPointer;
   };
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "onFling"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "onFling", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "onScrollStateChange"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "onScrollStateChange", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "onScrolled"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "onScrolled", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "layoutManager"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "layoutManager", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "viewHolderIds"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "viewHolderIds", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "spanCount"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "spanCount", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "layout"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "layout", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "orientation"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "orientation", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "nestedScrollingEnabled"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "nestedScrollingEnabled", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "addSectionItem"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "addSectionItem_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "removeSectionItem"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "removeSectionItem_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "removeAllItems"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "removeAllItems_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "updateSectionItem"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "updateSectionItem_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "stackFromEnd"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "stackFromEnd", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "reverseLayout"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "reverseLayout", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "scrollToEnd"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "scrollToEnd_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "scrollToTop"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "scrollToTop_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "scrollToPosition"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "scrollToPosition_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "headerDisabled"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "headerDisabled", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "footerDisabled"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "footerDisabled", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "filter"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "filter_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "filterDelay"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "filterDelay", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "filterId"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "filterId", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "filterItemPath"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "filterItemPath", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "filterSectionPath"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "filterSectionPath", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "filterQueryStorePath"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "filterQueryStorePath", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "filterQueryGetPath"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "filterQueryGetPath", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Exclude)()), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "thisPointer", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_1__.Exclude)()), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "thisPointer", void 0);
   return RecyclerViewImpl;
-}(_ViewGroupImpl__WEBPACK_IMPORTED_MODULE_3__.ViewGroupImpl);
+}(_ViewGroupImpl__WEBPACK_IMPORTED_MODULE_5__.ViewGroupImpl);
 
 //start - staticinit
 var RecyclerView = /** @class */function (_super) {
@@ -21951,11 +21957,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   SnackbarImpl: function() { return /* binding */ SnackbarImpl; }
 /* harmony export */ });
 /* harmony import */ var _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../widget/CommandAttr */ "./src/widget/CommandAttr.ts");
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/exclude.decorator.js");
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/expose.decorator.js");
 /* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/type.decorator.js");
-/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/expose.decorator.js");
-/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/exclude.decorator.js");
-/* harmony import */ var ts_mixer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ts-mixer */ "./node_modules/ts-mixer/dist/esm/index.js");
-/* harmony import */ var _ViewImpl__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ViewImpl */ "./src/android/widget/ViewImpl.ts");
+/* harmony import */ var ts_mixer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ts-mixer */ "./node_modules/ts-mixer/dist/esm/index.js");
+/* harmony import */ var _ViewImpl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ViewImpl */ "./src/android/widget/ViewImpl.ts");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 // start - imports
 var __extends = undefined && undefined.__extends || function () {
@@ -22138,64 +22144,64 @@ var SnackbarImpl = /** @class */function (_super) {
     this.backgroundTintMode.setOrderSet(this.orderSet);
     return this.thisPointer;
   };
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "duration"
   })), __metadata("design:type", Object)], SnackbarImpl.prototype, "duration", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "text"
   })), __metadata("design:type", Object)], SnackbarImpl.prototype, "text", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "show"
   })), __metadata("design:type", Object)], SnackbarImpl.prototype, "show_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "actionText"
   })), __metadata("design:type", Object)], SnackbarImpl.prototype, "actionText", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "onClick"
   })), __metadata("design:type", Object)], SnackbarImpl.prototype, "onClick", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "actionTextColor"
   })), __metadata("design:type", Object)], SnackbarImpl.prototype, "actionTextColor", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "maxInlineActionWidth"
   })), __metadata("design:type", Object)], SnackbarImpl.prototype, "maxInlineActionWidth", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "textColor"
   })), __metadata("design:type", Object)], SnackbarImpl.prototype, "textColor", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "background"
   })), __metadata("design:type", Object)], SnackbarImpl.prototype, "background", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "backgroundTint"
   })), __metadata("design:type", Object)], SnackbarImpl.prototype, "backgroundTint", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "backgroundTintMode"
   })), __metadata("design:type", Object)], SnackbarImpl.prototype, "backgroundTintMode", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Exclude)()), __metadata("design:type", Object)], SnackbarImpl.prototype, "thisPointer", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_1__.Exclude)()), __metadata("design:type", Object)], SnackbarImpl.prototype, "thisPointer", void 0);
   return SnackbarImpl;
-}(_ViewImpl__WEBPACK_IMPORTED_MODULE_2__.ViewImpl);
+}(_ViewImpl__WEBPACK_IMPORTED_MODULE_5__.ViewImpl);
 
 //start - staticinit
 var Snackbar = /** @class */function (_super) {
@@ -22232,12 +22238,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   TextViewImpl: function() { return /* binding */ TextViewImpl; }
 /* harmony export */ });
 /* harmony import */ var _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../widget/CommandAttr */ "./src/widget/CommandAttr.ts");
-/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/type.decorator.js");
-/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/expose.decorator.js");
-/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/exclude.decorator.js");
-/* harmony import */ var _widget_TransformerFactory__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../widget/TransformerFactory */ "./src/widget/TransformerFactory.ts");
-/* harmony import */ var ts_mixer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ts-mixer */ "./node_modules/ts-mixer/dist/esm/index.js");
-/* harmony import */ var _ViewImpl__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ViewImpl */ "./src/android/widget/ViewImpl.ts");
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/exclude.decorator.js");
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/expose.decorator.js");
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/type.decorator.js");
+/* harmony import */ var _widget_TransformerFactory__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../widget/TransformerFactory */ "./src/widget/TransformerFactory.ts");
+/* harmony import */ var ts_mixer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ts-mixer */ "./node_modules/ts-mixer/dist/esm/index.js");
+/* harmony import */ var _ViewImpl__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ViewImpl */ "./src/android/widget/ViewImpl.ts");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 // start - imports
 var __extends = undefined && undefined.__extends || function () {
@@ -22348,8 +22354,8 @@ var TextViewImpl = /** @class */function (_super) {
   }
   //start - body
   TextViewImpl.initialize = function () {
-    _widget_TransformerFactory__WEBPACK_IMPORTED_MODULE_1__.TransformerFactory.getInstance().register("autoLink", new AutoLinkTransformer());
-    _widget_TransformerFactory__WEBPACK_IMPORTED_MODULE_1__.TransformerFactory.getInstance().register("textStyle", new TextStyleTransformer());
+    _widget_TransformerFactory__WEBPACK_IMPORTED_MODULE_4__.TransformerFactory.getInstance().register("autoLink", new AutoLinkTransformer());
+    _widget_TransformerFactory__WEBPACK_IMPORTED_MODULE_4__.TransformerFactory.getInstance().register("textStyle", new TextStyleTransformer());
   };
   TextViewImpl.prototype.reset = function () {
     _super.prototype.reset.call(this);
@@ -24116,409 +24122,409 @@ var TextViewImpl = /** @class */function (_super) {
     this.drawableIconSize.setOrderSet(this.orderSet);
     return this.thisPointer;
   };
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "autoLink"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "autoLink", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "breakStrategy"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "breakStrategy", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "drawablePadding"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "drawablePadding", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "elegantTextHeight"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "elegantTextHeight", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "ellipsize"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "ellipsize", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "ems"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "ems", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "fallbackLineSpacing"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "fallbackLineSpacing", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "firstBaselineToTopHeight"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "firstBaselineToTopHeight", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "fontFeatureSettings"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "fontFeatureSettings", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "gravity"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "gravity", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "height"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "height", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "hyphenationFrequency"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "hyphenationFrequency", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "includeFontPadding"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "includeFontPadding", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "justificationMode"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "justificationMode", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "lastBaselineToBottomHeight"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "lastBaselineToBottomHeight", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "letterSpacing"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "letterSpacing", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "lineHeight"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "lineHeight", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "lineSpacingExtra"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "lineSpacingExtra", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "lineSpacingMultiplier"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "lineSpacingMultiplier", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "lines"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "lines", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "marqueeRepeatLimit"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "marqueeRepeatLimit", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "maxEms"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "maxEms", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "maxHeight"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "maxHeight", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "maxLines"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "maxLines", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "maxWidth"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "maxWidth", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "minEms"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "minEms", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "minHeight"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "minHeight", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "minLines"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "minLines", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "minWidth"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "minWidth", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "scrollHorizontally"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "scrollHorizontally", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "shadowColor"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "shadowColor", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "shadowDx"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "shadowDx", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "shadowDy"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "shadowDy", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "shadowRadius"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "shadowRadius", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "singleLine"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "singleLine", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "textAllCaps"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "textAllCaps", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "textColor"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "textColor", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "textColorHighlight"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "textColorHighlight", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "textColorLink"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "textColorLink", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "textIsSelectable"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "textIsSelectable", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "textScaleX"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "textScaleX", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "width"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "width", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "onafterTextChange"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "onafterTextChange", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "onbeforeTextChange"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "onbeforeTextChange", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "onTextChange"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "onTextChange", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "text"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "text", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "textSize"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "textSize", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "drawableStart"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "drawableStart", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "drawableEnd"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "drawableEnd", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "drawableTop"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "drawableTop", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "drawableBottom"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "drawableBottom", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "maxLength"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "maxLength", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "typeface"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "typeface", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "textStyle"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "textStyle", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "fontFamily"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "fontFamily", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "systemTextAppearance"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "systemTextAppearance", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "textAppearance"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "textAppearance", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "password"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "password", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "enabled"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "enabled", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "editable"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "editable", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "drawableTint"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "drawableTint", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "drawableTintMode"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "drawableTintMode", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "autoSizeTextType"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "autoSizeTextType", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "autoSizeMaxTextSize"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "autoSizeMaxTextSize", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "autoSizeMinTextSize"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "autoSizeMinTextSize", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "autoSizeStepGranularity"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "autoSizeStepGranularity", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "linksClickable"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "linksClickable", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "startOrStopMarquee"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "startOrStopMarquee", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "padding"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "padding", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "paddingBottom"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "paddingBottom", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "paddingRight"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "paddingRight", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "paddingLeft"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "paddingLeft", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "paddingStart"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "paddingStart", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "paddingEnd"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "paddingEnd", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "paddingTop"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "paddingTop", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "paddingHorizontal"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "paddingHorizontal", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "paddingVertical"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "paddingVertical", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "autoSizePresetSizes"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "autoSizePresetSizes", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "textFormat"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "textFormat", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "drawableIconSize"
   })), __metadata("design:type", Object)], TextViewImpl.prototype, "drawableIconSize", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Exclude)()), __metadata("design:type", Object)], TextViewImpl.prototype, "thisPointer", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_1__.Exclude)()), __metadata("design:type", Object)], TextViewImpl.prototype, "thisPointer", void 0);
   return TextViewImpl;
-}(_ViewImpl__WEBPACK_IMPORTED_MODULE_3__.ViewImpl);
+}(_ViewImpl__WEBPACK_IMPORTED_MODULE_6__.ViewImpl);
 
 //start - staticinit
 var TextView = /** @class */function (_super) {
@@ -24557,12 +24563,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   ViewGroup_LayoutParams: function() { return /* binding */ ViewGroup_LayoutParams; }
 /* harmony export */ });
 /* harmony import */ var _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../widget/CommandAttr */ "./src/widget/CommandAttr.ts");
-/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/type.decorator.js");
-/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/expose.decorator.js");
-/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/exclude.decorator.js");
-/* harmony import */ var _widget_TransformerFactory__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../widget/TransformerFactory */ "./src/widget/TransformerFactory.ts");
-/* harmony import */ var ts_mixer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ts-mixer */ "./node_modules/ts-mixer/dist/esm/index.js");
-/* harmony import */ var _ViewGroupModelImpl__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ViewGroupModelImpl */ "./src/android/widget/ViewGroupModelImpl.ts");
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/exclude.decorator.js");
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/expose.decorator.js");
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/type.decorator.js");
+/* harmony import */ var _widget_TransformerFactory__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../widget/TransformerFactory */ "./src/widget/TransformerFactory.ts");
+/* harmony import */ var ts_mixer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ts-mixer */ "./node_modules/ts-mixer/dist/esm/index.js");
+/* harmony import */ var _ViewGroupModelImpl__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ViewGroupModelImpl */ "./src/android/widget/ViewGroupModelImpl.ts");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 // start - imports
 var __extends = undefined && undefined.__extends || function () {
@@ -24673,8 +24679,8 @@ var ViewGroupImpl = /** @class */function (_super) {
   }
   //start - body
   ViewGroupImpl.initialize = function () {
-    _widget_TransformerFactory__WEBPACK_IMPORTED_MODULE_1__.TransformerFactory.getInstance().register("persistentDrawingCache", new PersistentDrawingCacheTransformer());
-    _widget_TransformerFactory__WEBPACK_IMPORTED_MODULE_1__.TransformerFactory.getInstance().register("layoutTransition", new LayoutTransitionTransformer());
+    _widget_TransformerFactory__WEBPACK_IMPORTED_MODULE_4__.TransformerFactory.getInstance().register("persistentDrawingCache", new PersistentDrawingCacheTransformer());
+    _widget_TransformerFactory__WEBPACK_IMPORTED_MODULE_4__.TransformerFactory.getInstance().register("layoutTransition", new LayoutTransitionTransformer());
   };
   ViewGroupImpl.prototype.reset = function () {
     _super.prototype.reset.call(this);
@@ -25039,94 +25045,94 @@ var ViewGroupImpl = /** @class */function (_super) {
     this.childXml.setOrderSet(this.orderSet);
     return this.thisPointer;
   };
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "alwaysDrawnWithCache"
   })), __metadata("design:type", Object)], ViewGroupImpl.prototype, "alwaysDrawnWithCache", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "animationCache"
   })), __metadata("design:type", Object)], ViewGroupImpl.prototype, "animationCache", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "clipChildren"
   })), __metadata("design:type", Object)], ViewGroupImpl.prototype, "clipChildren", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "clipToPadding"
   })), __metadata("design:type", Object)], ViewGroupImpl.prototype, "clipToPadding", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "descendantFocusability"
   })), __metadata("design:type", Object)], ViewGroupImpl.prototype, "descendantFocusability", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "layoutMode"
   })), __metadata("design:type", Object)], ViewGroupImpl.prototype, "layoutMode", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "persistentDrawingCache"
   })), __metadata("design:type", Object)], ViewGroupImpl.prototype, "persistentDrawingCache", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "splitMotionEvents"
   })), __metadata("design:type", Object)], ViewGroupImpl.prototype, "splitMotionEvents", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "onChildViewAdded"
   })), __metadata("design:type", Object)], ViewGroupImpl.prototype, "onChildViewAdded", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "onChildViewRemoved"
   })), __metadata("design:type", Object)], ViewGroupImpl.prototype, "onChildViewRemoved", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "animateLayoutChanges"
   })), __metadata("design:type", Object)], ViewGroupImpl.prototype, "animateLayoutChanges", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "layoutTransition"
   })), __metadata("design:type", Object)], ViewGroupImpl.prototype, "layoutTransition", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "layoutTransitionDuration"
   })), __metadata("design:type", Object)], ViewGroupImpl.prototype, "layoutTransitionDuration", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "animateParentHierarchy"
   })), __metadata("design:type", Object)], ViewGroupImpl.prototype, "animateParentHierarchy", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "listitem"
   })), __metadata("design:type", Object)], ViewGroupImpl.prototype, "listitem", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "addStatesFromChildren"
   })), __metadata("design:type", Object)], ViewGroupImpl.prototype, "addStatesFromChildren", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "childXml"
   })), __metadata("design:type", Object)], ViewGroupImpl.prototype, "childXml", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Exclude)()), __metadata("design:type", Object)], ViewGroupImpl.prototype, "thisPointer", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_1__.Exclude)()), __metadata("design:type", Object)], ViewGroupImpl.prototype, "thisPointer", void 0);
   return ViewGroupImpl;
-}(_ViewGroupModelImpl__WEBPACK_IMPORTED_MODULE_3__.ViewGroupModelImpl);
+}(_ViewGroupModelImpl__WEBPACK_IMPORTED_MODULE_6__.ViewGroupModelImpl);
 
 //start - staticinit
 var ViewGroupImpl_LayoutParams = /** @class */function () {
@@ -25329,54 +25335,54 @@ var ViewGroupImpl_LayoutParams = /** @class */function () {
     this.layout_marginVertical.setOrderSet(this.orderSet);
     return this.thisPointer;
   };
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "layout_marginBottom"
   })), __metadata("design:type", Object)], ViewGroupImpl_LayoutParams.prototype, "layout_marginBottom", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "layout_marginTop"
   })), __metadata("design:type", Object)], ViewGroupImpl_LayoutParams.prototype, "layout_marginTop", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "layout_marginStart"
   })), __metadata("design:type", Object)], ViewGroupImpl_LayoutParams.prototype, "layout_marginStart", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "layout_marginEnd"
   })), __metadata("design:type", Object)], ViewGroupImpl_LayoutParams.prototype, "layout_marginEnd", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "layout_marginLeft"
   })), __metadata("design:type", Object)], ViewGroupImpl_LayoutParams.prototype, "layout_marginLeft", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "layout_marginRight"
   })), __metadata("design:type", Object)], ViewGroupImpl_LayoutParams.prototype, "layout_marginRight", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "layout_margin"
   })), __metadata("design:type", Object)], ViewGroupImpl_LayoutParams.prototype, "layout_margin", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "layout_marginHorizontal"
   })), __metadata("design:type", Object)], ViewGroupImpl_LayoutParams.prototype, "layout_marginHorizontal", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "layout_marginVertical"
   })), __metadata("design:type", Object)], ViewGroupImpl_LayoutParams.prototype, "layout_marginVertical", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Exclude)()), __metadata("design:type", Object)], ViewGroupImpl_LayoutParams.prototype, "thisPointer", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Exclude)()), __metadata("design:type", Number)], ViewGroupImpl_LayoutParams.prototype, "orderGet", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_2__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Exclude)()), __metadata("design:type", Number)], ViewGroupImpl_LayoutParams.prototype, "orderSet", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_1__.Exclude)()), __metadata("design:type", Object)], ViewGroupImpl_LayoutParams.prototype, "thisPointer", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_1__.Exclude)()), __metadata("design:type", Number)], ViewGroupImpl_LayoutParams.prototype, "orderGet", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_1__.Exclude)()), __metadata("design:type", Number)], ViewGroupImpl_LayoutParams.prototype, "orderSet", void 0);
   return ViewGroupImpl_LayoutParams;
 }();
 
@@ -25423,11 +25429,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   ViewGroupModelImpl: function() { return /* binding */ ViewGroupModelImpl; }
 /* harmony export */ });
 /* harmony import */ var _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../widget/CommandAttr */ "./src/widget/CommandAttr.ts");
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/exclude.decorator.js");
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/expose.decorator.js");
 /* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/type.decorator.js");
-/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/expose.decorator.js");
-/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/exclude.decorator.js");
-/* harmony import */ var ts_mixer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ts-mixer */ "./node_modules/ts-mixer/dist/esm/index.js");
-/* harmony import */ var _ViewImpl__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ViewImpl */ "./src/android/widget/ViewImpl.ts");
+/* harmony import */ var ts_mixer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ts-mixer */ "./node_modules/ts-mixer/dist/esm/index.js");
+/* harmony import */ var _ViewImpl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ViewImpl */ "./src/android/widget/ViewImpl.ts");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 // start - imports
 var __extends = undefined && undefined.__extends || function () {
@@ -25609,49 +25615,49 @@ var ViewGroupModelImpl = /** @class */function (_super) {
     this.modelDescPath.setOrderSet(this.orderSet);
     return this.thisPointer;
   };
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "addModel"
   })), __metadata("design:type", Object)], ViewGroupModelImpl.prototype, "addModel_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "addAllModel"
   })), __metadata("design:type", Object)], ViewGroupModelImpl.prototype, "addAllModel_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "addModelByIndex"
   })), __metadata("design:type", Object)], ViewGroupModelImpl.prototype, "addModelByIndex_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "removeModelAtIndex"
   })), __metadata("design:type", Object)], ViewGroupModelImpl.prototype, "removeModelAtIndex_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "removeModelById"
   })), __metadata("design:type", Object)], ViewGroupModelImpl.prototype, "removeModelById_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "modelFor"
   })), __metadata("design:type", Object)], ViewGroupModelImpl.prototype, "modelFor", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "modelIdPath"
   })), __metadata("design:type", Object)], ViewGroupModelImpl.prototype, "modelIdPath", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "modelDescPath"
   })), __metadata("design:type", Object)], ViewGroupModelImpl.prototype, "modelDescPath", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Exclude)()), __metadata("design:type", Object)], ViewGroupModelImpl.prototype, "thisPointer", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_1__.Exclude)()), __metadata("design:type", Object)], ViewGroupModelImpl.prototype, "thisPointer", void 0);
   return ViewGroupModelImpl;
-}(_ViewImpl__WEBPACK_IMPORTED_MODULE_2__.ViewImpl);
+}(_ViewImpl__WEBPACK_IMPORTED_MODULE_5__.ViewImpl);
 
 //start - staticinit
 var ViewGroupModel = /** @class */function (_super) {
@@ -25692,13 +25698,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   ViewImpl_performHapticFeedbackWithFlags: function() { return /* binding */ ViewImpl_performHapticFeedbackWithFlags; }
 /* harmony export */ });
 /* harmony import */ var _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../widget/CommandAttr */ "./src/widget/CommandAttr.ts");
-/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/expose.decorator.js");
-/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/transform.decorator.js");
-/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/type.decorator.js");
-/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/exclude.decorator.js");
-/* harmony import */ var _widget_TransformerFactory__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../widget/TransformerFactory */ "./src/widget/TransformerFactory.ts");
-/* harmony import */ var _app_ScopedObject__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../app/ScopedObject */ "./src/app/ScopedObject.ts");
-/* harmony import */ var ts_mixer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ts-mixer */ "./node_modules/ts-mixer/dist/esm/index.js");
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/exclude.decorator.js");
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/expose.decorator.js");
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/transform.decorator.js");
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/type.decorator.js");
+/* harmony import */ var _widget_TransformerFactory__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../widget/TransformerFactory */ "./src/widget/TransformerFactory.ts");
+/* harmony import */ var _app_ScopedObject__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../app/ScopedObject */ "./src/app/ScopedObject.ts");
+/* harmony import */ var ts_mixer__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ts-mixer */ "./node_modules/ts-mixer/dist/esm/index.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 // start - imports
 var __extends = undefined && undefined.__extends || function () {
@@ -25837,16 +25843,16 @@ var RequiresFadingEdgeTransformer = /** @class */function () {
 
 var ViewImpl_performHapticFeedbackWithFlags = /** @class */function () {
   function ViewImpl_performHapticFeedbackWithFlags() {}
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "value"
   })), __metadata("design:type", String)], ViewImpl_performHapticFeedbackWithFlags.prototype, "value", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "flags"
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Transform)(function (_a) {
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Transform)(function (_a) {
     var value = _a.value,
       obj = _a.obj,
       type = _a.type;
-    return _widget_TransformerFactory__WEBPACK_IMPORTED_MODULE_1__.TransformerFactory.getInstance().transform(value, obj, type, "HapticFeedbackConstantsFlag");
+    return _widget_TransformerFactory__WEBPACK_IMPORTED_MODULE_5__.TransformerFactory.getInstance().transform(value, obj, type, "HapticFeedbackConstantsFlag");
   })), __metadata("design:type", Array)], ViewImpl_performHapticFeedbackWithFlags.prototype, "flags", void 0);
   return ViewImpl_performHapticFeedbackWithFlags;
 }();
@@ -25916,11 +25922,11 @@ var ViewImpl = /** @class */function () {
   }
   //start - body
   ViewImpl.initialize = function () {
-    _widget_TransformerFactory__WEBPACK_IMPORTED_MODULE_1__.TransformerFactory.getInstance().register("importantForAutofill", new ImportantForAutofillTransformer());
-    _widget_TransformerFactory__WEBPACK_IMPORTED_MODULE_1__.TransformerFactory.getInstance().register("scrollIndicators", new ScrollIndicatorsTransformer());
-    _widget_TransformerFactory__WEBPACK_IMPORTED_MODULE_1__.TransformerFactory.getInstance().register("requiresFadingEdge", new RequiresFadingEdgeTransformer());
-    _widget_TransformerFactory__WEBPACK_IMPORTED_MODULE_1__.TransformerFactory.getInstance().register("HapticFeedbackConstantsFlag", new HapticFeedbackConstantsFlagTransformer());
-    _widget_TransformerFactory__WEBPACK_IMPORTED_MODULE_1__.TransformerFactory.getInstance().register("validationErrorDisplay", new ValidationErrorDisplayTransformer());
+    _widget_TransformerFactory__WEBPACK_IMPORTED_MODULE_5__.TransformerFactory.getInstance().register("importantForAutofill", new ImportantForAutofillTransformer());
+    _widget_TransformerFactory__WEBPACK_IMPORTED_MODULE_5__.TransformerFactory.getInstance().register("scrollIndicators", new ScrollIndicatorsTransformer());
+    _widget_TransformerFactory__WEBPACK_IMPORTED_MODULE_5__.TransformerFactory.getInstance().register("requiresFadingEdge", new RequiresFadingEdgeTransformer());
+    _widget_TransformerFactory__WEBPACK_IMPORTED_MODULE_5__.TransformerFactory.getInstance().register("HapticFeedbackConstantsFlag", new HapticFeedbackConstantsFlagTransformer());
+    _widget_TransformerFactory__WEBPACK_IMPORTED_MODULE_5__.TransformerFactory.getInstance().register("validationErrorDisplay", new ValidationErrorDisplayTransformer());
   };
   ViewImpl.prototype.markForReset = function () {
     this.flush = true;
@@ -28260,7 +28266,7 @@ var ViewImpl = /** @class */function () {
     if (this.updateModelData_ == null || this.updateModelData_ == undefined) {
       this.updateModelData_ = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
     }
-    var wrapper = new _app_ScopedObject__WEBPACK_IMPORTED_MODULE_2__.ScopedObject();
+    var wrapper = new _app_ScopedObject__WEBPACK_IMPORTED_MODULE_6__.ScopedObject();
     wrapper.expression = expression;
     wrapper.payload = payload;
     this.updateModelData_.setSetter(true);
@@ -29137,740 +29143,740 @@ var ViewImpl = /** @class */function () {
     this.cornerRadius.setOrderSet(this.orderSet);
     return this.thisPointer;
   };
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "accessibilityHeading"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "accessibilityHeading", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "accessibilityLiveRegion"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "accessibilityLiveRegion", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "accessibilityPaneTitle"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "accessibilityPaneTitle", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "accessibilityTraversalAfter"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "accessibilityTraversalAfter", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "accessibilityTraversalBefore"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "accessibilityTraversalBefore", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "alpha"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "alpha", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "autofillHints"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "autofillHints", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "backgroundTint"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "backgroundTint", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "backgroundTintMode"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "backgroundTintMode", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "clickable"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "clickable", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "contentDescription"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "contentDescription", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "contextClickable"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "contextClickable", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "defaultFocusHighlightEnabled"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "defaultFocusHighlightEnabled", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "duplicateParentState"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "duplicateParentState", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "elevation"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "elevation", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "fadeScrollbars"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "fadeScrollbars", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "fadingEdgeLength"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "fadingEdgeLength", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "filterTouchesWhenObscured"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "filterTouchesWhenObscured", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "fitsSystemWindows"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "fitsSystemWindows", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "focusableInTouchMode"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "focusableInTouchMode", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "focusedByDefault"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "focusedByDefault", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "forceHasOverlappingRendering"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "forceHasOverlappingRendering", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "foregroundTint"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "foregroundTint", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "foregroundTintMode"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "foregroundTintMode", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "hapticFeedbackEnabled"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "hapticFeedbackEnabled", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "importantForAccessibility"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "importantForAccessibility", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "importantForAutofill"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "importantForAutofill", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "isScrollContainer"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "isScrollContainer", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "keepScreenOn"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "keepScreenOn", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "keyboardNavigationCluster"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "keyboardNavigationCluster", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "layoutDirection"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "layoutDirection", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "longClickable"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "longClickable", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "minHeight"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "minHeight", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "minWidth"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "minWidth", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "nextClusterForward"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "nextClusterForward", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "nextFocusDown"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "nextFocusDown", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "nextFocusForward"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "nextFocusForward", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "nextFocusLeft"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "nextFocusLeft", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "nextFocusRight"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "nextFocusRight", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "nextFocusUp"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "nextFocusUp", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "rotation"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "rotation", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "rotationX"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "rotationX", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "rotationY"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "rotationY", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "saveEnabled"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "saveEnabled", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "scaleX"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "scaleX", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "scaleY"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "scaleY", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "screenReaderFocusable"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "screenReaderFocusable", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "scrollIndicators"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "scrollIndicators", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "scrollbarDefaultDelayBeforeFade"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "scrollbarDefaultDelayBeforeFade", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "scrollbarFadeDuration"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "scrollbarFadeDuration", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "scrollbarSize"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "scrollbarSize", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "scrollbarStyle"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "scrollbarStyle", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "soundEffectsEnabled"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "soundEffectsEnabled", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "textAlignment"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "textAlignment", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "textDirection"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "textDirection", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "tooltipText"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "tooltipText", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "transformPivotX"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "transformPivotX", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "transformPivotY"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "transformPivotY", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "transitionName"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "transitionName", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "translationX"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "translationX", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "translationY"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "translationY", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "translationZ"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "translationZ", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "visibility"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "visibility", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "onApplyWindowInsets"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "onApplyWindowInsets", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "onCapturedPointer"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "onCapturedPointer", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "onClick"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "onClick", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "onContextClick"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "onContextClick", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "onCreateContextMenu"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "onCreateContextMenu", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "onDrag"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "onDrag", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "onFocusChange"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "onFocusChange", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "onGenericMotion"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "onGenericMotion", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "onHover"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "onHover", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "onKey"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "onKey", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "onLongClick"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "onLongClick", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "onScrollChange"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "onScrollChange", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "onSystemUiVisibilityChange"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "onSystemUiVisibilityChange", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "onTouch"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "onTouch", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "padding"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "padding", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "paddingTop"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "paddingTop", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "paddingBottom"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "paddingBottom", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "paddingLeft"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "paddingLeft", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "paddingRight"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "paddingRight", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "paddingStart"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "paddingStart", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "paddingEnd"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "paddingEnd", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "paddingHorizontal"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "paddingHorizontal", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "paddingVertical"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "paddingVertical", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "layerType"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "layerType", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "requiresFadingEdge"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "requiresFadingEdge", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "background"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "background", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "foreground"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "foreground", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "backgroundRepeat"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "backgroundRepeat", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "modelSyncEvents"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "modelSyncEvents", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "updateModelData"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "updateModelData_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "notifyDataSetChanged"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "notifyDataSetChanged_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "modelParam"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "modelParam", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "modelPojoToUi"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "modelPojoToUi", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "modelUiToPojo"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "modelUiToPojo", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "modelPojoToUiParams"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "modelPojoToUiParams", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "refreshUiFromModel"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "refreshUiFromModel_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "modelUiToPojoEventIds"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "modelUiToPojoEventIds", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "foregroundRepeat"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "foregroundRepeat", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "foregroundGravity"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "foregroundGravity", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "performHapticFeedback"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "performHapticFeedback_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "performHapticFeedbackWithFlags"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "performHapticFeedbackWithFlags_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "attributeUnderTest"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "attributeUnderTest", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "selected"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "selected", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "enabled"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "enabled", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "focusable"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "focusable", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "scrollX"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "scrollX", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "scrollY"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "scrollY", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "invalidate"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "invalidate_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "requestLayout"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "requestLayout_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "asDragSource"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "asDragSource", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "zIndex"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "zIndex", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "maxWidth"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "maxWidth", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "maxHeight"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "maxHeight", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "style"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "style", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "errorStyle"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "errorStyle", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "validateForm"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "validateForm_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "validation"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "validation", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "v_required"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "v_required", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "v_minlength"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "v_minlength", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "v_maxlength"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "v_maxlength", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "v_min"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "v_min", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "v_max"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "v_max", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "v_pattern"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "v_pattern", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "v_type"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "v_type", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "validationErrorDisplayType"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "validationErrorDisplayType", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "customErrorMessageValues"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "customErrorMessageValues", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "customErrorMessageKeys"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "customErrorMessageKeys", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "invalidateOnFrameChange"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "invalidateOnFrameChange", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "onSwiped"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "onSwiped", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "animatorXml"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "animatorXml_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "startAnimator"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "startAnimator_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "endAnimator"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "endAnimator_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "onAnimationStart"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "onAnimationStart", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "onAnimationEnd"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "onAnimationEnd", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "onAnimationCancel"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "onAnimationCancel", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "onAnimationRepeat"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "onAnimationRepeat", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "left"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "left", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "right"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "right", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "top"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "top", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "bottom"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "bottom", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "outlineAmbientShadowColor"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "outlineAmbientShadowColor", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "outlineSpotShadowColor"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "outlineSpotShadowColor", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_6__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "cornerRadius"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "cornerRadius", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_7__.Exclude)()), __metadata("design:type", Object)], ViewImpl.prototype, "thisPointer", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_7__.Exclude)()), __metadata("design:type", Number)], ViewImpl.prototype, "orderGet", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_7__.Exclude)()), __metadata("design:type", Number)], ViewImpl.prototype, "orderSet", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_3__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Expose)({
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_1__.Exclude)()), __metadata("design:type", Object)], ViewImpl.prototype, "thisPointer", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_1__.Exclude)()), __metadata("design:type", Number)], ViewImpl.prototype, "orderGet", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_1__.Exclude)()), __metadata("design:type", Number)], ViewImpl.prototype, "orderSet", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_7__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "layoutParams"
   })), __metadata("design:type", Object)], ViewImpl.prototype, "layoutParams", void 0);
   return ViewImpl;
@@ -29914,11 +29920,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   fragmentImpl_popBackStackTo: function() { return /* binding */ fragmentImpl_popBackStackTo; }
 /* harmony export */ });
 /* harmony import */ var _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../widget/CommandAttr */ "./src/widget/CommandAttr.ts");
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/exclude.decorator.js");
 /* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/expose.decorator.js");
-/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/type.decorator.js");
-/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/exclude.decorator.js");
-/* harmony import */ var ts_mixer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ts-mixer */ "./node_modules/ts-mixer/dist/esm/index.js");
-/* harmony import */ var _ViewGroupImpl__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ViewGroupImpl */ "./src/android/widget/ViewGroupImpl.ts");
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/type.decorator.js");
+/* harmony import */ var ts_mixer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ts-mixer */ "./node_modules/ts-mixer/dist/esm/index.js");
+/* harmony import */ var _ViewGroupImpl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ViewGroupImpl */ "./src/android/widget/ViewGroupImpl.ts");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 // start - imports
 var __extends = undefined && undefined.__extends || function () {
@@ -29956,10 +29962,10 @@ var __metadata = undefined && undefined.__metadata || function (k, v) {
 
 var fragmentImpl_navigate = /** @class */function () {
   function fragmentImpl_navigate() {}
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "actionId"
   })), __metadata("design:type", String)], fragmentImpl_navigate.prototype, "actionId", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "scopeObjects"
   })), __metadata("design:type", Object)], fragmentImpl_navigate.prototype, "scopeObjects", void 0);
   return fragmentImpl_navigate;
@@ -29967,10 +29973,10 @@ var fragmentImpl_navigate = /** @class */function () {
 
 var fragmentImpl_navigateWithPopBackStack = /** @class */function () {
   function fragmentImpl_navigateWithPopBackStack() {}
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "actionId"
   })), __metadata("design:type", String)], fragmentImpl_navigateWithPopBackStack.prototype, "actionId", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "scopeObjects"
   })), __metadata("design:type", Object)], fragmentImpl_navigateWithPopBackStack.prototype, "scopeObjects", void 0);
   return fragmentImpl_navigateWithPopBackStack;
@@ -29978,10 +29984,10 @@ var fragmentImpl_navigateWithPopBackStack = /** @class */function () {
 
 var fragmentImpl_navigateAsTop = /** @class */function () {
   function fragmentImpl_navigateAsTop() {}
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "actionId"
   })), __metadata("design:type", String)], fragmentImpl_navigateAsTop.prototype, "actionId", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "scopeObjects"
   })), __metadata("design:type", Object)], fragmentImpl_navigateAsTop.prototype, "scopeObjects", void 0);
   return fragmentImpl_navigateAsTop;
@@ -29989,16 +29995,16 @@ var fragmentImpl_navigateAsTop = /** @class */function () {
 
 var fragmentImpl_navigateWithPopBackStackTo = /** @class */function () {
   function fragmentImpl_navigateWithPopBackStackTo() {}
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "actionId"
   })), __metadata("design:type", String)], fragmentImpl_navigateWithPopBackStackTo.prototype, "actionId", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "destinationId"
   })), __metadata("design:type", String)], fragmentImpl_navigateWithPopBackStackTo.prototype, "destinationId", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "inclusive"
   })), __metadata("design:type", Boolean)], fragmentImpl_navigateWithPopBackStackTo.prototype, "inclusive", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "scopeObjects"
   })), __metadata("design:type", Object)], fragmentImpl_navigateWithPopBackStackTo.prototype, "scopeObjects", void 0);
   return fragmentImpl_navigateWithPopBackStackTo;
@@ -30006,10 +30012,10 @@ var fragmentImpl_navigateWithPopBackStackTo = /** @class */function () {
 
 var fragmentImpl_popBackStackTo = /** @class */function () {
   function fragmentImpl_popBackStackTo() {}
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "destinationId"
   })), __metadata("design:type", String)], fragmentImpl_popBackStackTo.prototype, "destinationId", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "inclusive"
   })), __metadata("design:type", Boolean)], fragmentImpl_popBackStackTo.prototype, "inclusive", void 0);
   return fragmentImpl_popBackStackTo;
@@ -30039,6 +30045,9 @@ var fragmentImpl = /** @class */function (_super) {
     this.navigateAsTop_ = undefined;
     this.navigateWithPopBackStackTo_ = undefined;
     this.popBackStackTo_ = undefined;
+    this.closeDialog_ = undefined;
+    this.rootDirectory = undefined;
+    this.namespace = undefined;
     return this.thisPointer;
   };
   fragmentImpl.prototype.setName = function (value) {
@@ -30178,64 +30187,112 @@ var fragmentImpl = /** @class */function (_super) {
     this.popBackStackTo_.setOrderSet(this.orderSet);
     return this.thisPointer;
   };
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  fragmentImpl.prototype.closeDialog = function (value) {
+    this.resetIfRequired();
+    if (this.closeDialog_ == null || this.closeDialog_ == undefined) {
+      this.closeDialog_ = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.closeDialog_.setSetter(true);
+    this.closeDialog_.setValue(value);
+    this.orderSet++;
+    this.closeDialog_.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  fragmentImpl.prototype.setRootDirectory = function (value) {
+    this.resetIfRequired();
+    if (this.rootDirectory == null || this.rootDirectory == undefined) {
+      this.rootDirectory = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.rootDirectory.setSetter(true);
+    this.rootDirectory.setValue(value);
+    this.orderSet++;
+    this.rootDirectory.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  fragmentImpl.prototype.setNamespace = function (value) {
+    this.resetIfRequired();
+    if (this.namespace == null || this.namespace == undefined) {
+      this.namespace = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.namespace.setSetter(true);
+    this.namespace.setValue(value);
+    this.orderSet++;
+    this.namespace.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "name"
   })), __metadata("design:type", Object)], fragmentImpl.prototype, "name", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "layout"
   })), __metadata("design:type", Object)], fragmentImpl.prototype, "layout", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "navGraph"
   })), __metadata("design:type", Object)], fragmentImpl.prototype, "navGraph", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "tag"
   })), __metadata("design:type", Object)], fragmentImpl.prototype, "tag", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "replace"
   })), __metadata("design:type", Object)], fragmentImpl.prototype, "replace_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "navigate"
   })), __metadata("design:type", Object)], fragmentImpl.prototype, "navigate_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "popBackStack"
   })), __metadata("design:type", Object)], fragmentImpl.prototype, "popBackStack_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "navigateWithPopBackStack"
   })), __metadata("design:type", Object)], fragmentImpl.prototype, "navigateWithPopBackStack_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "navigateAsTop"
   })), __metadata("design:type", Object)], fragmentImpl.prototype, "navigateAsTop_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "navigateWithPopBackStackTo"
   })), __metadata("design:type", Object)], fragmentImpl.prototype, "navigateWithPopBackStackTo_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_4__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "popBackStackTo"
   })), __metadata("design:type", Object)], fragmentImpl.prototype, "popBackStackTo_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_1__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_5__.Exclude)()), __metadata("design:type", Object)], fragmentImpl.prototype, "thisPointer", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+    name: "closeDialog"
+  })), __metadata("design:type", Object)], fragmentImpl.prototype, "closeDialog_", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+    name: "rootDirectory"
+  })), __metadata("design:type", Object)], fragmentImpl.prototype, "rootDirectory", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+    name: "namespace"
+  })), __metadata("design:type", Object)], fragmentImpl.prototype, "namespace", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_1__.Exclude)()), __metadata("design:type", Object)], fragmentImpl.prototype, "thisPointer", void 0);
   return fragmentImpl;
-}(_ViewGroupImpl__WEBPACK_IMPORTED_MODULE_3__.ViewGroupImpl);
+}(_ViewGroupImpl__WEBPACK_IMPORTED_MODULE_5__.ViewGroupImpl);
 
 //start - staticinit
 var fragment = /** @class */function (_super) {
@@ -30507,6 +30564,17 @@ var Fragment = /** @class */function () {
       });
     });
   };
+  Fragment.prototype.readCdvDataAsString = function (cdvUri) {
+    return __awaiter(this, void 0, void 0, function () {
+      return __generator(this, function (_a) {
+        return [2 /*return*/, new Promise(function (resolve, reject) {
+          coreManager.executeSimpleCommand([["readCdvDataAsString", cdvUri]], function (result) {
+            resolve(window.atob(result));
+          });
+        })];
+      });
+    });
+  };
   return Fragment;
 }();
 
@@ -30677,8 +30745,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   InjectController: function() { return /* binding */ InjectController; },
 /* harmony export */   NavController: function() { return /* binding */ NavController; }
 /* harmony export */ });
-/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/index.js");
-/* harmony import */ var _app_ScopedObject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app/ScopedObject */ "./src/app/ScopedObject.ts");
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/index.js");
+/* harmony import */ var _app_ScopedObject__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../app/ScopedObject */ "./src/app/ScopedObject.ts");
 var __awaiter = undefined && undefined.__awaiter || function (thisArg, _arguments, P, generator) {
   function adopt(value) {
     return value instanceof P ? value : new P(function (resolve) {
@@ -30841,7 +30909,7 @@ var NavController = /** @class */function () {
     return this;
   };
   NavController.prototype.navigate = function (actionId, varExpression, data) {
-    this.navigateTo(actionId, new _app_ScopedObject__WEBPACK_IMPORTED_MODULE_0__.ScopedObject(varExpression, data));
+    this.navigateTo(actionId, new _app_ScopedObject__WEBPACK_IMPORTED_MODULE_1__.ScopedObject(varExpression, data));
     return this;
   };
   NavController.prototype.navigateWithPopBackStack = function (actionId) {
@@ -30849,7 +30917,7 @@ var NavController = /** @class */function () {
     for (var _i = 1; _i < arguments.length; _i++) {
       scopedObjects[_i - 1] = arguments[_i];
     }
-    this.commands.push(["navigateWithPopBackStack", actionId, (0,class_transformer__WEBPACK_IMPORTED_MODULE_1__.classToPlain)(scopedObjects)]);
+    this.commands.push(["navigateWithPopBackStack", actionId, (0,class_transformer__WEBPACK_IMPORTED_MODULE_0__.classToPlain)(scopedObjects)]);
     return this;
   };
   NavController.prototype.navigateAsTop = function (actionId) {
@@ -30857,7 +30925,7 @@ var NavController = /** @class */function () {
     for (var _i = 1; _i < arguments.length; _i++) {
       scopedObjects[_i - 1] = arguments[_i];
     }
-    this.commands.push(["navigateAsTop", actionId, (0,class_transformer__WEBPACK_IMPORTED_MODULE_1__.classToPlain)(scopedObjects)]);
+    this.commands.push(["navigateAsTop", actionId, (0,class_transformer__WEBPACK_IMPORTED_MODULE_0__.classToPlain)(scopedObjects)]);
     return this;
   };
   NavController.prototype.navigateWithPopBackStackTo = function (actionId, destinationId, inclusive) {
@@ -30865,7 +30933,7 @@ var NavController = /** @class */function () {
     for (var _i = 3; _i < arguments.length; _i++) {
       scopedObjects[_i - 3] = arguments[_i];
     }
-    this.commands.push(["navigateWithPopBackStackTo", actionId, destinationId, inclusive, (0,class_transformer__WEBPACK_IMPORTED_MODULE_1__.classToPlain)(scopedObjects)]);
+    this.commands.push(["navigateWithPopBackStackTo", actionId, destinationId, inclusive, (0,class_transformer__WEBPACK_IMPORTED_MODULE_0__.classToPlain)(scopedObjects)]);
     return this;
   };
   NavController.prototype.navigateTo = function (actionId) {
@@ -30873,7 +30941,7 @@ var NavController = /** @class */function () {
     for (var _i = 1; _i < arguments.length; _i++) {
       scopedObjects[_i - 1] = arguments[_i];
     }
-    this.commands.push(["navigate", actionId, (0,class_transformer__WEBPACK_IMPORTED_MODULE_1__.classToPlain)(scopedObjects)]);
+    this.commands.push(["navigate", actionId, (0,class_transformer__WEBPACK_IMPORTED_MODULE_0__.classToPlain)(scopedObjects)]);
     return this;
   };
   NavController.prototype.getExecuteCommandPromise = function () {
@@ -30906,8 +30974,8 @@ function InjectController(arg) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/transform.decorator.js");
-/* harmony import */ var _TransformerFactory__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TransformerFactory */ "./src/widget/TransformerFactory.ts");
+/* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/transform.decorator.js");
+/* harmony import */ var _TransformerFactory__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TransformerFactory */ "./src/widget/TransformerFactory.ts");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
   var c = arguments.length,
@@ -30920,7 +30988,6 @@ var __metadata = undefined && undefined.__metadata || function (k, v) {
   if ((typeof Reflect === "undefined" ? "undefined" : _typeof(Reflect)) === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-//import 'babel-polyfill';
 
 var CommandAttr = /** @class */function () {
   function CommandAttr() {
@@ -31010,11 +31077,11 @@ var CommandAttr = /** @class */function () {
   CommandAttr.prototype.setGetter = function (value) {
     this.getter = value;
   };
-  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_1__.Transform)(function (_a) {
+  __decorate([(0,class_transformer__WEBPACK_IMPORTED_MODULE_0__.Transform)(function (_a) {
     var value = _a.value,
       obj = _a.obj,
       type = _a.type;
-    return _TransformerFactory__WEBPACK_IMPORTED_MODULE_0__.TransformerFactory.getInstance().transform(value, obj, type, obj.transformer);
+    return _TransformerFactory__WEBPACK_IMPORTED_MODULE_1__.TransformerFactory.getInstance().transform(value, obj, type, obj.transformer);
   }), __metadata("design:type", Object)], CommandAttr.prototype, "value", void 0);
   return CommandAttr;
 }();
@@ -31265,6 +31332,7 @@ var App = /** @class */function () {
     });
   };
   App.prototype.onAction = function (obj) {
+    this.logEvent(obj);
     if (obj.event == 'onError') {
       this.errorFragment.display(obj.data);
     } else {
@@ -31274,16 +31342,15 @@ var App = /** @class */function () {
   };
   App.prototype.getCurrentView = function (obj) {
     var currentView = this.currentViewMap.get(obj.fragmentId);
-    console.log(currentView + " " + obj.actionUrl + obj.fragmentId);
     if (!currentView) {
-      currentView = this.fragmentFactory.createNewInstance(obj.actionUrl);
+      currentView = this.fragmentFactory.createNewInstance(obj.actionUrl, obj.namespace);
       this.currentViewMap.set(obj.fragmentId, currentView);
     }
     return currentView;
   };
   App.prototype.nativeEvent = function (obj) {
+    this.logEvent(obj);
     var currentView = this.getCurrentView(obj);
-    console.log(obj.event + " " + obj.actionUrl + obj.fragmentId);
     if (currentView[obj.event]) {
       currentView[obj.event](obj);
     }
@@ -31293,6 +31360,9 @@ var App = /** @class */function () {
     if (obj.javascript) {
       eval(obj.javascript);
     }
+  };
+  App.prototype.logEvent = function (obj) {
+    console.log(obj.event + " " + obj.actionUrl + " " + obj.fragmentId + " " + obj.namespace);
   };
   return App;
 }();
