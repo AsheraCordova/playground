@@ -113,6 +113,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
+        <RatingBar
+            modelPojoToUi="rating = rating from testObj->parentview"
+            modelSyncEvents="onRatingChanged"
+            modelUiToPojo="rating = rating into testObj->parentview"
+            onRatingChanged=""
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></RatingBar>
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

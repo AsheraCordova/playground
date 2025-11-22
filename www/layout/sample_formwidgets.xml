@@ -229,5 +229,10 @@
             android:max="60"
             android:progress="20"
             android:layout_marginBottom="20dp" />
+
+        <RatingBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:rating="2"/>
     </LinearLayout>
 </ScrollView>
