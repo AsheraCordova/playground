@@ -35,6 +35,7 @@
     <array name="samples">
         <item></item>
         <item>Absolute layout</item>
+        <item>ActionSheet</item>
         <item>Animation</item>
         <item>Appbar Layout</item>
         <item>Border</item>
@@ -80,6 +81,7 @@
     <array name="samples_values" separator="~">
         <item>www/layout/sample_start.xml</item>
         <item>www/layout/sample_absolute_layout.xml</item>
+        <item>www/layout/sample_action_sheet.xml</item>
         <item>www/layout/sample_view_animation.xml</item>
         <item>www/layout/sample_appbarlayout.xml</item>
         <item>www/layout/sample_border.xml</item>

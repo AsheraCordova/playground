@@ -321,4 +321,99 @@ export default class Index extends Fragment {
 		this.adapterConfig0.filter(filter);
 		await this.executeCommand(this.adapterConfig0);
 	}
+
+    showDefaultSheet(event: any) {
+        var callback = function (buttonIndex: any) {
+            setTimeout(function () {
+                // like other Cordova plugins (prompt, confirm) the buttonIndex is 1-based (first button is index 1)
+                DialogHelper.alert('button index clicked: ' + buttonIndex, () => { });
+            });
+        };
+        var options = {
+            parentFragmentId: event["fragmentId"],
+            title: 'What do you want with this image?',
+            buttonLabels: ['Share via Facebook', 'Share via Twitter'],
+            addCancelButtonWithLabel: 'Cancel',
+            addDestructiveButtonWithLabel: 'Delete it',
+            destructiveButtonLast: true // you can choose where the destructive button is shown
+        };
+        // Depending on the buttonIndex, you can now call shareViaFacebook or shareViaTwitter
+        // of the SocialSharing plugin (https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin)
+        (window as any).plugins.actionsheet.show(options, callback);
+    }
+
+    showDeleteSheet(event: any) {
+        var callback = function (buttonIndex: any) {
+            setTimeout(function () {
+                // like other Cordova plugins (prompt, confirm) the buttonIndex is 1-based (first button is index 1)
+                DialogHelper.alert('button index clicked: ' + buttonIndex, () => { });
+            });
+        };
+        var options = {
+            'parentFragmentId': event["fragmentId"],
+            'addCancelButtonWithLabel': 'Cancel',
+            'addDestructiveButtonWithLabel': 'Delete note'
+        };
+        // Depending on the buttonIndex, you can now call shareViaFacebook or shareViaTwitter
+        // of the SocialSharing plugin (https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin)
+        (window as any).plugins.actionsheet.show(options, callback);
+    }
+    showLogoutSheet(event: any) {
+        var callback = function (buttonIndex: any) {
+            setTimeout(function () {
+                // like other Cordova plugins (prompt, confirm) the buttonIndex is 1-based (first button is index 1)
+                DialogHelper.alert('button index clicked: ' + buttonIndex, () => { });
+            });
+        };
+        var options = {
+            'parentFragmentId': event["fragmentId"],
+            'buttonLabels': ['Log out'],
+            'androidEnableCancelButton': true, // default false
+            'winphoneEnableCancelButton': true, // default false
+            'addCancelButtonWithLabel': 'Cancel'
+        };
+        // Depending on the buttonIndex, you can now call shareViaFacebook or shareViaTwitter
+        // of the SocialSharing plugin (https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin)
+        (window as any).plugins.actionsheet.show(options, callback);
+    }
+
+    showCustomizedSheet(event: any) {
+        var callback = function (buttonIndex: any) {
+            setTimeout(function () {
+                // like other Cordova plugins (prompt, confirm) the buttonIndex is 1-based (first button is index 1)
+                DialogHelper.alert('button index clicked: ' + buttonIndex, () => { });
+            });
+        };
+        var options = {
+            parentFragmentId: event["fragmentId"],
+            title: 'What do you want with this image?',
+            buttonLabels: ['Share via Facebook', 'Share via Twitter'],
+            addCancelButtonWithLabel: 'Cancel',
+            addDestructiveButtonWithLabel: 'Delete it',
+            destructiveTextColor: "#ff0000",
+            destructiveBackgroundColor: "#000000",
+            destructiveHighlightColor: "#ffffff",
+            destructiveButtonLast: true // you can choose where the destructive button is shown
+        };
+        // Depending on the buttonIndex, you can now call shareViaFacebook or shareViaTwitter
+        // of the SocialSharing plugin (https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin)
+        (window as any).plugins.actionsheet.show(options, callback);
+    }
+
+    showNoCancelButton(event: any) {
+        var callback = function (buttonIndex: any) {
+            setTimeout(function () {
+                // like other Cordova plugins (prompt, confirm) the buttonIndex is 1-based (first button is index 1)
+                DialogHelper.alert('button index clicked: ' + buttonIndex, () => { });
+            });
+        };
+        var options = {
+            parentFragmentId: event["fragmentId"],
+            buttonLabels: ['Share via Facebook', 'Share via Twitter']
+        };
+        // Depending on the buttonIndex, you can now call shareViaFacebook or shareViaTwitter
+        // of the SocialSharing plugin (https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin)
+        (window as any).plugins.actionsheet.show(options, callback);
+    }
+    
 }

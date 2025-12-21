@@ -14482,6 +14482,96 @@ var Index = /** @class */function (_super) {
       });
     });
   };
+  Index.prototype.showDefaultSheet = function (event) {
+    var callback = function callback(buttonIndex) {
+      setTimeout(function () {
+        // like other Cordova plugins (prompt, confirm) the buttonIndex is 1-based (first button is index 1)
+        _helpers_DialogHelper__WEBPACK_IMPORTED_MODULE_20__.DialogHelper.alert('button index clicked: ' + buttonIndex, function () {});
+      });
+    };
+    var options = {
+      parentFragmentId: event["fragmentId"],
+      title: 'What do you want with this image?',
+      buttonLabels: ['Share via Facebook', 'Share via Twitter'],
+      addCancelButtonWithLabel: 'Cancel',
+      addDestructiveButtonWithLabel: 'Delete it',
+      destructiveButtonLast: true // you can choose where the destructive button is shown
+    };
+    // Depending on the buttonIndex, you can now call shareViaFacebook or shareViaTwitter
+    // of the SocialSharing plugin (https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin)
+    window.plugins.actionsheet.show(options, callback);
+  };
+  Index.prototype.showDeleteSheet = function (event) {
+    var callback = function callback(buttonIndex) {
+      setTimeout(function () {
+        // like other Cordova plugins (prompt, confirm) the buttonIndex is 1-based (first button is index 1)
+        _helpers_DialogHelper__WEBPACK_IMPORTED_MODULE_20__.DialogHelper.alert('button index clicked: ' + buttonIndex, function () {});
+      });
+    };
+    var options = {
+      'parentFragmentId': event["fragmentId"],
+      'addCancelButtonWithLabel': 'Cancel',
+      'addDestructiveButtonWithLabel': 'Delete note'
+    };
+    // Depending on the buttonIndex, you can now call shareViaFacebook or shareViaTwitter
+    // of the SocialSharing plugin (https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin)
+    window.plugins.actionsheet.show(options, callback);
+  };
+  Index.prototype.showLogoutSheet = function (event) {
+    var callback = function callback(buttonIndex) {
+      setTimeout(function () {
+        // like other Cordova plugins (prompt, confirm) the buttonIndex is 1-based (first button is index 1)
+        _helpers_DialogHelper__WEBPACK_IMPORTED_MODULE_20__.DialogHelper.alert('button index clicked: ' + buttonIndex, function () {});
+      });
+    };
+    var options = {
+      'parentFragmentId': event["fragmentId"],
+      'buttonLabels': ['Log out'],
+      'androidEnableCancelButton': true,
+      'winphoneEnableCancelButton': true,
+      'addCancelButtonWithLabel': 'Cancel'
+    };
+    // Depending on the buttonIndex, you can now call shareViaFacebook or shareViaTwitter
+    // of the SocialSharing plugin (https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin)
+    window.plugins.actionsheet.show(options, callback);
+  };
+  Index.prototype.showCustomizedSheet = function (event) {
+    var callback = function callback(buttonIndex) {
+      setTimeout(function () {
+        // like other Cordova plugins (prompt, confirm) the buttonIndex is 1-based (first button is index 1)
+        _helpers_DialogHelper__WEBPACK_IMPORTED_MODULE_20__.DialogHelper.alert('button index clicked: ' + buttonIndex, function () {});
+      });
+    };
+    var options = {
+      parentFragmentId: event["fragmentId"],
+      title: 'What do you want with this image?',
+      buttonLabels: ['Share via Facebook', 'Share via Twitter'],
+      addCancelButtonWithLabel: 'Cancel',
+      addDestructiveButtonWithLabel: 'Delete it',
+      destructiveTextColor: "#ff0000",
+      destructiveBackgroundColor: "#000000",
+      destructiveHighlightColor: "#ffffff",
+      destructiveButtonLast: true // you can choose where the destructive button is shown
+    };
+    // Depending on the buttonIndex, you can now call shareViaFacebook or shareViaTwitter
+    // of the SocialSharing plugin (https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin)
+    window.plugins.actionsheet.show(options, callback);
+  };
+  Index.prototype.showNoCancelButton = function (event) {
+    var callback = function callback(buttonIndex) {
+      setTimeout(function () {
+        // like other Cordova plugins (prompt, confirm) the buttonIndex is 1-based (first button is index 1)
+        _helpers_DialogHelper__WEBPACK_IMPORTED_MODULE_20__.DialogHelper.alert('button index clicked: ' + buttonIndex, function () {});
+      });
+    };
+    var options = {
+      parentFragmentId: event["fragmentId"],
+      buttonLabels: ['Share via Facebook', 'Share via Twitter']
+    };
+    // Depending on the buttonIndex, you can now call shareViaFacebook or shareViaTwitter
+    // of the SocialSharing plugin (https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin)
+    window.plugins.actionsheet.show(options, callback);
+  };
   __decorate([(0,_navigation_NavController__WEBPACK_IMPORTED_MODULE_9__.InjectController)({}), __metadata("design:type", _navigation_NavController__WEBPACK_IMPORTED_MODULE_9__.NavController)], Index.prototype, "navController", void 0);
   __decorate([(0,_app_Fragment__WEBPACK_IMPORTED_MODULE_5__.Inject)({
     id: _R_Index__WEBPACK_IMPORTED_MODULE_8__.preview
@@ -31211,6 +31301,12 @@ var TransformerFactory = /** @class */function () {
 /******/ 		var cachedModule = __webpack_module_cache__[moduleId];
 /******/ 		if (cachedModule !== undefined) {
 /******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Check if module exists (development only)
+/******/ 		if (__webpack_modules__[moduleId] === undefined) {
+/******/ 			var e = new Error("Cannot find module '" + moduleId + "'");
+/******/ 			e.code = 'MODULE_NOT_FOUND';
+/******/ 			throw e;
 /******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = __webpack_module_cache__[moduleId] = {

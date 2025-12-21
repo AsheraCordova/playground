@@ -1,0 +1,44 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#e5db54"
+    android:orientation="vertical"
+    tools:ignore="MissingPrefix">
+
+    <Button
+        android:onClick="showDefaultSheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="Default Action Sheet" />
+
+    <Button
+        android:onClick="showDeleteSheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="Delete Sheet" />
+
+    <Button
+        android:onClick="showLogoutSheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="Logout Sheet" />
+
+    <Button
+        android:onClick="showCustomizedSheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="Customized Sheet" />
+
+    <Button
+        android:onClick="showNoCancelButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="No Cancel Button" />
+</LinearLayout>

@@ -29,10 +29,10 @@
   "author": "Apache Cordova Team",
   "license": "Apache-2.0",
   "devDependencies": {
-	"@types/minimatch": "^6.0.0",
-	"minimatch": "^10.0.3",
+    "@types/minimatch": "^6.0.0",
     "browser": "git+https://github.com/AsheraCordova/cordova-web.git",
     "com.ashera.absolutelayout": "git+https://github.com/AsheraCordova/AbsoluteLayout.git",
+    "com.ashera.actionsheet": "github:AsheraCordova/ActionSheet",
     "com.ashera.appbarlayout": "git+https://github.com/AsheraCordova/AppBarLayout.git",
     "com.ashera.capinsets": "git+https://github.com/AsheraCordova/CapInsets.git",
     "com.ashera.cardview": "github:AsheraCordova/CardView",
@@ -68,6 +68,7 @@
     "cordova-plugin-qrscanner": "git+https://github.com/AsheraCordova/cordova-plugin-qrscanner.git",
     "cordova-plugin-qrscanner-swt": "git+https://github.com/AsheraCordova/cordova-plugin-qrscanner-swt.git",
     "cordova-plugin-splashscreen-ashera": "git+https://github.com/AsheraCordova/Splash.git",
+    "minimatch": "^10.0.3",
     "swt": "git+https://github.com/AsheraCordova/cordova-swt.git"
   },
   "cordova": {
@@ -106,7 +107,8 @@
       "com.ashera.navigationview": {},
       "com.ashera.tablayout": {},
       "com.ashera.cardview": {},
-      "com.ashera.chip": {}
+      "com.ashera.chip": {},
+      "com.ashera.actionsheet": {}
     },
     "platforms": [
       "android",
