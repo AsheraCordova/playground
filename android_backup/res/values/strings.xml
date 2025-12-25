@@ -40,6 +40,7 @@
         <item>Appbar Layout</item>
         <item>Border</item>
         <item>Bottom Navigation View</item>
+        <item>Bottom Sheet</item>
         <item>Camera</item>
         <item>CapInsets</item>
         <item>Chip</item>
@@ -86,6 +87,7 @@
         <item>www/layout/sample_appbarlayout.xml</item>
         <item>www/layout/sample_border.xml</item>
         <item>www/layout/sample_bottom_navigationview.xml</item>
+        <item>www/layout/sample_bottom_sheet.xml</item>
         <item>www/layout/sample_camera.xml</item>
         <item>www/layout/sample_capinsets.xml</item>
         <item>www/layout/sample_chip.xml</item>

@@ -22,6 +22,9 @@ import { Carousel } from './android/widget/CarouselImpl';
 import { View } from './android/widget/ViewImpl';
 import { fragment } from './android/widget/fragmentImpl';
 import { DialogHelper } from './helpers/DialogHelper';
+import { ViewGroup } from './android/widget/ViewGroupImpl';
+import { CoordinatorLayout_LayoutParams } from './android/widget/CoordinatorLayoutImpl';
+import * as targetView from './android/widget/CoordinatorLayoutImpl';
 declare var SpinnerDialog:any;
 export default class Index extends Fragment {
     @InjectController({})
@@ -415,5 +418,26 @@ export default class Index extends Fragment {
         // of the SocialSharing plugin (https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin)
         (window as any).plugins.actionsheet.show(options, callback);
     }
-    
+ 
+    @Inject({ id : "@+id/bottomSheet"})
+    private bottomSheet!: ViewGroup;
+    async showBottomSheet() {
+        let layout_behavior_state0Child0LayoutParams: CoordinatorLayout_LayoutParams = new CoordinatorLayout_LayoutParams();
+        layout_behavior_state0Child0LayoutParams.setLayoutBehavior_state(targetView.BehaviorState.state_expanded);			
+        this.bottomSheet.setLayoutParams(layout_behavior_state0Child0LayoutParams);
+        await this.executeCommand(this.bottomSheet);
+
+    }
+
+    async hideBottomSheet() {
+        let layout_behavior_state0Child0LayoutParams: CoordinatorLayout_LayoutParams = new CoordinatorLayout_LayoutParams();
+        layout_behavior_state0Child0LayoutParams.setLayoutBehavior_state(targetView.BehaviorState.state_collapsed);			
+        this.bottomSheet.setLayoutParams(layout_behavior_state0Child0LayoutParams);
+        await this.executeCommand(this.bottomSheet);
+
+    }
+
+    async logEvent(event:any) {
+        console.log("Event: " + JSON.stringify(event));
+    }
 }
