@@ -69,6 +69,7 @@
         <item>QRCode</item>
         <item>Relative layout</item>
         <item>Recyclerview</item>
+        <item>Recyclerview (Swipe Refresh)</item>
         <item>Recyclerview (Groupie)</item>
         <item>Tab layout</item>
         <item>Table layout</item>
@@ -116,6 +117,7 @@
         <item>www/layout/sample_qrcode.xml</item>
         <item>www/layout/sample_relativelayout.xml</item>
         <item>www/layout/sample_recyclerview.xml</item>
+        <item>www/layout/sample_recyclerview_swipe_refresh.xml</item>
         <item>www/layout/sample_recycleview_groupieadapter.xml</item>
         <item>www/layout/sample_tablayout.xml</item>
         <item>www/layout/sample_tablelayout.xml</item>
