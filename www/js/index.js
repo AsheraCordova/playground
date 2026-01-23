@@ -14618,6 +14618,14 @@ var Index = /** @class */function (_super) {
       });
     });
   };
+  Index.prototype.logData = function (event) {
+    return __awaiter(this, void 0, void 0, function () {
+      return __generator(this, function (_a) {
+        console.log("Event: " + JSON.stringify(event));
+        return [2 /*return*/];
+      });
+    });
+  };
   __decorate([(0,_navigation_NavController__WEBPACK_IMPORTED_MODULE_9__.InjectController)({}), __metadata("design:type", _navigation_NavController__WEBPACK_IMPORTED_MODULE_9__.NavController)], Index.prototype, "navController", void 0);
   __decorate([(0,_app_Fragment__WEBPACK_IMPORTED_MODULE_5__.Inject)({
     id: _R_Index__WEBPACK_IMPORTED_MODULE_8__.preview

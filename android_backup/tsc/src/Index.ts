@@ -440,4 +440,9 @@ export default class Index extends Fragment {
     async logEvent(event:any) {
         console.log("Event: " + JSON.stringify(event));
     }
+
+     
+    async logData(event:any) {
+        console.log("Event: " + JSON.stringify(event));
+    }
 }
