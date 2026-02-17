@@ -1,0 +1,38 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:ignore="MissingPrefix">
+
+    <VideoView
+        android:id="@+id/newVideo"
+        onCompletion="logEvent"
+        onError="logEvent"
+        onInfo="logEvent"
+        onPrepared="logEvent"
+        showMediaControl="true"
+        start=""
+        videoPath="my_video_sample.mp4"
+        android:layout_width="match_parent"
+        android:layout_height="300dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="pause"
+        android:text="Pause" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="play"
+        android:text="Play" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="seekTo"
+        android:text="Seek To" />
+</LinearLayout>

@@ -75,6 +75,7 @@
         <item>Table layout</item>
         <item>Toolbar layout</item>
         <item>Validations</item>
+        <item>VideoView</item>
         <item>ViewPager</item>
         <item>ViewOverlay</item>
         <item>Webview</item>
@@ -123,6 +124,7 @@
         <item>www/layout/sample_tablelayout.xml</item>
         <item>www/layout/sample_toolbar.xml</item>
         <item>www/layout/sample_validations.xml</item>
+        <item>www/layout/sample_videoview.xml</item>
         <item>www/layout/sample_viewpager.xml</item>
         <item>www/layout/sample_viewoverlay.xml</item>
         <item>www/layout/sample_webview.xml</item>

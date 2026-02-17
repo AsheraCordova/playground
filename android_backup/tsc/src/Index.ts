@@ -25,6 +25,7 @@ import { DialogHelper } from './helpers/DialogHelper';
 import { ViewGroup } from './android/widget/ViewGroupImpl';
 import { CoordinatorLayout_LayoutParams } from './android/widget/CoordinatorLayoutImpl';
 import * as targetView from './android/widget/CoordinatorLayoutImpl';
+import { VideoView } from './android/widget/VideoViewImpl';
 declare var SpinnerDialog:any;
 export default class Index extends Fragment {
     @InjectController({})
@@ -445,4 +446,22 @@ export default class Index extends Fragment {
     async logData(event:any) {
         console.log("Event: " + JSON.stringify(event));
     }
+
+     
+	@Inject({ id : "@+id/newVideo"})
+	private newVideo!: VideoView;
+	async pause() {
+		this.newVideo.pause();
+		await this.executeCommand(this.newVideo);
+	}
+
+	async play() {
+		this.newVideo.start();
+		await this.executeCommand(this.newVideo);
+	}
+
+	async seekTo() {
+		this.newVideo.seekTo(10000);
+		await this.executeCommand(this.newVideo);
+	}
 }
