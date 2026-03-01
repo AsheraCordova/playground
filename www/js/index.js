@@ -1278,6 +1278,20 @@ var Index = /** @class */function (_super) {
       });
     });
   };
+  Index.prototype.seekToAudio = function () {
+    return __awaiter(this, void 0, void 0, function () {
+      return __generator(this, function (_a) {
+        switch (_a.label) {
+          case 0:
+            this.newVideo.seekTo(1000);
+            return [4 /*yield*/, this.executeCommand(this.newVideo)];
+          case 1:
+            _a.sent();
+            return [2 /*return*/];
+        }
+      });
+    });
+  };
   __decorate([(0,_navigation_NavController__WEBPACK_IMPORTED_MODULE_9__.InjectController)({}), __metadata("design:type", _navigation_NavController__WEBPACK_IMPORTED_MODULE_9__.NavController)], Index.prototype, "navController", void 0);
   __decorate([(0,_app_Fragment__WEBPACK_IMPORTED_MODULE_5__.Inject)({
     id: _R_Index__WEBPACK_IMPORTED_MODULE_8__.preview
@@ -32279,12 +32293,6 @@ var mix = function mix() {
 /******/ 		if (cachedModule !== undefined) {
 /******/ 			return cachedModule.exports;
 /******/ 		}
-/******/ 		// Check if module exists (development only)
-/******/ 		if (__webpack_modules__[moduleId] === undefined) {
-/******/ 			var e = new Error("Cannot find module '" + moduleId + "'");
-/******/ 			e.code = 'MODULE_NOT_FOUND';
-/******/ 			throw e;
-/******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = __webpack_module_cache__[moduleId] = {
 /******/ 			id: moduleId,
@@ -32293,6 +32301,12 @@ var mix = function mix() {
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
+/******/ 		if (!(moduleId in __webpack_modules__)) {
+/******/ 			delete __webpack_module_cache__[moduleId];
+/******/ 			var e = new Error("Cannot find module '" + moduleId + "'");
+/******/ 			e.code = 'MODULE_NOT_FOUND';
+/******/ 			throw e;
+/******/ 		}
 /******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
 /******/ 	
 /******/ 		// Flag the module as loaded

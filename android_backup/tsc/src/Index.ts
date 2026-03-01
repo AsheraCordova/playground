@@ -464,4 +464,9 @@ export default class Index extends Fragment {
 		this.newVideo.seekTo(10000);
 		await this.executeCommand(this.newVideo);
 	}
+
+    async seekToAudio() {
+		this.newVideo.seekTo(1000);
+		await this.executeCommand(this.newVideo);
+	}
 }

@@ -1,0 +1,44 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:ignore="MissingPrefix">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.ashera.layout.AudioView
+            android:id="@+id/newVideo"
+            onCompletion="logEvent"
+            onError="logEvent"
+            onPrepared="logEvent"
+            start=""
+            dataSource="horse.mp3"
+            android:layout_width="0dp"
+            android:layout_height="0dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="pause"
+            android:text="Pause" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="play"
+            android:text="Play" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="seekToAudio"
+            android:text="Seek To" />
+    </LinearLayout>
+
+</LinearLayout>
