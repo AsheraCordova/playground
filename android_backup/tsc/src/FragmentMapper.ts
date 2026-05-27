@@ -6,6 +6,10 @@ import Index from './Index';
 
 import QrcodeScanner from './QrcodeScanner';
 
+import SampleCompass from './SampleCompass';
+
+import SampleMaps from './SampleMaps';
+
 //end - import
 
 export const fragmentMapper : any = {
@@ -19,6 +23,10 @@ export const fragmentMapper : any = {
      'layout/index.xml': Index,
     
      'layout/qrcode_scanner.xml': QrcodeScanner,
+    
+     'layout/sample_compass.xml': SampleCompass,
+    
+     'layout/sample_maps.xml': SampleMaps,
     
      //end - body
 };

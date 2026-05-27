@@ -1,0 +1,79 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingPrefix">
+
+    <data></data>
+
+    <LinearLayout
+        fragment="SampleCompass"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#e5db54"
+        android:orientation="vertical">
+
+        <FrameLayout
+            borderBottomWidth="1dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:onClick="goToPreviousScreen"
+                android:padding="10dp"
+                android:text="Back" />
+        </FrameLayout>
+
+        <LinearLayout
+            directionId="@+id/needle"
+            distanceTextId="@+id/distance"
+            headingId="@+id/heading"
+            onDestinationReached="100"
+            onApproachingDestination="4260"
+            targetLatitude="12.971599"
+            targetLongitude="77.594566"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <WebView
+                android:id="@+id/hiddenBrowser"
+                loadUrl="https://asheracordova.github.io/playground/html/location.html"
+                os="swt"
+                swtStyle="edge"
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+
+            <RelativeLayout
+                android:layout_width="300dp"
+                android:layout_height="300dp">
+
+                <ImageView
+                    android:id="@+id/heading"
+                    gcSrcIds="heading,needle"
+                    gcSrcs="compass,compass_needle"
+                    src-swt="@null"
+                    android:layout_width="300dp"
+                    android:layout_height="300dp"
+                    android:src="@drawable/compass" />
+
+                <ImageView
+                    android:id="@+id/needle"
+                    gcSrcDelegateId="@+id/heading"
+                    android:layout_width="300dp"
+                    android:layout_height="300dp"
+                    android:src="@drawable/compass_needle" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/distance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

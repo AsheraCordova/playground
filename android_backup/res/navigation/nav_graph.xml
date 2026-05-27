@@ -89,4 +89,20 @@
         android:label=""
         tools:layout="@layout/qrcode_scanner">
     </fragment>
+
+    <fragment
+        android:id="@+id/compass"
+        managers="compass"
+        android:name="com.ashera.core.GenericFragment"
+        android:label=""
+        tools:layout="@layout/sample_compass">
+    </fragment>
+
+    <fragment
+        android:id="@+id/maplibre"
+        managers="map"
+        android:name="com.ashera.core.GenericFragment"
+        android:label=""
+        tools:layout="@layout/sample_maps">
+    </fragment>
 </navigation>

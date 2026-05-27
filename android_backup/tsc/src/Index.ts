@@ -10,7 +10,7 @@ import { ScopedObject } from './app/ScopedObject';
 import { preview, xml } from './R/Index';
 import * as viewContants from './android/widget/ViewImpl';
 import { InjectController, NavController } from './navigation/NavController';
-import { myDialog, myDialogBackgroundDimDisabled, myDialogCancelOnTouch, myDialogCustomBackdrop, myDialogFullScreen, myDialogMatchContent, myDialogWrapContent, qrcode_scanner } from './R/NavGraph';
+import { compass, myDialog, myDialogBackgroundDimDisabled, myDialogCancelOnTouch, myDialogCustomBackdrop, myDialogFullScreen, myDialogMatchContent, myDialogWrapContent, qrcode_scanner, maplibre } from './R/NavGraph';
 import { ImageView } from './android/widget/ImageViewImpl';
 import { DrawerLayout } from './android/widget/DrawerLayoutImpl';
 import { drawer_layout } from './R/SampleDrawerlayout';
@@ -469,4 +469,12 @@ export default class Index extends Fragment {
 		this.newVideo.seekTo(1000);
 		await this.executeCommand(this.newVideo);
 	}
+
+    async openCompass() {
+        await this.navController.navigateTo(compass).executeCommand();
+    }
+    async openMaps() {
+        await this.navController.navigateTo(maplibre).executeCommand();
+    }
+    
 }

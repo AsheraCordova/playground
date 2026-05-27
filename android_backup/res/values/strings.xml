@@ -49,6 +49,7 @@
         <item>Recyclerview</item>
         <item>Recyclerview (Swipe Refresh)</item>
         <item>Recyclerview (Groupie)</item>
+        <item>Spatial Kit</item>
         <item>Tab layout</item>
         <item>Table layout</item>
         <item>Toolbar layout</item>
@@ -99,6 +100,7 @@
         <item>www/layout/sample_recyclerview.xml</item>
         <item>www/layout/sample_recyclerview_swipe_refresh.xml</item>
         <item>www/layout/sample_recycleview_groupieadapter.xml</item>
+        <item>www/layout/sample_spatialkit.xml</item>
         <item>www/layout/sample_tablayout.xml</item>
         <item>www/layout/sample_tablelayout.xml</item>
         <item>www/layout/sample_toolbar.xml</item>

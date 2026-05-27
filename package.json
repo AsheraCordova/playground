@@ -53,6 +53,8 @@
     "com.ashera.sdwebimage.ios": "git+https://github.com/AsheraCordova/SDWebImagePlugin.git",
     "com.ashera.shutterbug": "git+https://github.com/AsheraCordova/ShutterBug.git",
     "com.ashera.snackbar": "git+https://github.com/AsheraCordova/Snackbar.git",
+    "com.ashera.spatialkit": "github:AsheraCordova/SpatialKit",
+    "com.ashera.spatialkit.swt": "github:AsheraCordova/SWTSpatialKit",
     "com.ashera.swiperefreshlayout": "github:AsheraCordova/SwipeRefresh",
     "com.ashera.tablayout": "git+https://github.com/AsheraCordova/TabLayout",
     "com.ashera.textinputlayout": "git+https://github.com/AsheraCordova/TextInputLayout.git",
@@ -110,7 +112,9 @@
       "com.ashera.cardview": {},
       "com.ashera.chip": {},
       "com.ashera.actionsheet": {},
-      "com.ashera.swiperefreshlayout": {}
+      "com.ashera.swiperefreshlayout": {},
+      "com.ashera.spatialkit": {},
+      "com.ashera.spatialkit.swt": {}
     },
     "platforms": [
       "android",
