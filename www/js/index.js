@@ -545,21 +545,28 @@ var Index = /** @class */function (_super) {
     var list = [];
     var images = ["@drawable/bryce_canyon", "@drawable/cathedral_rock", "@drawable/death_valley", "@drawable/fitzgerald_marine_reserve", "@drawable/goldengate", "@drawable/golden_gate_bridge", "@drawable/shipwreck_1", "@drawable/shipwreck_2", "@drawable/grand_canyon", "@drawable/horseshoe_bend", "@drawable/muir_beach", "@drawable/rainbow_falls"];
     var colors = ["#9C4B8F", "#945693", "#8C6096", "#846B9A", "#7C769E", "#7480A2", "#6D8BA5", "#6595A9", "#5DA0AD", "#55ABB1", "#4DB5B4", "#45C0B8"];
-    for (var i = 0; i < 10; i++) {
+    for (var i_1 = 0; i_1 < 10; i_1++) {
       list.push({
-        "id": i,
-        "name": i + "",
-        "background": i % 2 == 0 ? "#ff0" : "#f00",
-        "src": images[i],
-        "mybackground": colors[i]
+        "id": i_1,
+        "name": i_1 + "",
+        "background": i_1 % 2 == 0 ? "#ff0" : "#f00",
+        "src": images[i_1],
+        "mybackground": colors[i_1]
       });
     }
     this.endAllAnimations();
+    var imgdata = [];
+    for (var i = 1; i < 10; i++) {
+      imgdata.push({
+        id: "" + i,
+        src: '@drawable/dataset_cover_' + i
+      });
+    }
     this.xmlEditText.setText(obj.xml).updateModelDataWithScopedObject(new _app_ScopedObject__WEBPACK_IMPORTED_MODULE_7__.ScopedObject("testObj->view as pathmap", {
       looptest: {
         textlayout: data
       }
-    }), new _app_ScopedObject__WEBPACK_IMPORTED_MODULE_7__.ScopedObject("sectionInfo->view as list", groupiedata), new _app_ScopedObject__WEBPACK_IMPORTED_MODULE_7__.ScopedObject("viewpagerInfo->view as list", viewPagerData), new _app_ScopedObject__WEBPACK_IMPORTED_MODULE_7__.ScopedObject("carouselInfo->view as list", list));
+    }), new _app_ScopedObject__WEBPACK_IMPORTED_MODULE_7__.ScopedObject("sectionInfo->view as list", groupiedata), new _app_ScopedObject__WEBPACK_IMPORTED_MODULE_7__.ScopedObject("viewpagerInfo->view as list", viewPagerData), new _app_ScopedObject__WEBPACK_IMPORTED_MODULE_7__.ScopedObject("carouselInfo->view as list", list), new _app_ScopedObject__WEBPACK_IMPORTED_MODULE_7__.ScopedObject("images->view as list", imgdata));
     this.executeCommand(this.animator0, this.animator1, this.animator2, this.xmlEditText);
   };
   Index.prototype.endAllAnimations = function () {
@@ -9116,19 +9123,22 @@ PlaceholderImpl.initialize();
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   DragDirsTransformer: function() { return /* binding */ DragDirsTransformer; },
 /* harmony export */   RecyclerView: function() { return /* binding */ RecyclerView; },
 /* harmony export */   RecyclerViewImpl: function() { return /* binding */ RecyclerViewImpl; },
 /* harmony export */   RecyclerViewImpl_addSectionItem: function() { return /* binding */ RecyclerViewImpl_addSectionItem; },
 /* harmony export */   RecyclerViewImpl_removeAllItems: function() { return /* binding */ RecyclerViewImpl_removeAllItems; },
 /* harmony export */   RecyclerViewImpl_removeSectionItem: function() { return /* binding */ RecyclerViewImpl_removeSectionItem; },
-/* harmony export */   RecyclerViewImpl_updateSectionItem: function() { return /* binding */ RecyclerViewImpl_updateSectionItem; }
+/* harmony export */   RecyclerViewImpl_updateSectionItem: function() { return /* binding */ RecyclerViewImpl_updateSectionItem; },
+/* harmony export */   SwipeDirsTransformer: function() { return /* binding */ SwipeDirsTransformer; }
 /* harmony export */ });
 /* harmony import */ var _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../widget/CommandAttr */ "./src/widget/CommandAttr.ts");
 /* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/exclude.decorator.js");
 /* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/expose.decorator.js");
 /* harmony import */ var class_transformer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! class-transformer */ "./node_modules/class-transformer/esm5/decorators/type.decorator.js");
-/* harmony import */ var ts_mixer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ts-mixer */ "./node_modules/ts-mixer/dist/esm/index.js");
-/* harmony import */ var _ViewGroupImpl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ViewGroupImpl */ "./src/android/widget/ViewGroupImpl.ts");
+/* harmony import */ var _widget_TransformerFactory__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../widget/TransformerFactory */ "./src/widget/TransformerFactory.ts");
+/* harmony import */ var ts_mixer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ts-mixer */ "./node_modules/ts-mixer/dist/esm/index.js");
+/* harmony import */ var _ViewGroupImpl__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ViewGroupImpl */ "./src/android/widget/ViewGroupImpl.ts");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 // start - imports
 var __extends = undefined && undefined.__extends || function () {
@@ -9164,15 +9174,16 @@ var __metadata = undefined && undefined.__metadata || function (k, v) {
 
 
 
+
 var RecyclerViewImpl_addSectionItem = /** @class */function () {
   function RecyclerViewImpl_addSectionItem() {}
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "sectionId"
   })), __metadata("design:type", String)], RecyclerViewImpl_addSectionItem.prototype, "sectionId", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "itemConfigId"
   })), __metadata("design:type", String)], RecyclerViewImpl_addSectionItem.prototype, "itemConfigId", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "item"
   })), __metadata("design:type", Object)], RecyclerViewImpl_addSectionItem.prototype, "item", void 0);
   return RecyclerViewImpl_addSectionItem;
@@ -9180,13 +9191,13 @@ var RecyclerViewImpl_addSectionItem = /** @class */function () {
 
 var RecyclerViewImpl_removeSectionItem = /** @class */function () {
   function RecyclerViewImpl_removeSectionItem() {}
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "sectionId"
   })), __metadata("design:type", String)], RecyclerViewImpl_removeSectionItem.prototype, "sectionId", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "itemConfigId"
   })), __metadata("design:type", String)], RecyclerViewImpl_removeSectionItem.prototype, "itemConfigId", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "itemId"
   })), __metadata("design:type", String)], RecyclerViewImpl_removeSectionItem.prototype, "itemId", void 0);
   return RecyclerViewImpl_removeSectionItem;
@@ -9194,10 +9205,10 @@ var RecyclerViewImpl_removeSectionItem = /** @class */function () {
 
 var RecyclerViewImpl_removeAllItems = /** @class */function () {
   function RecyclerViewImpl_removeAllItems() {}
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "sectionId"
   })), __metadata("design:type", String)], RecyclerViewImpl_removeAllItems.prototype, "sectionId", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "itemConfigId"
   })), __metadata("design:type", String)], RecyclerViewImpl_removeAllItems.prototype, "itemConfigId", void 0);
   return RecyclerViewImpl_removeAllItems;
@@ -9205,19 +9216,85 @@ var RecyclerViewImpl_removeAllItems = /** @class */function () {
 
 var RecyclerViewImpl_updateSectionItem = /** @class */function () {
   function RecyclerViewImpl_updateSectionItem() {}
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "sectionId"
   })), __metadata("design:type", String)], RecyclerViewImpl_updateSectionItem.prototype, "sectionId", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "itemConfigId"
   })), __metadata("design:type", String)], RecyclerViewImpl_updateSectionItem.prototype, "itemConfigId", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "itemId"
   })), __metadata("design:type", String)], RecyclerViewImpl_updateSectionItem.prototype, "itemId", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "item"
   })), __metadata("design:type", Object)], RecyclerViewImpl_updateSectionItem.prototype, "item", void 0);
   return RecyclerViewImpl_updateSectionItem;
+}();
+
+var DragDirsTransformer = /** @class */function () {
+  function DragDirsTransformer() {}
+  DragDirsTransformer.prototype.transform = function (value, obj, type) {
+    if (type == 1) {
+      return value.toString().replace(",", "|");
+    } else {
+      var strArray = value.toString().split("|");
+      var valueArr = new Array();
+      for (var i = 0; i < strArray.length; i++) {
+        switch (strArray[i]) {
+          case "none":
+            valueArr.push("none" /* DragDirs.none */);
+            break;
+          case "up":
+            valueArr.push("up" /* DragDirs.up */);
+            break;
+          case "down":
+            valueArr.push("down" /* DragDirs.down */);
+            break;
+          case "left":
+            valueArr.push("left" /* DragDirs.left */);
+            break;
+          case "right":
+            valueArr.push("right" /* DragDirs.right */);
+            break;
+        }
+      }
+      return valueArr;
+    }
+  };
+  return DragDirsTransformer;
+}();
+
+var SwipeDirsTransformer = /** @class */function () {
+  function SwipeDirsTransformer() {}
+  SwipeDirsTransformer.prototype.transform = function (value, obj, type) {
+    if (type == 1) {
+      return value.toString().replace(",", "|");
+    } else {
+      var strArray = value.toString().split("|");
+      var valueArr = new Array();
+      for (var i = 0; i < strArray.length; i++) {
+        switch (strArray[i]) {
+          case "none":
+            valueArr.push("none" /* SwipeDirs.none */);
+            break;
+          case "up":
+            valueArr.push("up" /* SwipeDirs.up */);
+            break;
+          case "down":
+            valueArr.push("down" /* SwipeDirs.down */);
+            break;
+          case "left":
+            valueArr.push("left" /* SwipeDirs.left */);
+            break;
+          case "right":
+            valueArr.push("right" /* SwipeDirs.right */);
+            break;
+        }
+      }
+      return valueArr;
+    }
+  };
+  return SwipeDirsTransformer;
 }();
 
 // end - imports
@@ -9230,7 +9307,10 @@ var RecyclerViewImpl = /** @class */function (_super) {
     return _this;
   }
   //start - body
-  RecyclerViewImpl.initialize = function () {};
+  RecyclerViewImpl.initialize = function () {
+    _widget_TransformerFactory__WEBPACK_IMPORTED_MODULE_4__.TransformerFactory.getInstance().register("dragDirs", new DragDirsTransformer());
+    _widget_TransformerFactory__WEBPACK_IMPORTED_MODULE_4__.TransformerFactory.getInstance().register("swipeDirs", new SwipeDirsTransformer());
+  };
   RecyclerViewImpl.prototype.reset = function () {
     _super.prototype.reset.call(this);
     this.onFling = undefined;
@@ -9260,6 +9340,25 @@ var RecyclerViewImpl = /** @class */function (_super) {
     this.filterSectionPath = undefined;
     this.filterQueryStorePath = undefined;
     this.filterQueryGetPath = undefined;
+    this.fixedgrid_rowCount = undefined;
+    this.fixedgrid_columnCount = undefined;
+    this.fixedgrid_tileWidth = undefined;
+    this.fixedgrid_tileHeight = undefined;
+    this.disableItemAnimator_ = undefined;
+    this.hasFixedSize = undefined;
+    this.dragDirs = undefined;
+    this.swipeDirs = undefined;
+    this.dragDropMode = undefined;
+    this.dragStartMode = undefined;
+    this.dragSwapMode = undefined;
+    this.dragSelectHighlightAttributes = undefined;
+    this.dragResetHighlightAttributes = undefined;
+    this.swipeSwapMode = undefined;
+    this.deleteOnSwipe = undefined;
+    this.onSwiped = undefined;
+    this.onMove = undefined;
+    this.onMoved = undefined;
+    this.onSelectedChanged = undefined;
     return this.thisPointer;
   };
   RecyclerViewImpl.prototype.setOnFling = function (value) {
@@ -9623,144 +9722,457 @@ var RecyclerViewImpl = /** @class */function (_super) {
     this.filterQueryGetPath.setOrderSet(this.orderSet);
     return this.thisPointer;
   };
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  RecyclerViewImpl.prototype.setFixedgrid_rowCount = function (value) {
+    this.resetIfRequired();
+    if (this.fixedgrid_rowCount == null || this.fixedgrid_rowCount == undefined) {
+      this.fixedgrid_rowCount = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.fixedgrid_rowCount.setSetter(true);
+    this.fixedgrid_rowCount.setValue(value);
+    this.orderSet++;
+    this.fixedgrid_rowCount.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  RecyclerViewImpl.prototype.setFixedgrid_columnCount = function (value) {
+    this.resetIfRequired();
+    if (this.fixedgrid_columnCount == null || this.fixedgrid_columnCount == undefined) {
+      this.fixedgrid_columnCount = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.fixedgrid_columnCount.setSetter(true);
+    this.fixedgrid_columnCount.setValue(value);
+    this.orderSet++;
+    this.fixedgrid_columnCount.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  RecyclerViewImpl.prototype.setFixedgrid_tileWidth = function (value) {
+    this.resetIfRequired();
+    if (this.fixedgrid_tileWidth == null || this.fixedgrid_tileWidth == undefined) {
+      this.fixedgrid_tileWidth = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.fixedgrid_tileWidth.setSetter(true);
+    this.fixedgrid_tileWidth.setValue(value);
+    this.orderSet++;
+    this.fixedgrid_tileWidth.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  RecyclerViewImpl.prototype.setFixedgrid_tileHeight = function (value) {
+    this.resetIfRequired();
+    if (this.fixedgrid_tileHeight == null || this.fixedgrid_tileHeight == undefined) {
+      this.fixedgrid_tileHeight = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.fixedgrid_tileHeight.setSetter(true);
+    this.fixedgrid_tileHeight.setValue(value);
+    this.orderSet++;
+    this.fixedgrid_tileHeight.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  RecyclerViewImpl.prototype.disableItemAnimator = function () {
+    this.resetIfRequired();
+    if (this.disableItemAnimator_ == null || this.disableItemAnimator_ == undefined) {
+      this.disableItemAnimator_ = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.disableItemAnimator_.setSetter(true);
+    this.orderSet++;
+    this.disableItemAnimator_.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  RecyclerViewImpl.prototype.setHasFixedSize = function (value) {
+    this.resetIfRequired();
+    if (this.hasFixedSize == null || this.hasFixedSize == undefined) {
+      this.hasFixedSize = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.hasFixedSize.setSetter(true);
+    this.hasFixedSize.setValue(value);
+    this.orderSet++;
+    this.hasFixedSize.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  RecyclerViewImpl.prototype.setDragDirs = function () {
+    var value = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+      value[_i] = arguments[_i];
+    }
+    this.resetIfRequired();
+    if (this.dragDirs == null || this.dragDirs == undefined) {
+      this.dragDirs = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.dragDirs.setSetter(true);
+    this.dragDirs.setValue(value);
+    this.orderSet++;
+    this.dragDirs.setOrderSet(this.orderSet);
+    this.dragDirs.setTransformer('dragDirs');
+    return this.thisPointer;
+  };
+  RecyclerViewImpl.prototype.setSwipeDirs = function () {
+    var value = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+      value[_i] = arguments[_i];
+    }
+    this.resetIfRequired();
+    if (this.swipeDirs == null || this.swipeDirs == undefined) {
+      this.swipeDirs = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.swipeDirs.setSetter(true);
+    this.swipeDirs.setValue(value);
+    this.orderSet++;
+    this.swipeDirs.setOrderSet(this.orderSet);
+    this.swipeDirs.setTransformer('swipeDirs');
+    return this.thisPointer;
+  };
+  RecyclerViewImpl.prototype.setDragDropMode = function (value) {
+    this.resetIfRequired();
+    if (this.dragDropMode == null || this.dragDropMode == undefined) {
+      this.dragDropMode = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.dragDropMode.setSetter(true);
+    this.dragDropMode.setValue(value);
+    this.orderSet++;
+    this.dragDropMode.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  RecyclerViewImpl.prototype.setDragStartMode = function (value) {
+    this.resetIfRequired();
+    if (this.dragStartMode == null || this.dragStartMode == undefined) {
+      this.dragStartMode = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.dragStartMode.setSetter(true);
+    this.dragStartMode.setValue(value);
+    this.orderSet++;
+    this.dragStartMode.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  RecyclerViewImpl.prototype.setDragSwapMode = function (value) {
+    this.resetIfRequired();
+    if (this.dragSwapMode == null || this.dragSwapMode == undefined) {
+      this.dragSwapMode = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.dragSwapMode.setSetter(true);
+    this.dragSwapMode.setValue(value);
+    this.orderSet++;
+    this.dragSwapMode.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  RecyclerViewImpl.prototype.setDragSelectHighlightAttributes = function (value) {
+    this.resetIfRequired();
+    if (this.dragSelectHighlightAttributes == null || this.dragSelectHighlightAttributes == undefined) {
+      this.dragSelectHighlightAttributes = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.dragSelectHighlightAttributes.setSetter(true);
+    this.dragSelectHighlightAttributes.setValue(value);
+    this.orderSet++;
+    this.dragSelectHighlightAttributes.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  RecyclerViewImpl.prototype.setDragResetHighlightAttributes = function (value) {
+    this.resetIfRequired();
+    if (this.dragResetHighlightAttributes == null || this.dragResetHighlightAttributes == undefined) {
+      this.dragResetHighlightAttributes = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.dragResetHighlightAttributes.setSetter(true);
+    this.dragResetHighlightAttributes.setValue(value);
+    this.orderSet++;
+    this.dragResetHighlightAttributes.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  RecyclerViewImpl.prototype.setSwipeSwapMode = function (value) {
+    this.resetIfRequired();
+    if (this.swipeSwapMode == null || this.swipeSwapMode == undefined) {
+      this.swipeSwapMode = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.swipeSwapMode.setSetter(true);
+    this.swipeSwapMode.setValue(value);
+    this.orderSet++;
+    this.swipeSwapMode.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  RecyclerViewImpl.prototype.setDeleteOnSwipe = function (value) {
+    this.resetIfRequired();
+    if (this.deleteOnSwipe == null || this.deleteOnSwipe == undefined) {
+      this.deleteOnSwipe = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.deleteOnSwipe.setSetter(true);
+    this.deleteOnSwipe.setValue(value);
+    this.orderSet++;
+    this.deleteOnSwipe.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  RecyclerViewImpl.prototype.setOnSwiped = function (value) {
+    this.resetIfRequired();
+    if (this.onSwiped == null || this.onSwiped == undefined) {
+      this.onSwiped = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.onSwiped.setSetter(true);
+    this.onSwiped.setValue(value);
+    this.orderSet++;
+    this.onSwiped.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  RecyclerViewImpl.prototype.setOnMove = function (value) {
+    this.resetIfRequired();
+    if (this.onMove == null || this.onMove == undefined) {
+      this.onMove = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.onMove.setSetter(true);
+    this.onMove.setValue(value);
+    this.orderSet++;
+    this.onMove.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  RecyclerViewImpl.prototype.setOnMoved = function (value) {
+    this.resetIfRequired();
+    if (this.onMoved == null || this.onMoved == undefined) {
+      this.onMoved = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.onMoved.setSetter(true);
+    this.onMoved.setValue(value);
+    this.orderSet++;
+    this.onMoved.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  RecyclerViewImpl.prototype.setOnSelectedChanged = function (value) {
+    this.resetIfRequired();
+    if (this.onSelectedChanged == null || this.onSelectedChanged == undefined) {
+      this.onSelectedChanged = new _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    }
+    this.onSelectedChanged.setSetter(true);
+    this.onSelectedChanged.setValue(value);
+    this.orderSet++;
+    this.onSelectedChanged.setOrderSet(this.orderSet);
+    return this.thisPointer;
+  };
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "onFling"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "onFling", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "onScrollStateChange"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "onScrollStateChange", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "onScrolled"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "onScrolled", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "layoutManager"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "layoutManager", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "viewHolderIds"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "viewHolderIds", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "spanCount"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "spanCount", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "layout"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "layout", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "orientation"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "orientation", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "nestedScrollingEnabled"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "nestedScrollingEnabled", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "addSectionItem"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "addSectionItem_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "removeSectionItem"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "removeSectionItem_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "removeAllItems"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "removeAllItems_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "updateSectionItem"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "updateSectionItem_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "stackFromEnd"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "stackFromEnd", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "reverseLayout"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "reverseLayout", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "scrollToEnd"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "scrollToEnd_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "scrollToTop"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "scrollToTop_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "scrollToPosition"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "scrollToPosition_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "headerDisabled"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "headerDisabled", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "footerDisabled"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "footerDisabled", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "filter"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "filter_", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "filterDelay"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "filterDelay", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "filterId"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "filterId", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "filterItemPath"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "filterItemPath", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "filterSectionPath"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "filterSectionPath", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "filterQueryStorePath"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "filterQueryStorePath", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
     return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
-  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
     name: "filterQueryGetPath"
   })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "filterQueryGetPath", void 0);
-  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_4__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_1__.Exclude)()), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "thisPointer", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+    name: "fixedgrid_rowCount"
+  })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "fixedgrid_rowCount", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+    name: "fixedgrid_columnCount"
+  })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "fixedgrid_columnCount", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+    name: "fixedgrid_tileWidth"
+  })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "fixedgrid_tileWidth", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+    name: "fixedgrid_tileHeight"
+  })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "fixedgrid_tileHeight", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+    name: "disableItemAnimator"
+  })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "disableItemAnimator_", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+    name: "hasFixedSize"
+  })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "hasFixedSize", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+    name: "dragDirs"
+  })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "dragDirs", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+    name: "swipeDirs"
+  })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "swipeDirs", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+    name: "dragDropMode"
+  })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "dragDropMode", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+    name: "dragStartMode"
+  })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "dragStartMode", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+    name: "dragSwapMode"
+  })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "dragSwapMode", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+    name: "dragSelectHighlightAttributes"
+  })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "dragSelectHighlightAttributes", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+    name: "dragResetHighlightAttributes"
+  })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "dragResetHighlightAttributes", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+    name: "swipeSwapMode"
+  })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "swipeSwapMode", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+    name: "deleteOnSwipe"
+  })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "deleteOnSwipe", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+    name: "onSwiped"
+  })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "onSwiped", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+    name: "onMove"
+  })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "onMove", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+    name: "onMoved"
+  })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "onMoved", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_3__.Type)(function () {
+    return _widget_CommandAttr__WEBPACK_IMPORTED_MODULE_0__["default"];
+  })), (0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_2__.Expose)({
+    name: "onSelectedChanged"
+  })), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "onSelectedChanged", void 0);
+  __decorate([(0,ts_mixer__WEBPACK_IMPORTED_MODULE_5__.decorate)((0,class_transformer__WEBPACK_IMPORTED_MODULE_1__.Exclude)()), __metadata("design:type", Object)], RecyclerViewImpl.prototype, "thisPointer", void 0);
   return RecyclerViewImpl;
-}(_ViewGroupImpl__WEBPACK_IMPORTED_MODULE_5__.ViewGroupImpl);
+}(_ViewGroupImpl__WEBPACK_IMPORTED_MODULE_6__.ViewGroupImpl);
 
 //start - staticinit
 var RecyclerView = /** @class */function (_super) {

@@ -1,0 +1,35 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:ignore="MissingPrefix">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/adapterConfig0"
+        dragDirs="up|down|left|right"
+        dragDropMode="swapwhendropped"
+        dragResetHighlightAttributes="scaleX: 1;scaleY: 1;alpha: 1;elevation:0dp"
+        dragSelectHighlightAttributes="scaleX: 1.2;scaleY: 1.2;alpha: 0.7;elevation:20dp;"
+        dragStartMode="onclick"
+        dragSwapMode="notifyDataSetChanged"
+        fixedgrid_columnCount="3"
+        fixedgrid_rowCount="3"
+        fixedgrid_tileHeight="170"
+        fixedgrid_tileWidth="230"
+        modelFor="let item in . from images->parentview into loopvar as map"
+        modelIdPath="id"
+        onAndroidTouch=""
+        onMoved="getDragAndDropData(model=. from images->parentview)"
+        swipeDirs="none"
+        swtAttachEventBubbler="mousedown,mouseup,mousemove"
+        viewHolderIds="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        app:layoutManager="com.ashera.recycleview.FixedGridViewManager"
+        tools:listitem="@layout/recyclerview_dragndrop_item" />
+</LinearLayout>
+
