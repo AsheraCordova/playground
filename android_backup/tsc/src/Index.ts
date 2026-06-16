@@ -72,11 +72,17 @@ export default class Index extends Fragment {
             list.push({"id":i, "name": i + "", "background": (i % 2) == 0 ? "#ff0" : "#f00", "src" : images[i], "mybackground": colors[i]});
         }
         this.endAllAnimations();
+        var imgdata =  [];
+        for (var i=1; i<10;i++) {
+            imgdata.push({id:"" + i, src: '@drawable/dataset_cover_' + i});
+        }
+
         this.xmlEditText.setText(obj.xml).updateModelDataWithScopedObject(
             new ScopedObject("testObj->view as pathmap", { looptest: { textlayout: data } }),
             new ScopedObject("sectionInfo->view as list", groupiedata),
             new ScopedObject("viewpagerInfo->view as list", viewPagerData),
-            new ScopedObject("carouselInfo->view as list", list));
+            new ScopedObject("carouselInfo->view as list", list),
+            new ScopedObject("images->view as list", imgdata));
         this.executeCommand(this.animator0, this.animator1, this.animator2, this.xmlEditText);
     }
 
