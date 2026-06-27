@@ -1,0 +1,38 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e5db54"
+    tools:ignore="MissingPrefix">
+
+
+    <FrameLayout
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <ImageView
+            android:id="@+id/hotspotOverlayDrawable0"
+            hotspotOverlayDrawable="@drawable/icon_clear"
+            hotspots="@array/hotspots"
+            onAndroidTouch="+hotspot#onTouch"
+            onTouch-android="+hotspot#onTouch"
+            onhotspotClick='logData'
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/cat_image" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:padding="20dp"
+        style="@style/h2_white_bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Click the cat eyes to detect hidden hotspots"
+        app:layout_constraintBottom_toBottomOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

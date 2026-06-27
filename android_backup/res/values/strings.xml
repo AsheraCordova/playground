@@ -36,6 +36,7 @@
         <item>Drawer layout + Nav View</item>
         <item>Frame layout</item>
         <item>Grid layout</item>
+        <item>ImageView (Hotspot)</item>
         <item>Linear layout</item>
         <item>Model</item>
         <item>Motion Layout</item>
@@ -88,6 +89,7 @@
         <item>www/layout/sample_drawerlayout.xml</item>
         <item>www/layout/sample_framelayout.xml</item>
         <item>www/layout/sample_gridlayout.xml</item>
+        <item>www/layout/sample_imageview_hotspot.xml</item>
         <item>www/layout/sample_linearlayout.xml</item>
         <item>www/layout/sample_model.xml</item>
         <item>www/layout/sample_motion_layout.xml</item>
@@ -112,5 +114,10 @@
         <item>www/layout/sample_viewoverlay.xml</item>
         <item>www/layout/sample_webview.xml</item>
         <item>www/layout/sample_formwidgets.xml</item>
+    </array>
+
+    <array name="hotspots">
+        <item>id:hotspot1;type:eyes;imageWidth:690;imageHeight:379;percX:0.3406;percY:0.4723;percWidth:0.1275;percHeight:0.2111</item>
+        <item>id:hotspot2;type:eyes;imageWidth:690;imageHeight:379;percX:0.6116;percY:0.3905;percWidth:0.1232;percHeight:0.1953</item>
     </array>
 </resources>

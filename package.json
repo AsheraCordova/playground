@@ -46,6 +46,7 @@
     "com.ashera.drawerlayout": "git+https://github.com/AsheraCordova/Drawer.git",
     "com.ashera.glide": "git+https://github.com/AsheraCordova/Glide.git",
     "com.ashera.gridlayout": "git+https://github.com/AsheraCordova/GridLayout.git",
+    "com.ashera.imagehotspot": "github:AsheraCordova/ImageHotspot",
     "com.ashera.iqkeyboardmanager.ios": "git+https://github.com/AsheraCordova/IQkeyboardManager.git",
     "com.ashera.navigationview": "github:AsheraCordova/NavigationView",
     "com.ashera.nestedscrollview": "git+https://github.com/AsheraCordova/NestedScrollView.git",
@@ -114,7 +115,8 @@
       "com.ashera.actionsheet": {},
       "com.ashera.swiperefreshlayout": {},
       "com.ashera.spatialkit": {},
-      "com.ashera.spatialkit.swt": {}
+      "com.ashera.spatialkit.swt": {},
+      "com.ashera.imagehotspot": {}
     },
     "platforms": [
       "android",
